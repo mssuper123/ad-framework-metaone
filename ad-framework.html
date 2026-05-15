@@ -2975,7 +2975,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
 <div id="cluesPage" style="display:none">
   <div class="lh-card">
     <div class="lh-toolbar">
-      <select class="cm-sel" id="leadFDept" onchange="renderLeadsTable()" style="min-width:120px"><option value="">部门</option></select>
+      <select class="cm-sel" id="leadFDept" onchange="renderLeadsTable()" style="min-width:120px"><option value="">提需部门</option></select>
       <select class="cm-sel" id="leadFCustomerType" onchange="renderLeadsTable()" style="min-width:100px">
         <option value="">客户类型</option>
         <option value="直客">直客</option>
@@ -2984,7 +2984,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
       <input class="cm-inp" id="leadFCompany" placeholder="客户公司名称" style="min-width:160px" oninput="renderLeadsTable()">
       <input class="cm-inp" id="leadFAppName" placeholder="App name" style="min-width:130px" oninput="renderLeadsTable()">
       <input class="cm-inp" id="leadFAppId" placeholder="App ID (iOS/Android)" style="min-width:150px" oninput="renderLeadsTable()">
-      <select class="cm-sel" id="leadFSubmitter" onchange="renderLeadsTable()" style="min-width:110px"><option value="">提交人</option></select>
+      <select class="cm-sel" id="leadFSubmitter" onchange="renderLeadsTable()" style="min-width:110px"><option value="">提需人</option></select>
       <select class="cm-sel" id="leadFReqType" onchange="renderLeadsTable()" style="min-width:110px">
         <option value="">提需类型</option>
         <option value="组内提需">组内提需</option>
@@ -3003,7 +3003,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
         <thead>
           <tr>
             <th>线索ID</th><th>客户公司名称</th><th>客户类型</th><th>线索来源</th><th>App name</th><th>App ID (iOS / Android)</th><th>GEO</th><th>MMP</th>
-            <th>Budget Type</th><th>Req reasons</th><th>Notes</th><th>提需类型</th><th>提需时间</th><th>提需距今</th><th>Huntlist</th><th>创建人</th><th>创建时间</th><th class="act-col" style="min-width:280px">操作</th>
+            <th>Budget Type</th><th>Req reasons</th><th>Notes</th><th>提需类型</th><th>Huntlist</th><th>提需人</th><th>提需部门</th><th>提需时间</th><th>提需距今</th><th class="act-col" style="min-width:280px">操作</th>
           </tr>
         </thead>
         <tbody id="leadTbody"></tbody>
@@ -3023,7 +3023,6 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
       </select>
       <select class="cm-sel" id="huntFFollow" onchange="renderHuntlistTable()">
         <option value="">跟进状态</option>
-        <option>未跟进</option><option>跟进中</option><option>已接入</option><option>已放弃</option>
       </select>
       <select class="cm-sel" id="huntFSource" onchange="renderHuntlistTable()" style="min-width:100px">
         <option value="">来源</option>
@@ -3173,8 +3172,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
     <div class="drawer-body" style="display:flex;flex-direction:column;gap:14px;min-height:0">
       <div class="fg" style="margin-bottom:0">
         <label class="fl">当前跟进状态</label>
-        <select class="fs" id="hfu_follow">
-          <option>未跟进</option><option>跟进中</option><option>已接入</option><option>已放弃</option>
+        <select class="fs" id="hfu_follow" onchange="updateHuntFollowOnboardUi()">
         </select>
       </div>
       <div style="flex:1;min-height:140px;display:flex;flex-direction:column;min-height:0">
@@ -3182,6 +3180,10 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
         <div class="hft-scroll" id="huntFollowTimelineScroll">
           <div class="hft-tl" id="huntFollowTimeline"></div>
         </div>
+      </div>
+      <div class="fg" id="hfu_onboardWrap" style="display:none;margin-bottom:0">
+        <label class="fl">客户接入申请 <span style="color:#f53f3f">*</span></label>
+        <div id="hfu_onboardBody" style="display:flex;flex-direction:column;gap:8px"></div>
       </div>
       <div class="fg" style="margin-bottom:0">
         <label class="fl">添加跟进记录</label>
@@ -10722,13 +10724,42 @@ function appMgmtRowAct(kind, id) {
 // ════════════════════════════════════════
 let nextLeadId = 4;
 let nextHuntId = 4;
+const HUNT_FOLLOW_STATUSES = ['未跟进', '寻求联系中', '意向沟通中', '已接入', '跟进失败', '放弃跟进'];
+const HUNT_FOLLOW_ABANDONED = '放弃跟进';
+const HUNT_FOLLOW_ONBOARDED = '已接入';
+function _isHuntFollowAbandoned(fs) { return fs === HUNT_FOLLOW_ABANDONED; }
+function _normalizeHuntFollowStatus(fs) {
+  const legacy = { '跟进中': '寻求联系中', '已放弃': '放弃跟进' };
+  const v = legacy[fs] || fs;
+  return HUNT_FOLLOW_STATUSES.includes(v) ? v : '未跟进';
+}
+function populateHuntFollowSelects() {
+  const filterSel = document.getElementById('huntFFollow');
+  const drawerSel = document.getElementById('hfu_follow');
+  if (filterSel) {
+    const cur = filterSel.value;
+    filterSel.innerHTML = '<option value="">跟进状态</option>' + HUNT_FOLLOW_STATUSES.map(s => `<option>${s}</option>`).join('');
+    if (cur) filterSel.value = cur;
+  }
+  if (drawerSel) {
+    const cur = drawerSel.value;
+    drawerSel.innerHTML = HUNT_FOLLOW_STATUSES.map(s => `<option>${s}</option>`).join('');
+    if (cur && HUNT_FOLLOW_STATUSES.includes(cur)) drawerSel.value = cur;
+  }
+}
+function _clearHuntClaim(h) {
+  h.claimedByUserId = null;
+  h.claimedDeptId = null;
+  h.claimedAt = '';
+  h.claimReason = '';
+}
 let leadList = [
   { id:'LEAD-001', customerType:'直客', reqType:'组内提需', leadSource:'展会', reqAt:'2026-04-08 10:00', companyName:'Nova Games HK', appParentId:'APP_001', appName:'Lucky Casino Pro', iosAppId:'1234567890', androidAppId:'com.lucky.casino', deptId:2, geo:'HK/TW', mmp:'AppsFlyer', budgetType:'ctv', reqReasons:'拓展港澳台买量', notes:'竞品较多', followStatus:'未跟进', assignStatus:'待分配', createdBy:3, createdAt:'2026-04-10 10:20', huntlistRecordId:null },
-  { id:'LEAD-002', customerType:'代理', reqType:'商务提需', leadSource:'商务BD', reqAt:'2026-04-11 09:30', companyName:'Bright Media SG', appParentId:'', appName:'', iosAppId:'', androidAppId:'com.bright.ads', deptId:3, geo:'SEA', mmp:'Adjust', budgetType:'cta', reqReasons:'需要商务对接代理', notes:'', followStatus:'跟进中', assignStatus:'待分配', createdBy:2, createdAt:'2026-04-12 14:05', huntlistRecordId:'HL-001' },
+  { id:'LEAD-002', customerType:'代理', reqType:'商务提需', leadSource:'商务BD', reqAt:'2026-04-11 09:30', companyName:'Bright Media SG', appParentId:'', appName:'', iosAppId:'', androidAppId:'com.bright.ads', deptId:3, geo:'SEA', mmp:'Adjust', budgetType:'cta', reqReasons:'需要商务对接代理', notes:'', followStatus:'寻求联系中', assignStatus:'待分配', createdBy:2, createdAt:'2026-04-12 14:05', huntlistRecordId:'HL-001' },
   { id:'LEAD-003', customerType:'直客', reqType:'组内提需', leadSource:'市场投放', reqAt:'2026-05-04 16:00', companyName:'Pixel Fun US', appParentId:'APP_003', appName:'Social Connect', iosAppId:'5544332211', androidAppId:'com.social.connect', deptId:2, geo:'US', mmp:'AppsFlyer', budgetType:'vta', reqReasons:'测试投放', notes:'内部测试', followStatus:'未跟进', assignStatus:'待分配', createdBy:1, createdAt:'2026-04-15 09:00', huntlistRecordId:null },
 ];
 let huntList = [
-  { id:'HL-001', sourceLeadId:'LEAD-002', reqType:'商务提需', companyName:'Bright Media SG', customerType:'代理', appParentId:'', appName:'', iosAppId:'', androidAppId:'com.bright.ads', geo:'SEA', mmp:'Adjust', budgetType:'cta', reqReasons:'需要商务对接代理', notes:'', bdOwnerUserId:null, claimedByUserId:null, claimedDeptId:null, claimedAt:'', claimReason:'', customerInfoEntered:false, allowedDeptIds:[], followStatus:'跟进中', assignStatus:'待分配', followResult:'已邮件发送产品介绍与报价模板', lastFollowAt:'2026-04-13 11:30', createdBy:2, createdAt:'2026-04-12 14:06',
+  { id:'HL-001', sourceLeadId:'LEAD-002', reqType:'商务提需', companyName:'Bright Media SG', customerType:'代理', appParentId:'', appName:'', iosAppId:'', androidAppId:'com.bright.ads', geo:'SEA', mmp:'Adjust', budgetType:'cta', reqReasons:'需要商务对接代理', notes:'', bdOwnerUserId:null, claimedByUserId:null, claimedDeptId:null, claimedAt:'', claimReason:'', customerInfoEntered:false, allowedDeptIds:[], followStatus:'寻求联系中', assignStatus:'待分配', followResult:'已邮件发送产品介绍与报价模板', lastFollowAt:'2026-04-13 11:30', createdBy:2, createdAt:'2026-04-12 14:06',
     followLogs:[
       { at:'2026-04-12 14:06', userId:2, text:'从线索转入' },
       { at:'2026-04-13 11:30', userId:2, text:'已邮件发送产品介绍与报价模板' },
@@ -10809,12 +10840,12 @@ function populateLeadToolbarFilters() {
   const ds = document.getElementById('leadFDept');
   if (ds && !ds.dataset.ready) {
     ds.dataset.ready = '1';
-    ds.innerHTML = '<option value="">部门</option>' + depts.filter(d => d.id !== 0).map(d => `<option value="${d.id}">${d.name}</option>`).join('');
+    ds.innerHTML = '<option value="">提需部门</option>' + depts.filter(d => d.id !== 0).map(d => `<option value="${d.id}">${d.name}</option>`).join('');
   }
   const su = document.getElementById('leadFSubmitter');
   if (su && !su.dataset.ready) {
     su.dataset.ready = '1';
-    su.innerHTML = '<option value="">提交人</option>' + users.filter(u => !u.hidden).map(u => `<option value="${u.id}">${u.name}</option>`).join('');
+    su.innerHTML = '<option value="">提需人</option>' + users.filter(u => !u.hidden).map(u => `<option value="${u.id}">${u.name}</option>`).join('');
   }
 }
 function buildLeadAppParentOptionsHtml(selectedId) {
@@ -11008,10 +11039,11 @@ function renderLeadsTable() {
       <td style="max-width:160px;white-space:pre-wrap">${l.reqReasons || '—'}</td>
       <td style="max-width:120px;white-space:pre-wrap">${l.notes || '—'}</td>
       <td>${(l.reqType === '商务提需' ? '商务提需' : '组内提需')}</td>
+      <td><span class="mono" style="font-size:12px;color:${l.huntlistRecordId ? '#00b578' : '#86909c'}">${_leadHuntlistYn(l)}</span></td>
+      <td>${getUserNameById(l.createdBy)}</td>
+      <td>${getDeptNameById(_leadDeptId(l)) || '—'}</td>
       <td class="mono" style="font-size:12px">${reqAtDisp}</td>
       <td style="font-size:12px;color:#1677ff;font-weight:600">${reqDays}</td>
-      <td><span class="mono" style="font-size:12px;color:${l.huntlistRecordId ? '#00b578' : '#86909c'}">${_leadHuntlistYn(l)}</span></td>
-      <td>${getUserNameById(l.createdBy)}</td><td>${l.createdAt || '—'}</td>
       <td class="act-col">
         ${canEdit ? `<button class="row-act" onclick="openLeadDrawer('${l.id}')"><i class="fa-regular fa-pen-to-square"></i> 编辑</button>
         <button class="row-act danger" onclick="confirmDeleteLead('${l.id}')"><i class="fa-solid fa-trash-can"></i> 删除</button>` : ''}
@@ -11167,7 +11199,7 @@ function confirmTransferLead(id) {
       claimReason: '',
       customerInfoEntered: false,
       allowedDeptIds: [],
-      followStatus: '跟进中',
+      followStatus: '寻求联系中',
       assignStatus: '待分配',
       followResult: '从线索转入',
       lastFollowAt: now,
@@ -11176,7 +11208,7 @@ function confirmTransferLead(id) {
       createdAt: now,
     });
     l2.huntlistRecordId = hid;
-    l2.followStatus = '跟进中';
+    l2.followStatus = '寻求联系中';
     closeMo('moConfirm');
     renderLeadsTable(); renderHuntlistTable();
     showToast('已转入 Huntlist');
@@ -11239,10 +11271,10 @@ function renderHuntlistTable() {
     const lastNm = lastUid != null ? getUserNameById(lastUid) : '—';
     const claimNm = h.claimedByUserId != null ? getUserNameById(h.claimedByUserId) : '—';
     const claimDept = h.claimedDeptId != null ? (getDeptNameById(h.claimedDeptId) || '—') : '—';
-    const claimBtn = (_huntVisible(h) && (h.followStatus === '已放弃' || h.claimedByUserId == null))
+    const claimBtn = (_huntVisible(h) && (_isHuntFollowAbandoned(h.followStatus) || h.claimedByUserId == null))
       ? `<button type="button" class="row-act" onclick="openHuntClaimModal('${h.id}')"><i class="fa-solid fa-hand"></i> 认领</button>`
       : '';
-    const custApBtn = curPerms.buttons.has('customer_add') && can && h.followStatus === '已接入'
+    const custApBtn = curPerms.buttons.has('customer_add') && can && h.followStatus === HUNT_FOLLOW_ONBOARDED
       ? `<button type="button" class="row-act" onclick="openCmDrawerFromHunt('${h.id}')"><i class="fa-solid fa-file-signature"></i> ${T('add_customer_apply', 'New Customer Request')}</button>`
       : '';
     return `<tr>
@@ -11276,7 +11308,7 @@ function renderHuntlistTable() {
 }
 function openHuntClaimModal(huntId) {
   const h = huntList.find(x => x.id === huntId);
-  if (!h || !_huntVisible(h) || (h.claimedByUserId != null && h.followStatus !== '已放弃')) { showToast('无法认领'); return; }
+  if (!h || !_huntVisible(h) || (h.claimedByUserId != null && !_isHuntFollowAbandoned(h.followStatus))) { showToast('无法认领'); return; }
   _claimingHuntId = huntId;
   const hint = document.getElementById('moHuntClaimHint');
   if (hint) hint.textContent = `认领「${h.companyName || h.id}」后，您将作为认领人跟进该目标。`;
@@ -11286,7 +11318,7 @@ function openHuntClaimModal(huntId) {
   if (err) err.style.display = 'none';
   document.getElementById('moHuntClaimOk').onclick = () => {
     const hh = huntList.find(x => x.id === _claimingHuntId);
-    if (!hh || (hh.claimedByUserId != null && hh.followStatus !== '已放弃')) { closeMo('moHuntClaim'); return; }
+    if (!hh || (hh.claimedByUserId != null && !_isHuntFollowAbandoned(hh.followStatus))) { closeMo('moHuntClaim'); return; }
     const reason = (document.getElementById('huntClaimReasonInp')?.value || '').trim();
     if (!reason) {
       if (err) err.style.display = '';
@@ -11294,13 +11326,13 @@ function openHuntClaimModal(huntId) {
     }
     if (err) err.style.display = 'none';
     const now = new Date().toISOString().slice(0, 16).replace('T', ' ');
-    const wasAbandoned = hh.followStatus === '已放弃';
+    const wasAbandoned = _isHuntFollowAbandoned(hh.followStatus);
     hh.claimReason = reason;
     hh.claimedByUserId = CUR_USER_ID;
     hh.claimedDeptId = getUserById(CUR_USER_ID)?.deptId ?? null;
     hh.claimedAt = now;
     if (wasAbandoned) {
-      hh.followStatus = '跟进中';
+      hh.followStatus = '寻求联系中';
       ensureHuntFollowLogs(hh);
       hh.followLogs.push({ at: now, userId: CUR_USER_ID, text: '认领后恢复跟进' });
       hh.lastFollowAt = now;
@@ -11314,7 +11346,7 @@ function openHuntClaimModal(huntId) {
   };
   openMo('moHuntClaim');
 }
-function initHuntlistPage() { populateHuntFormStaticSelects(); renderHuntlistTable(); }
+function initHuntlistPage() { populateHuntFollowSelects(); populateHuntFormStaticSelects(); renderHuntlistTable(); }
 
 function openHuntDrawer(id) {
   populateHuntFormStaticSelects();
@@ -11411,16 +11443,52 @@ function saveHuntForm() {
   closeHuntDrawer();
   renderHuntlistTable();
 }
+function updateHuntFollowOnboardUi() {
+  const wrap = document.getElementById('hfu_onboardWrap');
+  const body = document.getElementById('hfu_onboardBody');
+  const sel = document.getElementById('hfu_follow');
+  if (!wrap || !body || !sel) return;
+  const h = huntList.find(x => x.id === _huntFollowId);
+  if (sel.value !== HUNT_FOLLOW_ONBOARDED) {
+    wrap.style.display = 'none';
+    body.innerHTML = '';
+    return;
+  }
+  wrap.style.display = '';
+  if (!h) {
+    body.innerHTML = '';
+    return;
+  }
+  if (h.customerInfoEntered) {
+    body.innerHTML = `<span style="display:inline-flex;align-items:center;gap:6px;color:#00b578;font-size:13px"><i class="fa-solid fa-circle-check"></i>${lang === 'zh' ? '已完成客户接入申请' : 'Customer onboarding request submitted'}</span>`;
+    return;
+  }
+  if (!_canEditHunt(h)) {
+    body.innerHTML = `<span style="font-size:13px;color:#f53f3f;line-height:1.5">${lang === 'zh' ? '仅记录创建人可将状态设为「已接入」并完成客户接入申请。' : 'Only the record creator can set status to Onboarded and complete the customer request.'}</span>`;
+    return;
+  }
+  if (!curPerms.buttons.has('customer_add')) {
+    body.innerHTML = `<span style="font-size:13px;color:#f53f3f;line-height:1.5">${lang === 'zh' ? '您无「新增客户申请」权限，无法将跟进状态保存为「已接入」。' : 'You do not have permission to create a customer request; status cannot be saved as Onboarded.'}</span>`;
+    return;
+  }
+  const hint = lang === 'zh' ? '保存前须完成并提交申请' : 'Submit the request before saving';
+  const btnLabel = lang === 'zh' ? '客户接入申请' : 'Customer onboarding';
+  body.innerHTML = `<div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><button type="button" class="cm-btn cm-btn-outline cm-btn-sm" onclick="openCmDrawerFromFollowDrawer()"><i class="fa-solid fa-file-signature"></i> ${btnLabel}</button><span style="font-size:12px;color:#86909c">${hint}</span></div>`;
+}
+function openCmDrawerFromFollowDrawer() {
+  if (_huntFollowId) openCmDrawerFromHunt(_huntFollowId);
+}
 function openHuntFollowDrawer(id) {
   const h = huntList.find(x => x.id === id);
   if (!h || !_canHuntFollow(h)) { showToast('无权限'); return; }
   _huntFollowId = id;
   const title = document.getElementById('huntFollowDrawerTitle');
   if (title) title.textContent = `跟进记录 — ${h.companyName || h.id}`;
-  document.getElementById('hfu_follow').value = h.followStatus;
+  document.getElementById('hfu_follow').value = _normalizeHuntFollowStatus(h.followStatus);
   const nn = document.getElementById('hfu_newNote');
   if (nn) nn.value = '';
   renderHuntFollowTimeline(h);
+  updateHuntFollowOnboardUi();
   document.getElementById('huntFollowDrawer').classList.add('open');
   requestAnimationFrame(() => {
     const sc = document.getElementById('huntFollowTimelineScroll');
@@ -11434,6 +11502,17 @@ function saveHuntFollow() {
   ensureHuntFollowLogs(h);
   const oldFs = h.followStatus;
   const fs = document.getElementById('hfu_follow').value;
+  if (fs === HUNT_FOLLOW_ONBOARDED && !h.customerInfoEntered) {
+    if (!_canEditHunt(h)) {
+      showToast(lang === 'zh' ? '仅创建人可将跟进状态设为「已接入」并完成客户接入申请' : 'Only the record creator can set status to Onboarded and complete the customer request');
+    } else if (!curPerms.buttons.has('customer_add')) {
+      showToast(lang === 'zh' ? '无「新增客户申请」权限，无法将跟进状态设为「已接入」' : 'No permission to create customer request; cannot set status to Onboarded');
+    } else {
+      showToast(lang === 'zh' ? '请先完成并提交「客户接入申请」后再保存' : 'Complete and submit the customer onboarding request before saving');
+    }
+    updateHuntFollowOnboardUi();
+    return;
+  }
   const newNote = (document.getElementById('hfu_newNote')?.value || '').trim();
   const now = new Date().toISOString().slice(0, 16).replace('T', ' ');
   let content = newNote;
@@ -11441,6 +11520,7 @@ function saveHuntFollow() {
   if (!content) { showToast('请输入跟进内容，或修改跟进状态'); return; }
   h.followLogs.push({ at: now, userId: CUR_USER_ID, text: content });
   h.followStatus = fs;
+  if (_isHuntFollowAbandoned(fs)) _clearHuntClaim(h);
   h.followResult = content;
   h.lastFollowAt = now;
   _syncLeadFollowFromHunt(h);
@@ -12354,8 +12434,7 @@ function buildUnifiedCustomerFormHtml(data){
     <div class="fg-row"><div class="fg"><label class="fl">客户类型<span class="req">*</span></label>
       <select class="fs" id="cf_type"><option value="direct" ${(d.customerType||'direct')==='direct'?'selected':''}>直客</option><option value="agency" ${(d.customerType||'direct')==='agency'?'selected':''}>代理</option></select></div>
       <div class="fg"><label class="fl">客户公司名称<span class="req">*</span></label><input class="fi" id="cf_company" value="${d.company||''}"></div></div>
-    <div class="fg-row"><div class="fg"><label class="fl">整体合作状态</label><select class="fs" id="cf_status">${CUSTOMER_STATUS_OPTS.map(s=>`<option ${((d.status||'正常合作')===s)?'selected':''}>${s}</option>`).join('')}</select></div>
-      <div class="fg"><label class="fl">接入时间</label><input class="fi" id="cf_accessTime" type="date" value="${d.accessTime||new Date().toISOString().slice(0,10)}"></div></div>
+    <div class="fg"><label class="fl">接入时间</label><input class="fi" id="cf_accessTime" type="date" value="${d.accessTime||new Date().toISOString().slice(0,10)}"></div>
     <div class="fg"><label class="fl">接入人</label><select class="fs" id="cf_accessorIds" multiple size="4">${accessorOptions}</select></div>
     <div class="fg-row"><div class="fg"><label class="fl">Entity</label><input class="fi" id="cf_entity" value="${d.entity||''}"></div><div class="fg"><label class="fl">Legal Address</label><input class="fi" id="cf_legalAddr" value="${d.legalAddress||''}"></div></div>
     <div class="fg-row"><div class="fg"><label class="fl">Payment Terms</label><input class="fi" id="cf_payTerms" value="${d.paymentTerms||''}"></div><div class="fg"><label class="fl">Payment Method</label><input class="fi" id="cf_payMethod" value="${d.paymentMethod||''}"></div></div>
@@ -12376,7 +12455,7 @@ function collectUnifiedCustomerFormData(){
   return {
     customerType: document.getElementById('cf_type')?.value || 'direct',
     company: document.getElementById('cf_company')?.value.trim() || '',
-    status: document.getElementById('cf_status')?.value || '正常合作',
+    status: '正常合作',
     accessTime: document.getElementById('cf_accessTime')?.value || '',
     accessorIds, entity: document.getElementById('cf_entity')?.value.trim()||'',
     legalAddress: document.getElementById('cf_legalAddr')?.value.trim()||'',
@@ -12412,7 +12491,13 @@ function openCmDrawerFromHunt(huntId) {
     showToast(lang === 'zh' ? '无权限操作该跟进目标' : 'No permission to edit this record');
     return;
   }
-  if (h.followStatus !== '已接入') {
+  const followSel = document.getElementById('hfu_follow');
+  const followDrawerOnboardDraft =
+    document.getElementById('huntFollowDrawer')?.classList.contains('open') &&
+    _huntFollowId === huntId &&
+    followSel &&
+    followSel.value === HUNT_FOLLOW_ONBOARDED;
+  if (h.followStatus !== HUNT_FOLLOW_ONBOARDED && !followDrawerOnboardDraft) {
     showToast(lang === 'zh' ? '仅跟进状态为「已接入」时可发起新增客户申请' : 'Customer request is available only when follow-up status is "Onboarded"');
     return;
   }
@@ -12447,6 +12532,7 @@ function submitCmApplication() {
   closeCmDrawer();
   showToast(T('apply_submitted', 'Request submitted, pending approval'));
   if (huntRefId && typeof renderHuntlistTable === 'function') renderHuntlistTable();
+  if (typeof updateHuntFollowOnboardUi === 'function') updateHuntFollowOnboardUi();
 }
 function openCmEdit(type, id){
   ensureCustomerV2Data();
