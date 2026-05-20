@@ -940,6 +940,8 @@ body>#cluesPage,body>#huntlistPage,body>#customerPlaceholderPage,body>#campaignP
 .lh-table-wrap{flex:1;overflow:auto;padding:0 16px 16px}
 .lh-table-wrap table.cm-table{font-size:13px}
 .lh-dw .drawer-panel{width:500px;max-width:calc(96vw - 24px)}
+.lh-source-link{background:none;border:none;padding:0;cursor:pointer;font-size:12px;font-weight:600;color:#1677ff}
+.lh-source-link:hover{text-decoration:underline;color:#4096ff}
 #huntFollowDrawer .drawer-panel.hunt-follow-panel{width:560px;max-width:calc(96vw - 24px)}
 .hft-scroll{max-height:48vh;overflow-y:auto;border:1px solid #ebedf0;border-radius:10px;background:#fafbfc;padding:10px 8px}
 .hft-tl{margin-left:12px;border-left:2px solid #e5e6eb;padding:4px 0 2px 0}
@@ -2544,6 +2546,22 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
   </div>
 </div>
 
+<div class="mo" id="moLeadDetail">
+  <div class="mo-box" style="max-width:560px">
+    <div class="mo-hd">
+      <span class="mo-title">原线索详情</span>
+      <button type="button" class="mo-x" onclick="closeMo('moLeadDetail')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mo-body">
+      <p style="font-size:13px;color:#4e5969;margin:0 0 12px;line-height:1.5" id="moLeadDetailSub"></p>
+      <div id="moLeadDetailBody"></div>
+    </div>
+    <div class="mo-ft">
+      <button type="button" class="mo-btn mo-btn-ok" onclick="closeMo('moLeadDetail')">关闭</button>
+    </div>
+  </div>
+</div>
+
 <!-- ══ DEPT MODAL ══ -->
 <div class="mo" id="moDeep">
   <div class="mo-box">
@@ -3232,9 +3250,9 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
         <option value="直客">直客</option>
         <option value="代理">代理</option>
       </select>
-      <input class="cm-inp" id="leadFCompany" placeholder="客户公司名称" style="min-width:160px" oninput="renderLeadsTable()">
+      <input class="cm-inp" id="leadFCompany" placeholder="客户名称" style="min-width:160px" oninput="renderLeadsTable()">
       <input class="cm-inp" id="leadFAppName" placeholder="App name" style="min-width:130px" oninput="renderLeadsTable()">
-      <input class="cm-inp" id="leadFAppId" placeholder="App ID (iOS/Android)" style="min-width:150px" oninput="renderLeadsTable()">
+      <input class="cm-inp" id="leadFAppId" placeholder="App ID" style="min-width:150px" oninput="renderLeadsTable()">
       <select class="cm-sel" id="leadFSubmitter" onchange="renderLeadsTable()" style="min-width:110px"><option value="">提需人</option></select>
       <select class="cm-sel" id="leadFReqType" onchange="renderLeadsTable()" style="min-width:110px">
         <option value="">提需类型</option>
@@ -3242,9 +3260,9 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
         <option value="商务提需">商务提需</option>
       </select>
       <select class="cm-sel" id="leadFHuntlist" onchange="renderLeadsTable()" style="min-width:100px">
-        <option value="">Huntlist</option>
-        <option value="yes">yes</option>
-        <option value="no">no</option>
+        <option value="">Hunt</option>
+        <option value="transferred">已转入</option>
+        <option value="not">未转入</option>
       </select>
       <span style="flex:1"></span>
       <button class="cm-btn cm-btn-primary" onclick="openLeadDrawer(null)"><i class="fa-solid fa-plus"></i> 新增线索</button>
@@ -3253,8 +3271,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
       <table class="cm-table">
         <thead>
           <tr>
-            <th>线索ID</th><th>客户公司名称</th><th>客户类型</th><th>线索来源</th><th>App name</th><th>App ID (iOS / Android)</th><th>GEO</th><th>MMP</th>
-            <th>Budget Type</th><th>Req reasons</th><th>Notes</th><th>提需类型</th><th>Huntlist</th><th>提需人</th><th>提需部门</th><th>提需时间</th><th>提需距今</th><th class="act-col" style="min-width:280px">操作</th>
+            <th>客户名称</th><th>客户类型</th><th>App name</th><th>App ID</th><th>GEO</th><th>Budget Type</th><th>MMP</th><th>Notes</th><th>Req reasons</th><th>预算来源</th><th>提需类型</th><th>Hunt</th><th>提需人</th><th>提需部门</th><th>提需时间</th><th>提需距今</th><th class="act-col" style="min-width:220px">操作</th>
           </tr>
         </thead>
         <tbody id="leadTbody"></tbody>
@@ -3267,14 +3284,16 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
   <div class="lh-card">
     <div class="lh-toolbar">
       <input class="cm-inp" id="huntFCompany" placeholder="客户名称" style="min-width:160px" oninput="renderHuntlistTable()">
-      <select class="cm-sel" id="huntFCustomerStatus" onchange="renderHuntlistTable()" style="min-width:100px">
-        <option value="">客户状态</option>
+      <select class="cm-sel" id="huntFCustomerType" onchange="renderHuntlistTable()" style="min-width:100px">
+        <option value="">客户类型</option>
         <option value="直客">直客</option>
         <option value="代理">代理</option>
       </select>
       <select class="cm-sel" id="huntFFollow" onchange="renderHuntlistTable()">
         <option value="">跟进状态</option>
       </select>
+      <select class="cm-sel" id="huntFClaimUser" onchange="renderHuntlistTable()" style="min-width:110px"><option value="">认领人</option></select>
+      <select class="cm-sel" id="huntFClaimDept" onchange="renderHuntlistTable()" style="min-width:120px"><option value="">认领部门</option></select>
       <select class="cm-sel" id="huntFSource" onchange="renderHuntlistTable()" style="min-width:100px">
         <option value="">来源</option>
         <option value="new">新建</option>
@@ -3282,6 +3301,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
       </select>
       <select class="cm-sel" id="huntFCreator" onchange="renderHuntlistTable()" style="min-width:110px"><option value="">创建人</option></select>
       <select class="cm-sel" id="huntFCreateDept" onchange="renderHuntlistTable()" style="min-width:120px"><option value="">创建部门</option></select>
+      <input class="cm-inp" id="huntFCreatedAt" type="date" title="创建时间" style="min-width:130px" onchange="renderHuntlistTable()">
       <span style="flex:1"></span>
       <button class="cm-btn cm-btn-primary" onclick="openHuntDrawer(null)"><i class="fa-solid fa-plus"></i> 新增跟进目标</button>
     </div>
@@ -3289,8 +3309,8 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
       <table class="cm-table">
         <thead>
           <tr>
-            <th>客户公司名称</th><th>客户类型</th><th>提需类型</th><th>来源</th><th>App name</th><th>App ID</th><th>GEO</th><th>MMP</th><th>Budget Type</th><th>Req reasons</th><th>Notes</th>
-            <th>Claim reason</th><th>认领人</th><th>认领部门</th><th>最新跟进人</th><th>跟进状态</th><th>最后跟进</th><th>创建人</th><th>创建时间</th><th class="act-col" style="min-width:380px">操作</th>
+            <th>客户名称</th><th>客户类型</th><th>App name</th><th>App ID</th><th>GEO</th><th>Budget Type</th><th>MMP</th><th>Notes</th><th>Req reasons</th><th>预算来源</th><th>提需类型</th>
+            <th>来源</th><th>跟进状态</th><th>最新跟进人</th><th>认领人</th><th>认领原因</th><th>认领部门</th><th>创建人</th><th>创建时间</th><th class="act-col" style="min-width:280px">操作</th>
           </tr>
         </thead>
         <tbody id="huntTbody"></tbody>
@@ -3421,7 +3441,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
   <div class="drawer-panel" onclick="event.stopPropagation()">
     <div class="drawer-hd"><span class="drawer-title" id="leadFormTitle">新增线索</span></div>
     <div class="drawer-body">
-      <div class="fg"><label class="fl">客户公司名称<span class="req">*</span></label><input class="fi" id="lf_companyName" placeholder="请输入客户公司名称"></div>
+      <div class="fg"><label class="fl">客户名称<span class="req">*</span></label><input class="fi" id="lf_companyName" placeholder="请输入客户名称"></div>
       <div class="fg"><label class="fl">客户类型</label>
         <select class="fs" id="lf_customerType"><option value="直客">直客</option><option value="代理">代理</option></select>
       </div>
@@ -3431,7 +3451,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
           <option value="商务提需">商务提需</option>
         </select>
       </div>
-      <div class="fg"><label class="fl">线索来源</label>
+      <div class="fg"><label class="fl">预算来源</label>
         <select class="fs" id="lf_leadSource">
           <option value="">请选择</option>
           <option value="官网">官网</option>
@@ -3447,16 +3467,13 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
       <div class="fg"><label class="fl">提需时间</label>
         <input class="fi" id="lf_reqAt" type="datetime-local" title="需求提出时间，用于计算距今天数">
       </div>
-      <div class="fg-row">
-        <div class="fg"><label class="fl">App name</label>
-          <select class="fs" id="lf_appParent" onchange="onLeadAppParentChange()"><option value="">请选择 App</option></select>
+      <div class="fg">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <label class="fl" style="margin:0">App 列表</label>
+          <button type="button" class="cm-btn cm-btn-outline cm-btn-sm" onclick="addLeadAppRow()"><i class="fa-solid fa-plus"></i> 添加 App</button>
         </div>
-        <div class="fg"><label class="fl">iOS App ID</label>
-          <select class="fs" id="lf_iosSel"><option value="">请选择</option></select>
-        </div>
-        <div class="fg"><label class="fl">Android App ID</label>
-          <select class="fs" id="lf_aosSel"><option value="">请选择</option></select>
-        </div>
+        <div class="app-rows-wrap" id="leadAppRowsWrap"></div>
+        <span class="f-err" id="err_lead_apps" style="display:none;margin-top:6px">至少添加一个 App，且 App name 必填</span>
       </div>
       <div class="fg-row">
         <div class="fg"><label class="fl">GEO</label><input class="fi" id="lf_geo" placeholder="地区/国家"></div>
@@ -3484,26 +3501,30 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
   <div class="drawer-panel" onclick="event.stopPropagation()" style="max-width:720px">
     <div class="drawer-hd"><span class="drawer-title" id="huntFormTitle">新增跟进目标</span></div>
     <div class="drawer-body">
-      <div class="fg"><label class="fl">客户公司名称<span class="req">*</span></label><input class="fi" id="hf_company" placeholder="请输入客户公司名称"></div>
+      <div class="fg"><label class="fl">客户名称<span class="req">*</span></label><input class="fi" id="hf_company" placeholder="请输入客户名称"></div>
       <div class="fg"><label class="fl">客户类型</label>
         <select class="fs" id="hf_type"><option value="直客">直客</option><option value="代理">代理</option></select>
       </div>
-      <div class="fg"><label class="fl">提需类型<span class="req">*</span></label>
-        <select class="fs" id="hf_reqType">
-          <option value="组内提需">组内提需</option>
-          <option value="商务提需">商务提需</option>
+      <div class="fg"><label class="fl">预算来源</label>
+        <select class="fs" id="hf_leadSource">
+          <option value="">请选择</option>
+          <option value="官网">官网</option>
+          <option value="展会">展会</option>
+          <option value="转介绍">转介绍</option>
+          <option value="商务BD">商务BD</option>
+          <option value="市场投放">市场投放</option>
+          <option value="客户推荐">客户推荐</option>
+          <option value="社群/活动">社群/活动</option>
+          <option value="其它">其它</option>
         </select>
       </div>
-      <div class="fg-row">
-        <div class="fg"><label class="fl">App name</label>
-          <select class="fs" id="hf_appParent" onchange="onHuntAppParentChange()"><option value="">请选择 App</option></select>
+      <div class="fg">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <label class="fl" style="margin:0">App 列表</label>
+          <button type="button" class="cm-btn cm-btn-outline cm-btn-sm" onclick="addHuntAppRow()"><i class="fa-solid fa-plus"></i> 添加 App</button>
         </div>
-        <div class="fg"><label class="fl">iOS App ID</label>
-          <select class="fs" id="hf_iosSel"><option value="">请选择</option></select>
-        </div>
-        <div class="fg"><label class="fl">Android App ID</label>
-          <select class="fs" id="hf_aosSel"><option value="">请选择</option></select>
-        </div>
+        <div class="app-rows-wrap" id="huntAppRowsWrap"></div>
+        <span class="f-err" id="err_hunt_apps" style="display:none;margin-top:6px">至少添加一个 App，且 App name 必填</span>
       </div>
       <div class="fg-row">
         <div class="fg"><label class="fl">GEO</label><input class="fi" id="hf_geo" placeholder="地区/国家"></div>
@@ -11276,14 +11297,14 @@ let leadList = [
   { id:'LEAD-003', customerType:'直客', reqType:'组内提需', leadSource:'市场投放', reqAt:'2026-05-04 16:00', companyName:'Pixel Fun US', appParentId:'APP_003', appName:'Social Connect', iosAppId:'5544332211', androidAppId:'com.social.connect', deptId:2, geo:'US', mmp:'AppsFlyer', budgetType:'vta', reqReasons:'测试投放', notes:'内部测试', followStatus:'未跟进', assignStatus:'待分配', createdBy:1, createdAt:'2026-04-15 09:00', huntlistRecordId:null },
 ];
 let huntList = [
-  { id:'HL-001', sourceLeadId:'LEAD-002', reqType:'商务提需', companyName:'Bright Media SG', customerType:'代理', appParentId:'', appName:'', iosAppId:'', androidAppId:'com.bright.ads', geo:'SEA', mmp:'Adjust', budgetType:'cta', reqReasons:'需要商务对接代理', notes:'', bdOwnerUserId:null, claimedByUserId:null, claimedDeptId:null, claimedAt:'', claimReason:'', customerInfoEntered:false, allowedDeptIds:[], followStatus:'寻求联系中', assignStatus:'待分配', followResult:'已邮件发送产品介绍与报价模板', lastFollowAt:'2026-04-13 11:30', createdBy:2, createdAt:'2026-04-12 14:06',
+  { id:'HL-001', sourceLeadId:'LEAD-002', reqType:'商务提需', leadSource:'商务BD', reqAt:'2026-04-11 09:30', companyName:'Bright Media SG', customerType:'代理', apps:[{ appName:'', iosAppId:'', androidAppId:'com.bright.ads' }], appParentId:'', appName:'', iosAppId:'', androidAppId:'com.bright.ads', geo:'SEA', mmp:'Adjust', budgetType:'cta', reqReasons:'需要商务对接代理', notes:'', bdOwnerUserId:null, claimedByUserId:null, claimedDeptId:null, claimedAt:'', claimReason:'', customerInfoEntered:false, allowedDeptIds:[], followStatus:'寻求联系中', assignStatus:'待分配', followResult:'已邮件发送产品介绍与报价模板', lastFollowAt:'2026-04-13 11:30', createdBy:2, createdAt:'2026-04-12 14:06',
     followLogs:[
       { at:'2026-04-12 14:06', userId:2, text:'从线索转入' },
       { at:'2026-04-13 11:30', userId:2, text:'已邮件发送产品介绍与报价模板' },
     ] },
-  { id:'HL-002', sourceLeadId:null, reqType:'组内提需', companyName:'Local Shop TW', customerType:'直客', appParentId:'', appName:'LocalShop', iosAppId:'9988776655', androidAppId:'com.localshop.tw', geo:'TW', mmp:'AppsFlyer', budgetType:'ctv', reqReasons:'', notes:'门店拓客', bdOwnerUserId:null, claimedByUserId:3, claimedDeptId:2, claimedAt:'2026-04-11 12:00', claimReason:'展会获取线索，由本人持续跟进', customerInfoEntered:false, allowedDeptIds:[], followStatus:'未跟进', assignStatus:'待分配', followResult:'创建跟进记录', lastFollowAt:'2026-04-11 11:30', createdBy:3, createdAt:'2026-04-11 11:30',
+  { id:'HL-002', sourceLeadId:null, reqType:'组内提需', leadSource:'展会', reqAt:'2026-04-10 14:00', companyName:'Local Shop TW', customerType:'直客', apps:[{ appName:'LocalShop', iosAppId:'9988776655', androidAppId:'com.localshop.tw' }], appParentId:'', appName:'LocalShop', iosAppId:'9988776655', androidAppId:'com.localshop.tw', geo:'TW', mmp:'AppsFlyer', budgetType:'ctv', reqReasons:'', notes:'门店拓客', bdOwnerUserId:null, claimedByUserId:3, claimedDeptId:2, claimedAt:'2026-04-11 12:00', claimReason:'展会获取线索，由本人持续跟进', customerInfoEntered:false, allowedDeptIds:[], followStatus:'未跟进', assignStatus:'待分配', followResult:'创建跟进记录', lastFollowAt:'2026-04-11 11:30', createdBy:3, createdAt:'2026-04-11 11:30',
     followLogs:[{ at:'2026-04-11 11:30', userId:3, text:'创建跟进记录' }] },
-  { id:'HL-003', sourceLeadId:null, reqType:'组内提需', companyName:'Ocean Agency', customerType:'代理', appParentId:'', appName:'Ocean Agency', iosAppId:'2233445566', androidAppId:'com.ocean.agency', geo:'KR', mmp:'Adjust', budgetType:'vta', reqReasons:'代理接入', notes:'', bdOwnerUserId:null, claimedByUserId:1, claimedDeptId:2, claimedAt:'2026-04-14 15:50', claimReason:'渠道推荐，商务牵头', customerInfoEntered:true, allowedDeptIds:[], followStatus:'已接入', assignStatus:'成功分配', followResult:'合同条款已发出，客户内部评审中', lastFollowAt:'2026-04-15 10:00', createdBy:1, createdAt:'2026-04-14 15:55',
+  { id:'HL-003', sourceLeadId:null, reqType:'组内提需', leadSource:'转介绍', reqAt:'2026-04-14 15:00', companyName:'Ocean Agency', customerType:'代理', apps:[{ appName:'Ocean Agency', iosAppId:'2233445566', androidAppId:'com.ocean.agency' }], appParentId:'', appName:'Ocean Agency', iosAppId:'2233445566', androidAppId:'com.ocean.agency', geo:'KR', mmp:'Adjust', budgetType:'vta', reqReasons:'代理接入', notes:'', bdOwnerUserId:null, claimedByUserId:1, claimedDeptId:2, claimedAt:'2026-04-14 15:50', claimReason:'渠道推荐，商务牵头', customerInfoEntered:true, allowedDeptIds:[], followStatus:'已接入', assignStatus:'成功分配', followResult:'合同条款已发出，客户内部评审中', lastFollowAt:'2026-04-15 10:00', createdBy:1, createdAt:'2026-04-14 15:55',
     followLogs:[
       { at:'2026-04-14 15:55', userId:1, text:'直建客户，完成初步背景核实' },
       { at:'2026-04-14 16:00', userId:1, text:'直建客户' },
@@ -11309,11 +11330,10 @@ function _huntVisible(h) { return _huntSuperView() || h.createdBy === CUR_USER_I
 function _canEditHunt(h) { return _huntSuperView() || h.createdBy === CUR_USER_ID; }
 function _canHuntFollow(h) { return _canEditHunt(h) || h.claimedByUserId === CUR_USER_ID; }
 function _huntReqTypeDisplay(h) {
-  if (h.sourceLeadId) {
-    const ld = leadList.find(l => l.id === h.sourceLeadId);
-    if (ld && ld.reqType) return ld.reqType === '商务提需' ? '商务提需' : '组内提需';
-  }
-  return (h.reqType === '商务提需' ? '商务提需' : '组内提需');
+  if (!h.sourceLeadId) return '无';
+  const ld = leadList.find(l => l.id === h.sourceLeadId);
+  if (!ld || !ld.reqType) return '无';
+  return ld.reqType === '商务提需' ? '商务提需' : '组内提需';
 }
 function _huntLatestFollowUid(h) {
   ensureHuntFollowLogs(h);
@@ -11331,6 +11351,203 @@ function _leadDeptId(l) {
   if (l == null) return null;
   if (l.deptId != null && l.deptId !== '') return Number(l.deptId);
   return getUserById(l.createdBy)?.deptId ?? null;
+}
+function leadNormalizeApps(l) {
+  if (!l) return;
+  if (Array.isArray(l.apps) && l.apps.length) {
+    const a0 = l.apps[0] || {};
+    if (!l.appName) l.appName = (a0.appName || '').trim();
+    if (!l.iosAppId) l.iosAppId = (a0.iosAppId || '').trim();
+    if (!l.androidAppId) l.androidAppId = (a0.androidAppId || '').trim();
+    return;
+  }
+  l.apps = [{
+    appName: (l.appName || '').trim(),
+    iosAppId: (l.iosAppId || '').trim(),
+    androidAppId: (l.androidAppId || '').trim(),
+  }];
+}
+function buildLeadAppRowHtml(i, a) {
+  a = a || {};
+  return `<div class="app-row" id="leadAppRow_${i}">
+    <div style="flex:1;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px">
+      <div><div style="font-size:11px;color:#86909c;margin-bottom:3px">App name<span style="color:#f5222d">*</span></div>
+        <input class="fi" style="margin:0" data-role="appName" value="${appMgmtEsc(a.appName || '')}" placeholder="App name"></div>
+      <div><div style="font-size:11px;color:#86909c;margin-bottom:3px">iOS App ID</div>
+        <input class="fi" style="margin:0" data-role="iosAppId" value="${appMgmtEsc(a.iosAppId || '')}" placeholder="App Store ID"></div>
+      <div><div style="font-size:11px;color:#86909c;margin-bottom:3px">AOS App ID</div>
+        <input class="fi" style="margin:0" data-role="androidAppId" value="${appMgmtEsc(a.androidAppId || '')}" placeholder="Package Name"></div>
+    </div>
+    <button type="button" class="app-row-del" onclick="removeLeadAppRow(${i})" title="删除此 App"><i class="fa-solid fa-xmark"></i></button>
+  </div>`;
+}
+function addLeadAppRow(prefill) {
+  const wrap = document.getElementById('leadAppRowsWrap');
+  if (!wrap) return;
+  if (wrap.querySelectorAll('.app-row').length >= 10) { showToast('最多添加 10 个 App'); return; }
+  const idx = Date.now() + Math.floor(Math.random() * 1000);
+  const div = document.createElement('div');
+  div.innerHTML = buildLeadAppRowHtml(idx, prefill || {});
+  wrap.appendChild(div.firstElementChild);
+}
+function removeLeadAppRow(i) {
+  const row = document.getElementById('leadAppRow_' + i);
+  if (!row) return;
+  const wrap = document.getElementById('leadAppRowsWrap');
+  if (wrap && wrap.querySelectorAll('.app-row').length <= 1) { showToast('至少保留一个 App'); return; }
+  row.remove();
+}
+function renderLeadAppRows(apps) {
+  const wrap = document.getElementById('leadAppRowsWrap');
+  if (!wrap) return;
+  const list = (apps && apps.length) ? apps : [{ appName: '', iosAppId: '', androidAppId: '' }];
+  wrap.innerHTML = list.map((a, i) => buildLeadAppRowHtml(Date.now() + i, a)).join('');
+}
+function collectLeadAppsFromDom() {
+  const wrap = document.getElementById('leadAppRowsWrap');
+  if (!wrap) return [];
+  return [...wrap.querySelectorAll('#leadAppRowsWrap .app-row')].map(row => ({
+    appName: (row.querySelector('[data-role="appName"]')?.value || '').trim(),
+    iosAppId: (row.querySelector('[data-role="iosAppId"]')?.value || '').trim(),
+    androidAppId: (row.querySelector('[data-role="androidAppId"]')?.value || '').trim(),
+  })).filter(a => a.appName || a.iosAppId || a.androidAppId);
+}
+function huntNormalizeApps(h) { leadNormalizeApps(h); }
+function buildHuntAppRowHtml(i, a) {
+  a = a || {};
+  return `<div class="app-row" id="huntAppRow_${i}">
+    <div style="flex:1;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px">
+      <div><div style="font-size:11px;color:#86909c;margin-bottom:3px">App name<span style="color:#f5222d">*</span></div>
+        <input class="fi" style="margin:0" data-role="appName" value="${appMgmtEsc(a.appName || '')}" placeholder="App name"></div>
+      <div><div style="font-size:11px;color:#86909c;margin-bottom:3px">iOS App ID</div>
+        <input class="fi" style="margin:0" data-role="iosAppId" value="${appMgmtEsc(a.iosAppId || '')}" placeholder="App Store ID"></div>
+      <div><div style="font-size:11px;color:#86909c;margin-bottom:3px">AOS App ID</div>
+        <input class="fi" style="margin:0" data-role="androidAppId" value="${appMgmtEsc(a.androidAppId || '')}" placeholder="Package Name"></div>
+    </div>
+    <button type="button" class="app-row-del" onclick="removeHuntAppRow(${i})" title="删除此 App"><i class="fa-solid fa-xmark"></i></button>
+  </div>`;
+}
+function addHuntAppRow(prefill) {
+  const wrap = document.getElementById('huntAppRowsWrap');
+  if (!wrap) return;
+  if (wrap.querySelectorAll('.app-row').length >= 10) { showToast('最多添加 10 个 App'); return; }
+  const idx = Date.now() + Math.floor(Math.random() * 1000);
+  const div = document.createElement('div');
+  div.innerHTML = buildHuntAppRowHtml(idx, prefill || {});
+  wrap.appendChild(div.firstElementChild);
+}
+function removeHuntAppRow(i) {
+  const row = document.getElementById('huntAppRow_' + i);
+  if (!row) return;
+  const wrap = document.getElementById('huntAppRowsWrap');
+  if (wrap && wrap.querySelectorAll('.app-row').length <= 1) { showToast('至少保留一个 App'); return; }
+  row.remove();
+}
+function renderHuntAppRows(apps) {
+  const wrap = document.getElementById('huntAppRowsWrap');
+  if (!wrap) return;
+  const list = (apps && apps.length) ? apps : [{ appName: '', iosAppId: '', androidAppId: '' }];
+  wrap.innerHTML = list.map((a, i) => buildHuntAppRowHtml(Date.now() + i, a)).join('');
+}
+function collectHuntAppsFromDom() {
+  const wrap = document.getElementById('huntAppRowsWrap');
+  if (!wrap) return [];
+  return [...wrap.querySelectorAll('.app-row')].map(row => ({
+    appName: (row.querySelector('[data-role="appName"]')?.value || '').trim(),
+    iosAppId: (row.querySelector('[data-role="iosAppId"]')?.value || '').trim(),
+    androidAppId: (row.querySelector('[data-role="androidAppId"]')?.value || '').trim(),
+  })).filter(a => a.appName || a.iosAppId || a.androidAppId);
+}
+function _huntAppNameCell(h) {
+  huntNormalizeApps(h);
+  const names = (h.apps || []).map(a => (a.appName || '').trim()).filter(Boolean);
+  if (!names.length) return '—';
+  if (names.length === 1) return appMgmtEsc(names[0]);
+  return `${appMgmtEsc(names[0])} <span style="color:#86909c;font-size:11px">+${names.length - 1}</span>`;
+}
+function _huntAppIdCell(h) {
+  huntNormalizeApps(h);
+  const apps = (h.apps || []).filter(a => (a.appName || a.iosAppId || a.androidAppId));
+  if (!apps.length) return '—';
+  return apps.map(a => `<span class="mono" style="font-size:12px;display:block">${_appIdPair(a.iosAppId, a.androidAppId)}</span>`).join('');
+}
+function _huntBudgetSource(h) {
+  if (h.leadSource && String(h.leadSource).trim()) return h.leadSource;
+  if (h.sourceLeadId) {
+    const ld = leadList.find(l => l.id === h.sourceLeadId);
+    if (ld?.leadSource) return ld.leadSource;
+  }
+  return '';
+}
+function _huntSourceCell(h) {
+  const label = h.sourceLeadId ? '线索转入' : '新建';
+  if (h.sourceLeadId) {
+    return `<button type="button" class="lh-source-link" onclick="openLeadDetailDrawer('${appMgmtEsc(h.sourceLeadId)}')">${label}</button>`;
+  }
+  return `<span style="font-size:12px;color:#86909c">${label}</span>`;
+}
+function openLeadDetailDrawer(leadId) {
+  const l = leadList.find(x => x.id === leadId);
+  if (!l) { showToast('原线索不存在或已删除'); return; }
+  leadNormalizeApps(l);
+  const sub = document.getElementById('moLeadDetailSub');
+  if (sub) sub.textContent = `${l.id} · ${l.companyName || '—'}`;
+  const body = document.getElementById('moLeadDetailBody');
+  if (!body) return;
+  const appsHtml = (l.apps || []).map((a, i) => `
+    <div style="padding:8px 0;${i ? 'border-top:1px solid #f2f3f5' : ''}">
+      ${(l.apps || []).length > 1 ? `<div style="font-size:11px;color:#86909c;margin-bottom:4px">App ${i + 1}</div>` : ''}
+      <div style="font-weight:600;font-size:13px">${appMgmtEsc(a.appName || '—')}</div>
+      <div class="mono" style="font-size:12px;color:#4e5969;margin-top:2px">${_appIdPair(a.iosAppId, a.androidAppId)}</div>
+    </div>`).join('');
+  const row = (k, v) => `<dt style="color:#86909c;margin:0">${k}</dt><dd style="margin:0">${v}</dd>`;
+  body.innerHTML = `
+    <dl style="display:grid;grid-template-columns:96px 1fr;gap:8px 12px;font-size:13px;margin:0 0 8px">
+      ${row('客户类型', appMgmtEsc(l.customerType || '直客'))}
+      ${row('提需类型', appMgmtEsc(l.reqType === '商务提需' ? '商务提需' : '组内提需'))}
+      ${row('预算来源', appMgmtEsc(l.leadSource || '—'))}
+      ${row('提需时间', appMgmtEsc(l.reqAt || '—'))}
+      ${row('GEO', appMgmtEsc(l.geo || '—'))}
+      ${row('MMP', appMgmtEsc(l.mmp || '—'))}
+      ${row('Budget Type', appMgmtEsc(l.budgetType || '—'))}
+      ${row('跟进状态', appMgmtEsc(l.followStatus || '—'))}
+      ${row('提需人', appMgmtEsc(getUserNameById(l.createdBy)))}
+      ${row('提需部门', appMgmtEsc(getDeptNameById(_leadDeptId(l)) || '—'))}
+    </dl>
+    <div style="font-size:12px;font-weight:600;color:#1d2129;margin-bottom:6px">App 列表</div>
+    ${appsHtml || '<div style="color:#86909c;font-size:13px">—</div>'}
+    <div style="margin-top:12px;font-size:12px;font-weight:600;color:#1d2129">Req reasons</div>
+    <div style="font-size:13px;white-space:pre-wrap;margin-top:4px">${appMgmtEsc(l.reqReasons || '—')}</div>
+    <div style="margin-top:10px;font-size:12px;font-weight:600;color:#1d2129">Notes</div>
+    <div style="font-size:13px;white-space:pre-wrap;margin-top:4px">${appMgmtEsc(l.notes || '—')}</div>`;
+  openMo('moLeadDetail');
+}
+function _leadAppNameCell(l) {
+  leadNormalizeApps(l);
+  const names = (l.apps || []).map(a => (a.appName || '').trim()).filter(Boolean);
+  if (!names.length) return '—';
+  if (names.length === 1) return appMgmtEsc(names[0]);
+  return `${appMgmtEsc(names[0])} <span style="color:#86909c;font-size:11px">+${names.length - 1}</span>`;
+}
+function _leadAppIdCell(l) {
+  leadNormalizeApps(l);
+  const apps = (l.apps || []).filter(a => (a.appName || a.iosAppId || a.androidAppId));
+  if (!apps.length) return '—';
+  return apps.map(a => `<span class="mono" style="font-size:12px;display:block">${_appIdPair(a.iosAppId, a.androidAppId)}</span>`).join('');
+}
+function _leadHuntlistLabel(l) {
+  return l.huntlistRecordId ? '已转入' : '未转入';
+}
+function _leadMatchesAppFilters(l, appNameQ, appIdQ) {
+  leadNormalizeApps(l);
+  const apps = l.apps || [];
+  if (appNameQ && !apps.some(a => (a.appName || '').toLowerCase().includes(appNameQ))) return false;
+  if (appIdQ && !apps.some(a => {
+    const ios = (a.iosAppId || '').toLowerCase();
+    const aos = (a.androidAppId || '').toLowerCase();
+    return ios.includes(appIdQ) || aos.includes(appIdQ);
+  })) return false;
+  return true;
 }
 /** 线索提需时间 `YYYY-MM-DD HH:mm` ↔ `datetime-local` */
 function _leadReqAtToDatetimeLocal(s) {
@@ -11444,16 +11661,26 @@ function fillHuntAppFormFromHunt(h) {
   pSel.innerHTML = buildLeadAppParentOptionsHtml(h.appParentId || '');
   refreshHuntIosAosSelects(h.iosAppId || '', h.androidAppId || '');
 }
-function populateHuntFormStaticSelects() {
+function populateHuntToolbarFilters() {
+  const cu = document.getElementById('huntFClaimUser');
+  if (cu && !cu.dataset.ready) {
+    cu.dataset.ready = '1';
+    cu.innerHTML = '<option value="">认领人</option>' + users.filter(u => !u.hidden).map(u => `<option value="${u.id}">${appMgmtEsc(u.name)}</option>`).join('');
+  }
+  const cd = document.getElementById('huntFClaimDept');
+  if (cd && !cd.dataset.ready) {
+    cd.dataset.ready = '1';
+    cd.innerHTML = '<option value="">认领部门</option>' + depts.filter(d => d.id !== 0).map(d => `<option value="${d.id}">${appMgmtEsc(d.name)}</option>`).join('');
+  }
   const cr = document.getElementById('huntFCreator');
   if (cr && !cr.dataset.ready) {
     cr.dataset.ready = '1';
     cr.innerHTML = '<option value="">创建人</option>' + users.filter(u => !u.hidden).map(u => `<option value="${u.id}">${appMgmtEsc(u.name)}</option>`).join('');
   }
-  const dp = document.getElementById('huntFCreateDept');
-  if (dp && !dp.dataset.ready) {
-    dp.dataset.ready = '1';
-    dp.innerHTML = '<option value="">创建部门</option>' + depts.filter(d => d.id !== 0).map(d => `<option value="${d.id}">${appMgmtEsc(d.name)}</option>`).join('');
+  const cdp = document.getElementById('huntFCreateDept');
+  if (cdp && !cdp.dataset.ready) {
+    cdp.dataset.ready = '1';
+    cdp.innerHTML = '<option value="">创建部门</option>' + depts.filter(d => d.id !== 0).map(d => `<option value="${d.id}">${appMgmtEsc(d.name)}</option>`).join('');
   }
 }
 function fillLeadAppFormFromLead(l) {
@@ -11514,49 +11741,43 @@ function getFilteredLeads() {
     if (ct && (l.customerType || '直客') !== ct) return false;
     if (rt && (l.reqType || '组内提需') !== rt) return false;
     if (companyQ && !(l.companyName || '').toLowerCase().includes(companyQ)) return false;
-    if (appNameQ && !(l.appName || '').toLowerCase().includes(appNameQ)) return false;
-    if (appIdQ) {
-      const ios = (l.iosAppId || '').toLowerCase();
-      const aos = (l.androidAppId || '').toLowerCase();
-      if (!ios.includes(appIdQ) && !aos.includes(appIdQ)) return false;
-    }
+    if (!_leadMatchesAppFilters(l, appNameQ, appIdQ)) return false;
     if (deptF && String(_leadDeptId(l)) !== deptF) return false;
     if (subF && String(l.createdBy) !== subF) return false;
-    if (hl === 'yes' && !l.huntlistRecordId) return false;
-    if (hl === 'no' && l.huntlistRecordId) return false;
+    if ((hl === 'transferred' || hl === 'yes') && !l.huntlistRecordId) return false;
+    if ((hl === 'not' || hl === 'no') && l.huntlistRecordId) return false;
     return true;
   });
-}
-function _leadHuntlistYn(l) {
-  return l.huntlistRecordId ? 'yes' : 'no';
 }
 function renderLeadsTable() {
   const tb = document.getElementById('leadTbody');
   if (!tb) return;
   const rows = getFilteredLeads();
-  if (!rows.length) { tb.innerHTML = '<tr><td colspan="19" style="text-align:center;color:#86909c;padding:32px">暂无数据</td></tr>'; return; }
+  if (!rows.length) { tb.innerHTML = '<tr><td colspan="17" style="text-align:center;color:#86909c;padding:32px">暂无数据</td></tr>'; return; }
   tb.innerHTML = rows.map(l => {
+    leadNormalizeApps(l);
     const canEdit = _canEditLead(l);
     const canTrans = _canTransferLead(l) && !l.huntlistRecordId;
-    const simBtn = isTopAdmin() ? `<button class="row-act" onclick="openLeadSimAssign('${l.id}')"><i class="fa-solid fa-flask"></i> 模拟分配</button>` : '';
     const transBtn = (canTrans && (l.followStatus === '未跟进' || l.followStatus === '跟进中'))
       ? `<button class="row-act" onclick="confirmTransferLead('${l.id}')"><i class="fa-solid fa-arrow-right-to-bracket"></i> 转入Huntlist</button>`
-      : (l.huntlistRecordId ? `<span style="font-size:12px;color:#86909c">已转入</span>` : '');
+      : (l.huntlistRecordId ? `<span style="font-size:12px;color:#00b578">已转入</span>` : '');
     const reqDays = _leadReqDaysSinceLabel(l.reqAt);
     const reqAtDisp = (l.reqAt && String(l.reqAt).trim()) ? appMgmtEsc(l.reqAt) : '—';
     const srcDisp = (l.leadSource && String(l.leadSource).trim()) ? appMgmtEsc(l.leadSource) : '—';
+    const huntLbl = _leadHuntlistLabel(l);
     return `<tr>
-      <td class="mono">${l.id}</td>
-      <td>${l.companyName || '—'}</td>
+      <td>${appMgmtEsc(l.companyName || '—')}</td>
       <td>${l.customerType || '直客'}</td>
-      <td>${srcDisp}</td>
-      <td>${l.appName ? appMgmtEsc(l.appName) : '—'}</td>
-      <td class="mono" style="font-size:12px">${_appIdPair(l.iosAppId, l.androidAppId)}</td>
-      <td>${l.geo || '—'}</td><td>${l.mmp || '—'}</td><td>${l.budgetType || '—'}</td>
-      <td style="max-width:160px;white-space:pre-wrap">${l.reqReasons || '—'}</td>
+      <td>${_leadAppNameCell(l)}</td>
+      <td>${_leadAppIdCell(l)}</td>
+      <td>${l.geo || '—'}</td>
+      <td>${l.budgetType || '—'}</td>
+      <td>${l.mmp || '—'}</td>
       <td style="max-width:120px;white-space:pre-wrap">${l.notes || '—'}</td>
+      <td style="max-width:160px;white-space:pre-wrap">${l.reqReasons || '—'}</td>
+      <td>${srcDisp}</td>
       <td>${(l.reqType === '商务提需' ? '商务提需' : '组内提需')}</td>
-      <td><span class="mono" style="font-size:12px;color:${l.huntlistRecordId ? '#00b578' : '#86909c'}">${_leadHuntlistYn(l)}</span></td>
+      <td><span style="font-size:12px;font-weight:500;color:${l.huntlistRecordId ? '#00b578' : '#86909c'}">${huntLbl}</span></td>
       <td>${getUserNameById(l.createdBy)}</td>
       <td>${getDeptNameById(_leadDeptId(l)) || '—'}</td>
       <td class="mono" style="font-size:12px">${reqAtDisp}</td>
@@ -11565,12 +11786,12 @@ function renderLeadsTable() {
         ${canEdit ? `<button class="row-act" onclick="openLeadDrawer('${l.id}')"><i class="fa-regular fa-pen-to-square"></i> 编辑</button>
         <button class="row-act danger" onclick="confirmDeleteLead('${l.id}')"><i class="fa-solid fa-trash-can"></i> 删除</button>` : ''}
         ${transBtn}
-        ${simBtn}
       </td>
     </tr>`;
   }).join('');
 }
 function initLeadsPage() {
+  leadList.forEach(leadNormalizeApps);
   populateLeadToolbarFilters();
   renderLeadsTable();
 }
@@ -11594,7 +11815,7 @@ function openLeadDrawer(id) {
     }
     const lra = document.getElementById('lf_reqAt');
     if (lra) lra.value = _leadReqAtToDatetimeLocal(l.reqAt || '');
-    fillLeadAppFormFromLead(l);
+    renderLeadAppRows(l.apps);
     document.getElementById('lf_geo').value = l.geo || '';
     document.getElementById('lf_mmp').value = l.mmp || '';
     const bt = document.getElementById('lf_budget');
@@ -11613,30 +11834,33 @@ function openLeadDrawer(id) {
     ['lf_companyName','lf_geo','lf_mmp','lf_budget','lf_req','lf_notes'].forEach(fid => {
       const el = document.getElementById(fid); if (el) el.value = '';
     });
-    const pSel = document.getElementById('lf_appParent');
-    if (pSel) pSel.innerHTML = buildLeadAppParentOptionsHtml('');
-    refreshLeadIosAosSelects('', '');
+    renderLeadAppRows([{ appName: '', iosAppId: '', androidAppId: '' }]);
   }
   d.classList.add('open');
 }
 function closeLeadDrawer() { document.getElementById('leadFormDrawer')?.classList.remove('open'); }
 function saveLeadForm() {
   const companyName = document.getElementById('lf_companyName').value.trim();
-  if (!companyName) { showToast('请填写客户公司名称'); return; }
-  const pid = (document.getElementById('lf_appParent')?.value || '').trim();
-  const ios = (document.getElementById('lf_iosSel')?.value || '').trim();
-  const aos = (document.getElementById('lf_aosSel')?.value || '').trim();
-  const appRow = pid ? appMgmtList.find(a => a.id === pid) : null;
-  const appName = appRow ? (appRow.name || '') : '';
+  if (!companyName) { showToast('请填写客户名称'); return; }
+  const apps = collectLeadAppsFromDom();
+  const errApps = document.getElementById('err_lead_apps');
+  if (!apps.length || !apps.some(a => a.appName)) {
+    if (errApps) errApps.style.display = 'block';
+    showToast('请至少添加一个 App，并填写 App name');
+    return;
+  }
+  if (errApps) errApps.style.display = 'none';
+  const a0 = apps[0];
   const deptId = getUserById(CUR_USER_ID)?.deptId ?? null;
   const pack = {
     companyName,
     customerType: (document.getElementById('lf_customerType')?.value || '直客') === '代理' ? '代理' : '直客',
     reqType: (document.getElementById('lf_reqType')?.value || '组内提需') === '商务提需' ? '商务提需' : '组内提需',
-    appParentId: pid || '',
-    appName,
-    iosAppId: ios,
-    androidAppId: aos,
+    apps: apps.map(a => ({ ...a })),
+    appParentId: '',
+    appName: a0.appName || '',
+    iosAppId: a0.iosAppId || '',
+    androidAppId: a0.androidAppId || '',
     geo: document.getElementById('lf_geo').value.trim(),
     mmp: document.getElementById('lf_mmp').value.trim(),
     budgetType: (document.getElementById('lf_budget')?.value || '').trim(),
@@ -11692,18 +11916,24 @@ function confirmTransferLead(id) {
     if (!l2 || l2.huntlistRecordId) { showToast('该线索已转入，请勿重复操作'); closeMo('moConfirm'); return; }
     const hid = 'HL-' + String(nextHuntId++).padStart(3, '0');
     const now = new Date().toISOString().slice(0, 16).replace('T', ' ');
-    const appNameFromLead = (l2.appName || '').trim() || '';
+    leadNormalizeApps(l2);
+    const apps = (l2.apps || []).map(a => ({ ...a }));
+    const a0 = apps[0] || {};
+    const appNameFromLead = (a0.appName || l2.appName || '').trim();
     const rt = (l2.reqType === '商务提需' ? '商务提需' : '组内提需');
     huntList.unshift({
       id: hid,
       sourceLeadId: l2.id,
       reqType: rt,
+      leadSource: l2.leadSource || '',
+      reqAt: l2.reqAt || '',
       companyName: l2.companyName || '',
       customerType: (l2.customerType === '代理' ? '代理' : '直客'),
+      apps,
       appParentId: l2.appParentId || '',
       appName: appNameFromLead,
-      iosAppId: l2.iosAppId || '',
-      androidAppId: l2.androidAppId || '',
+      iosAppId: a0.iosAppId || l2.iosAppId || '',
+      androidAppId: a0.androidAppId || l2.androidAppId || '',
       geo: l2.geo || '',
       mmp: l2.mmp || '',
       budgetType: l2.budgetType || '',
@@ -11752,23 +11982,29 @@ function openLeadSimAssign(leadId) {
 
 function getFilteredHunts() {
   const q = (document.getElementById('huntFCompany')?.value || '').trim().toLowerCase();
-  const st = document.getElementById('huntFCustomerStatus')?.value || '';
+  const ct = document.getElementById('huntFCustomerType')?.value || '';
   const fs = document.getElementById('huntFFollow')?.value || '';
   const src = document.getElementById('huntFSource')?.value || '';
-  const cr = document.getElementById('huntFCreator')?.value || '';
-  const dd = document.getElementById('huntFCreateDept')?.value || '';
+  const claimU = document.getElementById('huntFClaimUser')?.value || '';
+  const claimD = document.getElementById('huntFClaimDept')?.value || '';
+  const creator = document.getElementById('huntFCreator')?.value || '';
+  const createDept = document.getElementById('huntFCreateDept')?.value || '';
+  const createdDate = document.getElementById('huntFCreatedAt')?.value || '';
   return huntList.filter(h => {
     if (!_huntVisible(h)) return false;
-    if (st && (h.customerType || '直客') !== st) return false;
+    if (ct && (h.customerType || '直客') !== ct) return false;
     if (q && !(h.companyName || '').toLowerCase().includes(q)) return false;
     if (fs && h.followStatus !== fs) return false;
     if (src === 'new' && h.sourceLeadId) return false;
     if (src === 'lead' && !h.sourceLeadId) return false;
-    if (cr && String(h.createdBy) !== cr) return false;
-    if (dd) {
+    if (claimU && String(h.claimedByUserId ?? '') !== claimU) return false;
+    if (claimD && String(h.claimedDeptId ?? '') !== claimD) return false;
+    if (creator && String(h.createdBy) !== creator) return false;
+    if (createDept) {
       const d0 = getUserById(h.createdBy)?.deptId;
-      if (String(d0 ?? '') !== dd) return false;
+      if (String(d0 ?? '') !== createDept) return false;
     }
+    if (createdDate && !String(h.createdAt || '').startsWith(createdDate)) return false;
     return true;
   });
 }
@@ -11776,14 +12012,13 @@ function renderHuntlistTable() {
   const tb = document.getElementById('huntTbody');
   if (!tb) return;
   const rows = getFilteredHunts();
-  if (!rows.length) { tb.innerHTML = '<tr><td colspan="19" style="text-align:center;color:#86909c;padding:32px">暂无数据</td></tr>'; return; }
+  if (!rows.length) { tb.innerHTML = '<tr><td colspan="20" style="text-align:center;color:#86909c;padding:32px">暂无数据</td></tr>'; return; }
   tb.innerHTML = rows.map(h => {
+    huntNormalizeApps(h);
     const can = _canEditHunt(h);
     const canFollow = _canHuntFollow(h);
-    const appId = _appIdPair(h.iosAppId, h.androidAppId);
-    const srcLabel = h.sourceLeadId ? '线索转入' : '新建';
-    const srcStyle = h.sourceLeadId ? '#1677ff' : '#86909c';
     const reqDisp = _huntReqTypeDisplay(h);
+    const budgetSrc = _huntBudgetSource(h);
     const lastUid = _huntLatestFollowUid(h);
     const lastNm = lastUid != null ? getUserNameById(lastUid) : '—';
     const claimNm = h.claimedByUserId != null ? getUserNameById(h.claimedByUserId) : '—';
@@ -11791,34 +12026,30 @@ function renderHuntlistTable() {
     const claimBtn = (_huntVisible(h) && (_isHuntFollowAbandoned(h.followStatus) || h.claimedByUserId == null))
       ? `<button type="button" class="row-act" onclick="openHuntClaimModal('${h.id}')"><i class="fa-solid fa-hand"></i> 认领</button>`
       : '';
-    const custApBtn = curPerms.buttons.has('customer_add') && can && h.followStatus === HUNT_FOLLOW_ONBOARDED
-      ? `<button type="button" class="row-act" onclick="openCmDrawerFromHunt('${h.id}')"><i class="fa-solid fa-file-signature"></i> ${T('add_customer_apply', 'New Customer Request')}</button>`
-      : '';
     return `<tr>
       <td>${appMgmtEsc(h.companyName || '—')}</td>
       <td>${h.customerType || '—'}</td>
-      <td>${reqDisp}</td>
-      <td><span style="font-size:12px;font-weight:500;color:${srcStyle}">${srcLabel}</span></td>
-      <td>${h.appName ? appMgmtEsc(h.appName) : '—'}</td>
-      <td class="mono" style="font-size:12px">${appId}</td>
+      <td>${_huntAppNameCell(h)}</td>
+      <td>${_huntAppIdCell(h)}</td>
       <td>${appMgmtEsc(h.geo || '—')}</td>
-      <td>${appMgmtEsc(h.mmp || '—')}</td>
       <td>${appMgmtEsc(h.budgetType || '—')}</td>
-      <td style="max-width:140px;white-space:pre-wrap">${appMgmtEsc(h.reqReasons || '—')}</td>
+      <td>${appMgmtEsc(h.mmp || '—')}</td>
       <td style="max-width:120px;white-space:pre-wrap">${appMgmtEsc(h.notes || '—')}</td>
-      <td style="max-width:140px;white-space:pre-wrap">${appMgmtEsc(h.claimReason || '—')}</td>
-      <td>${appMgmtEsc(claimNm)}</td>
-      <td>${appMgmtEsc(claimDept)}</td>
-      <td>${appMgmtEsc(lastNm)}</td>
+      <td style="max-width:140px;white-space:pre-wrap">${appMgmtEsc(h.reqReasons || '—')}</td>
+      <td>${budgetSrc ? appMgmtEsc(budgetSrc) : '—'}</td>
+      <td>${reqDisp}</td>
+      <td>${_huntSourceCell(h)}</td>
       <td>${h.followStatus || '—'}</td>
-      <td>${h.lastFollowAt || '—'}</td>
-      <td>${getUserNameById(h.createdBy)}</td><td>${h.createdAt || '—'}</td>
+      <td>${appMgmtEsc(lastNm)}</td>
+      <td>${appMgmtEsc(claimNm)}</td>
+      <td style="max-width:140px;white-space:pre-wrap">${appMgmtEsc(h.claimReason || '—')}</td>
+      <td>${appMgmtEsc(claimDept)}</td>
+      <td>${getUserNameById(h.createdBy)}</td>
+      <td>${h.createdAt || '—'}</td>
       <td class="act-col">
         ${claimBtn}
         ${canFollow ? `<button class="row-act" onclick="openHuntFollowDrawer('${h.id}')"><i class="fa-solid fa-clock"></i> 跟进记录</button>` : ''}
         ${can ? `<button class="row-act" onclick="openHuntDrawer('${h.id}')"><i class="fa-regular fa-pen-to-square"></i> 编辑</button>` : ''}
-        ${custApBtn}
-        ${can ? `<button class="row-act danger" onclick="confirmDeleteHunt('${h.id}')"><i class="fa-solid fa-trash-can"></i> 删除</button>` : ''}
       </td>
     </tr>`;
   }).join('');
@@ -11863,23 +12094,31 @@ function openHuntClaimModal(huntId) {
   };
   openMo('moHuntClaim');
 }
-function initHuntlistPage() { populateHuntFollowSelects(); populateHuntFormStaticSelects(); renderHuntlistTable(); }
+function initHuntlistPage() {
+  huntList.forEach(huntNormalizeApps);
+  populateHuntFollowSelects();
+  populateHuntToolbarFilters();
+  renderHuntlistTable();
+}
 
 function openHuntDrawer(id) {
-  populateHuntFormStaticSelects();
   _editingHuntId = id;
   document.getElementById('huntFormTitle').textContent = id ? '编辑跟进目标' : '新增跟进目标';
+  const errApps = document.getElementById('err_hunt_apps');
+  if (errApps) errApps.style.display = 'none';
   if (id) {
     const h = huntList.find(x => x.id === id);
     if (!h || !_canEditHunt(h)) { showToast('无权限编辑'); return; }
+    huntNormalizeApps(h);
     document.getElementById('hf_company').value = h.companyName || '';
     document.getElementById('hf_type').value = (h.customerType === '代理' ? '代理' : '直客');
-    const rts = document.getElementById('hf_reqType');
-    if (rts) {
-      rts.value = (h.reqType === '商务提需' ? '商务提需' : '组内提需');
-      rts.disabled = !!h.sourceLeadId;
+    const hsrc = document.getElementById('hf_leadSource');
+    if (hsrc) {
+      const v = (_huntBudgetSource(h) || '').trim();
+      hsrc.value = [...hsrc.options].some(o => o.value === v) ? v : '';
+      hsrc.disabled = !!h.sourceLeadId;
     }
-    fillHuntAppFormFromHunt(h);
+    renderHuntAppRows(h.apps);
     document.getElementById('hf_geo').value = h.geo || '';
     document.getElementById('hf_mmp').value = h.mmp || '';
     const hb = document.getElementById('hf_budget');
@@ -11889,9 +12128,9 @@ function openHuntDrawer(id) {
   } else {
     document.getElementById('hf_company').value = '';
     document.getElementById('hf_type').value = '直客';
-    const rts0 = document.getElementById('hf_reqType');
-    if (rts0) { rts0.value = '组内提需'; rts0.disabled = false; }
-    fillHuntAppFormFromHunt({ appParentId: '', iosAppId: '', androidAppId: '' });
+    const hsrc0 = document.getElementById('hf_leadSource');
+    if (hsrc0) { hsrc0.value = ''; hsrc0.disabled = false; }
+    renderHuntAppRows([{ appName: '', iosAppId: '', androidAppId: '' }]);
     document.getElementById('hf_geo').value = '';
     document.getElementById('hf_mmp').value = '';
     const hb0 = document.getElementById('hf_budget');
@@ -11904,33 +12143,35 @@ function openHuntDrawer(id) {
 function closeHuntDrawer() { document.getElementById('huntFormDrawer')?.classList.remove('open'); }
 function saveHuntForm() {
   const companyName = document.getElementById('hf_company').value.trim();
-  if (!companyName) { showToast('请填写客户公司名称'); return; }
-  const pid = (document.getElementById('hf_appParent')?.value || '').trim();
-  const ios = (document.getElementById('hf_iosSel')?.value || '').trim();
-  const aos = (document.getElementById('hf_aosSel')?.value || '').trim();
-  const appRow = pid ? appMgmtList.find(a => a.id === pid) : null;
-  const appName = appRow ? (appRow.name || '') : '';
-  const reqType = (document.getElementById('hf_reqType')?.value || '组内提需') === '商务提需' ? '商务提需' : '组内提需';
+  if (!companyName) { showToast('请填写客户名称'); return; }
+  const apps = collectHuntAppsFromDom();
+  const errApps = document.getElementById('err_hunt_apps');
+  if (!apps.length || !apps.some(a => a.appName)) {
+    if (errApps) errApps.style.display = 'block';
+    showToast('请至少添加一个 App，并填写 App name');
+    return;
+  }
+  if (errApps) errApps.style.display = 'none';
+  const a0 = apps[0];
   const pack = {
     companyName,
     customerType: document.getElementById('hf_type').value,
-    appParentId: pid || '',
-    appName,
-    iosAppId: ios,
-    androidAppId: aos,
+    apps: apps.map(a => ({ ...a })),
+    appParentId: '',
+    appName: a0.appName || '',
+    iosAppId: a0.iosAppId || '',
+    androidAppId: a0.androidAppId || '',
     geo: document.getElementById('hf_geo').value.trim(),
     mmp: document.getElementById('hf_mmp').value.trim(),
     budgetType: (document.getElementById('hf_budget')?.value || '').trim(),
     reqReasons: document.getElementById('hf_req').value.trim(),
     notes: document.getElementById('hf_notes').value.trim(),
+    leadSource: (document.getElementById('hf_leadSource')?.value || '').trim(),
   };
   if (_editingHuntId) {
     const h = huntList.find(x => x.id === _editingHuntId);
     if (!h || !_canEditHunt(h)) { showToast('无权限'); return; }
-    const p2 = { ...pack };
-    if (h.sourceLeadId) delete p2.reqType;
-    else p2.reqType = reqType;
-    Object.assign(h, p2);
+    Object.assign(h, pack);
     showToast('已保存');
   } else {
     const now = new Date().toISOString().slice(0, 16).replace('T', ' ');
@@ -11938,7 +12179,6 @@ function saveHuntForm() {
     huntList.unshift({
       id: 'HL-' + String(nextHuntId++).padStart(3, '0'),
       sourceLeadId: null,
-      reqType,
       ...pack,
       bdOwnerUserId: null,
       claimedByUserId: null,
