@@ -822,6 +822,18 @@ body>#cluesPage,body>#huntlistPage,body>#customerPlaceholderPage,body>#campaignP
 #offerFormPage #offMod1 .off-mod1-field > .off-readonly-pill{align-self:stretch}
 #offerFormPage #offMod1 .off-mod1-hint{margin:0 0 6px;font-size:11px;color:#86909c;line-height:1.45}
 #offerFormPage #offMod1 .off-camp-app-id-link{align-self:stretch;display:flex;align-items:center;min-height:32px;padding:0}
+.off-run-app-summary{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:12px;color:#4e5969;margin-bottom:8px}
+.off-run-app-summary strong{color:#1d2129;font-weight:600}
+.off-run-config-block{padding:10px 12px;border:1px solid #ebedf0;border-radius:8px;background:#fafbfc}
+.off-run-config-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:8px}
+.off-run-config-row:last-child{margin-bottom:0}
+.off-run-config-lbl{font-size:12px;color:#4e5969;min-width:72px}
+.off-run-mode-seg{display:inline-flex;border:1px solid #e5e6eb;border-radius:6px;overflow:hidden}
+.off-run-mode-seg button{padding:5px 10px;font-size:11px;border:none;background:#fff;color:#4e5969;cursor:pointer}
+.off-run-mode-seg button.is-active{background:#1677ff;color:#fff;font-weight:500}
+.off-run-mode-seg button:not(:last-child){border-right:1px solid #e5e6eb}
+.off-run-config-hint{font-size:11px;color:#86909c;margin:6px 0 0;line-height:1.45}
+.off-run-config-hint.is-warn{color:#d46b08}
 #offerFormPage #offMod1 .off-delivery-mix-block{display:contents}
 #offerFormPage #offMod1 .off-delivery-mix-hd{grid-column:1;margin:0;padding-top:8px;line-height:1.35;align-self:start;font-weight:500}
 #offerFormPage #offMod1 .off-delivery-mix-opts{grid-column:2;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;align-items:stretch;background:transparent;border:none;padding:0;margin:0}
@@ -1152,8 +1164,17 @@ button.camp-hs-pill--on:hover{background:#ffccc7}
 .off-ch-mod1-ev-tag{font-size:10px;font-weight:600;color:#1677ff;margin-right:6px}
 .off-ch-cost-ro{display:inline-flex;align-items:center;min-height:30px;padding:0 8px;background:#f2f3f5;border:1px solid #e5e6eb;border-radius:6px;font-size:12px;color:#4e5969}
 .off-ch-cost-ro.is-pending{color:#86909c;font-style:italic}
-.off-ch-card-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
+.off-ch-card-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-bottom:8px}
 .off-ch-card-hd .fg{margin-bottom:0;flex:1;min-width:0;gap:4px}
+.off-ch-info-row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 16px;flex:1;min-width:0;margin-bottom:0}
+.off-ch-info-item{display:flex;flex-direction:column;gap:4px;min-width:0}
+.off-ch-info-item--name{flex:1.5 1 160px}
+.off-ch-info-item--type,.off-ch-info-item--orig{flex:0 0 auto}
+.off-ch-info-item--actual{flex:0 0 108px}
+.off-ch-info-item .fl{font-size:12px;margin:0}
+.off-ch-info-item .fs,.off-ch-info-item .fi{margin:0;height:32px;font-size:12px}
+.off-ch-meta-val{font-size:12px;font-weight:600;color:#1d2129;line-height:32px;white-space:nowrap}
+.off-ch-meta-val.is-muted{color:#86909c;font-weight:400}
 .off-ch-caps-row{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;margin-bottom:8px}
 .off-ch-caps-row .fg{margin-bottom:0;gap:4px}
 .off-ch-cap-hint{font-size:11px;color:#86909c;font-weight:400}
@@ -1163,7 +1184,7 @@ button.camp-hs-pill--on:hover{background:#ffccc7}
 .off-ch-cap-field .off-ch-cap-val:disabled{flex:1 1 64px!important;min-width:64px!important;background:#f2f3f5;color:#c9cdd4;cursor:not-allowed;opacity:1}
 .off-ch-ev-table{border:1px solid #ebedf0;border-radius:6px;overflow-x:auto;background:#fff}
 .off-ch-ev-hd,.off-ch-ev-row{display:grid;grid-template-columns:minmax(120px,1.1fr) 88px 88px 100px 100px 100px 40px;gap:6px;align-items:center;padding:6px 8px;font-size:12px}
-.off-ch-ev-hd.is-ext,.off-ch-ev-row.is-ext{grid-template-columns:minmax(88px,1fr) 72px repeat(3,minmax(108px,1fr)) 30px;min-width:520px}
+.off-ch-ev-hd.is-ext,.off-ch-ev-row.is-ext{grid-template-columns:minmax(120px,1.2fr) repeat(3,minmax(108px,1fr)) 30px;min-width:480px}
 .off-ch-ev-hd{background:#f7f8fa;color:#86909c;font-size:11px;font-weight:600;border-bottom:1px solid #ebedf0;position:sticky;top:0;z-index:1}
 .off-ch-ev-row{border-bottom:1px solid #f2f3f5}
 .off-ch-ev-row:last-child{border-bottom:none}
@@ -1668,6 +1689,14 @@ button.camp-hs-pill--on:hover{background:#ffccc7}
 .camp-fieldset-wrap{border:1px solid #ebedf0;border-radius:10px;padding:12px 14px 10px;margin-bottom:14px;background:#fafbfc}
 .camp-fieldset-wrap>legend{padding:0 8px;font-size:13px;font-weight:700;color:#1d2129}
 .camp-inline-rg{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;min-height:36px}
+.camp-id-pool-host{padding:10px 12px;border:1px solid #ebedf0;border-radius:8px;background:#fafbfc}
+.camp-id-pool-all{margin-bottom:6px;padding-bottom:6px;border-bottom:1px dashed #e5e6eb;font-size:12px}
+.camp-id-pool-list{display:flex;flex-direction:column;gap:4px}
+.camp-id-pool-list:not(.is-expanded) .camp-id-pool-item.is-extra{display:none}
+.camp-id-pool-list label{display:flex;align-items:flex-start;gap:6px;font-size:12px;cursor:pointer;line-height:1.45;color:#4e5969}
+.camp-id-pool-expand{margin-top:6px;padding:0;border:none;background:none;color:#1677ff;font-size:11px;cursor:pointer}
+.camp-id-pool-expand:hover{text-decoration:underline}
+.camp-id-pool-empty{font-size:12px;color:#86909c}
 .camp-chip-cb{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#1d2129;cursor:pointer;user-select:none}
 .camp-dw-hd-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;width:100%}
 #moCampEmailImport .mo-box{border-radius:14px;max-width:520px;width:calc(96vw - 28px)}
@@ -1711,7 +1740,7 @@ button.camp-hs-pill--on:hover{background:#ffccc7}
 .camp-cust-type-tag{font-size:11px;color:#1677ff;background:#e8f3ff;padding:1px 7px;border-radius:4px;font-weight:600}
 .camp-card-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 14px;margin-top:10px;padding-top:10px;border-top:1px solid #f2f3f5;text-align:left}
 @media (max-width:1280px){.camp-card-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.camp-card-field{display:grid;grid-template-columns:52px minmax(0,1fr);gap:2px 8px;align-items:baseline;min-width:0}
+.camp-card-field{display:grid;grid-template-columns:56px minmax(0,1fr);gap:2px 8px;align-items:baseline;min-width:0}
 .camp-card-field-lbl{font-size:11px;color:#86909c;line-height:1.3;white-space:nowrap}
 .camp-card-field-val{font-size:12px;font-weight:600;color:#1d2129;line-height:1.35;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .camp-card-field-val--wrap{white-space:normal;word-break:break-all;line-height:1.4}
@@ -4650,7 +4679,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
     <div class="lh-toolbar" style="align-items:flex-end">
       <input class="cm-inp" id="campFAdvertiser" placeholder="客户" style="min-width:130px" oninput="renderCampaignTable()">
       <input class="cm-inp" id="campFApp" placeholder="App 名称" style="min-width:120px" oninput="renderCampaignTable()">
-      <input class="cm-inp" id="campFAppId" placeholder="App ID" style="min-width:110px" oninput="renderCampaignTable()">
+      <input class="cm-inp" id="campFAppId" placeholder="端权限 / ID" style="min-width:120px" oninput="renderCampaignTable()">
       <select class="cm-sel" id="campFBudgetType" onchange="renderCampaignTable()" style="min-width:100px">
         <option value="">预算类型</option>
         <option value="CTV">CTV</option>
@@ -5991,17 +6020,29 @@ function nowStr() {
   const d = new Date();
   return d.toISOString().slice(0,10) + ' ' + d.toTimeString().slice(0,5);
 }
+const OFFER_CHANNEL_TYPE_OPTS = [
+  { v:'ddj', l:'DDJ' },
+  { v:'emu', l:'EMU' },
+  { v:'xddj', l:'XDDJ' },
+  { v:'zj', l:'ZJ' },
+  { v:'激励', l:'激励' },
+];
 const channelList = [
-  { id:'CH-001', name:'Meta Ads',      type:'Social' },
-  { id:'CH-002', name:'Google UAC',    type:'Search' },
-  { id:'CH-003', name:'TikTok Ads',    type:'Social' },
-  { id:'CH-004', name:'Applovin MAX',  type:'Network' },
-  { id:'CH-005', name:'Unity Ads',     type:'Network' },
-  { id:'CH-006', name:'IronSource',    type:'Network' },
-  { id:'CH-007', name:'Mintegral',     type:'Network' },
-  { id:'CH-008', name:'Liftoff',       type:'Network' },
-  { id:'CH-009', name:'Digital Turbine', type:'Network' },
-  { id:'CH-010', name:'Moloco',        type:'Programmatic' },
+  { id:'CH-INT-001', name:'Internal DDJ', channelType:'ddj', scope:'internal', type:'DDJ', originalUnitPrice:3.2, status:'启用',
+    events:[{ eventName:'install', payout:3.2 }, { eventName:'purchase', payout:20 }] },
+  { id:'CH-EXT-001', name:'External Partner A', channelType:'emu', scope:'external', type:'EMU', originalUnitPrice:3.0, status:'启用',
+    events:[{ eventName:'install', payout:3.0 }] },
+  { id:'CH-EXT-002', name:'Rocky EMU Network', channelType:'emu', scope:'external', type:'EMU', originalUnitPrice:2.6, status:'启用',
+    events:[{ eventName:'install', payout:2.6 }] },
+  { id:'CH-EXT-003', name:'XDDJ Alliance', channelType:'xddj', scope:'external', type:'XDDJ', originalUnitPrice:2.8, status:'启用',
+    events:[{ eventName:'install', payout:2.8 }] },
+  { id:'CH-EXT-004', name:'ZJ Media', channelType:'zj', scope:'external', type:'ZJ', originalUnitPrice:3.5, status:'启用',
+    events:[{ eventName:'install', payout:3.5 }] },
+  { id:'CH-EXT-005', name:'激励流量联盟', channelType:'激励', scope:'external', type:'激励', originalUnitPrice:1.8, status:'启用',
+    events:[{ eventName:'install', payout:1.8 }] },
+  { id:'CH-001', name:'Meta Ads', channelType:'zj', scope:'external', type:'Network', originalUnitPrice:null, status:'启用', events:[] },
+  { id:'CH-002', name:'Google UAC', channelType:'zj', scope:'external', type:'Search', originalUnitPrice:null, status:'启用', events:[] },
+  { id:'CH-003', name:'TikTok Ads', channelType:'zj', scope:'external', type:'Social', originalUnitPrice:null, status:'启用', events:[] },
 ];
 
 let pidList = [
@@ -13797,9 +13838,9 @@ function confirmDeleteHunt(id) {
 let nextCampaignSeq = 7;
 let _campaignEditingId = null;
 let _campAppIdPrefApply = false;
-let _campPrefIos = '';
-let _campPrefAnd = '';
-let _campPrefApk = '';
+let _campPrefIosIds = [];
+let _campPrefAosIds = [];
+let _campPrefApkIds = [];
 /** 表单内区域、分区域单价与素材附件的临时状态 */
 let _campDraft = { regions: [], regionUnitPrices: {}, regionEventUnitPrices: {}, regionPriceRows: [], materials: [], campaignEvents: [], extraEvents: [] };
 let _campFormState = { links: {}, linkParamsExpanded: {}, variantsExpanded: {}, linkActiveTab: 'click', budgetActiveTab: 'budget', paramVariants: { click: {}, imp: {}, ctv: {} } };
@@ -13807,6 +13848,8 @@ let _campFormState = { links: {}, linkParamsExpanded: {}, variantsExpanded: {}, 
 const CAMP_MMP_OPTS = ['AppsFlyer', 'Adjust', 'Kochava'];
 /** Campaign 表单中「全部包」选项的值 */
 const CAMP_APP_ID_ALL = '__ALL__';
+const CAMP_ID_POOL_PREVIEW = 3;
+let _campIdPoolExpanded = { ios: false, aos: false, apk: false };
 const CAMP_REGION_OPTS = ['ALL', 'US', 'CA', 'UK', 'DE', 'FR', 'JP', 'KR', 'TW', 'AU', 'HK', 'SG', 'VN', 'TH', 'PH', 'ID', 'IN', 'BR', 'MX', 'SEA'];
 
 
@@ -14266,7 +14309,7 @@ function campRenderCampaignStatusActions(c, canE) {
 }
 
 let campaignList = [
-  { id:'CP-0001', advertiserType:'直客', customerKey:'direct:DC001', advertiserName:'GameX Ltd', appParentId:'APP_001', appName:'Lucky Casino Pro', appIdType:'all', iosAppId:'1234567890', androidAppId:'com.lucky.casino', apkAppId:'__ALL__',
+  { id:'CP-0001', advertiserType:'直客', customerKey:'direct:DC001', advertiserName:'GameX Ltd', appParentId:'APP_001', appName:'Lucky Casino Pro', permissionScope:'dual', iosAppIds:['1234567890'], aosAppIds:['com.lucky.casino'], apkAppIds:['__ALL__'],
     regions:['US','CA','UK'], budgetTypes:['CTV','VTA'], budgetMonthlyUsd:120000,
     eventName:'install', payType:'CPI', unitPriceUsd:3.2, regionUnitPrices:{ US:3.5, CA:3.2, UK:2.9 }, kpiNotes:'ROAS > 25%，D7 留存 > 15%', capConversions:5000, capPeriod:'day',
     extraEvents:[{ role:'paid', name:'purchase', eventType:'CPA', unitPrice:null, capValue:500, capPeriod:'day' }],
@@ -14290,9 +14333,8 @@ let campaignList = [
       external:[{ name:'External Partner A', dailyClickCap:10000, hourlyClickCap:500, events:[
         { eventName:'install', revenue:3.5, payout:3.0, hourlyClickCap:-1, dailyClickCap:-1, dailyConvCap:2000 },
       ]}],
-      other:[],
     } },
-  { id:'CP-0002', advertiserType:'代理', customerKey:'agency:AG002', advertiserName:'Global Ads Group', appParentId:'APP_002', appName:'Crypto Wallet Plus', appIdType:'all', iosAppId:'__ALL__', androidAppId:'__ALL__', apkAppId:'__ALL__',
+  { id:'CP-0002', advertiserType:'代理', customerKey:'agency:AG002', advertiserName:'Global Ads Group', appParentId:'APP_002', appName:'Crypto Wallet Plus', permissionScope:'dual', iosAppIds:['__ALL__'], aosAppIds:['__ALL__'], apkAppIds:['__ALL__'],
     regions:['SEA','JP'], budgetTypes:['CTA'], budgetMonthlyUsd:45000,
     eventName:'purchase', payType:'CPA', unitPriceUsd:18, regionUnitPrices:{ ALL:18 }, kpiNotes:'付费成本低于 $20', capConversions:null, mmp:'Adjust',
     linkClickUrl:'https://view.adjust.com/click', linkImpUrl:'https://view.adjust.com/imp', linkCtvUrl:'',
@@ -14301,27 +14343,26 @@ let campaignList = [
     defaultChannelConfig:{
       internal:{ name:'Internal DDJ', dailyClickCap:-1, hourlyClickCap:-1, events:[] },
       external:[],
-      other:[],
     } },
-  { id:'CP-0003', advertiserType:'直客', customerKey:'direct:DC005', advertiserName:'MediaStream SG', appParentId:'APP_003', appName:'Social Connect', appIdType:'ios', iosAppId:'5544332211', androidAppId:'com.social.connect',
+  { id:'CP-0003', advertiserType:'直客', customerKey:'direct:DC005', advertiserName:'MediaStream SG', appParentId:'APP_003', appName:'Social Connect', permissionScope:'ios_only', iosAppIds:['5544332211'], aosAppIds:[], apkAppIds:[],
     regions:['US'], budgetTypes:['VTA'], budgetMonthlyUsd:8000,
     eventName:'install', payType:'CPI', unitPriceUsd:1.1, regionUnitPrices:{ ALL:1.1 }, kpiNotes:'量级优先', capConversions:2000, mmp:'Kochava',
     linkClickUrl:'', linkImpUrl:'', linkCtvUrl:'',
     assetFiles:[], notes:'测试预算', status:'暂停',
     campaignDate:'2026-05-08', createdBy:9, createdAt:'2026-05-08 11:00', updatedBy:1, updatedAt:'2026-05-09 16:20' },
-  { id:'CP-0004', advertiserType:'直客', customerKey:'direct:DC003', advertiserName:'FinPay Solutions', appParentId:'APP_004', appName:'E-Commerce Hub', appIdType:'android', iosAppId:'1122334455', androidAppId:'com.ehub.cn',
+  { id:'CP-0004', advertiserType:'直客', customerKey:'direct:DC003', advertiserName:'FinPay Solutions', appParentId:'APP_004', appName:'E-Commerce Hub', permissionScope:'aos_only', iosAppIds:[], aosAppIds:['com.ehub.cn'], apkAppIds:[],
     regions:['UK','DE','FR'], budgetTypes:['CTV'], budgetMonthlyUsd:200000,
     eventName:'registration', payType:'CPS', unitPriceUsd:6, regionUnitPrices:{ UK:6.5, DE:6, FR:5.8 }, kpiNotes:'合规物料需预审', capConversions:null, mmp:'AppsFlyer',
     linkClickUrl:'https://finpay.go.link/click', linkImpUrl:'https://finpay.go.link/imp', linkCtvUrl:'https://finpay.go.link/ctv',
     assetFiles:[{name:'compliance.pdf'},{name:'screenshots.zip'}], notes:'金融类强合规', status:'正常', highSensitive:true,
     campaignDate:'2026-05-10', createdBy:1, createdAt:'2026-05-10 16:45', updatedBy:1, updatedAt:'2026-05-10 16:45' },
-  { id:'CP-0005', advertiserType:'代理', customerKey:'agency:AG003', advertiserName:'StarMedia Agency', appParentId:'APP_001', appName:'Lucky Casino Pro', appIdType:'all', iosAppId:'__ALL__', androidAppId:'__ALL__', apkAppId:'__ALL__',
+  { id:'CP-0005', advertiserType:'代理', customerKey:'agency:AG003', advertiserName:'StarMedia Agency', appParentId:'APP_001', appName:'Lucky Casino Pro', permissionScope:'dual', iosAppIds:['__ALL__'], aosAppIds:['__ALL__'], apkAppIds:['__ALL__'],
     regions:['KR','TW','JP'], budgetTypes:['CTA','VTA'], budgetMonthlyUsd:60000,
     eventName:'install', payType:'CPI', unitPriceUsd:2.8, regionUnitPrices:{ ALL:2.8 }, kpiNotes:'D0 ROAS 监控', capConversions:10000, capPeriod:'month', mmp:'Adjust',
     linkClickUrl:'https://app.adjust.com/click', linkImpUrl:'https://app.adjust.com/imp', linkCtvUrl:'https://app.adjust.com/ctv',
     assetFiles:[{name:'line_items.csv'}], notes:'', status:'正常',
     campaignDate:'2026-05-12', createdBy:2, createdAt:'2026-05-12 08:20', updatedBy:2, updatedAt:'2026-05-13 11:30' },
-  { id:'CP-0006', campaignMode:'outbound', advertiserType:'代理', customerKey:'agency:AG002', advertiserName:'Nova Agency', appParentId:'APP_002', appName:'Crypto Wallet Plus', appIdType:'all', iosAppId:'__ALL__', androidAppId:'__ALL__', apkAppId:'__ALL__',
+  { id:'CP-0006', campaignMode:'outbound', advertiserType:'代理', customerKey:'agency:AG002', advertiserName:'Nova Agency', appParentId:'APP_002', appName:'Crypto Wallet Plus', permissionScope:'dual', iosAppIds:['__ALL__'], aosAppIds:['__ALL__'], apkAppIds:['__ALL__'],
     regions:['US','UK','DE'], budgetTypes:['CTV'], budgetMonthlyUsd:45000,
     eventName:'install', payType:'CPI', unitPriceUsd:5, regionUnitPrices:{ US:5, UK:4.8, DE:4.5 },
     mmp:'', linkClickUrl:'', linkImpUrl:'', linkCtvUrl:'',
@@ -14343,12 +14384,11 @@ function campNormalizeCampaign(c) {
     c.linkImpUrl = c.linkImpUrl || '';
     c.linkCtvUrl = c.linkCtvUrl || '';
   }
-  if (!c.appIdType) c.appIdType = 'all';
+  campMigrateCampaignAppFields(c);
   if (!c.capPeriod) c.capPeriod = 'day';
   if (!Array.isArray(c.extraEvents)) c.extraEvents = [];
   c.extraEvents = c.extraEvents.map(campNormalizeExtraEvent);
   if (c.apkAppId == null) c.apkAppId = '';
-  if (c.appIdType === 'all' && c.apkAppId === '') c.apkAppId = CAMP_APP_ID_ALL;
   if (!c.campaignDate && c.createdAt) {
     const m = String(c.createdAt).match(/^(\d{4}-\d{2}-\d{2})/);
     if (m) c.campaignDate = m[1];
@@ -14371,8 +14411,9 @@ function campNormalizeCampaign(c) {
     if (ap) {
       c.appParentId = ap.id;
       const ids = campAppPrimaryIds(ap);
-      c.iosAppId = ids.ios;
-      c.androidAppId = ids.android;
+      if (!Array.isArray(c.iosAppIds) || !c.iosAppIds.length) c.iosAppIds = ids.ios ? [ids.ios] : [];
+      if (!Array.isArray(c.aosAppIds) || !c.aosAppIds.length) c.aosAppIds = ids.android ? [ids.android] : [];
+      campSyncLegacyAppIdFields(c);
     }
   }
   if (!c.regionUnitPrices || typeof c.regionUnitPrices !== 'object') {
@@ -14717,8 +14758,121 @@ function campAppPrimaryIds(app) {
   return { ios: (ios && String(ios)) || '', android: (aos && String(aos)) || '', apk: (apk && String(apk)) || '' };
 }
 
-function campGetAppIdType() {
-  return (document.querySelector('input[name=camp_appIdType]:checked')?.value || 'all').trim();
+function campNormalizeIdPoolArray(arr) {
+  if (!Array.isArray(arr)) return [];
+  return [...new Set(arr.map(x => String(x || '').trim()).filter(Boolean))];
+}
+
+function campMigrateCampaignAppFields(c) {
+  if (!c) return;
+  if (!c.permissionScope) {
+    const t = c.appIdType || 'all';
+    if (t === 'ios') c.permissionScope = 'ios_only';
+    else if (t === 'apk') c.permissionScope = 'apk_only';
+    else if (t === 'android') c.permissionScope = 'aos_only';
+    else c.permissionScope = 'dual';
+  }
+  if (!Array.isArray(c.iosAppIds)) {
+    const v = String(c.iosAppId || '').trim();
+    if (v === CAMP_APP_ID_ALL) c.iosAppIds = [CAMP_APP_ID_ALL];
+    else if (v) c.iosAppIds = [v];
+    else c.iosAppIds = [];
+  }
+  if (!Array.isArray(c.aosAppIds)) {
+    const v = String(c.androidAppId || '').trim();
+    if (v === CAMP_APP_ID_ALL) c.aosAppIds = [CAMP_APP_ID_ALL];
+    else if (v) c.aosAppIds = [v];
+    else c.aosAppIds = [];
+  }
+  if (!Array.isArray(c.apkAppIds)) {
+    const v = String(c.apkAppId || '').trim();
+    if (v === CAMP_APP_ID_ALL) c.apkAppIds = [CAMP_APP_ID_ALL];
+    else if (v) c.apkAppIds = [v];
+    else c.apkAppIds = [];
+  }
+  c.iosAppIds = campNormalizeIdPoolArray(c.iosAppIds);
+  c.aosAppIds = campNormalizeIdPoolArray(c.aosAppIds);
+  c.apkAppIds = campNormalizeIdPoolArray(c.apkAppIds);
+  campSyncLegacyAppIdFields(c);
+}
+
+function campSyncLegacyAppIdFields(c) {
+  if (!c) return;
+  if (c.iosAppIds.includes(CAMP_APP_ID_ALL)) c.iosAppId = CAMP_APP_ID_ALL;
+  else if (c.iosAppIds.length === 1) c.iosAppId = c.iosAppIds[0];
+  else if (c.iosAppIds.length > 1) c.iosAppId = c.iosAppIds.join(', ');
+  else c.iosAppId = '';
+  if (c.aosAppIds.includes(CAMP_APP_ID_ALL)) c.androidAppId = CAMP_APP_ID_ALL;
+  else if (c.aosAppIds.length === 1) c.androidAppId = c.aosAppIds[0];
+  else if (c.aosAppIds.length > 1) c.androidAppId = c.aosAppIds.join(', ');
+  else c.androidAppId = '';
+  if (c.apkAppIds.includes(CAMP_APP_ID_ALL)) c.apkAppId = CAMP_APP_ID_ALL;
+  else if (c.apkAppIds.length === 1) c.apkAppId = c.apkAppIds[0];
+  else if (c.apkAppIds.length > 1) c.apkAppId = c.apkAppIds.join(', ');
+  else c.apkAppId = '';
+  if (c.permissionScope === 'ios_only') c.appIdType = 'ios';
+  else if (c.permissionScope === 'aos_only') c.appIdType = 'android';
+  else if (c.permissionScope === 'apk_only') c.appIdType = 'apk';
+  else c.appIdType = 'all';
+}
+
+function campIdPoolHasSelection(ids) {
+  return Array.isArray(ids) && ids.length > 0;
+}
+
+function campIdPoolIsAll(ids) {
+  return Array.isArray(ids) && ids.includes(CAMP_APP_ID_ALL);
+}
+
+function campFormatIdPoolDisplay(ids) {
+  const arr = campNormalizeIdPoolArray(ids);
+  if (!arr.length) return '—';
+  if (arr.includes(CAMP_APP_ID_ALL)) return 'All';
+  if (arr.length <= 2) return arr.join(', ');
+  return arr.slice(0, 2).join(', ') + ` 等 ${arr.length} 个`;
+}
+
+function campFormatAppIdPoolSummary(c) {
+  campMigrateCampaignAppFields(c);
+  const perm = campGetPermissionScope(c);
+  const parts = [campPermissionScopeLabel(c.permissionScope)];
+  if ((perm === 'dual' || perm === 'ios_only') && c.iosAppIds.length) parts.push('iOS ' + campFormatIdPoolDisplay(c.iosAppIds));
+  if ((perm === 'dual' || perm === 'aos_only') && c.aosAppIds.length) parts.push('AOS ' + campFormatIdPoolDisplay(c.aosAppIds));
+  if ((perm === 'apk_only' || perm === 'dual' || perm === 'aos_only') && c.apkAppIds.length) parts.push('APK ' + campFormatIdPoolDisplay(c.apkAppIds));
+  return parts.join(' · ');
+}
+
+function campFormatIdPoolCardSummary(c) {
+  campMigrateCampaignAppFields(c);
+  const perm = campGetPermissionScope(c);
+  const parts = [];
+  if ((perm === 'dual' || perm === 'ios_only') && c.iosAppIds.length) {
+    parts.push('iOS ' + campFormatIdPoolDisplay(c.iosAppIds));
+  }
+  if ((perm === 'dual' || perm === 'aos_only') && c.aosAppIds.length) {
+    parts.push('AOS ' + campFormatIdPoolDisplay(c.aosAppIds));
+  }
+  if ((perm === 'apk_only' || perm === 'dual' || perm === 'aos_only') && c.apkAppIds.length) {
+    parts.push('APK ' + campFormatIdPoolDisplay(c.apkAppIds));
+  }
+  return parts.length ? parts.join(' · ') : '—';
+}
+
+function campGetPermissionScopeFromForm() {
+  const v = (document.querySelector('input[name=camp_permissionScope]:checked')?.value || 'dual').trim();
+  if (v === 'ios_only' || v === 'aos_only' || v === 'apk_only') return v;
+  return 'dual';
+}
+
+function campGetBudgetTypesFromForm() {
+  return [...document.querySelectorAll('input[name=camp_budgetTypes]:checked')].map(el => String(el.value || '').toUpperCase()).filter(Boolean);
+}
+
+function campReadIdPoolFromDom(platform) {
+  const allCb = document.querySelector(`input[data-camp-id-pool-all="${platform}"]`);
+  if (allCb?.checked) return [CAMP_APP_ID_ALL];
+  const name = platform === 'ios' ? 'camp_iosAppIds' : platform === 'aos' ? 'camp_aosAppIds' : 'camp_apkAppIds';
+  return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(el => String(el.value || '').trim()).filter(Boolean);
 }
 
 function campGetPayType() {
@@ -14726,7 +14880,8 @@ function campGetPayType() {
 }
 
 function campGetBudgetType() {
-  return (document.querySelector('input[name=camp_budgetType]:checked')?.value || '').trim();
+  const types = campGetBudgetTypesFromForm();
+  return types[0] || '';
 }
 
 function campFmtAppIdDisplay(val) {
@@ -14741,6 +14896,326 @@ function campAppIdTypeShort(t) {
   if (t === 'android') return '仅 Android';
   if (t === 'apk') return '仅 APK';
   return 'All';
+}
+
+function campGetPermissionScope(camp) {
+  if (!camp) return 'dual';
+  campNormalizeCampaign(camp);
+  if (camp.permissionScope === 'ios_only' || camp.permissionScope === 'aos_only' || camp.permissionScope === 'apk_only' || camp.permissionScope === 'dual') {
+    return camp.permissionScope;
+  }
+  return 'dual';
+}
+function campPermissionScopeLabel(scope) {
+  if (scope === 'ios_only') return '仅 iOS 权限';
+  if (scope === 'aos_only') return '仅 AOS 权限';
+  if (scope === 'apk_only') return '仅 APK 权限';
+  return '双端权限';
+}
+function campGetCampaignAppRecord(camp) {
+  if (!camp) return null;
+  campNormalizeCampaign(camp);
+  if (camp.appParentId) {
+    return (typeof appMgmtList !== 'undefined' ? appMgmtList : []).find(x => x.id === camp.appParentId) || null;
+  }
+  return (typeof appMgmtList !== 'undefined' ? appMgmtList : []).find(x => x.name === camp.appName) || null;
+}
+function campBuildDeploymentIdOptions(app, platform) {
+  if (!app) return [];
+  if (platform === 'ios') {
+    return (app.deployments?.ios || []).map(r => ({
+      id: String(r.appleId || '').trim(),
+      label: [r.flag, r.regionZh, r.appleId].filter(Boolean).join(' · ') || r.appleId,
+    })).filter(x => x.id);
+  }
+  if (platform === 'aos') {
+    return (app.deployments?.android || []).map(r => ({
+      id: String(r.pkg || '').trim(),
+      label: [r.flag, r.regionZh, r.pkg].filter(Boolean).join(' · ') || r.pkg,
+    })).filter(x => x.id);
+  }
+  if (platform === 'apk') {
+    return (app.deployments?.apk || []).map(r => ({
+      id: String(r.subId || '').trim(),
+      label: [r.flag, r.regionZh, r.subId, r.pkg].filter(Boolean).join(' · ') || r.subId,
+    })).filter(x => x.id);
+  }
+  return [];
+}
+
+function campResolveIdPool(camp, platform) {
+  campNormalizeCampaign(camp);
+  const app = campGetCampaignAppRecord(camp);
+  const allOpts = campBuildDeploymentIdOptions(app, platform);
+  const ids = platform === 'ios' ? camp.iosAppIds : platform === 'aos' ? camp.aosAppIds : camp.apkAppIds;
+  if (campIdPoolIsAll(ids)) return allOpts;
+  if (!ids.length) {
+    const legacy = platform === 'ios' ? camp.iosAppId : platform === 'aos' ? camp.androidAppId : camp.apkAppId;
+    const v = String(legacy || '').trim();
+    if (v && v !== CAMP_APP_ID_ALL) return [{ id: v, label: v }];
+    return allOpts;
+  }
+  const optMap = new Map(allOpts.map(x => [x.id, x.label]));
+  return ids.map(id => ({ id, label: optMap.get(id) || id }));
+}
+function campGetConfiguredPlatforms(camp) {
+  const out = [];
+  if (campResolveIdPool(camp, 'ios').length) out.push('ios');
+  if (campResolveIdPool(camp, 'aos').length) out.push('aos');
+  if (campResolveIdPool(camp, 'apk').length) out.push('apk');
+  return out;
+}
+function campGetPrimaryBudgetPlacement(camp) {
+  const bt = (camp?.budgetTypes || []).map(x => String(x).toUpperCase()).filter(Boolean);
+  return bt[0] || '';
+}
+function offerPlacementInCampaignBudget(camp, placementType) {
+  const pt = String(placementType || '').toUpperCase();
+  if (!pt) return false;
+  return (camp?.budgetTypes || []).map(x => String(x).toUpperCase()).includes(pt);
+}
+function offerGetPlacementBudgetNote(camp, placementType) {
+  const pt = String(placementType || '').toUpperCase();
+  if (!pt || !camp || offerPlacementInCampaignBudget(camp, pt)) return '';
+  const budgetLabel = campBudgetTypesLabel(camp);
+  return `<div class="off-run-config-hint is-warn">Campaign 预算为 ${campEsc(budgetLabel)}，实际投放 ${campEsc(pt)}（非预算类型，运营按实际情况自选）</div>`;
+}
+function offerNormalizeRunConfig(cfg, camp, placementType) {
+  cfg = cfg || {};
+  const pt = String(placementType || '').toUpperCase();
+  let ctvRunMode = ['dual', 'ios_only', 'aos_only', 'apk_only'].includes(cfg.ctvRunMode) ? cfg.ctvRunMode : 'dual';
+  let runPlatform = ['ios', 'aos', 'apk'].includes(cfg.runPlatform) ? cfg.runPlatform : 'ios';
+  let iosAppId = String(cfg.iosAppId || '').trim();
+  let aosAppId = String(cfg.aosAppId || '').trim();
+  let apkAppId = String(cfg.apkAppId || '').trim();
+  let budgetPlacement = String(cfg.budgetPlacement || '').toUpperCase();
+  if (camp) {
+    const iosPool = campResolveIdPool(camp, 'ios');
+    const aosPool = campResolveIdPool(camp, 'aos');
+    const apkPool = campResolveIdPool(camp, 'apk');
+    const iosIds = new Set(iosPool.map(x => x.id));
+    const aosIds = new Set(aosPool.map(x => x.id));
+    const apkIds = new Set(apkPool.map(x => x.id));
+    if (iosAppId && !iosIds.has(iosAppId)) iosAppId = iosPool[0]?.id || '';
+    if (aosAppId && !aosIds.has(aosAppId)) aosAppId = aosPool[0]?.id || '';
+    if (apkAppId && !apkIds.has(apkAppId)) apkAppId = apkPool[0]?.id || '';
+    const perm = campGetPermissionScope(camp);
+    const configured = campGetConfiguredPlatforms(camp);
+    if (pt === 'CTV') {
+      if (perm === 'apk_only' || (configured.length === 1 && configured[0] === 'apk')) ctvRunMode = 'apk_only';
+      else if (perm === 'ios_only' || (configured.length === 1 && configured[0] === 'ios')) ctvRunMode = 'ios_only';
+      else if (perm === 'aos_only' || (configured.length === 1 && configured[0] === 'aos')) ctvRunMode = 'aos_only';
+      else if (!iosPool.length && !aosPool.length && apkPool.length) ctvRunMode = 'apk_only';
+      else if (!iosPool.length && aosPool.length) ctvRunMode = 'aos_only';
+      else if (iosPool.length && !aosPool.length && !apkPool.length) ctvRunMode = 'ios_only';
+      if (ctvRunMode === 'apk_only' && !apkPool.length) ctvRunMode = aosPool.length ? 'aos_only' : 'ios_only';
+      if (ctvRunMode === 'ios_only' && !iosPool.length) ctvRunMode = aosPool.length ? 'aos_only' : apkPool.length ? 'apk_only' : 'dual';
+      if (ctvRunMode === 'aos_only' && !aosPool.length) ctvRunMode = iosPool.length ? 'ios_only' : apkPool.length ? 'apk_only' : 'dual';
+    } else {
+      if (perm === 'apk_only' || (configured.length === 1 && configured[0] === 'apk')) runPlatform = 'apk';
+      else if (perm === 'ios_only' || (configured.length === 1 && configured[0] === 'ios')) runPlatform = 'ios';
+      else if (perm === 'aos_only' || (configured.length === 1 && configured[0] === 'aos')) runPlatform = 'aos';
+      else if (!iosPool.length && !aosPool.length && apkPool.length) runPlatform = 'apk';
+      else if (!iosPool.length && aosPool.length) runPlatform = 'aos';
+      else if (iosPool.length && !aosPool.length && !apkPool.length) runPlatform = 'ios';
+      if (runPlatform === 'apk' && !apkPool.length) runPlatform = aosPool.length ? 'aos' : 'ios';
+      if (runPlatform === 'ios' && !iosPool.length) runPlatform = aosPool.length ? 'aos' : apkPool.length ? 'apk' : 'ios';
+      if (runPlatform === 'aos' && !aosPool.length) runPlatform = iosPool.length ? 'ios' : apkPool.length ? 'apk' : 'aos';
+    }
+    if (!budgetPlacement) budgetPlacement = campGetPrimaryBudgetPlacement(camp);
+  }
+  return {
+    budgetPlacement,
+    ctvRunMode: pt === 'CTV' ? ctvRunMode : '',
+    runPlatform: pt !== 'CTV' ? runPlatform : '',
+    iosAppId,
+    aosAppId,
+    apkAppId,
+  };
+}
+function offerBuildDefaultRunConfig(camp, placementType, existing) {
+  return offerNormalizeRunConfig(existing || {}, camp, placementType);
+}
+function offerCloneRunConfig(cfg) {
+  return { ...offerNormalizeRunConfig(cfg) };
+}
+function offerGetRunPlatformsForOffer(o, camp) {
+  const pt = String(o?.placementType || '').toUpperCase();
+  const rc = offerNormalizeRunConfig(o?.runConfig, camp, pt);
+  if (pt === 'CTV') {
+    if (rc.ctvRunMode === 'dual') return ['ios', 'aos'];
+    if (rc.ctvRunMode === 'aos_only') return ['aos'];
+    if (rc.ctvRunMode === 'apk_only') return ['apk'];
+    return ['ios'];
+  }
+  if (rc.runPlatform === 'apk') return ['apk'];
+  return [rc.runPlatform === 'aos' ? 'aos' : 'ios'];
+}
+function offerSegmentMatchesOfferRun(pkg, o, camp) {
+  if (!pkg.segmentPlacement && !pkg.segmentPlatform) return true;
+  const pt = String(o?.placementType || '').toLowerCase();
+  const platforms = offerGetRunPlatformsForOffer(o, camp);
+  const matchPt = !pkg.segmentPlacement || String(pkg.segmentPlacement).toLowerCase() === pt;
+  const matchPlat = !pkg.segmentPlatform || platforms.includes(pkg.segmentPlatform);
+  return matchPt && matchPlat;
+}
+function offerFilterSegmentCatalogForOffer(catalog, o, camp) {
+  return (catalog || []).filter(p => offerSegmentMatchesOfferRun(p, o, camp));
+}
+function offerFormatRunConfigDetail(rc, placementType, camp) {
+  const pt = String(placementType || '').toUpperCase();
+  rc = offerNormalizeRunConfig(rc, camp, pt);
+  if (pt === 'CTV') {
+    const mode = rc.ctvRunMode === 'dual' ? '双端'
+      : rc.ctvRunMode === 'aos_only' ? '单端 AOS'
+      : rc.ctvRunMode === 'apk_only' ? '单端 APK'
+      : '单端 iOS';
+    if (rc.ctvRunMode === 'dual') {
+      return `${mode} · iOS ${campEsc(rc.iosAppId || '—')} / AOS ${campEsc(rc.aosAppId || '—')}`;
+    }
+    if (rc.ctvRunMode === 'aos_only') return `${mode} · ${campEsc(rc.aosAppId || '—')}`;
+    if (rc.ctvRunMode === 'apk_only') return `${mode} · ${campEsc(rc.apkAppId || '—')}`;
+    return `${mode} · ${campEsc(rc.iosAppId || '—')}`;
+  }
+  const plat = rc.runPlatform === 'apk' ? 'APK' : rc.runPlatform === 'aos' ? 'AOS' : 'iOS';
+  const id = rc.runPlatform === 'apk' ? rc.apkAppId : rc.runPlatform === 'aos' ? rc.aosAppId : rc.iosAppId;
+  return `${plat} · ${campEsc(id || '—')}`;
+}
+function offerValidateRunConfig(runConfig, camp, placementType) {
+  if (!camp) return '请选择 Campaign';
+  const pt = String(placementType || '').toUpperCase();
+  const rc = offerNormalizeRunConfig(runConfig, camp, pt);
+  const iosPool = campResolveIdPool(camp, 'ios');
+  const aosPool = campResolveIdPool(camp, 'aos');
+  const apkPool = campResolveIdPool(camp, 'apk');
+  if (!iosPool.length && !aosPool.length && !apkPool.length) return 'Campaign 未配置可用 App ID';
+  if (pt === 'CTV') {
+    if (rc.ctvRunMode === 'dual') {
+      if (iosPool.length && !rc.iosAppId) return 'CTV 双端模式需选择 iOS App ID';
+      if (aosPool.length && !rc.aosAppId) return 'CTV 双端模式需选择 AOS App ID';
+    } else if (rc.ctvRunMode === 'ios_only') {
+      if (!rc.iosAppId) return '请选择 iOS App ID';
+    } else if (rc.ctvRunMode === 'apk_only') {
+      if (!rc.apkAppId) return '请选择 APK ID';
+    } else if (!rc.aosAppId) {
+      return '请选择 AOS App ID';
+    }
+  } else {
+    if (rc.runPlatform === 'ios' && iosPool.length && !rc.iosAppId) return '请选择 iOS App ID';
+    if (rc.runPlatform === 'aos' && aosPool.length && !rc.aosAppId) return '请选择 AOS App ID';
+    if (rc.runPlatform === 'apk' && apkPool.length && !rc.apkAppId) return '请选择 APK ID';
+  }
+  return null;
+}
+function offerSyncRunConfigFromDom() {
+  const host = document.getElementById('offRunConfigHost');
+  if (!host) return _offerFormState.runConfig;
+  const camp = offerGetSelectedCampaign();
+  const pt = document.getElementById('off_placement')?.value || '';
+  const rc = offerNormalizeRunConfig(_offerFormState.runConfig || {}, camp, pt);
+  const modeBtn = host.querySelector('[data-off-run-ctv-mode].is-active');
+  if (modeBtn) rc.ctvRunMode = modeBtn.dataset.offRunCtvMode;
+  const platBtn = host.querySelector('[data-off-run-platform].is-active');
+  if (platBtn) rc.runPlatform = platBtn.dataset.offRunPlatform;
+  const iosSel = document.getElementById('off_runIosAppId');
+  const aosSel = document.getElementById('off_runAosAppId');
+  const apkSel = document.getElementById('off_runApkAppId');
+  if (iosSel) rc.iosAppId = iosSel.value || '';
+  if (aosSel) rc.aosAppId = aosSel.value || '';
+  if (apkSel) rc.apkAppId = apkSel.value || '';
+  _offerFormState.runConfig = offerNormalizeRunConfig(rc, camp, pt);
+  return _offerFormState.runConfig;
+}
+function offerOnRunCtvModeChange(mode) {
+  offerSyncRunConfigFromDom();
+  const camp = offerGetSelectedCampaign();
+  const pt = document.getElementById('off_placement')?.value || '';
+  const rc = _offerFormState.runConfig || {};
+  rc.ctvRunMode = ['dual', 'ios_only', 'aos_only', 'apk_only'].includes(mode) ? mode : 'dual';
+  _offerFormState.runConfig = offerNormalizeRunConfig(rc, camp, pt);
+  offerRenderRunConfigSection(camp, pt);
+}
+function offerOnRunPlatformChange(platform) {
+  offerSyncRunConfigFromDom();
+  const camp = offerGetSelectedCampaign();
+  const pt = document.getElementById('off_placement')?.value || '';
+  const rc = _offerFormState.runConfig || {};
+  rc.runPlatform = platform === 'apk' ? 'apk' : platform === 'aos' ? 'aos' : 'ios';
+  _offerFormState.runConfig = offerNormalizeRunConfig(rc, camp, pt);
+  offerRenderRunConfigSection(camp, pt);
+  offerClampAttrOsRulesToCampaign(camp);
+  if (document.getElementById(audTagElId('AttributeRules'))) offerRefreshAttributeRules();
+}
+function offerRenderRunConfigSection(camp, placementType) {
+  const host = document.getElementById('offRunConfigHost');
+  const hintEl = document.getElementById('offRunConfigHint');
+  const permEl = document.getElementById('off_campPermScope');
+  if (!host) return;
+  const pt = String(placementType || document.getElementById('off_placement')?.value || '').toUpperCase();
+  if (!camp || !pt) {
+    host.innerHTML = '<span style="font-size:12px;color:#86909c">请选择 Campaign 与投放类型</span>';
+    if (hintEl) hintEl.textContent = '';
+    if (permEl) permEl.textContent = '—';
+    return;
+  }
+  const rc = offerNormalizeRunConfig(_offerFormState.runConfig || {}, camp, pt);
+  _offerFormState.runConfig = rc;
+  const perm = campGetPermissionScope(camp);
+  const configured = campGetConfiguredPlatforms(camp);
+  if (permEl) permEl.textContent = campPermissionScopeLabel(perm);
+  const iosPool = campResolveIdPool(camp, 'ios');
+  const aosPool = campResolveIdPool(camp, 'aos');
+  const apkPool = campResolveIdPool(camp, 'apk');
+  const iosOpts = iosPool.map(o => `<option value="${campEsc(o.id)}" ${rc.iosAppId === o.id ? 'selected' : ''}>${campEsc(o.label)}</option>`).join('');
+  const aosOpts = aosPool.map(o => `<option value="${campEsc(o.id)}" ${rc.aosAppId === o.id ? 'selected' : ''}>${campEsc(o.label)}</option>`).join('');
+  const apkOpts = apkPool.map(o => `<option value="${campEsc(o.id)}" ${rc.apkAppId === o.id ? 'selected' : ''}>${campEsc(o.label)}</option>`).join('');
+  const budgetNote = offerGetPlacementBudgetNote(camp, pt);
+  const platLabel = { ios: 'iOS', aos: 'AOS', apk: 'APK' };
+  const partialNote = perm === 'dual' && configured.length === 1 && configured[0] !== 'apk'
+    ? `<div class="off-run-config-hint is-warn">客户为双端权限，但 Campaign 仅配置 ${platLabel[configured[0]] || configured[0]} App ID；归因以权限为准，统计按已配 ID 记</div>`
+    : '';
+  if (pt === 'CTV') {
+    const canDual = perm !== 'ios_only' && perm !== 'aos_only' && perm !== 'apk_only' && iosPool.length && aosPool.length;
+    const modeSeg = [
+      { v: 'dual', l: '双端', show: canDual || (perm === 'dual' && iosPool.length && aosPool.length) },
+      { v: 'ios_only', l: '单端 iOS', show: iosPool.length > 0 && perm !== 'aos_only' && perm !== 'apk_only' },
+      { v: 'aos_only', l: '单端 AOS', show: aosPool.length > 0 && perm !== 'ios_only' && perm !== 'apk_only' },
+      { v: 'apk_only', l: '单端 APK', show: apkPool.length > 0 && perm !== 'ios_only' },
+    ].filter(x => x.show).map(x =>
+      `<button type="button" data-off-run-ctv-mode="${x.v}" class="${rc.ctvRunMode === x.v ? 'is-active' : ''}" onclick="offerOnRunCtvModeChange('${x.v}')">${x.l}</button>`
+    ).join('');
+    const showIos = rc.ctvRunMode === 'dual' || rc.ctvRunMode === 'ios_only';
+    const showAos = rc.ctvRunMode === 'dual' || rc.ctvRunMode === 'aos_only';
+    const showApk = rc.ctvRunMode === 'apk_only';
+    host.innerHTML = `<div class="off-run-config-block">
+      <div class="off-run-config-row"><span class="off-run-config-lbl">运行模式</span><div class="off-run-mode-seg">${modeSeg || '<span style="font-size:12px;color:#f53f3f">无可用 App ID</span>'}</div></div>
+      ${showIos ? `<div class="off-run-config-row"><span class="off-run-config-lbl">iOS App ID</span><select class="fs" id="off_runIosAppId" onchange="offerSyncRunConfigFromDom()" style="min-width:200px;max-width:360px;margin:0"><option value="">请选择</option>${iosOpts}</select></div>` : ''}
+      ${showAos ? `<div class="off-run-config-row"><span class="off-run-config-lbl">AOS App ID</span><select class="fs" id="off_runAosAppId" onchange="offerSyncRunConfigFromDom()" style="min-width:200px;max-width:360px;margin:0"><option value="">请选择</option>${aosOpts}</select></div>` : ''}
+      ${showApk ? `<div class="off-run-config-row"><span class="off-run-config-lbl">APK ID</span><select class="fs" id="off_runApkAppId" onchange="offerSyncRunConfigFromDom()" style="min-width:200px;max-width:360px;margin:0"><option value="">请选择</option>${apkOpts}</select></div>` : ''}
+      ${budgetNote}${partialNote}
+    </div>`;
+    if (hintEl) hintEl.textContent = 'CTV（TV→Mobile）：双端表示 iOS 与 AOS 均可归因；单端用于客户仅开一端权限、APK 渠道或只配一端 ID 的场景。';
+  } else {
+    const canIos = iosPool.length > 0 && perm !== 'aos_only' && perm !== 'apk_only';
+    const canAos = aosPool.length > 0 && perm !== 'ios_only' && perm !== 'apk_only';
+    const canApk = apkPool.length > 0 && perm !== 'ios_only';
+    const platSeg = [
+      canIos ? `<button type="button" data-off-run-platform="ios" class="${rc.runPlatform === 'ios' ? 'is-active' : ''}" onclick="offerOnRunPlatformChange('ios')">iOS</button>` : '',
+      canAos ? `<button type="button" data-off-run-platform="aos" class="${rc.runPlatform === 'aos' ? 'is-active' : ''}" onclick="offerOnRunPlatformChange('aos')">AOS</button>` : '',
+      canApk ? `<button type="button" data-off-run-platform="apk" class="${rc.runPlatform === 'apk' ? 'is-active' : ''}" onclick="offerOnRunPlatformChange('apk')">APK</button>` : '',
+    ].join('');
+    const idRow = rc.runPlatform === 'apk'
+      ? `<div class="off-run-config-row"><span class="off-run-config-lbl">APK ID</span><select class="fs" id="off_runApkAppId" onchange="offerSyncRunConfigFromDom()" style="min-width:200px;max-width:360px;margin:0"><option value="">请选择</option>${apkOpts}</select></div>`
+      : rc.runPlatform === 'aos'
+      ? `<div class="off-run-config-row"><span class="off-run-config-lbl">AOS App ID</span><select class="fs" id="off_runAosAppId" onchange="offerSyncRunConfigFromDom()" style="min-width:200px;max-width:360px;margin:0"><option value="">请选择</option>${aosOpts}</select></div>`
+      : `<div class="off-run-config-row"><span class="off-run-config-lbl">iOS App ID</span><select class="fs" id="off_runIosAppId" onchange="offerSyncRunConfigFromDom()" style="min-width:200px;max-width:360px;margin:0"><option value="">请选择</option>${iosOpts}</select></div>`;
+    host.innerHTML = `<div class="off-run-config-block">
+      <div class="off-run-config-row"><span class="off-run-config-lbl">运行端</span><div class="off-run-mode-seg">${platSeg || '<span style="font-size:12px;color:#f53f3f">无可用 App ID</span>'}</div></div>
+      ${idRow}
+      ${budgetNote}${partialNote}
+    </div>`;
+    if (hintEl) hintEl.textContent = pt === 'CTA' ? 'CTA（Mobile→Mobile 点击归因）：请选择单一运行端（iOS / AOS / APK）及具体 ID。' : 'VTA（Mobile→Mobile 展示归因）：请选择单一运行端（iOS / AOS / APK）及具体 ID。';
+  }
 }
 
 function campListMaterialsSummary(c) {
@@ -14791,12 +15266,12 @@ function campOpenCampaignAppIdsModal(campaignId) {
   campNormalizeCampaign(c);
   const title = document.getElementById('moCampAppIdDetailTitle');
   const body = document.getElementById('moCampAppIdDetailBody');
-  if (title) title.textContent = (c.appName || '—') + ' · App ID';
+  if (title) title.textContent = (c.appName || '—') + ' · 端权限 / ID 池';
   const kv = (k, v) => '<div style="display:grid;grid-template-columns:110px 1fr;gap:8px;padding:8px 0;font-size:13px;border-bottom:1px solid #f2f3f5"><div style="color:#86909c">' + k + '</div><div class="mono" style="word-break:break-all">' + v + '</div></div>';
-  let html = '<div style="font-size:12px;color:#4e5969;margin-bottom:8px">版本选择：' + campEsc(campAppIdTypeLabel(c.appIdType)) + '</div>';
-  html += kv('iOS App ID', campEsc(campFmtAppIdDisplay(c.iosAppId)));
-  html += kv('Android App ID', campEsc(campFmtAppIdDisplay(c.androidAppId)));
-  html += kv('APK ID', campEsc(campFmtAppIdDisplay(c.apkAppId)));
+  let html = '<div style="font-size:12px;color:#4e5969;margin-bottom:8px">端权限：' + campEsc(campPermissionScopeLabel(c.permissionScope)) + '</div>';
+  html += kv('iOS App ID 池', campEsc(campFormatIdPoolDisplay(c.iosAppIds)));
+  html += kv('AOS App ID 池', campEsc(campFormatIdPoolDisplay(c.aosAppIds)));
+  html += kv('APK ID 池', campEsc(campFormatIdPoolDisplay(c.apkAppIds)));
   if (body) body.innerHTML = html;
   openMo('moCampAppIdDetail');
 }
@@ -14870,109 +15345,88 @@ function campOnCustomerChange() {
   campUpdateCustomerSelectedDisplay();
 }
 
-function campPopulateAppIdSelectOptions(app) {
-  const iosList = app?.deployments?.ios || [];
-  const andList = app?.deployments?.android || [];
-  const apkList = app?.deployments?.apk || [];
-  const si = document.getElementById('camp_sel_ios');
-  const sa = document.getElementById('camp_sel_android');
-  const sk = document.getElementById('camp_sel_apk');
-  if (!si || !sa || !sk) return;
-  const iosOpts = iosList.map(r => {
-    const label = [r.flag, r.regionZh, r.appleId].filter(Boolean).join(' · ');
-    return `<option value="${campEsc(r.appleId)}">${campEsc(label || r.appleId)}</option>`;
-  }).join('');
-  si.innerHTML = iosOpts || '<option value="">（无 iOS 包）</option>';
-  const andOpts = andList.map(r => {
-    const label = [r.flag, r.regionZh, r.pkg].filter(Boolean).join(' · ');
-    return `<option value="${campEsc(r.pkg)}">${campEsc(label || r.pkg)}</option>`;
-  }).join('');
-  sa.innerHTML = andOpts || '<option value="">（无 Android 包）</option>';
-  const apkOpts = apkList.map(r => {
-    const label = [r.flag, r.regionZh, r.subId, r.pkg].filter(Boolean).join(' · ');
-    return `<option value="${campEsc(r.subId)}">${campEsc(label || r.subId)}</option>`;
-  }).join('');
-  sk.innerHTML = apkOpts || '<option value="">（无 APK 包）</option>';
+function campResolveIdPoolSelection(app, platform, selectedIds) {
+  const sel = campNormalizeIdPoolArray(selectedIds);
+  if (sel.length) return sel;
+  const opts = campBuildDeploymentIdOptions(app, platform);
+  if (!opts.length) return [];
+  return [CAMP_APP_ID_ALL];
 }
-
-function campSetSelectOrDefault(sel, pref, useAllDefault) {
-  if (!sel || !sel.options.length) return;
-  const p = String(pref || '').trim();
-  if (p && [...sel.options].some(o => o.value === p)) {
-    sel.value = p;
-    return;
-  }
-  if (useAllDefault && [...sel.options].some(o => o.value === CAMP_APP_ID_ALL)) {
-    sel.value = CAMP_APP_ID_ALL;
-    return;
-  }
-  const firstReal = [...sel.options].find(o => o.value && o.value !== CAMP_APP_ID_ALL);
-  if (firstReal) sel.value = firstReal.value;
-  else sel.selectedIndex = 0;
-}
-
-function campApplyAppIdSelectionDefaults() {
-  const appIdType = campGetAppIdType();
-  if (appIdType === 'all') return;
-  campSetSelectOrDefault(document.getElementById('camp_sel_ios'), _campAppIdPrefApply ? _campPrefIos : '', false);
-  campSetSelectOrDefault(document.getElementById('camp_sel_android'), _campAppIdPrefApply ? _campPrefAnd : '', false);
-  campSetSelectOrDefault(document.getElementById('camp_sel_apk'), _campAppIdPrefApply ? _campPrefApk : '', false);
-}
-
-function campToggleAppIdRows() {
-  const appIdType = campGetAppIdType();
-  const wi = document.getElementById('camp_wrap_ios');
-  const wa = document.getElementById('camp_wrap_and');
-  const wk = document.getElementById('camp_wrap_apk');
-  const wh = document.getElementById('camp_wrap_allHint');
-  if (!wi || !wa || !wk) return;
-  if (appIdType === 'all') {
-    wi.style.display = 'none';
-    wa.style.display = 'none';
-    wk.style.display = 'none';
-    if (wh) wh.style.display = '';
-  } else if (appIdType === 'ios') {
-    wi.style.display = '';
-    wa.style.display = 'none';
-    wk.style.display = 'none';
-    if (wh) wh.style.display = 'none';
-  } else if (appIdType === 'android') {
-    wi.style.display = 'none';
-    wa.style.display = '';
-    wk.style.display = 'none';
-    if (wh) wh.style.display = 'none';
-  } else {
-    wi.style.display = 'none';
-    wa.style.display = 'none';
-    wk.style.display = '';
-    if (wh) wh.style.display = 'none';
-  }
-  campSyncAppDetailLinkState();
-}
-
-function campOnAppIdTypeChange() {
-  const prevIos = document.getElementById('camp_sel_ios')?.value || '';
-  const prevAnd = document.getElementById('camp_sel_android')?.value || '';
-  const prevApk = document.getElementById('camp_sel_apk')?.value || '';
-  campToggleAppIdRows();
+function campToggleIdPoolExpand(platform) {
+  _campIdPoolExpanded[platform] = !_campIdPoolExpanded[platform];
   const app = campGetSelectedCampApp();
-  campPopulateAppIdSelectOptions(app);
-  const appIdType = campGetAppIdType();
-  if (appIdType === 'all') {
-    campSyncAppDetailLinkState();
+  const sel = campReadIdPoolFromDom(platform);
+  campRenderIdPoolHost(platform, app, sel);
+}
+function campRenderIdPoolHost(platform, app, selectedIds) {
+  const hostId = platform === 'ios' ? 'camp_iosIdPoolHost' : platform === 'aos' ? 'camp_aosIdPoolHost' : 'camp_apkIdPoolHost';
+  const host = document.getElementById(hostId);
+  if (!host) return;
+  if (!app) {
+    host.innerHTML = '<span class="camp-id-pool-empty">请先选择 App</span>';
     return;
   }
-  const si = document.getElementById('camp_sel_ios');
-  const sa = document.getElementById('camp_sel_android');
-  const sk = document.getElementById('camp_sel_apk');
-  if (appIdType === 'ios') {
-    campSetSelectOrDefault(si, prevIos, false);
-  } else if (appIdType === 'android') {
-    campSetSelectOrDefault(sa, prevAnd, false);
-  } else {
-    campSetSelectOrDefault(sk, prevApk, false);
+  const opts = campBuildDeploymentIdOptions(app, platform);
+  if (!opts.length) {
+    const emptyLbl = platform === 'ios' ? '无 iOS 包' : platform === 'aos' ? '无 Android 包' : '无 APK 包';
+    host.innerHTML = `<span class="camp-id-pool-empty">${emptyLbl}</span>`;
+    return;
   }
+  const sel = campResolveIdPoolSelection(app, platform, selectedIds);
+  const allOn = campIdPoolIsAll(sel);
+  const expanded = _campIdPoolExpanded[platform] || opts.length <= CAMP_ID_POOL_PREVIEW;
+  const showExpand = opts.length > CAMP_ID_POOL_PREVIEW;
+  const name = platform === 'ios' ? 'camp_iosAppIds' : platform === 'aos' ? 'camp_aosAppIds' : 'camp_apkAppIds';
+  const items = opts.map((o, idx) => {
+    const checked = allOn || sel.includes(o.id);
+    const extraCls = idx >= CAMP_ID_POOL_PREVIEW ? ' is-extra' : '';
+    return `<label class="camp-id-pool-item${extraCls}"><input type="checkbox" name="${name}" value="${campEsc(o.id)}" ${checked ? 'checked' : ''} onchange="campOnIdPoolItemChange('${platform}')"><span class="mono">${campEsc(o.label)}</span></label>`;
+  }).join('');
+  const expandBtn = showExpand
+    ? `<button type="button" class="camp-id-pool-expand" onclick="campToggleIdPoolExpand('${platform}')">${expanded ? '收起' : `展开全部（${opts.length}）`}</button>`
+    : '';
+  host.innerHTML = `<div class="camp-id-pool-all"><label><input type="checkbox" data-camp-id-pool-all="${platform}" ${allOn ? 'checked' : ''} onchange="campOnIdPoolAllToggle('${platform}')"> 全选</label></div><div class="camp-id-pool-list${expanded ? ' is-expanded' : ''}">${items}</div>${expandBtn}`;
+}
+
+function campToggleAppIdPoolRows() {
+  const perm = campGetPermissionScopeFromForm();
+  const wi = document.getElementById('camp_wrap_iosPool');
+  const wa = document.getElementById('camp_wrap_aosPool');
+  const wk = document.getElementById('camp_wrap_apkPool');
+  if (wi) wi.style.display = (perm === 'dual' || perm === 'ios_only') ? '' : 'none';
+  if (wa) wa.style.display = (perm === 'dual' || perm === 'aos_only') ? '' : 'none';
+  if (wk) wk.style.display = (perm === 'apk_only' || perm === 'dual' || perm === 'aos_only') ? '' : 'none';
+}
+
+function campOnPermissionScopeChange() {
+  campToggleAppIdPoolRows();
   campSyncAppDetailLinkState();
+}
+
+function campOnIdPoolAllToggle(platform) {
+  const allCb = document.querySelector(`input[data-camp-id-pool-all="${platform}"]`);
+  const name = platform === 'ios' ? 'camp_iosAppIds' : platform === 'aos' ? 'camp_aosAppIds' : 'camp_apkAppIds';
+  const on = !!allCb?.checked;
+  document.querySelectorAll(`input[name="${name}"]`).forEach(el => { el.checked = on; });
+}
+
+function campOnIdPoolItemChange(platform) {
+  const name = platform === 'ios' ? 'camp_iosAppIds' : platform === 'aos' ? 'camp_aosAppIds' : 'camp_apkAppIds';
+  const allCb = document.querySelector(`input[data-camp-id-pool-all="${platform}"]`);
+  const items = [...document.querySelectorAll(`input[name="${name}"]`)];
+  const allChecked = items.length > 0 && items.every(el => el.checked);
+  if (allCb) allCb.checked = allChecked;
+  campSyncAppDetailLinkState();
+}
+
+function campApplyAppIdPoolDefaults(app) {
+  const iosSel = _campAppIdPrefApply ? _campPrefIosIds : [];
+  const aosSel = _campAppIdPrefApply ? _campPrefAosIds : [];
+  const apkSel = _campAppIdPrefApply ? _campPrefApkIds : [];
+  campRenderIdPoolHost('ios', app, iosSel);
+  campRenderIdPoolHost('aos', app, aosSel);
+  campRenderIdPoolHost('apk', app, apkSel);
+  ['ios', 'aos', 'apk'].forEach(p => campOnIdPoolItemChange(p));
 }
 
 function campGetSelectedCampApp() {
@@ -14983,20 +15437,8 @@ function campGetSelectedCampApp() {
 
 function campSyncAppDetailLinkState() {
   const app = campGetSelectedCampApp();
-  const appIdType = campGetAppIdType();
   const btnParent = document.getElementById('camp_btn_appDetail');
-  const btnAll = document.getElementById('camp_btn_allAppDetail');
-  const btnIos = document.getElementById('camp_btn_iosDetail');
-  const btnAnd = document.getElementById('camp_btn_andDetail');
-  const btnApk = document.getElementById('camp_btn_apkDetail');
   if (btnParent) btnParent.disabled = !app;
-  if (btnAll) btnAll.disabled = !app;
-  const iosVal = (document.getElementById('camp_sel_ios')?.value || '').trim();
-  const andVal = (document.getElementById('camp_sel_android')?.value || '').trim();
-  const apkVal = (document.getElementById('camp_sel_apk')?.value || '').trim();
-  if (btnIos) btnIos.disabled = !app || appIdType !== 'ios' || !iosVal;
-  if (btnAnd) btnAnd.disabled = !app || appIdType !== 'android' || !andVal;
-  if (btnApk) btnApk.disabled = !app || appIdType !== 'apk' || !apkVal;
 }
 
 function campOpenAppParentDetail() {
@@ -15055,10 +15497,11 @@ function campOpenAppIdDetail(platform) {
   const app = campGetSelectedCampApp();
   if (!app) { showToast('请先选择 App'); return; }
   const plat = platform === 'ios' ? 'ios' : platform === 'apk' ? 'apk' : 'android';
-  const sel = document.getElementById(plat === 'ios' ? 'camp_sel_ios' : plat === 'apk' ? 'camp_sel_apk' : 'camp_sel_android');
-  const val = (sel?.value || '').trim();
-  if (!val || val === CAMP_APP_ID_ALL) {
-    showToast(plat === 'ios' ? '请先选择具体 iOS App ID' : plat === 'apk' ? '请先选择具体 APK ID' : '请先选择具体 Android App ID');
+  const poolKey = plat === 'ios' ? 'ios' : plat === 'apk' ? 'apk' : 'aos';
+  const ids = campReadIdPoolFromDom(poolKey).filter(x => x !== CAMP_APP_ID_ALL);
+  const val = ids[0] || '';
+  if (!val) {
+    showToast(plat === 'ios' ? '请先在 iOS App ID 池中勾选具体包' : plat === 'apk' ? '请先在 APK ID 池中勾选具体包' : '请先在 AOS App ID 池中勾选具体包');
     return;
   }
   const list = plat === 'ios' ? (app.deployments?.ios || []) : plat === 'apk' ? (app.deployments?.apk || []) : (app.deployments?.android || []);
@@ -15077,12 +15520,12 @@ function campOpenAppIdDetail(platform) {
 }
 
 function campOnAppParentChange() {
+  _campIdPoolExpanded = { ios: false, aos: false, apk: false };
   const sel = document.getElementById('camp_appParentId');
   const id = sel?.value || '';
   const app = (typeof appMgmtList !== 'undefined' ? appMgmtList : []).find(x => x.id === id);
-  campPopulateAppIdSelectOptions(app);
-  campApplyAppIdSelectionDefaults();
-  campToggleAppIdRows();
+  campApplyAppIdPoolDefaults(app);
+  campToggleAppIdPoolRows();
   campSyncAppDetailLinkState();
 }
 
@@ -15116,9 +15559,10 @@ function campApplyEmailImportDemo() {
     apSel.value = apps[0].id;
     campOnAppParentChange();
   }
-  const rAll = document.querySelector('#campaignFormBody input[name=camp_appIdType][value="all"]');
-  if (rAll) rAll.checked = true;
-  const rBt = document.querySelector('#campaignFormBody input[name=camp_budgetType][value="CTV"]');
+  const rPs = document.querySelector('#campaignFormBody input[name=camp_permissionScope][value="dual"]');
+  if (rPs) rPs.checked = true;
+  campOnPermissionScopeChange();
+  const rBt = document.querySelector('#campaignFormBody input[name=camp_budgetTypes][value="CTV"]');
   if (rBt) rBt.checked = true;
   const rPay = document.querySelector('#campaignFormBody input[name=camp_payType][value="CPI"]');
   if (rPay) rPay.checked = true;
@@ -15170,12 +15614,15 @@ function campGetCreatorDeptName(c) {
 function campCampaignMatchesAppIdFilter(c, q) {
   if (!q) return true;
   const ql = q.toLowerCase();
+  campMigrateCampaignAppFields(c);
   const hay = [
+    c.permissionScope,
+    campPermissionScopeLabel(c.permissionScope),
+    campFormatIdPoolCardSummary(c),
+    ...(c.iosAppIds || []),
+    ...(c.aosAppIds || []),
+    ...(c.apkAppIds || []),
     c.iosAppId, c.androidAppId, c.apkAppId,
-    campAppIdTypeShort(c.appIdType),
-    campFmtAppIdDisplay(c.iosAppId),
-    campFmtAppIdDisplay(c.androidAppId),
-    campFmtAppIdDisplay(c.apkAppId),
   ].map(x => String(x || '').toLowerCase());
   return hay.some(s => s.includes(ql));
 }
@@ -15313,7 +15760,8 @@ function campRenderCampaignCard(c) {
   const regionVal = regionSum
     ? `<span class="is-link" onclick="event.stopPropagation();campOpenCampaignRegionPricesModal('${c.id}')">${campEsc(regionSum)}</span>`
     : '—';
-  const appIdVal = `<span class="is-link" onclick="event.stopPropagation();campOpenCampaignAppIdsModal('${c.id}')">${campEsc(campAppIdTypeShort(c.appIdType))}</span>`;
+  const permVal = campEsc(campPermissionScopeLabel(campGetPermissionScope(c)));
+  const poolVal = `<span class="is-link" onclick="event.stopPropagation();campOpenCampaignAppIdsModal('${c.id}')">${campEsc(campFormatIdPoolCardSummary(c))}</span>`;
   const matSum = campListMaterialsSummary(c);
   const chgN = campGetMergedChangeTimeline(c.id).length;
   const chgBtnLabel = chgN ? `变化 (${chgN})` : '变化记录';
@@ -15325,7 +15773,7 @@ function campRenderCampaignCard(c) {
     campRenderCampaignField('接入人', campEsc(campResolveCustomerAccessorDisplay(c))),
     campRenderCampaignField('AM', campEsc(campResolveCustomerAmDisplay(c))),
     campRenderCampaignField('预算', _campaignFmtUsd(c.budgetMonthlyUsd)),
-    campRenderCampaignField('类型', campEsc(campBudgetTypesLabel(c))),
+    campRenderCampaignField('预算类型', campEsc(campBudgetTypesLabel(c))),
     campRenderCampaignField('付费', campEsc(c.payType || '—')),
     campRenderCampaignField('事件', campEsc(c.eventName || '—')),
     campRenderCampaignField('时间', campEsc(c.campaignDate || '—')),
@@ -15335,7 +15783,8 @@ function campRenderCampaignCard(c) {
     campRenderCampaignField('高敏', campFmtHighSensitivePill(c)),
     campRenderCampaignField('链接', campListLinkStatHtml(c), { wrap: true }),
     campIsOutboundCampaign(c) ? '' : campRenderCampaignField('Offer', `<span class="is-link" onclick="event.stopPropagation();goToOffersForCampaign('${c.id}',false)">${offerCnt}</span>`),
-    campRenderCampaignField('App ID', appIdVal),
+    campRenderCampaignField('端权限', permVal),
+    campRenderCampaignField('ID 池', poolVal, { wrap: true }),
   ].filter(Boolean).join('');
   return `<article class="camp-card">
     <div class="camp-card-inner">
@@ -15966,9 +16415,9 @@ function buildCampaignFormInner(d) {
   const linkHint = formOutbound
     ? '<div style="font-size:11px;color:#86909c;margin:0 0 8px">外放 Campaign 链接选填，填写后可在详情与列表中展示</div>'
     : '';
-  const btSel = (copy.budgetTypes && copy.budgetTypes[0]) || 'CTV';
+  const btSet = new Set((copy.budgetTypes || []).map(x => String(x).toUpperCase()));
   const paySel = copy.payType || 'CPI';
-  const btRadio = (v) => `<label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_budgetType" value="${v}" ${btSel === v ? 'checked' : ''}> ${v}</label>`;
+  const btCheck = (v) => `<label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" name="camp_budgetTypes" value="${v}" ${btSet.has(v) ? 'checked' : ''}> ${v}</label>`;
   const payRadio = (v) => `<label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_payType" value="${v}" ${paySel === v ? 'checked' : ''}> ${v}</label>`;
   const mmpSel = CAMP_MMP_OPTS.includes(copy.mmp) ? copy.mmp : 'AppsFlyer';
   const mmpOpts = CAMP_MMP_OPTS.map(m => `<option value="${campEsc(m)}" ${mmpSel === m ? 'selected' : ''}>${campEsc(m)}</option>`).join('');
@@ -15977,7 +16426,7 @@ function buildCampaignFormInner(d) {
     const lab = `${a.emoji || '📱'} ${a.name}`;
     return `<option value="${campEsc(a.id)}" ${copy.appParentId === a.id ? 'selected' : ''}>${campEsc(lab)}</option>`;
   }).join('');
-  const aid = copy.appIdType || 'all';
+  const permScope = copy.permissionScope || 'dual';
   const idRow = _campaignEditingId
     ? `<div class="fg" style="margin-bottom:0;grid-column:1/-1"><label class="fl">Campaign ID</label><input class="fi" readonly value="${campEsc(_campaignEditingId)}" style="background:#f7f8fa;color:#4e5969;cursor:default"></div>`
     : '';
@@ -16008,40 +16457,26 @@ function buildCampaignFormInner(d) {
             <button type="button" class="camp-app-detail-link" id="camp_btn_appDetail" onclick="campOpenAppParentDetail()" disabled>查看 App 详情</button>
           </div>
         </div>
-        <div class="fg" style="margin-bottom:0;grid-column:1/-1"><label class="fl">版本选择（App ID 类型）<span class="req">*</span></label>
+        <div class="fg" style="margin-bottom:0;grid-column:1/-1"><label class="fl">端权限<span class="req">*</span></label>
           <div class="camp-inline-rg">
-            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_appIdType" value="all" ${aid === 'all' ? 'checked' : ''} onchange="campOnAppIdTypeChange()"> All（iOS + Android + APK）</label>
-            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_appIdType" value="ios" ${aid === 'ios' ? 'checked' : ''} onchange="campOnAppIdTypeChange()"> 仅 iOS</label>
-            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_appIdType" value="android" ${aid === 'android' ? 'checked' : ''} onchange="campOnAppIdTypeChange()"> 仅 Android</label>
-            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_appIdType" value="apk" ${aid === 'apk' ? 'checked' : ''} onchange="campOnAppIdTypeChange()"> 仅 APK</label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_permissionScope" value="dual" ${permScope === 'dual' ? 'checked' : ''} onchange="campOnPermissionScopeChange()"> 双端权限（iOS + AOS）</label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_permissionScope" value="ios_only" ${permScope === 'ios_only' ? 'checked' : ''} onchange="campOnPermissionScopeChange()"> 仅 iOS 权限</label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_permissionScope" value="aos_only" ${permScope === 'aos_only' ? 'checked' : ''} onchange="campOnPermissionScopeChange()"> 仅 AOS 权限</label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="camp_permissionScope" value="apk_only" ${permScope === 'apk_only' ? 'checked' : ''} onchange="campOnPermissionScopeChange()"> 仅 APK 权限</label>
           </div>
+          <div style="font-size:11px;color:#86909c;margin-top:4px">客户合同 / MMP 维度，与下方 App ID 池独立配置</div>
         </div>
-        <div class="fg" id="camp_wrap_allHint" style="margin-bottom:0;grid-column:1/-1;display:none">
-          <div style="font-size:12px;color:#4e5969;padding:8px 12px;background:#f7f8fa;border-radius:8px;border:1px solid #ebedf0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-            <span>已选择 All，无需单独选择 App ID，默认包含全部 iOS / Android / APK 包。</span>
-            <button type="button" class="camp-app-detail-link" id="camp_btn_allAppDetail" onclick="campOpenAppParentDetail()" disabled>查看 App 详情</button>
-          </div>
+        <div class="fg" id="camp_wrap_iosPool" style="margin-bottom:0;grid-column:1/-1">
+          <label class="fl">iOS App ID 池<span class="req">*</span></label>
+          <div id="camp_iosIdPoolHost" class="camp-id-pool-host"><span class="camp-id-pool-empty">请先选择 App</span></div>
         </div>
-        <div class="fg" id="camp_wrap_ios" style="margin-bottom:0;grid-column:1/-1">
-          <label class="fl">iOS App ID</label>
-          <div class="camp-app-field-row">
-            <select class="fs" id="camp_sel_ios" onchange="campSyncAppDetailLinkState()"></select>
-            <button type="button" class="camp-app-detail-link" id="camp_btn_iosDetail" onclick="campOpenAppIdDetail('ios')" disabled>查看详情</button>
-          </div>
+        <div class="fg" id="camp_wrap_aosPool" style="margin-bottom:0;grid-column:1/-1">
+          <label class="fl">AOS App ID 池<span class="req">*</span></label>
+          <div id="camp_aosIdPoolHost" class="camp-id-pool-host"><span class="camp-id-pool-empty">请先选择 App</span></div>
         </div>
-        <div class="fg" id="camp_wrap_and" style="margin-bottom:0;grid-column:1/-1">
-          <label class="fl">Android App ID</label>
-          <div class="camp-app-field-row">
-            <select class="fs" id="camp_sel_android" onchange="campSyncAppDetailLinkState()"></select>
-            <button type="button" class="camp-app-detail-link" id="camp_btn_andDetail" onclick="campOpenAppIdDetail('android')" disabled>查看详情</button>
-          </div>
-        </div>
-        <div class="fg" id="camp_wrap_apk" style="margin-bottom:0;grid-column:1/-1">
-          <label class="fl">APK ID</label>
-          <div class="camp-app-field-row">
-            <select class="fs" id="camp_sel_apk" onchange="campSyncAppDetailLinkState()"></select>
-            <button type="button" class="camp-app-detail-link" id="camp_btn_apkDetail" onclick="campOpenAppIdDetail('apk')" disabled>查看详情</button>
-          </div>
+        <div class="fg" id="camp_wrap_apkPool" style="margin-bottom:0;grid-column:1/-1">
+          <label class="fl">APK ID 池 <span style="font-weight:400;color:#86909c">（可选）</span></label>
+          <div id="camp_apkIdPoolHost" class="camp-id-pool-host"><span class="camp-id-pool-empty">请先选择 App</span></div>
         </div>
       </div>
     </fieldset>
@@ -16057,8 +16492,9 @@ function buildCampaignFormInner(d) {
           <div class="camp-grid2">
             <div class="fg" style="margin-bottom:0"><label class="fl">预算类型<span class="req">*</span></label>
               <div class="camp-inline-rg">
-                ${btRadio('CTV')}${btRadio('CTA')}${btRadio('VTA')}
+                ${btCheck('CTV')}${btCheck('CTA')}${btCheck('VTA')}
               </div>
+              <div style="font-size:11px;color:#86909c;margin-top:4px">可多选，表示客户允许的交付类型范围</div>
             </div>
             <div class="fg" style="margin-bottom:0"><label class="fl">付费类型<span class="req">*</span></label>
               <div class="camp-inline-rg">
@@ -16256,7 +16692,8 @@ function showCampaignFormView() {
 
 function campBuildDefaultFormBase() {
   return {
-    advertiserType:'直客', customerKey:'', advertiserName:'', appParentId:'', appName:'', appIdType:'all', iosAppId:'', androidAppId:'', apkAppId:'',
+    advertiserType:'直客', customerKey:'', advertiserName:'', appParentId:'', appName:'',
+    permissionScope:'dual', iosAppIds:[], aosAppIds:[], apkAppIds:[],
     regions:[], budgetTypes:['CTV'], budgetMonthlyUsd:'', campaignDate:'',
     eventName:'install', payType:'CPI', unitPriceUsd:'', regionUnitPrices:{}, regionPriceRows:[{region:'ALL',price:''}], kpiNotes:'', capConversions:'', capPeriod:'day', extraEvents:[], mmp:'AppsFlyer',
     linkClickUrl:'', linkImpUrl:'', linkCtvUrl:'',
@@ -16438,16 +16875,19 @@ function mountCampaignFormContent(base, id) {
   }
   const ap = document.getElementById('camp_appParentId');
   if (ap && base.appParentId && [...ap.options].some(o => o.value === base.appParentId)) ap.value = base.appParentId;
-  _campPrefIos = base.iosAppId != null ? String(base.iosAppId) : '';
-  _campPrefAnd = base.androidAppId != null ? String(base.androidAppId) : '';
-  _campPrefApk = base.apkAppId != null ? String(base.apkAppId) : '';
+  _campPrefIosIds = [...(base.iosAppIds || [])];
+  _campPrefAosIds = [...(base.aosAppIds || [])];
+  _campPrefApkIds = [...(base.apkAppIds || [])];
   _campAppIdPrefApply = true;
+  const ps = base.permissionScope || 'dual';
+  const rPs = document.querySelector(`input[name=camp_permissionScope][value="${ps}"]`);
+  if (rPs) rPs.checked = true;
   campOnAppParentChange();
   _campAppIdPrefApply = false;
-  const aid = base.appIdType || 'all';
-  const r = document.querySelector(`input[name=camp_appIdType][value="${aid}"]`);
-  if (r) r.checked = true;
-  campOnAppIdTypeChange();
+  (base.budgetTypes || []).forEach(bt => {
+    const cb = document.querySelector(`input[name=camp_budgetTypes][value="${String(bt).toUpperCase()}"]`);
+    if (cb) cb.checked = true;
+  });
   campInitCampaignEventsUI(base);
   campInitCoopRegionUI(base);
   campInitBudgetTabs();
@@ -16602,26 +17042,11 @@ function collectCampaignFormObject() {
   const apps = typeof appMgmtList !== 'undefined' ? appMgmtList : [];
   const app = apps.find(x => x.id === appParentId);
   const appName = app ? app.name : '';
-  const appIdType = campGetAppIdType();
-  const si = document.getElementById('camp_sel_ios');
-  const sa = document.getElementById('camp_sel_android');
-  const sk = document.getElementById('camp_sel_apk');
-  let iosAppId = '';
-  let androidAppId = '';
-  let apkAppId = '';
-  if (appIdType === 'all') {
-    iosAppId = CAMP_APP_ID_ALL;
-    androidAppId = CAMP_APP_ID_ALL;
-    apkAppId = CAMP_APP_ID_ALL;
-  } else if (appIdType === 'ios') {
-    iosAppId = (si?.value || '').trim();
-  } else if (appIdType === 'android') {
-    androidAppId = (sa?.value || '').trim();
-  } else {
-    apkAppId = (sk?.value || '').trim();
-  }
-  const budgetType = campGetBudgetType();
-  const budgetTypes = budgetType ? [budgetType] : [];
+  const permissionScope = campGetPermissionScopeFromForm();
+  const iosAppIds = campReadIdPoolFromDom('ios');
+  const aosAppIds = campReadIdPoolFromDom('aos');
+  const apkAppIds = campReadIdPoolFromDom('apk');
+  const budgetTypes = campGetBudgetTypesFromForm();
   const prevCamp = _campaignEditingId ? campaignList.find(x => x.id === _campaignEditingId) : null;
   campSyncDraftFromRegionRows();
   const regionUnitPrices = { ...(_campDraft.regionUnitPrices || {}) };
@@ -16634,10 +17059,10 @@ function collectCampaignFormObject() {
     advertiserName,
     appParentId,
     appName,
-    appIdType: appIdType === 'ios' ? 'ios' : appIdType === 'android' ? 'android' : appIdType === 'apk' ? 'apk' : 'all',
-    iosAppId,
-    androidAppId,
-    apkAppId,
+    permissionScope,
+    iosAppIds,
+    aosAppIds,
+    apkAppIds,
     regions: [..._campDraft.regions],
     budgetTypes,
     campaignDate: (document.getElementById('camp_campaignDate')?.value || '').trim(),
@@ -16665,11 +17090,18 @@ function saveCampaignForm(saveAsStatus) {
   if (!o.advertiserName) { showToast('未解析到客户名称，请重新选择客户'); return; }
   if (!o.appParentId) { showToast('请选择 App'); return; }
   if (!o.appName) { showToast('App 数据无效'); return; }
-  if (o.appIdType === 'ios' && !o.iosAppId) { showToast('请选择 iOS App ID'); return; }
-  if (o.appIdType === 'android' && !o.androidAppId) { showToast('请选择 Android App ID'); return; }
-  if (o.appIdType === 'apk' && !o.apkAppId) { showToast('请选择 APK ID'); return; }
+  if (!['dual', 'ios_only', 'aos_only', 'apk_only'].includes(o.permissionScope)) { showToast('请选择端权限'); return; }
+  if ((o.permissionScope === 'dual' || o.permissionScope === 'ios_only') && !campIdPoolHasSelection(o.iosAppIds)) {
+    showToast('请配置 iOS App ID 池'); return;
+  }
+  if ((o.permissionScope === 'dual' || o.permissionScope === 'aos_only') && !campIdPoolHasSelection(o.aosAppIds)) {
+    showToast('请配置 AOS App ID 池'); return;
+  }
+  if (o.permissionScope === 'apk_only' && !campIdPoolHasSelection(o.apkAppIds)) {
+    showToast('请配置 APK ID 池'); return;
+  }
   if (!o.campaignDate) { showToast('请选择 Campaign 时间'); return; }
-  if (!o.budgetTypes.length) { showToast('请选择预算类型'); return; }
+  if (!o.budgetTypes.length) { showToast('请至少选择一种预算类型'); return; }
   if (Number.isNaN(o.budgetMonthlyUsd) || o.budgetMonthlyUsd <= 0) { showToast('请填写有效的预算规模（月）'); return; }
   if (!isOutbound) {
     campSyncCampaignEventsFromDom();
@@ -16681,6 +17113,7 @@ function saveCampaignForm(saveAsStatus) {
     if (priceErr) { showToast(priceErr); return; }
   }
   o.unitPriceUsd = campResolvePrimaryUnitPrice();
+  campMigrateCampaignAppFields(o);
   if (!isOutbound && !o.mmp) { showToast('请选择 MMP'); return; }
   if (!isOutbound) {
     const linkErr = campValidateCampaignLinksFromState();
@@ -16793,7 +17226,7 @@ const OFF_SEND_STRATEGY_OPTS = [
 let nextOfferSeq = 6;
 let _offerEditingId = null;
 let _offerFormMountedFor = null;
-let _offerFormState = { extraEvents: [], payEvent: null, summaryExpanded: false, deliveryMixByPlacement: {}, linkParamSelectionsByPlacement: {}, _lastPlacement: '', channelConfig: null, channelNavSel: null, autoMixConfig: null, autoReturnConfig: null, brakeConfig: null, clickRedirectConfig: null, audienceConfig: null, timeCurveConfig: null, sendStrategy: null, audienceEstimatedAt: null, audienceEstimateResult: null };
+let _offerFormState = { extraEvents: [], payEvent: null, summaryExpanded: false, deliveryMixByPlacement: {}, linkParamSelectionsByPlacement: {}, _lastPlacement: '', channelConfig: null, channelNavSel: null, runConfig: null, autoMixConfig: null, autoReturnConfig: null, brakeConfig: null, clickRedirectConfig: null, audienceConfig: null, timeCurveConfig: null, sendStrategy: null, audienceEstimatedAt: null, audienceEstimateResult: null };
 let _offBrakeRemoveIdx = null;
 
 let offerList = [
@@ -16802,14 +17235,13 @@ let offerList = [
     offerUnitPrice:3.5, campaignUnitPrice:3.5, estimatedUnitPrice:3.5,
     channelConfig:{
       globalCap:{ dailyClickCap:20000, hourlyClickCap:-1 },
-      internal:[{ id:'ch_demo_int', name:'Internal DDJ', enabled:true, dailyClickCap:-1, hourlyClickCap:-1, events:[
+      internal:[{ id:'ch_demo_int', channelRefId:'CH-INT-001', name:'Internal DDJ', channelType:'ddj', originalUnitPrice:3.2, actualUnitPrice:3.2, enabled:true, dailyClickCap:-1, hourlyClickCap:-1, events:[
         { id:'ch_ev1', eventName:'install', revenue:3.5, payout:3.2, hourlyClickCap:-1, dailyClickCap:-1, dailyConvCap:5000 },
         { id:'ch_ev2', eventName:'purchase', revenue:25, payout:20, hourlyClickCap:-1, dailyClickCap:-1, dailyConvCap:500 },
       ]}],
-      external:[{ id:'ch_demo_ext', name:'External Partner A', dailyClickCap:10000, hourlyClickCap:500, deductionEnabled:true, deductionPercent:20, events:[
-        { id:'ch_ev3', eventName:'install', revenue:3.5, payout:3.0, hourlyClickCap:-1, dailyClickCap:-1, dailyConvCap:2000 },
+      external:[{ id:'ch_demo_ext', channelRefId:'CH-EXT-001', name:'External Partner A', channelType:'emu', originalUnitPrice:3.0, actualUnitPrice:2.8, dailyClickCap:10000, hourlyClickCap:500, deductionEnabled:true, deductionPercent:20, events:[
+        { id:'ch_ev3', eventName:'install', revenue:3.5, payout:null, hourlyClickCap:-1, dailyClickCap:-1, dailyConvCap:2000 },
       ]}],
-      other:[],
     },
     deliveryStrategy:{
       subRuleId:'rule_a', subRuleName:'Rule A',
@@ -16875,14 +17307,18 @@ let offerList = [
     linkParamSelections:{ ctv:{ pid:'partner_alt' } },
     linkParamSelectionsByPlacement:{ CTV:{ ctv:{ pid:'partner_alt' } } },
     mixClickWithImp:true, clickImpPercent:50, impRatio:'50%',
+    runConfig:{ budgetPlacement:'CTV', ctvRunMode:'dual', iosAppId:'1234567890', aosAppId:'com.lucky.casino' },
     startAt:'2026-05-01', endAt:'2026-07-31', channel:'Google', channelCap:500, clickCap:20000,
     volCurveNote:'默认匀速送量', dataSource:'实时数据', dataSrcNote:'', status:'启用', createdBy:1, createdAt:'2026-05-01 10:20', hasMockStats:true },
-  { id:'OF-0002', campaignId:'CP-0001', region:'UK', regionText:'UK', pidText:'PID-UK-02', placementType:'CTA', offerKind:'RT',
+  { id:'OF-0002', campaignId:'CP-0001', region:'UK', regionText:'UK', pidText:'PID-UK-02', placementType:'VTA', offerKind:'RT',
     payEvent:{ name:'install', unitPrice:2.9, capValue:5000, capPeriod:'day' },
     offerUnitPrice:2.9, campaignUnitPrice:2.9, estimatedUnitPrice:2.9, extraEvents:[],
-    linkClickUrl:'https://app.appsflyer.com/click?pid=partner_b&c=campaign_b', linkImpUrl:'', impRatio:'',
-    linkParamSelections:{ click:{ pid:'partner_b', c:'campaign_b' } },
-    linkParamSelectionsByPlacement:{ CTA:{ click:{ pid:'partner_b', c:'campaign_b' } } },
+    linkClickUrl:'https://app.appsflyer.com/click?pid=partner_b&c=campaign_b',
+    linkImpUrl:'https://impressions.onelink.me/imp?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_viewthrough_lookback=24h',
+    impRatio:'',
+    linkParamSelections:{ imp:{ pid:'media_int', c:'campaign_a' } },
+    linkParamSelectionsByPlacement:{ VTA:{ imp:{ pid:'media_int', c:'campaign_a' } } },
+    runConfig:{ budgetPlacement:'CTV', runPlatform:'ios', iosAppId:'1234567890' },
     startAt:'2026-05-10', endAt:'2026-08-30', channel:'TikTok', channelCap:null, clickCap:5000,
     volCurveNote:'', dataSource:'混合', dataSrcNote:'',
     audienceConfig:{ dataMode:'mixed', trafficSplit:{ realtimePercent:55, offlinePercent:45 }, offline:{ packageType:'manual', selectedPackageIds:['audience_us.csv','audience_eu.csv'], packageCombineOp:'union', tagFilter:{ enabled:true, rules:[] } }, userSource:{ expanded:true, groupCombineOp:'and', groups:[{ combineOp:'and', rules:[{ field:'datapackage', operator:'is_not', value:'audience_blacklist.csv' }] }] } },
@@ -16891,6 +17327,7 @@ let offerList = [
     offerUnitPrice:18, campaignUnitPrice:18, estimatedUnitPrice:18, extraEvents:[],
     linkClickUrl:'https://view.adjust.com/click', linkImpUrl:'https://view.adjust.com/imp',
     mixClickWithImp:true, clickImpPercent:60, impRatio:'60%',
+    runConfig:{ budgetPlacement:'CTA', runPlatform:'aos', aosAppId:'com.crypto.wallet.plus' },
     audienceConfig:{ dataMode:'offline', offline:{ selectedPackageIds:['audience_sea.csv'] } },
     startAt:'2026-04-20', endAt:'2026-09-15', channel:'', channelCap:null, clickCap:null,
     volCurveNote:'', dataSource:'离线数据包', dataSrcNote:'', status:'启用', createdBy:2, createdAt:'2026-05-05 09:15', hasMockStats:true },
@@ -16951,6 +17388,10 @@ function offNormalizeOffer(o) {
   o.audienceConfig = offerNormalizeAudienceConfig(o.audienceConfig, o.dataSource);
   o.dataSource = offerDataSourceFromDataMode(o.audienceConfig.dataMode);
   o.timeCurveConfig = offerNormalizeTimeCurveConfig(o.timeCurveConfig);
+  if (o.runConfig) {
+    const camp = offerGetCampaignById(o.campaignId);
+    o.runConfig = offerNormalizeRunConfig(o.runConfig, camp, o.placementType);
+  }
   if (o.timeCurveConfig?.timeConfig?.startDate) o.startAt = o.timeCurveConfig.timeConfig.startDate;
   if (o.timeCurveConfig?.timeConfig?.endDate) o.endAt = o.timeCurveConfig.timeConfig.endDate;
   const curveLbl = offerCurveTypeLabel(o.timeCurveConfig?.curveConfig?.curveType);
@@ -17362,7 +17803,7 @@ function campFormatRegionsListHtml(c) {
 function campFormatCampaignDetailHtml(c) {
   campNormalizeCampaign(c);
   const materialsHtml = campFormatMaterialsDetailHtml(c);
-  const idTypeLabel = campAppIdTypeLabel(c.appIdType);
+  const idTypeLabel = campPermissionScopeLabel(c.permissionScope);
   const updAt = c.updatedAt || c.createdAt;
   const updBy = c.updatedBy != null ? c.updatedBy : c.createdBy;
   const g = (a, b) => `<div style="color:#86909c">${a}</div><div>${b}</div>`;
@@ -17375,9 +17816,6 @@ function campFormatCampaignDetailHtml(c) {
       ${g('更新人', campEsc(getUserNameById(updBy)))}
       ${g('更新时间', `<span class="mono">${campEsc(updAt)}</span>`)}
     </div>`;
-  const appAllNote = c.appIdType === 'all'
-    ? g('说明', '<span style="color:#4e5969">已选择 All，包含全部 iOS / Android / APK 包</span>')
-    : '';
   return `
     <fieldset class="camp-fieldset-wrap"><legend>客户信息</legend>
       ${grid([
@@ -17393,12 +17831,11 @@ function campFormatCampaignDetailHtml(c) {
     <fieldset class="camp-fieldset-wrap"><legend>App 信息</legend>
       ${grid([
         g('App 名称', campEsc(c.appName)),
-        g('版本选择', campEsc(idTypeLabel)),
-        appAllNote,
-        g('iOS App ID', `<span class="mono">${campFmtAppIdDisplay(c.iosAppId)}</span>`),
-        g('Android App ID', `<span class="mono">${campFmtAppIdDisplay(c.androidAppId)}</span>`),
-        g('APK ID', `<span class="mono">${campFmtAppIdDisplay(c.apkAppId)}</span>`),
-      ].filter(Boolean))}
+        g('端权限', campEsc(idTypeLabel)),
+        g('iOS App ID 池', `<span class="mono">${campEsc(campFormatIdPoolDisplay(c.iosAppIds))}</span>`),
+        g('AOS App ID 池', `<span class="mono">${campEsc(campFormatIdPoolDisplay(c.aosAppIds))}</span>`),
+        g('APK ID 池', `<span class="mono">${campEsc(campFormatIdPoolDisplay(c.apkAppIds))}</span>`),
+      ])}
     </fieldset>
     <fieldset class="camp-fieldset-wrap"><legend>预算信息</legend>
       ${sub('预算', grid([
@@ -18002,19 +18439,19 @@ function offerOpenCampAppIdDetail() {
 function offerUpdateCampAppInfoDisplay(camp) {
   camp = camp || offerGetSelectedCampaign();
   const nameEl = document.getElementById('off_campAppName');
-  const typeEl = document.getElementById('off_campAppIdType');
   const btn = document.getElementById('off_btn_viewAppId');
-  if (!nameEl && !typeEl && !btn) return;
+  if (!nameEl && !btn) return;
   if (!camp) {
     if (nameEl) nameEl.textContent = '—';
-    if (typeEl) typeEl.textContent = '—';
     if (btn) btn.disabled = true;
+    offerRenderRunConfigSection(null, '');
     return;
   }
   campNormalizeCampaign(camp);
   if (nameEl) nameEl.textContent = camp.appName || '—';
-  if (typeEl) typeEl.textContent = campAppIdTypeShort(camp.appIdType);
   if (btn) btn.disabled = false;
+  const pt = document.getElementById('off_placement')?.value || '';
+  offerRenderRunConfigSection(camp, pt);
 }
 function offerUpdateCampHeaderFields(camp) {
   const ptEl = document.getElementById('off_campPayType');
@@ -18134,7 +18571,7 @@ function offerFmtStatusPill(status) {
 
 function offerCountChannels(o) {
   const cfg = offerNormalizeChannelConfig(o.channelConfig);
-  const n = (cfg.external?.length || 0) + (cfg.other?.length || 0) + (cfg.internal?.some(ch => ch.enabled !== false) ? 1 : 0);
+  const n = (cfg.external?.length || 0) + (cfg.internal?.some(ch => ch.enabled !== false) ? 1 : 0);
   return n;
 }
 
@@ -18481,10 +18918,16 @@ function offerValidateChannelConfigForPayload(cfg, o) {
   cfg = offerNormalizeChannelConfig(cfg);
   for (const ch of cfg.internal) {
     if (!ch.name) return '内部渠道名称不能为空';
+    if (ch.actualUnitPrice == null || Number.isNaN(ch.actualUnitPrice) || ch.actualUnitPrice <= 0) {
+      return '内部渠道实际单价无效';
+    }
   }
   if (!o.payEvent?.name) return '付费事件未配置';
-  for (const ch of [...cfg.external, ...cfg.other]) {
-    if (!ch.name) return '渠道名称不能为空';
+  for (const ch of cfg.external) {
+    if (!ch.channelRefId || !ch.name) return '请选择外部渠道';
+    if (ch.actualUnitPrice == null || Number.isNaN(ch.actualUnitPrice) || ch.actualUnitPrice <= 0) {
+      return `渠道「${ch.name}」实际单价无效`;
+    }
     for (const ev of ch.events || []) {
       if (!ev.eventName) return '事件名称不能为空';
     }
@@ -18495,8 +18938,7 @@ function offerValidateChannelConfigForPayload(cfg, o) {
 function offerValidateNewOfferPayload(o, camp) {
   if (!camp) return 'Campaign 不存在';
   if (!campCanCreateOffer(camp)) return 'Campaign 状态不可创建 Offer';
-  const allowed = (camp.budgetTypes || []).map(x => String(x).toUpperCase());
-  if (!o.placementType || !allowed.includes(o.placementType)) return '投放类型无效';
+  if (!o.placementType || !OFF_PLACEMENT_OPTS.includes(String(o.placementType).toUpperCase())) return '投放类型无效';
   const regs = campGetCampaignRegionList(camp);
   if (!regs.includes(o.region)) return '区域无效';
   if (!camp.eventName) return 'Campaign 未配置付费事件';
@@ -18519,6 +18961,8 @@ function offerValidateNewOfferPayload(o, camp) {
   if (clickRedirectErr) return clickRedirectErr;
   const audErr = offerValidateAudienceConfig(o.audienceConfig, camp);
   if (audErr) return audErr;
+  const runErr = offerValidateRunConfig(o.runConfig, camp, o.placementType);
+  if (runErr) return runErr;
   return null;
 }
 
@@ -18541,14 +18985,15 @@ function offerBatchGetCampaignOptions(selectedId) {
 function offerBatchFillPlacementSelect(camp, selected) {
   const sel = document.getElementById('offBatchPlacement');
   if (!sel) return;
-  const allowed = new Set((camp?.budgetTypes || []).map(x => String(x).toUpperCase()));
-  const cur = selected || offerFirstAllowedPlacement(camp);
+  const budgetSet = new Set((camp?.budgetTypes || []).map(x => String(x).toUpperCase()));
+  const selPt = selected ? String(selected).toUpperCase() : '';
+  const cur = selPt && OFF_PLACEMENT_OPTS.includes(selPt) ? selPt : offerFirstAllowedPlacement(camp);
   sel.innerHTML = OFF_PLACEMENT_OPTS.map(pt => {
-    const ok = allowed.has(pt);
-    return `<option value="${pt}" ${!ok ? 'disabled' : ''} ${cur === pt && ok ? 'selected' : ''}>${pt}</option>`;
+    const inBudget = budgetSet.has(pt);
+    const suffix = inBudget ? '' : '（非预算）';
+    return `<option value="${pt}" ${cur === pt ? 'selected' : ''}>${pt}${suffix}</option>`;
   }).join('');
-  if (cur && allowed.has(cur)) sel.value = cur;
-  else if (offerFirstAllowedPlacement(camp)) sel.value = offerFirstAllowedPlacement(camp);
+  if (cur) sel.value = cur;
 }
 
 function offerBatchFillTemplateSelect(campaignId, selectedId) {
@@ -19725,7 +20170,6 @@ function offerBuildCampaignSummaryHtml(camp) {
   const sect = (title, rows) => `<div class="off-camp-summary-sect"><div class="off-camp-summary-sect-title">${campEsc(title)}</div><div class="off-camp-summary-grid">${rows}</div></div>`;
   const capLine = camp.capConversions != null ? `${campCapPeriodLabel(camp.capPeriod)} · ${campEsc(camp.capConversions)}` : '—';
   const matCount = (camp.assetFiles || []).length + (camp.assetUrls || []).length + (camp.materials || []).length;
-  const appAllNote = camp.appIdType === 'all' ? g('说明', 'All 全包') : '';
   return `<div class="off-camp-summary">
     ${sect('客户信息', [
       g('Campaign ID', `<span class="mono">${campEsc(camp.id)}</span>`),
@@ -19736,12 +20180,11 @@ function offerBuildCampaignSummaryHtml(camp) {
     ].join(''))}
     ${sect('App 信息', [
       g('App 名称', campEsc(camp.appName)),
-      g('版本选择', campEsc(campAppIdTypeLabel(camp.appIdType))),
-      appAllNote,
-      g('iOS App ID', `<span class="mono">${campFmtAppIdDisplay(camp.iosAppId)}</span>`),
-      g('Android App ID', `<span class="mono">${campFmtAppIdDisplay(camp.androidAppId)}</span>`),
-      g('APK ID', `<span class="mono">${campFmtAppIdDisplay(camp.apkAppId)}</span>`),
-    ].filter(Boolean).join(''))}
+      g('端权限', campEsc(campPermissionScopeLabel(camp.permissionScope))),
+      g('iOS App ID 池', `<span class="mono">${campEsc(campFormatIdPoolDisplay(camp.iosAppIds))}</span>`),
+      g('AOS App ID 池', `<span class="mono">${campEsc(campFormatIdPoolDisplay(camp.aosAppIds))}</span>`),
+      g('APK ID 池', `<span class="mono">${campEsc(campFormatIdPoolDisplay(camp.apkAppIds))}</span>`),
+    ].join(''))}
     ${sect('预算信息', [
       g('预算类型', campEsc(campBudgetTypesLabel(camp))),
       g('付费类型', campEsc(camp.payType)),
@@ -19790,14 +20233,15 @@ function offerFirstAllowedPlacement(camp) {
 function offerRenderPlacementOptions(selected, camp) {
   const sel = document.getElementById('off_placement');
   if (!sel) return;
-  const allowed = new Set((camp?.budgetTypes || []).map(x => String(x).toUpperCase()));
-  const cur = selected || offerFirstAllowedPlacement(camp);
+  const budgetSet = new Set((camp?.budgetTypes || []).map(x => String(x).toUpperCase()));
+  const selPt = selected ? String(selected).toUpperCase() : '';
+  const cur = selPt && OFF_PLACEMENT_OPTS.includes(selPt) ? selPt : offerFirstAllowedPlacement(camp);
   sel.innerHTML = OFF_PLACEMENT_OPTS.map(pt => {
-    const ok = allowed.has(pt);
-    return `<option value="${pt}" ${!ok ? 'disabled' : ''} ${cur === pt && ok ? 'selected' : ''}>${pt}${!ok ? '（Campaign 未勾选）' : ''}</option>`;
+    const inBudget = budgetSet.has(pt);
+    const suffix = inBudget ? '' : '（非预算类型，运营自选）';
+    return `<option value="${pt}" ${cur === pt ? 'selected' : ''}>${pt}${suffix}</option>`;
   }).join('');
-  if (cur && allowed.has(cur)) sel.value = cur;
-  else if (offerFirstAllowedPlacement(camp)) sel.value = offerFirstAllowedPlacement(camp);
+  if (cur) sel.value = cur;
 }
 
 function offerRenderRegionSelect(selected, camp) {
@@ -20125,10 +20569,13 @@ function offerOnPlacementTypeChange() {
     if (offerDeliveryMixMounted()) offerSaveDeliveryMixToStateForPlacement(prev);
     offerSaveLinkParamSelectionsForPlacement(prev);
   }
+  offerSyncRunConfigFromDom();
   const camp = offerGetSelectedCampaign();
   const pt = document.getElementById('off_placement')?.value || '';
+  _offerFormState.runConfig = offerBuildDefaultRunConfig(camp, pt, _offerFormState.runConfig);
   _offerFormState.linkParamSelections = offerGetLinkParamSelections(pt);
   offerRenderOfferPlacementExtras(camp, pt);
+  offerRenderRunConfigSection(camp, pt);
   if (document.getElementById('offAudienceHost')) {
     offerSyncAudienceFromDom();
     const ac = offerGetAudienceState();
@@ -20704,6 +21151,12 @@ function offerResetDependentFields(camp, opts) {
   offerRenderOfferPlacementExtras(camp, placement);
   offerSyncCampSummaryDisplay(camp);
   offerSyncEstimatedUnitPriceDefault(true);
+  if (opts.keepRunConfig && opts.runConfig && camp) {
+    _offerFormState.runConfig = offerNormalizeRunConfig(opts.runConfig, camp, placement);
+  } else if (camp) {
+    _offerFormState.runConfig = offerBuildDefaultRunConfig(camp, placement, opts.runConfig || _offerFormState.runConfig);
+  }
+  offerRenderRunConfigSection(camp, placement);
   offerClampAttrOsRulesToCampaign(camp);
   if (document.getElementById(audTagElId('AttributeRules'))) offerRefreshAttributeRules();
 }
@@ -20800,6 +21253,7 @@ function offerInitFormStateFromData(d, camp) {
     channelNavSel: null,
     audienceEstimatedAt: d.audienceEstimatedAt || null,
     audienceEstimateResult: null,
+    runConfig: offerBuildDefaultRunConfig(camp, placement, d.runConfig),
   };
   offerInitDeliveryMixFromData(d);
 }
@@ -20813,6 +21267,67 @@ function offerParseImpRatioStored(d) {
 
 
 function offChNewId() { return 'ch_' + Date.now() + '_' + Math.floor(Math.random() * 100000); }
+
+function offerGetChannelRegistryRecord(refId) {
+  if (!refId) return null;
+  return (typeof channelList !== 'undefined' ? channelList : []).find(c => c.id === refId) || null;
+}
+function offerListRegistryChannels(scope) {
+  return (typeof channelList !== 'undefined' ? channelList : []).filter(c => {
+    if (scope && c.scope !== scope) return false;
+    return c.status !== '停用';
+  });
+}
+function offerChannelTypeLabel(t) {
+  if (!t) return '—';
+  const hit = (typeof OFFER_CHANNEL_TYPE_OPTS !== 'undefined' ? OFFER_CHANNEL_TYPE_OPTS : []).find(o => o.v === t);
+  return hit ? hit.l : String(t);
+}
+function offerFindRegistryByChannelName(name) {
+  const n = String(name || '').trim().toLowerCase();
+  if (!n) return null;
+  return offerListRegistryChannels().find(c => String(c.name || '').trim().toLowerCase() === n) || null;
+}
+function offerSyncChannelFromRegistry(ch) {
+  ch = ch || {};
+  const rec = offerGetChannelRegistryRecord(ch.channelRefId);
+  if (!rec) return ch;
+  ch.name = rec.name;
+  ch.channelType = rec.channelType || rec.type || '';
+  ch.originalUnitPrice = rec.originalUnitPrice != null && !Number.isNaN(Number(rec.originalUnitPrice))
+    ? Number(rec.originalUnitPrice) : null;
+  return ch;
+}
+function offerBuildOfferChannelFromRegistry(rec, partial) {
+  if (!rec) return offerNormalizeChannel(partial || {}, { isExternal: true });
+  partial = partial || {};
+  const evs = (partial.events && partial.events.length)
+    ? partial.events
+    : (rec.events || []).map(e => offerNormalizeChannelEvent({
+      eventName: e.eventName,
+      payout: null,
+      hourlyClickCap: e.hourlyClickCap,
+      dailyClickCap: e.dailyClickCap,
+      dailyConvCap: e.dailyConvCap,
+    }));
+  const actual = partial.actualUnitPrice != null && !Number.isNaN(Number(partial.actualUnitPrice))
+    ? Number(partial.actualUnitPrice)
+    : (rec.originalUnitPrice != null ? Number(rec.originalUnitPrice) : null);
+  return offerNormalizeChannel({
+    ...partial,
+    channelRefId: rec.id,
+    name: rec.name,
+    channelType: rec.channelType,
+    originalUnitPrice: rec.originalUnitPrice,
+    actualUnitPrice: actual,
+    dailyClickCap: partial.dailyClickCap != null ? partial.dailyClickCap : -1,
+    hourlyClickCap: partial.hourlyClickCap != null ? partial.hourlyClickCap : -1,
+    events: evs,
+  }, { isInternal: rec.scope === 'internal', isExternal: rec.scope !== 'internal' });
+}
+function offerResolveDefaultInternalRegistry() {
+  return offerGetChannelRegistryRecord('CH-INT-001') || offerListRegistryChannels('internal')[0] || null;
+}
 function offChCapIsUnlimited(v) {
   return v == null || v === -1;
 }
@@ -20986,13 +21501,15 @@ function offerChannelNavSummary(ch, listKey) {
   const evs = (ch.events || []).filter(e => (e.eventName || '').trim());
   const names = evs.map(e => e.eventName).join('、');
   const evPart = evs.length ? `${evs.length} 事件：${names}` : '无事件';
-  return `日点击 ${offerChCapShort(ch.dailyClickCap)} · ${evPart}${dedPart}`;
+  const typePart = ch.channelType ? ` · ${offerChannelTypeLabel(ch.channelType)}` : '';
+  const pricePart = ch.actualUnitPrice != null ? ` · 实际 ${_campaignFmtUsd(ch.actualUnitPrice)}` : '';
+  return `日点击 ${offerChCapShort(ch.dailyClickCap)}${typePart}${pricePart} · ${evPart}${dedPart}`;
 }
 function offerEnsureChannelNavSel(cfg) {
   cfg = offerNormalizeChannelConfig(cfg);
   const sel = _offerFormState.channelNavSel;
   if (sel?.listKey === 'internal' && cfg.internal.some(c => c.id === sel.chId)) return sel;
-  if ((sel?.listKey === 'external' || sel?.listKey === 'other') && (cfg[sel.listKey] || []).some(c => c.id === sel.chId)) return sel;
+  if (sel?.listKey === 'external' && (cfg.external || []).some(c => c.id === sel.chId)) return sel;
   const int0 = cfg.internal[0];
   return int0 ? { listKey: 'internal', chId: int0.id } : { listKey: 'internal', chId: '' };
 }
@@ -21007,24 +21524,26 @@ function offerSyncChannelFromCard(card, prev) {
     events = [...card.querySelectorAll('.off-ch-ev-row[data-ev-id]')].map(row => {
       const evId = row.dataset.evId;
       const prevEv = (prev.events || []).find(e => e.id === evId) || {};
-      const ro = row.querySelector('.off-ch-cost-ro');
-      const rawPay = ro?.dataset?.payout;
-      let payout = prevEv.payout ?? null;
-      if (rawPay !== '' && rawPay != null) payout = offChParseNum(rawPay);
       return offerNormalizeChannelEvent({
         id: evId || offChNewId(),
         eventName: (row.querySelector('.off-ch-ev-name')?.value || '').trim(),
         revenue: null,
-        payout,
+        payout: null,
         hourlyClickCap: offChReadCapFromEl(row.querySelector('.off-ch-ev-hcap')),
         dailyClickCap: offChReadCapFromEl(row.querySelector('.off-ch-ev-dcap')),
         dailyConvCap: offChReadCapFromEl(row.querySelector('.off-ch-ev-conv')),
       });
     });
   }
+  const actualRaw = card.querySelector('.off-ch-actual-price')?.value;
+  const actualUnitPrice = actualRaw === '' || actualRaw == null ? prev.actualUnitPrice : offChParseNum(actualRaw);
   const out = {
     id: card.dataset.chId || prev.id,
-    name: (card.querySelector('.off-ch-name')?.value || '').trim() || prev.name,
+    channelRefId: (card.querySelector('.off-ch-ref')?.value || prev.channelRefId || '').trim(),
+    name: prev.name,
+    channelType: prev.channelType,
+    originalUnitPrice: prev.originalUnitPrice,
+    actualUnitPrice,
     dailyClickCap: offChReadCapFromEl(card.querySelector('.off-ch-daily')),
     hourlyClickCap: offChReadCapFromEl(card.querySelector('.off-ch-hourly')),
     events,
@@ -21037,7 +21556,7 @@ function offerSyncChannelFromCard(card, prev) {
   const dedRaw = card.querySelector('.off-ch-deduction-pct')?.value;
   const ded = parseInt(dedRaw, 10);
   out.deductionPercent = Number.isNaN(ded) ? 0 : Math.max(0, Math.min(100, ded));
-  return offerNormalizeChannel(out, { isInternal });
+  return offerNormalizeChannel(out, { isInternal, isExternal: !isInternal });
 }
 function offerOnChannelDeductionToggle(inp) {
   const card = inp?.closest('.off-ch-card');
@@ -21086,6 +21605,7 @@ function offerRenderInternalRunSwitch(ch) {
 }
 function offerRefreshChannelNavMeta() {
   if (!_offerFormState.channelConfig) return;
+  offerSyncChannelConfigFromDom();
   const cfg = _offerFormState.channelConfig;
   document.querySelectorAll('.off-ch-nav-item[data-list][data-ch-id]').forEach(btn => {
     const listKey = btn.dataset.list;
@@ -21108,14 +21628,7 @@ function offerRefreshChannelNavMeta() {
   });
 }
 function offerOnChannelNameInput() {
-  const card = document.querySelector('#offChDetailHost .off-ch-card');
-  if (!card) return;
-  const name = (card.querySelector('.off-ch-name')?.value || '').trim() || '(未命名渠道)';
-  const item = document.querySelector(`.off-ch-nav-item[data-ch-id="${CSS.escape(card.dataset.chId)}"]`);
-  if (item) {
-    const nm = item.querySelector('.nm');
-    if (nm) nm.textContent = name;
-  }
+  offerRefreshChannelNavMeta();
 }
 function offerSelectChannel(listKey, chId) {
   offerSyncChannelConfigFromDom();
@@ -21136,7 +21649,6 @@ function offerRenderChannelNavItem(ch, listKey, active) {
 function offerRenderChannelNav(cfg, sel) {
   const internal = cfg.internal || [];
   const external = cfg.external || [];
-  const other = cfg.other || [];
   let html = '<div class="off-ch-nav-scroll">';
   html += '<div class="off-ch-nav-grp"><div class="off-ch-nav-grp-title">内部渠道</div>';
   internal.forEach(ch => {
@@ -21148,11 +21660,6 @@ function offerRenderChannelNav(cfg, sel) {
     html += offerRenderChannelNavItem(ch, 'external', sel.listKey === 'external' && sel.chId === ch.id);
   });
   html += `<button type="button" class="off-ch-nav-add" onclick="offerAddExternalChannel()"><i class="fa-solid fa-plus"></i> 添加外部渠道</button></div>`;
-  html += `<div class="off-ch-nav-grp"><div class="off-ch-nav-grp-title">其他渠道${other.length ? ` (${other.length})` : ''}</div>`;
-  other.forEach(ch => {
-    html += offerRenderChannelNavItem(ch, 'other', sel.listKey === 'other' && sel.chId === ch.id);
-  });
-  html += `<button type="button" class="off-ch-nav-add" onclick="offerAddOtherChannel()"><i class="fa-solid fa-plus"></i> 添加其他渠道</button></div>`;
   html += '</div>';
   return html;
 }
@@ -21162,16 +21669,16 @@ function offerRenderChannelDetail(cfg, sel) {
   if (listKey === 'internal') ch = cfg.internal.find(c => c.id === sel.chId) || cfg.internal[0];
   else ch = (cfg[listKey] || []).find(c => c.id === sel.chId);
   if (!ch) return '<div class="off-ch-detail-empty">请从左侧选择渠道</div>';
-  const typeLabel = { internal: '内部渠道', external: '外部渠道', other: '其他渠道' }[listKey] || '渠道';
+  const typeLabel = listKey === 'internal' ? '内部渠道' : '外部渠道';
   const typeHint = listKey === 'internal'
     ? (ch.enabled === false ? '已关闭跑量 · 事件沿用模块一' : '已开启跑量 · 事件沿用模块一')
-    : (listKey === 'external' ? '成本由渠道侧配置' : 'EMU 等');
+    : '渠道信息来自渠道模块，实际单价可在 Offer 侧配置';
   const title = `<div style="margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #f2f3f5">
     <div style="font-size:13px;font-weight:600;color:#1d2129">${campEsc(typeLabel)}</div>
     <div style="font-size:11px;color:#86909c;margin-top:1px">${campEsc(typeHint)}</div></div>`;
   const card = listKey === 'internal'
-    ? offerRenderChannelCard(ch, 'internal', { hideDeleteChannel: true })
-    : offerRenderChannelCard(ch, listKey, { canDeleteChannel: true });
+    ? offerRenderChannelCard(ch, 'internal', { hideDeleteChannel: true, cfg })
+    : offerRenderChannelCard(ch, listKey, { canDeleteChannel: true, cfg });
   return title + card;
 }
 function offerNormalizeChannelEvent(ev) {
@@ -21191,9 +21698,22 @@ function offerNormalizeChannel(ch, opts) {
   ch = ch || {};
   const events = (Array.isArray(ch.events) ? ch.events : []).map(offerNormalizeChannelEvent).filter(e => e.eventName || e.revenue != null || e.payout != null);
   const ded = parseInt(ch.deductionPercent, 10);
-  const out = {
+  let channelRefId = String(ch.channelRefId || '').trim();
+  if (!channelRefId && opts.isInternal) {
+    const intRec = offerResolveDefaultInternalRegistry();
+    if (intRec) channelRefId = intRec.id;
+  }
+  if (!channelRefId && ch.name) {
+    const byName = offerFindRegistryByChannelName(ch.name);
+    if (byName) channelRefId = byName.id;
+  }
+  let out = {
     id: ch.id || offChNewId(),
+    channelRefId,
     name: String(ch.name || '').trim(),
+    channelType: String(ch.channelType || '').trim(),
+    originalUnitPrice: ch.originalUnitPrice != null && !Number.isNaN(Number(ch.originalUnitPrice)) ? Number(ch.originalUnitPrice) : null,
+    actualUnitPrice: ch.actualUnitPrice != null && !Number.isNaN(Number(ch.actualUnitPrice)) ? Number(ch.actualUnitPrice) : null,
     dailyClickCap: ch.dailyClickCap != null ? offChParseIntCap(ch.dailyClickCap) : -1,
     hourlyClickCap: ch.hourlyClickCap != null ? offChParseIntCap(ch.hourlyClickCap) : -1,
     deductionEnabled: !!ch.deductionEnabled,
@@ -21201,22 +21721,28 @@ function offerNormalizeChannel(ch, opts) {
     events,
   };
   if (opts.isInternal) out.enabled = ch.enabled !== false;
+  out = offerSyncChannelFromRegistry(out);
+  if (out.actualUnitPrice == null && out.originalUnitPrice != null) out.actualUnitPrice = out.originalUnitPrice;
   return out;
 }
 function offerNormalizeChannelConfig(cfg) {
   cfg = cfg || {};
+  const legacyOther = Array.isArray(cfg.other) ? cfg.other : [];
   let internal = (Array.isArray(cfg.internal) ? cfg.internal : (cfg.internal ? [cfg.internal] : [])).map(ch => offerNormalizeChannel(ch, { isInternal: true }));
   if (!internal.length) {
-    internal = [offerNormalizeChannel({ id: offChNewId(), name: 'Internal DDJ', enabled: true, dailyClickCap: -1, hourlyClickCap: -1, events: [] }, { isInternal: true })];
+    const intRec = offerResolveDefaultInternalRegistry();
+    internal = [intRec
+      ? offerBuildOfferChannelFromRegistry(intRec, { enabled: true, dailyClickCap: -1, hourlyClickCap: -1, events: [] })
+      : offerNormalizeChannel({ id: offChNewId(), name: 'Internal DDJ', enabled: true, dailyClickCap: -1, hourlyClickCap: -1, events: [] }, { isInternal: true })];
   }
+  const external = [...(Array.isArray(cfg.external) ? cfg.external : []), ...legacyOther].map(ch => offerNormalizeChannel(ch, { isExternal: true }));
   return {
     globalCap: {
       dailyClickCap: cfg.globalCap?.dailyClickCap != null ? offChParseIntCap(cfg.globalCap.dailyClickCap) : -1,
       hourlyClickCap: cfg.globalCap?.hourlyClickCap != null ? offChParseIntCap(cfg.globalCap.hourlyClickCap) : -1,
     },
     internal,
-    external: (Array.isArray(cfg.external) ? cfg.external : []).map(offerNormalizeChannel),
-    other: (Array.isArray(cfg.other) ? cfg.other : []).map(offerNormalizeChannel),
+    external,
   };
 }
 function offerCloneChannelConfig(cfg) {
@@ -21225,26 +21751,32 @@ function offerCloneChannelConfig(cfg) {
     globalCap: { ...n.globalCap },
     internal: n.internal.map(ch => ({ ...ch, events: ch.events.map(e => ({ ...e })) })),
     external: n.external.map(ch => ({ ...ch, events: ch.events.map(e => ({ ...e })) })),
-    other: n.other.map(ch => ({ ...ch, events: ch.events.map(e => ({ ...e })) })),
   };
 }
 function offerBuildChannelConfigFromCampaign(camp) {
   const def = camp?.defaultChannelConfig;
+  const intRec = offerResolveDefaultInternalRegistry();
   if (def) {
-    const cfg = {
-      globalCap: { dailyClickCap: -1, hourlyClickCap: -1 },
-      internal: def.internal ? [def.internal] : [],
-      external: [...(def.external || [])],
-      other: [...(def.other || [])],
-    };
-    return offerNormalizeChannelConfig(cfg);
+    const intPartial = def.internal || {};
+    const internal = [intRec
+      ? offerBuildOfferChannelFromRegistry(intRec, { ...intPartial, enabled: intPartial.enabled !== false })
+      : offerNormalizeChannel({ ...intPartial, enabled: intPartial.enabled !== false }, { isInternal: true })];
+    const external = (def.external || []).map(ext => {
+      const rec = offerFindRegistryByChannelName(ext.name) || offerListRegistryChannels('external')[0];
+      return rec ? offerBuildOfferChannelFromRegistry(rec, ext) : offerNormalizeChannel(ext, { isExternal: true });
+    });
+    return offerNormalizeChannelConfig({ globalCap: { dailyClickCap: -1, hourlyClickCap: -1 }, internal, external });
   }
   const ev0 = offerDefaultChannelEventFromCampaign(camp);
+  const extRec = offerListRegistryChannels('external')[0];
   return offerNormalizeChannelConfig({
     globalCap: { dailyClickCap: -1, hourlyClickCap: -1 },
-    internal: [{ name: 'Internal DDJ', enabled: true, dailyClickCap: -1, hourlyClickCap: -1, events: ev0 ? [ev0] : [] }],
-    external: [{ name: 'External DDJ', dailyClickCap: -1, hourlyClickCap: -1, events: ev0 ? [{ ...ev0, id: offChNewId() }] : [] }],
-    other: [],
+    internal: [intRec
+      ? offerBuildOfferChannelFromRegistry(intRec, { enabled: true, dailyClickCap: -1, hourlyClickCap: -1, events: ev0 ? [ev0] : [] })
+      : offerNormalizeChannel({ name: 'Internal DDJ', enabled: true, dailyClickCap: -1, hourlyClickCap: -1, events: ev0 ? [ev0] : [] }, { isInternal: true })],
+    external: extRec
+      ? [offerBuildOfferChannelFromRegistry(extRec, { dailyClickCap: -1, hourlyClickCap: -1, events: ev0 ? [{ ...ev0, id: offChNewId(), payout: null }] : [] })]
+      : [],
   });
 }
 function offerRenderChannelEventDatalist(listKey, chId) {
@@ -21260,7 +21792,6 @@ function offerRenderChannelEventRows(ch, listKey) {
   const rows = events.map(ev => `
     <div class="off-ch-ev-row is-ext" data-list="${listKey}" data-ch-id="${campEsc(ch.id)}" data-ev-id="${campEsc(ev.id)}">
       <input class="fi off-ch-ev-name" list="offChEvDl_${listKey}_${ch.id}" value="${campEsc(ev.eventName)}" placeholder="事件名称">
-      ${offerFormatChannelCostDisplay(ev.payout)}
       ${offerChCapField(ev.hourlyClickCap, 'off-ch-ev-hcap')}
       ${offerChCapField(ev.dailyClickCap, 'off-ch-ev-dcap')}
       ${offerChCapField(ev.dailyConvCap, 'off-ch-ev-conv')}
@@ -21272,7 +21803,7 @@ function offerRenderChannelEventRows(ch, listKey) {
 }
 function offerRenderChannelEventTable(ch, listKey) {
   const tableHead = `<div class="off-ch-ev-hd is-ext">
-    <span>事件名称</span><span>成本 (Payout)</span><span>每小时点击上限</span><span>每日点击上限</span><span>每日转化上限</span><span>操作</span>
+    <span>事件名称</span><span>每小时点击上限</span><span>每日点击上限</span><span>每日转化上限</span><span>操作</span>
   </div>`;
   const body = (ch.events || []).length
     ? offerRenderChannelEventRows(ch, listKey)
@@ -21280,8 +21811,64 @@ function offerRenderChannelEventTable(ch, listKey) {
   return `<div class="off-ch-ev-table">${tableHead}${body}</div>
     <button type="button" class="cm-btn camp-coop-btn-sm off-ch-btn-add" onclick="offerAddChannelEvent('${listKey}','${campEsc(ch.id)}')"><i class="fa-solid fa-plus" style="color:#00b578"></i> 添加事件</button>`;
 }
+function offerRenderChannelRefSelect(ch, listKey, cfg) {
+  const scope = listKey === 'internal' ? 'internal' : 'external';
+  const opts = offerListRegistryChannels(scope);
+  const used = new Set((cfg?.external || []).map(c => c.channelRefId).filter(Boolean));
+  if (listKey === 'internal') {
+    return `<span class="off-ch-meta-val">${campEsc(ch.name || '—')}</span>`;
+  }
+  const cur = ch.channelRefId || '';
+  const html = opts.map(rec => {
+    const disabled = used.has(rec.id) && rec.id !== cur;
+    return `<option value="${campEsc(rec.id)}" ${rec.id === cur ? 'selected' : ''} ${disabled ? 'disabled' : ''}>${campEsc(rec.name)} · ${campEsc(offerChannelTypeLabel(rec.channelType))}</option>`;
+  }).join('');
+  return `<select class="fs off-ch-ref" onchange="offerOnChannelRefChange('${listKey}','${campEsc(ch.id)}')"><option value="">请选择渠道</option>${html}</select>`;
+}
+function offerRenderChannelInfoGrid(ch, listKey, cfg) {
+  const synced = offerSyncChannelFromRegistry(ch);
+  const origPending = synced.originalUnitPrice == null;
+  const origTxt = origPending ? '待配置' : _campaignFmtUsd(synced.originalUnitPrice);
+  const actualVal = synced.actualUnitPrice != null ? campEsc(synced.actualUnitPrice) : '';
+  const typeTxt = offerChannelTypeLabel(synced.channelType);
+  return `<div class="off-ch-info-row">
+    <div class="off-ch-info-item off-ch-info-item--name"><label class="fl">渠道名称<span class="req">*</span></label>${offerRenderChannelRefSelect(synced, listKey, cfg)}</div>
+    <div class="off-ch-info-item off-ch-info-item--type"><label class="fl">渠道类型</label><span class="off-ch-meta-val">${campEsc(typeTxt)}</span></div>
+    <div class="off-ch-info-item off-ch-info-item--orig"><label class="fl">原始单价</label><span class="off-ch-meta-val off-ch-original-price${origPending ? ' is-muted' : ''}">${campEsc(origTxt)}</span></div>
+    <div class="off-ch-info-item off-ch-info-item--actual"><label class="fl">实际单价<span class="req">*</span></label>
+      <input class="fi off-ch-actual-price" type="number" step="0.01" min="0" value="${actualVal}" placeholder="可配置" oninput="offerRefreshChannelNavMeta()"></div>
+  </div>`;
+}
+function offerOnChannelRefChange(listKey, chId) {
+  offerSyncChannelConfigFromDom();
+  const cfg = _offerFormState.channelConfig;
+  const list = listKey === 'internal' ? cfg.internal : cfg.external;
+  const ch = list.find(c => c.id === chId);
+  if (!ch) return;
+  const card = document.querySelector(`.off-ch-card[data-list="${listKey}"][data-ch-id="${CSS.escape(chId)}"]`);
+  const refId = card?.querySelector('.off-ch-ref')?.value || '';
+  const rec = offerGetChannelRegistryRecord(refId);
+  if (!rec) {
+    ch.channelRefId = '';
+    offerRenderChannelConfigModule();
+    return;
+  }
+  const prevActual = ch.actualUnitPrice;
+  const rebuilt = offerBuildOfferChannelFromRegistry(rec, {
+    ...ch,
+    actualUnitPrice: prevActual != null ? prevActual : rec.originalUnitPrice,
+    deductionEnabled: ch.deductionEnabled,
+    deductionPercent: ch.deductionPercent,
+    dailyClickCap: ch.dailyClickCap,
+    hourlyClickCap: ch.hourlyClickCap,
+  });
+  Object.assign(ch, rebuilt);
+  _offerFormState.channelNavSel = { listKey, chId };
+  offerRenderChannelConfigModule();
+}
 function offerRenderChannelCard(ch, listKey, opts) {
   opts = opts || {};
+  const cfg = opts.cfg || _offerFormState.channelConfig;
   const isInternal = listKey === 'internal';
   const canDelChannel = !!opts.canDeleteChannel;
   const hideDel = opts.hideDeleteChannel;
@@ -21297,8 +21884,7 @@ function offerRenderChannelCard(ch, listKey, opts) {
   return `<div class="off-ch-card${cardOffCls}" data-list="${listKey}" data-ch-id="${campEsc(ch.id)}">
     ${isInternal ? offerRenderInternalRunSwitch(ch) : ''}
     <div class="off-ch-card-hd">
-      <div class="fg"><label class="fl">渠道名称<span class="req">*</span></label>
-        <input class="fi off-ch-name" value="${campEsc(ch.name)}" placeholder="渠道名称" oninput="offerOnChannelNameInput()"></div>
+      ${offerRenderChannelInfoGrid(ch, listKey, cfg)}
       ${delBtn}
     </div>
     <div class="off-ch-caps-row">
@@ -21390,16 +21976,12 @@ function offerRemoveChannelEvent(listKey, chId, evId) {
 }
 function offerAddExternalChannel() {
   offerSyncChannelConfigFromDom();
-  const ch = offerNormalizeChannel({ name: '', dailyClickCap: -1, hourlyClickCap: -1, events: [] });
+  const used = new Set((_offerFormState.channelConfig?.external || []).map(c => c.channelRefId).filter(Boolean));
+  const pick = offerListRegistryChannels('external').find(c => !used.has(c.id));
+  if (!pick) { showToast('渠道模块无更多可用外部渠道'); return; }
+  const ch = offerBuildOfferChannelFromRegistry(pick, { dailyClickCap: -1, hourlyClickCap: -1, events: [] });
   _offerFormState.channelConfig.external.push(ch);
   _offerFormState.channelNavSel = { listKey: 'external', chId: ch.id };
-  offerRenderChannelConfigModule();
-}
-function offerAddOtherChannel() {
-  offerSyncChannelConfigFromDom();
-  const ch = offerNormalizeChannel({ name: '', dailyClickCap: -1, hourlyClickCap: -1, events: [] });
-  _offerFormState.channelConfig.other.push(ch);
-  _offerFormState.channelNavSel = { listKey: 'other', chId: ch.id };
   offerRenderChannelConfigModule();
 }
 function offerRemoveChannel(listKey, chId) {
@@ -21421,14 +22003,20 @@ function offerValidateChannelConfig(cfg) {
   cfg = offerNormalizeChannelConfig(cfg);
   for (const ch of cfg.internal) {
     if (!ch.name) return '内部渠道名称不能为空';
+    if (ch.actualUnitPrice == null || Number.isNaN(ch.actualUnitPrice) || ch.actualUnitPrice <= 0) {
+      return '内部渠道请填写有效的实际单价';
+    }
   }
   const m1 = offerEventsFromModule1();
   if (!m1.length) return '请先在模块一配置付费事件';
   for (const ev of m1) {
     if (!ev.eventName) return '模块一事件名称不能为空';
   }
-  for (const ch of [...cfg.external, ...cfg.other]) {
-    if (!ch.name) return '渠道名称不能为空';
+  for (const ch of cfg.external) {
+    if (!ch.channelRefId || !ch.name) return '请选择外部渠道';
+    if (ch.actualUnitPrice == null || Number.isNaN(ch.actualUnitPrice) || ch.actualUnitPrice <= 0) {
+      return `渠道「${ch.name}」请填写有效的实际单价`;
+    }
     for (const ev of ch.events) {
       if (!ev.eventName) return '事件名称不能为空';
     }
@@ -21438,24 +22026,21 @@ function offerValidateChannelConfig(cfg) {
 function offerFormatChannelConfigDetailHtml(cfg) {
   cfg = offerNormalizeChannelConfig(cfg);
   const capTxt = (v) => v === -1 ? '无限制' : String(v);
-  const costTxt = (p) => p != null && !Number.isNaN(Number(p)) ? _campaignFmtUsd(p) : '待配置';
   const chBlock = (ch, isInternal) => {
     const evs = (ch.events || []).map(ev => {
       const capPart = `转化 Cap ${capTxt(ev.dailyConvCap)}`;
-      if (isInternal) {
-        return `<li>${campEsc(ev.eventName)}${ev.payout != null ? ` · ${_campaignFmtUsd(ev.payout)}` : ''} · ${capPart}</li>`;
-      }
-      return `<li>${campEsc(ev.eventName)} · 成本 ${costTxt(ev.payout)} · ${capPart}</li>`;
+      return `<li>${campEsc(ev.eventName)} · ${capPart}</li>`;
     }).join('') || '<li style="color:#86909c">无事件</li>';
     const runBadge = isInternal
       ? `<span style="margin-left:6px;font-size:11px;font-weight:500;color:${ch.enabled === false ? '#f53f3f' : '#00b578'}">${ch.enabled === false ? '未开启' : '已开启'}</span>`
       : '';
+    const metaLine = `<div style="font-size:11px;color:#4e5969;margin-top:2px">${campEsc(offerChannelTypeLabel(ch.channelType))} · 原始 ${ch.originalUnitPrice != null ? _campaignFmtUsd(ch.originalUnitPrice) : '—'} · 实际 ${ch.actualUnitPrice != null ? _campaignFmtUsd(ch.actualUnitPrice) : '—'}</div>`;
     const dedLine = ch.deductionEnabled
       ? `<div style="font-size:11px;color:#4e5969;margin-top:4px">扣量：${ch.deductionPercent}%（下发 ${100 - (ch.deductionPercent || 0)}%）</div>`
       : '';
     return `<div style="margin-bottom:10px;padding:8px 10px;background:#fafbfc;border-radius:6px;font-size:12px">
       <div style="font-weight:600;margin-bottom:4px">${campEsc(ch.name)}${runBadge} <span style="color:#86909c;font-weight:400">日点击 ${capTxt(ch.dailyClickCap)} / 时点击 ${capTxt(ch.hourlyClickCap)}</span></div>
-      ${dedLine}
+      ${metaLine}${dedLine}
       <ul style="margin:4px 0 0 18px;padding:0">${evs}</ul></div>`;
   };
   const gc = cfg.globalCap;
@@ -21463,7 +22048,6 @@ function offerFormatChannelConfigDetailHtml(cfg) {
     <div style="margin-bottom:8px"><strong>全局 Cap：</strong>日点击 ${capTxt(gc.dailyClickCap)} · 时点击 ${capTxt(gc.hourlyClickCap)}</div>
     <div style="margin-bottom:6px;font-weight:600">内部渠道 <span style="color:#86909c;font-weight:400">（事件来自模块一）</span></div>${cfg.internal.map(ch => chBlock(ch, true)).join('')}
     <div style="margin:10px 0 6px;font-weight:600">外部渠道</div>${cfg.external.length ? cfg.external.map(ch => chBlock(ch, false)).join('') : '<div style="color:#86909c">无</div>'}
-    <div style="margin:10px 0 6px;font-weight:600">其他渠道</div>${cfg.other.length ? cfg.other.map(ch => chBlock(ch, false)).join('') : '<div style="color:#86909c">无</div>'}
   </div>`;
 }
 
@@ -22899,14 +23483,14 @@ function offerFormatDeliveryStrategyDetailHtml(ds, paramReplace, autoBoost, user
 }
 
 const OFF_AUDIENCE_SEGMENT_CATALOG = [
-  { id: 'audience_us.csv', label: 'US 离线受众包', pkgType: 'manual', updatedAt: '2026-05-01 10:30', rowCount: '约 120 万' },
-  { id: 'audience_eu.csv', label: 'EU 离线受众包', pkgType: 'manual', updatedAt: '2026-05-08 14:20', rowCount: '约 85 万' },
-  { id: 'audience_sea.csv', label: 'SEA 离线受众包', pkgType: 'manual', updatedAt: '2026-05-12 09:15', rowCount: '约 62 万' },
-  { id: 'audience_retarget.csv', label: '再营销高价值用户', updatedAt: '2026-05-15 16:40', rowCount: '约 35 万', pkgType: 'manual' },
+  { id: 'audience_us.csv', label: 'US 离线受众包', pkgType: 'manual', segmentPlacement: 'ctv', segmentPlatform: 'ios', updatedAt: '2026-05-01 10:30', rowCount: '约 120 万' },
+  { id: 'audience_eu.csv', label: 'EU 离线受众包', pkgType: 'manual', segmentPlacement: 'cta', segmentPlatform: 'aos', updatedAt: '2026-05-08 14:20', rowCount: '约 85 万' },
+  { id: 'audience_sea.csv', label: 'SEA 离线受众包', pkgType: 'manual', segmentPlacement: 'vta', segmentPlatform: 'aos', updatedAt: '2026-05-12 09:15', rowCount: '约 62 万' },
+  { id: 'audience_retarget.csv', label: '再营销高价值用户', pkgType: 'manual', updatedAt: '2026-05-15 16:40', rowCount: '约 35 万' },
   { id: 'audience_blacklist.csv', label: '黑名单过滤包', pkgType: 'manual', updatedAt: '2026-05-08 09:00', rowCount: '约 1.3 万' },
-  { id: 'audience_algo_ltv.csv', label: 'LTV 算法受众包', pkgType: 'algorithm', updatedAt: '2026-05-10 11:00', rowCount: '约 90 万' },
-  { id: 'audience_algo_intent.csv', label: '高意图算法包', pkgType: 'algorithm', updatedAt: '2026-05-14 15:30', rowCount: '约 48 万' },
-  { id: 'audience_algo_churn.csv', label: '流失挽回算法包', pkgType: 'algorithm', updatedAt: '2026-05-16 09:45', rowCount: '约 22 万' },
+  { id: 'audience_algo_ltv.csv', label: 'LTV 算法受众包', pkgType: 'algorithm', segmentPlacement: 'ctv', segmentPlatform: 'ios', updatedAt: '2026-05-10 11:00', rowCount: '约 90 万' },
+  { id: 'audience_algo_intent.csv', label: '高意图算法包', pkgType: 'algorithm', segmentPlacement: 'cta', segmentPlatform: 'ios', updatedAt: '2026-05-14 15:30', rowCount: '约 48 万' },
+  { id: 'audience_algo_churn.csv', label: '流失挽回算法包', pkgType: 'algorithm', segmentPlacement: 'vta', segmentPlatform: 'aos', updatedAt: '2026-05-16 09:45', rowCount: '约 22 万' },
 ];
 const OFF_AUDIENCE_OFFLINE_TAG_FIELDS = [
   { id: 'language', label: '语言', placeholder: '如 en, zh' },
@@ -23041,18 +23625,23 @@ const OFF_AUDIENCE_ATTR_VALUE_OPTIONS = {
   region: (typeof CAMP_REGION_OPTS !== 'undefined' ? CAMP_REGION_OPTS : ['ALL', 'US', 'SEA']).map(v => ({ v, l: OFF_AUDIENCE_ATTR_GEO_LABELS[v] || v })),
   os: OFF_AUDIENCE_ATTR_OS_OPTS,
 };
-function offerCampAppIdTypeToOsAllowed(appIdType) {
-  const t = (appIdType || 'all').trim();
-  if (t === 'ios') return ['ios'];
-  if (t === 'android' || t === 'apk') return ['aos'];
+function offerCampPermissionScopeToOsAllowed(scope) {
+  if (scope === 'ios_only') return ['ios'];
+  if (scope === 'aos_only' || scope === 'apk_only') return ['aos'];
   return ['all', 'ios', 'aos'];
 }
 function offerGetAttrOsAllowedValues(camp) {
   if (_audTagScope === 'pkg') return OFF_AUDIENCE_ATTR_OS_OPTS.map(o => o.v);
   camp = camp || (typeof offerGetSelectedCampaign === 'function' ? offerGetSelectedCampaign() : null);
+  if (document.getElementById('offRunConfigHost') && _offerFormState.runConfig) {
+    const pt = document.getElementById('off_placement')?.value || '';
+    const platforms = offerGetRunPlatformsForOffer({ placementType: pt, runConfig: _offerFormState.runConfig }, camp);
+    if (platforms.length === 1) return platforms[0] === 'apk' || platforms[0] === 'aos' ? ['aos'] : ['ios'];
+    if (platforms.includes('ios') && platforms.includes('aos')) return ['all', 'ios', 'aos'];
+  }
   if (!camp) return OFF_AUDIENCE_ATTR_OS_OPTS.map(o => o.v);
   campNormalizeCampaign(camp);
-  return offerCampAppIdTypeToOsAllowed(camp.appIdType);
+  return offerCampPermissionScopeToOsAllowed(campGetPermissionScope(camp));
 }
 function offerGetAttrOsValueOptions(camp) {
   const allowed = new Set(offerGetAttrOsAllowedValues(camp));
@@ -23065,9 +23654,9 @@ function offerValidateAttrOsAgainstCampaign(osValue, camp) {
   campNormalizeCampaign(camp);
   const allowed = offerGetAttrOsAllowedValues(camp);
   if (allowed.includes(osValue)) return null;
-  const campLabel = campAppIdTypeShort(camp.appIdType);
+  const campLabel = campPermissionScopeLabel(campGetPermissionScope(camp));
   const pickLabel = allowed.map(v => OFF_AUDIENCE_ATTR_OS_OPTS.find(o => o.v === v)?.l || v).join('、');
-  return `os 与 Campaign App ID（${campLabel}）不一致，仅可选择 ${pickLabel}`;
+  return `os 与 Campaign 端权限（${campLabel}）不一致，仅可选择 ${pickLabel}`;
 }
 function offerClampAttrOsRulesToCampaign(camp) {
   camp = camp || (typeof offerGetSelectedCampaign === 'function' ? offerGetSelectedCampaign() : null);
@@ -23544,6 +24133,16 @@ function offerSegmentCatalogEntryType(p) {
 function offerGetSegmentCatalogByType(pkgType) {
   const t = pkgType === 'algorithm' ? 'algorithm' : 'manual';
   return OFF_AUDIENCE_SEGMENT_CATALOG.filter(p => offerSegmentCatalogEntryType(p) === t);
+}
+function offerGetSegmentCatalogForOffer(packageType, o, camp) {
+  const catalog = offerGetSegmentCatalogByType(packageType);
+  o = o || {
+    placementType: document.getElementById('off_placement')?.value || '',
+    runConfig: _offerFormState.runConfig,
+    campaignId: camp?.id || document.getElementById('off_campaign')?.value,
+  };
+  camp = camp || offerGetCampaignById(o.campaignId);
+  return offerFilterSegmentCatalogForOffer(catalog, o, camp);
 }
 function offerNormalizeOfflineTagFilterRule(r) {
   r = r || {};
@@ -24411,7 +25010,7 @@ function offerSegmentPkgSearchText(p) {
 }
 function offerRenderSegmentPkgPickList(selectedIds, packageType) {
   const selected = new Set(selectedIds || []);
-  const catalog = offerGetSegmentCatalogByType(packageType);
+  const catalog = offerGetSegmentCatalogForOffer(packageType);
   if (!catalog.length) {
     return `<div class="off-aud-seg-empty">暂无${campEsc(offerOfflinePackageTypeLabel(packageType))}，请先在数据包管理模块创建</div>`;
   }
@@ -24423,14 +25022,14 @@ function offerRenderSegmentPkgPickList(selectedIds, packageType) {
         <input type="checkbox" class="off-aud-seg-pkg-pick-chk" value="${campEsc(p.id)}" ${checked}>
         <span class="off-aud-seg-catalog-meta">
           <div class="off-aud-seg-catalog-name"><i class="fa-regular fa-file-lines" style="color:#1677ff;margin-right:6px"></i>${campEsc(p.label)}</div>
-          <div class="off-aud-seg-catalog-sub">${campEsc(p.id)} · ${campEsc(offerOfflinePackageTypeLabel(offerSegmentCatalogEntryType(p)))} · 更新 ${campEsc(p.updatedAt)} · ${campEsc(p.rowCount)}</div>
+          <div class="off-aud-seg-catalog-sub">${campEsc(p.id)} · ${campEsc(offerOfflinePackageTypeLabel(offerSegmentCatalogEntryType(p)))}${p.segmentPlacement ? ` · ${campEsc(String(p.segmentPlacement).toUpperCase())}-${campEsc(p.segmentPlatform || '')}` : ''} · 更新 ${campEsc(p.updatedAt)} · ${campEsc(p.rowCount)}</div>
         </span>
       </label>
     </div>`;
   }).join('')}</div>`;
 }
 function offerRenderSegmentPkgPickerBody(selectedIds, packageType) {
-  const catalog = offerGetSegmentCatalogByType(packageType);
+  const catalog = offerGetSegmentCatalogForOffer(packageType);
   if (!catalog.length) {
     return `<div class="off-aud-seg-empty">暂无${campEsc(offerOfflinePackageTypeLabel(packageType))}，请先在数据包管理模块创建</div>`;
   }
@@ -26223,20 +26822,17 @@ function buildOfferFormInner(d) {
           <input class="fi off-form-ctrl" id="off_estimatedUnitPrice" type="number" step="0.01" min="0" value="${estPrice !== '' ? campEsc(estPrice) : ''}" placeholder="USD">
         </div>
       </div>
-      <div class="off-mod1-lrow">
-        <span class="off-form-label">App 信息</span>
-        <div class="off-mod1-fields3">
-          <div class="off-mod1-field">
-            <span class="off-form-label">App 名称</span>
-            <div class="off-readonly-pill" id="off_campAppName">—</div>
-          </div>
-          <div class="off-mod1-field">
-            <span class="off-form-label">App ID</span>
-            <div class="off-readonly-pill" id="off_campAppIdType">—</div>
-          </div>
-          <div class="off-mod1-field">
-            <span class="off-form-label" aria-hidden="true">&nbsp;</span>
-            <button type="button" class="camp-app-detail-link off-camp-app-id-link" id="off_btn_viewAppId" onclick="offerOpenCampAppIdDetail()" disabled>查看 App ID</button>
+      <div class="off-mod1-section">
+        <div class="off-mod1-lrow off-mod1-lrow--top">
+          <span class="off-form-label">App 运行配置</span>
+          <div class="off-mod1-cell">
+            <div class="off-run-app-summary">
+              <span>App 名称：<strong id="off_campAppName">—</strong></span>
+              <span>Campaign 权限：<strong id="off_campPermScope">—</strong></span>
+              <button type="button" class="camp-app-detail-link" id="off_btn_viewAppId" onclick="offerOpenCampAppIdDetail()" disabled>查看 Campaign App ID 池</button>
+            </div>
+            <div id="offRunConfigHost"></div>
+            <p class="off-mod1-hint" id="offRunConfigHint"></p>
           </div>
         </div>
       </div>
@@ -26379,9 +26975,11 @@ function mountOfferFormContent(base) {
     region: base.region || base.regionText,
     extraEvents: _offerFormState.extraEvents,
     payEvent: _offerFormState.payEvent,
+    runConfig: base.runConfig,
     keepExtraEvents: true,
     keepPayEvent: true,
     keepLinkParamSelections: true,
+    keepRunConfig: !!base.runConfig,
   });
   const ck = document.getElementById('off_campaign');
   if (ck && base.campaignId) ck.value = base.campaignId;
@@ -26562,6 +27160,7 @@ function collectOfferFormObject() {
   offerSyncExtraEventsFromDom();
   offerSaveDeliveryMixToState();
   offerSaveLinkParamSelectionsToState();
+  offerSyncRunConfigFromDom();
   const pt = (document.getElementById('off_placement')?.value || '').trim();
   const region = (document.getElementById('off_region')?.value || '').trim();
   const camp = offerGetCampaignById(document.getElementById('off_campaign')?.value || '');
@@ -26622,6 +27221,7 @@ function collectOfferFormObject() {
     audienceEstimatedAt: _offerFormState.audienceEstimatedAt || null,
     dataSrcNote: '',
     status: '启用',
+    runConfig: offerCloneRunConfig(_offerFormState.runConfig),
   };
 }
 
@@ -26641,14 +27241,15 @@ function saveOfferForm() {
     showToast(st === '仅保存' ? '该 Campaign 为仅保存状态，请先在 Campaign 列表启用后再创建 Offer' : '该 Campaign 当前状态不可创建 Offer');
     return;
   }
-  const allowed = (camp.budgetTypes || []).map(x => String(x).toUpperCase());
-  if (!o.placementType || !allowed.includes(o.placementType)) {
-    showToast('投放类型必须是 Campaign 已勾选的预算类型');
+  if (!o.placementType || !OFF_PLACEMENT_OPTS.includes(String(o.placementType).toUpperCase())) {
+    showToast('请选择有效的投放类型');
     return;
   }
   const regs = campGetCampaignRegionList(camp);
   if (!regs.length) { showToast('该 Campaign 无可用区域，无法创建 Offer'); return; }
   if (!o.region || !regs.includes(o.region)) { showToast('请选择有效区域'); return; }
+  const runErr = offerValidateRunConfig(o.runConfig, camp, o.placementType);
+  if (runErr) { showToast(runErr); return; }
   if (!camp.eventName) { showToast('所选 Campaign 未配置付费事件'); return; }
   if (o.campaignUnitPrice == null || Number.isNaN(o.campaignUnitPrice) || o.campaignUnitPrice <= 0) {
     showToast('所选区域无有效 Campaign 单价，请检查 Campaign 区域配置');
@@ -26778,14 +27379,13 @@ function offerFormatMod1DetailHtml(o, camp) {
   const campBrief = camp
     ? `<div class="off-dw-camp-brief"><strong>Campaign 摘要</strong> · ${offerRenderCampSummaryBrief(camp)} · MMP ${campEsc(camp.mmp || '—')} · 事件 ${campEsc(camp.eventName || '—')}</div>`
     : '';
-  const appIdType = camp ? campAppIdTypeShort(camp.appIdType) : '—';
-  const appIdView = camp
-    ? `${campEsc(appIdType)} · <button type="button" class="camp-app-detail-link" onclick="campOpenCampaignAppIdsModal('${campEsc(camp.id)}')">查看 App ID</button>`
-    : '—';
+  const runCfgHtml = offerFormatRunConfigDetail(o.runConfig, o.placementType, camp);
+  const budgetDiff = camp && o.placementType && !offerPlacementInCampaignBudget(camp, o.placementType)
+    ? ` <span style="color:#d46b08">（非预算类型，Campaign 预算 ${campEsc(campBudgetTypesLabel(camp))}）</span>` : '';
   const basic = offerDetailKvGrid([
     { k: '关联 Campaign', v: camp ? `<span class="mono">${campEsc(camp.id)}</span> · ${campEsc(camp.advertiserName)} · ${campEsc(camp.appName)}` : '—' },
     { k: 'App 名称', v: campEsc(camp?.appName) || '—' },
-    { k: 'App ID', v: appIdView },
+    { k: '运行端 / App ID', v: `${runCfgHtml}${budgetDiff}` },
     { k: '类型', v: campEsc(o.offerKind || '—') },
     { k: '投放类型', v: campEsc(o.placementType || '—') },
     { k: '付费类型', v: campEsc(camp?.payType) || '—' },
