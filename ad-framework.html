@@ -753,11 +753,11 @@ body.dark .cs-item:hover{background:#1c2128}
    CUSTOMER MANAGEMENT PAGE
 ════════════════════════════════════════ */
 #customerPage{flex:1;overflow:hidden;display:none;flex-direction:column;padding:16px;gap:12px}
-#cluesPage,#huntlistPage,#customerPlaceholderPage,#campaignPage,#campaignFormPage,#offerPage,#offerFormPage,#abtestPage,#toolsPage,#datapackagePage{
+#cluesPage,#huntlistPage,#customerPlaceholderPage,#campaignPage,#campaignFormPage,#offerPage,#offerFormPage,#abtestPage,#toolsPage,#datapackagePage,#dashboardPage{
   flex:1;overflow:hidden;display:none;flex-direction:column;padding:16px;gap:12px;
 }
 /* 投放等页面若仍挂在 body 下，禁止与 .main 并排（仅 #contentEl 内展示） */
-body>#cluesPage,body>#huntlistPage,body>#customerPlaceholderPage,body>#campaignPage,body>#campaignFormPage,body>#offerPage,body>#offerFormPage,body>#abtestPage,body>#toolsPage,body>#datapackagePage,body>#customerPage,body>#pidPage,body>#apvCenterPage,body>#appPage{
+body>#cluesPage,body>#huntlistPage,body>#customerPlaceholderPage,body>#campaignPage,body>#campaignFormPage,body>#offerPage,body>#offerFormPage,body>#abtestPage,body>#toolsPage,body>#datapackagePage,body>#dashboardPage,body>#customerPage,body>#pidPage,body>#apvCenterPage,body>#appPage{
   display:none!important;flex:none!important;width:0!important;height:0!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important;padding:0!important;margin:0!important;
 }
 #campaignFormPage,#offerFormPage{padding:0}
@@ -1032,6 +1032,8 @@ button.camp-hs-pill--on:hover{background:#ffccc7}
 .off-event-table-row .off-ev-name-read{font-weight:600;color:#1d2129}
 .off-event-row{display:grid;grid-template-columns:76px minmax(100px,1fr) 108px 72px 88px 36px;gap:8px;align-items:center;margin-bottom:8px;font-size:12px}
 .off-event-pay-row{background:#f7f8fa;border:1px solid #ebedf0;border-radius:8px;padding:0;margin-bottom:10px;overflow:hidden}
+.off-event-price-ref{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:8px;padding:8px 12px;background:#f7f8fa;border:1px solid #eef0f3;border-radius:8px;font-size:12px;color:#4e5969;line-height:1.5}
+.off-event-price-ref strong{color:#1d2129;font-weight:600;font-variant-numeric:tabular-nums}
 .off-link-mmp-block{margin-top:4px;padding-top:14px;border-top:1px dashed #e5e6eb}
 .off-camp-links-brief{margin-top:0}
 .camp-link-variants-fold{border-top:1px dashed #e5e6eb;background:#fafbfc}
@@ -1080,6 +1082,13 @@ button.camp-hs-pill--on:hover{background:#ffccc7}
 .off-link-block{margin-bottom:14px;padding:12px;background:#fff;border:1px solid #ebedf0;border-radius:8px}
 .off-link-block-hd{font-size:12px;font-weight:600;color:#1d2129;margin-bottom:10px}
 .camp-link-tabs-wrap,.camp-budget-tabs-wrap{background:#fff;border:1px solid #ebedf0;border-radius:8px;overflow:hidden}
+.camp-link-panel{padding:12px 14px}
+.camp-click-links-table th,.camp-click-links-table td{vertical-align:top}
+.camp-click-links-table tr.is-active td{background:#f7f8fa}
+.camp-click-link-input{width:100%;min-height:56px;font-size:12px;resize:vertical}
+.camp-click-links-empty{font-size:12px;color:#86909c;padding:8px 0}
+.camp-click-parse-wrap{margin-top:16px;padding-top:16px;border-top:1px dashed #e5e6eb}
+.camp-click-parse-hd{font-size:12px;font-weight:600;color:#4e5969;margin-bottom:10px}
 .camp-link-tabs,.camp-budget-tabs{display:flex;border-bottom:1px solid #ebedf0;background:#fafbfc}
 .camp-link-consistency-hint{font-size:11px;line-height:1.5;padding:8px 12px;border-bottom:1px solid #f2f3f5;color:#86909c}
 .camp-link-consistency-hint.is-warn{background:#fff7e6;color:#ad6800;border-bottom-color:#ffe7ba}
@@ -1753,12 +1762,12 @@ button.camp-hs-pill--on:hover{background:#ffccc7}
 .camp-result-count{font-size:12px;color:#86909c;white-space:nowrap;margin-right:8px}
 .off-list-body{flex:1;overflow:auto;padding:12px 16px;background:#f7f8fa;min-height:0}
 .off-grid-scroll{min-width:0}
-.off-grid-table{min-width:1080px;display:flex;flex-direction:column;gap:8px}
-.off-grid-hd{display:grid;grid-template-columns:minmax(220px,1.45fr) 64px 84px 84px minmax(118px,1fr) minmax(148px,1.05fr) 72px minmax(118px,1fr) 108px;gap:8px 12px;padding:9px 14px;font-size:12px;font-weight:600;color:#86909c;background:#fff;border:1px solid #ebedf0;border-radius:10px;position:sticky;top:0;z-index:2;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.off-grid-table{min-width:1240px;display:flex;flex-direction:column;gap:8px}
+.off-grid-hd{display:grid;grid-template-columns:minmax(200px,1.25fr) minmax(160px,1.15fr) 64px 84px 84px minmax(118px,1fr) minmax(148px,1.05fr) 72px minmax(118px,1fr) 108px;gap:8px 12px;padding:9px 14px;font-size:12px;font-weight:600;color:#86909c;background:#fff;border:1px solid #ebedf0;border-radius:10px;position:sticky;top:0;z-index:2;box-shadow:0 1px 0 rgba(0,0,0,.04)}
 .off-grid-hd>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .off-grid-hd>span:last-child{text-align:right}
 .off-grid-body{display:flex;flex-direction:column;gap:8px}
-.off-grid-row{display:grid;grid-template-columns:minmax(220px,1.45fr) 64px 84px 84px minmax(118px,1fr) minmax(148px,1.05fr) 72px minmax(118px,1fr) 108px;gap:8px 12px;padding:10px 14px;background:#fff;border:1px solid #ebedf0;border-radius:12px;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:transform .12s,box-shadow .12s,border-color .12s}
+.off-grid-row{display:grid;grid-template-columns:minmax(200px,1.25fr) minmax(160px,1.15fr) 64px 84px 84px minmax(118px,1fr) minmax(148px,1.05fr) 72px minmax(118px,1fr) 108px;gap:8px 12px;padding:10px 14px;background:#fff;border:1px solid #ebedf0;border-radius:12px;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:transform .12s,box-shadow .12s,border-color .12s}
 .off-grid-row:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(22,119,255,.08);border-color:#c6e0ff}
 .off-grid-cell{font-size:12px;color:#1d2129;line-height:1.4;min-width:0;overflow:hidden;text-overflow:ellipsis}
 .off-grid-cell.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px}
@@ -1771,6 +1780,11 @@ button.camp-hs-pill--on:hover{background:#ffccc7}
 .off-grid-title-row{display:flex;align-items:center;gap:6px;min-width:0}
 .off-grid-app-name{font-size:13px;font-weight:700;color:#1d2129;margin:0;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
 .off-grid-offer-id{font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#86909c;margin:2px 0 0;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.off-grid-offer-name{font-size:12px;font-weight:600;color:#1d2129;margin:0 0 2px;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.off-offer-name-bar{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding:12px 14px;background:#fff;border:1px solid #ebedf0;border-radius:10px}
+.off-offer-name-input{flex:1;min-width:0;font-size:13px;font-weight:600}
+.off-offer-name-reset{flex-shrink:0;white-space:nowrap}
+.off-offer-name-help{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:1px solid #c9cdd4;background:#f7f8fa;color:#86909c;font-size:12px;font-weight:700;cursor:help;display:inline-flex;align-items:center;justify-content:center}
 .off-grid-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
 .off-grid-tag{font-size:10px;padding:1px 6px;border-radius:4px;background:#f2f3f5;color:#4e5969;border:1px solid #e5e6eb;font-weight:500;white-space:nowrap}
 .off-grid-tag--pt{color:#1677ff;background:#e8f3ff;border-color:#bae0ff}
@@ -2472,6 +2486,18 @@ body.dark .app-mgmt-dep-ft button{background:#21262d;border-color:#30363d;color:
 .pkg-create-title{font-size:14px;font-weight:700;color:#1d2129;margin:0 0 6px}
 .pkg-create-desc{font-size:12px;color:#86909c;margin:0 0 12px;line-height:1.45;min-height:34px}
 #pkgRuleDrawer .drawer-panel.pkg-rule-panel{width:min(920px,calc(100vw - 24px));max-height:calc(100vh - 16px);display:flex;flex-direction:column}
+#pkgImportDrawer .drawer-panel.pkg-import-panel{width:min(560px,calc(100vw - 24px));max-height:calc(100vh - 16px);display:flex;flex-direction:column}
+#pkgImportDrawer .drawer-body{flex:1;overflow:auto;padding:16px 20px}
+.pkg-import-upload{border:1px dashed #c9cdd4;border-radius:10px;padding:20px 16px;text-align:center;background:#fafbfc;transition:border-color .15s,background .15s}
+.pkg-import-upload.is-dragover,.pkg-import-upload:hover{border-color:#91caff;background:#f0f7ff}
+.pkg-import-upload-ic{font-size:28px;color:#1677ff;margin-bottom:8px}
+.pkg-import-upload-title{font-size:13px;font-weight:600;color:#1d2129;margin:0 0 4px}
+.pkg-import-upload-desc{font-size:12px;color:#86909c;margin:0 0 12px;line-height:1.45}
+.pkg-import-file-meta{margin-top:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:8px;background:#fff;text-align:left;font-size:12px;color:#4e5969;display:flex;align-items:center;gap:10px}
+.pkg-import-file-meta i{color:#1677ff;font-size:16px;flex-shrink:0}
+.pkg-import-file-meta strong{color:#1d2129;font-weight:600}
+.pkg-import-file-meta .pkg-import-file-clear{margin-left:auto;color:#86909c;cursor:pointer;border:none;background:none;padding:4px;font-size:12px}
+.pkg-import-file-meta .pkg-import-file-clear:hover{color:#f53f3f}
 #pkgRuleDrawer .drawer-body{flex:1;overflow:auto;padding:16px 20px}
 .pkg-rule-basic{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin-bottom:14px}
 .pkg-rule-basic .fg--full{grid-column:1/-1}
@@ -2498,6 +2524,62 @@ body.dark .app-mgmt-dep-ft button{background:#21262d;border-color:#30363d;color:
 .pkg-st-tag--import{background:#fff7e8;color:#ff7d00;border-color:#ffe7ba}
 .pkg-act-group{display:flex;flex-wrap:wrap;gap:4px}
 .pkg-act-group .row-act{font-size:11.5px;padding:3px 7px}
+#dashboardPage{background:#f7f8fa;padding:0!important;gap:0!important}
+.dash-scroll{flex:1;overflow:auto;min-height:0;padding:16px}
+.dash-filter-bar{background:#fff;border:1px solid #ebedf0;border-radius:12px;padding:14px 16px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.dash-filter-row{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:flex-end}
+.dash-filter-item{display:flex;flex-direction:column;gap:4px;min-width:120px;flex:1 1 140px;max-width:200px}
+.dash-filter-item label{font-size:11px;color:#86909c;font-weight:500}
+.dash-filter-item .dash-sel,.dash-filter-item .dash-inp{height:32px;font-size:12px;border:1px solid #e5e6eb;border-radius:6px;padding:0 8px;background:#fff;width:100%}
+.dash-filter-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-left:auto;flex:0 0 auto}
+.dash-filter-hint{font-size:11px;color:#86909c;margin-top:8px}
+.dash-sec{background:#fff;border:1px solid #ebedf0;border-radius:12px;padding:14px 16px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.dash-sec-hd{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:12px}
+.dash-sec-title{font-size:15px;font-weight:700;color:#1d2129;margin:0;flex:1}
+.dash-sec-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dash-sec-tools label{font-size:11px;color:#86909c;display:flex;align-items:center;gap:4px}
+.dash-sec-tools select,.dash-sec-tools .dash-sel-sm{height:28px;font-size:11px;border:1px solid #e5e6eb;border-radius:6px;padding:0 6px;background:#fff}
+.dash-metrics-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media (max-width:1400px){.dash-metrics-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:1100px){.dash-metrics-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:768px){.dash-metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dash-metric-card{position:relative;border:1px solid #eef0f3;border-radius:10px;padding:12px 12px 10px;background:linear-gradient(180deg,#fafbfc 0%,#fff 100%);min-height:88px}
+.dash-metric-card:hover{border-color:#91caff;box-shadow:0 4px 12px rgba(22,119,255,.08)}
+.dash-metric-lbl{font-size:11px;color:#86909c;margin-bottom:4px}
+.dash-metric-val{font-size:20px;font-weight:700;color:#1d2129;line-height:1.2;font-variant-numeric:tabular-nums}
+.dash-metric-chg{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;margin-top:6px}
+.dash-metric-chg.is-up{color:#00b578}
+.dash-metric-chg.is-down{color:#f53f3f}
+.dash-metric-chg.is-flat{color:#86909c}
+.dash-generated-at{font-size:12px;color:#86909c;white-space:nowrap}
+.dash-flow-table .dash-flow-cell{padding:0!important;min-width:72px}
+.dash-flow-cell-inner{position:relative;padding:6px 10px;min-height:28px;display:flex;align-items:center;justify-content:flex-end}
+.dash-flow-bar{position:absolute;left:0;top:3px;bottom:3px;border-radius:2px;background:#e8e8e8;max-width:100%;z-index:0}
+.dash-flow-bar.is-neg{background:#ffccc7}
+.dash-flow-bar.is-total{background:#d9d9d9}
+.dash-flow-cell-val{position:relative;z-index:1;font-size:12px;font-variant-numeric:tabular-nums;color:#1d2129}
+.dash-flow-table thead th{white-space:nowrap}
+.dash-flow-sort-icon{font-size:10px;color:#bfbfbf;margin-left:3px}
+.dash-flow-sort-icon.is-active{color:#1677ff}
+.dash-table-wrap.dash-flow-wrap{border:none;border-radius:0}
+.dash-table-wrap{overflow:auto;border:1px solid #eef0f3;border-radius:8px;max-width:100%}
+.dash-table{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap}
+.dash-table th,.dash-table td{padding:8px 10px;border-bottom:1px solid #f2f3f5;text-align:right}
+.dash-table th:first-child,.dash-table td:first-child{text-align:left;position:sticky;left:0;background:#fff;z-index:1}
+.dash-table thead th{background:#f7f8fa;color:#86909c;font-weight:600;font-size:11px;cursor:pointer;user-select:none}
+.dash-table thead th:hover{color:#1677ff}
+.dash-table tbody tr:nth-child(even){background:#fafbfc}
+.dash-table tbody tr:hover{background:#f0f7ff}
+.dash-table .dash-cell-link{color:#1677ff;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.dash-table .dash-cell-link:hover{color:#0958d9}
+.dash-diff-pos{color:#00b578;font-weight:600}
+.dash-diff-neg{color:#f53f3f;font-weight:600}
+.dash-pag{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:8px;font-size:12px;color:#86909c}
+#dashDrillDrawer .drawer-panel{width:min(720px,calc(100vw - 24px));max-height:calc(100vh - 16px);display:flex;flex-direction:column}
+#dashDrillDrawer .drawer-body{flex:1;overflow:auto;padding:16px 20px}
+.dash-drill-tabs{display:flex;gap:4px;margin-bottom:12px;border-bottom:1px solid #eef0f3;padding-bottom:8px}
+.dash-drill-tab{padding:6px 12px;font-size:12px;border:none;background:transparent;color:#4e5969;cursor:pointer;border-radius:6px;font-family:inherit}
+.dash-drill-tab.is-active{background:#e8f3ff;color:#1677ff;font-weight:600}
 .toolbox-page-hd{padding:14px 20px;border-bottom:1px solid #ebedf0;background:#fff;flex-shrink:0}
 .toolbox-page-hd h2{margin:0;font-size:18px;font-weight:700;color:#1d2129}
 .toolbox-page-body{flex:1;overflow-y:auto;padding:20px;background:#f7f8fa;min-height:0}
@@ -3599,6 +3681,18 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
       </div>
     </div>
 
+    <!-- ── Dashboard 实时看板 ── -->
+    <div id="dashboardPage" style="display:none">
+      <div class="dash-scroll" id="dashScrollHost">
+        <div class="dash-filter-bar" id="dashFilterBar"></div>
+        <div class="dash-sec" id="dashMetricsSec"></div>
+        <div class="dash-sec" id="dashFlowSec"></div>
+        <div class="dash-sec" id="dashAppSec"></div>
+        <div class="dash-sec" id="dashPrtSec"></div>
+        <div class="dash-sec" id="dashPidSec"></div>
+      </div>
+    </div>
+
     <!-- ── Placeholder ── -->
     <div id="phWrap" style="display:none">
       <div class="diffuse" id="diffuse"></div>
@@ -3762,6 +3856,31 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
     <div class="drawer-ft">
       <button type="button" class="mo-btn mo-btn-cancel" onclick="pkgCloseRuleDrawer()">取消</button>
       <button type="button" class="cm-btn cm-btn-primary" onclick="pkgSaveRulePackage()">保存</button>
+    </div>
+  </div>
+</div>
+<div class="drawer" id="pkgImportDrawer" onclick="if(event.target===this)pkgCloseImportDrawer()">
+  <div class="drawer-panel pkg-import-panel" onclick="event.stopPropagation()">
+    <div class="drawer-hd">
+      <span class="drawer-title" id="pkgImportDrawerTitle">导入创建数据包</span>
+      <button type="button" class="mo-x" onclick="pkgCloseImportDrawer()" aria-label="关闭"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body camp-form-scroll" id="pkgImportDrawerBody"></div>
+    <div class="drawer-ft">
+      <button type="button" class="mo-btn mo-btn-cancel" onclick="pkgCloseImportDrawer()">取消</button>
+      <button type="button" class="cm-btn cm-btn-primary" onclick="pkgSaveImportPackage()">保存</button>
+    </div>
+  </div>
+</div>
+<div class="drawer" id="dashDrillDrawer" onclick="if(event.target===this)dashCloseDrillDrawer()">
+  <div class="drawer-panel" onclick="event.stopPropagation()">
+    <div class="drawer-hd">
+      <span class="drawer-title" id="dashDrillTitle">详情</span>
+      <button type="button" class="mo-x" onclick="dashCloseDrillDrawer()" aria-label="关闭"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body" id="dashDrillBody"></div>
+    <div class="drawer-ft">
+      <button type="button" class="mo-btn mo-btn-cancel" onclick="dashCloseDrillDrawer()">关闭</button>
     </div>
   </div>
 </div>
@@ -6123,6 +6242,11 @@ let depts = [
   { id:12, name:'Tarrific',           managerId:null, parentId:1, remark:'' },
 ];
 let nextDeptId = 13;
+let bizGroups = [
+  { id:1, name:'一组', remark:'' }, { id:2, name:'二组', remark:'' }, { id:3, name:'三组', remark:'' }, { id:4, name:'四组', remark:'' },
+  { id:5, name:'五组', remark:'' }, { id:6, name:'六组', remark:'' }, { id:7, name:'七组', remark:'' }, { id:8, name:'八组', remark:'' },
+];
+let nextBizGroupId = 9;
 
 let users = [
   // id:0 — 系统超管，hidden:true，不在用户列表展示
@@ -7951,6 +8075,7 @@ function applyRolePermissions(roleId) {
     if (curPage === 'abtest') initAbtestPage();
     if (curPage === 'tools') initToolboxPage();
     if (curPage === 'datapackage') initDatapackagePage();
+    if (curPage === 'dashboard') initDashboardPage();
     if (curPage === 'pid')      initPidPage();
     if (curPage === 'app')       initAppMgmtPage();
   }
@@ -13843,7 +13968,7 @@ let _campPrefAosIds = [];
 let _campPrefApkIds = [];
 /** 表单内区域、分区域单价与素材附件的临时状态 */
 let _campDraft = { regions: [], regionUnitPrices: {}, regionEventUnitPrices: {}, regionPriceRows: [], materials: [], campaignEvents: [], extraEvents: [] };
-let _campFormState = { links: {}, linkParamsExpanded: {}, variantsExpanded: {}, linkActiveTab: 'click', budgetActiveTab: 'budget', paramVariants: { click: {}, imp: {}, ctv: {} } };
+let _campFormState = { variantsExpanded: false, budgetActiveTab: 'budget', paramVariants: {}, clickLinksByAppId: {}, links: {}, linkParamsExpanded: {}, linkActiveTab: 'click', activeClickLinkKey: '' };
 
 const CAMP_MMP_OPTS = ['AppsFlyer', 'Adjust', 'Kochava'];
 /** Campaign 表单中「全部包」选项的值 */
@@ -14316,6 +14441,10 @@ let campaignList = [
     regionEventUnitPrices:{ install:{ US:3.5, CA:3.2, UK:2.9 }, purchase:{ US:25, CA:22, UK:20 } },
     mmp:'AppsFlyer',
     linkClickUrl:'https://app.appsflyer.com/click?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_click_lookback=7d',
+    clickLinksByAppId:{
+      'ios:1234567890':'https://app.appsflyer.com/click?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_click_lookback=7d',
+      'aos:com.lucky.casino':'https://app.appsflyer.com/click?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_click_lookback=7d',
+    },
     linkImpUrl:'https://impressions.onelink.me/imp?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_viewthrough_lookback=24h',
     linkCtvUrl:'https://ctv.onelink.me/ctv?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_xplatform=true&af_xplatform_vt_lookback=72h',
     linkParamVariants:{
@@ -14456,6 +14585,7 @@ function campNormalizeCampaign(c) {
   delete c.rejectedReq;
   c.linkParamVariants = campNormalizeLinkParamVariants(c.linkParamVariants);
   c.highSensitive = !!c.highSensitive;
+  campMigrateClickLinksByAppId(c);
 }
 
 function campIsHighSensitive(c) {
@@ -15107,7 +15237,8 @@ function offerValidateRunConfig(runConfig, camp, placementType) {
   }
   return null;
 }
-function offerSyncRunConfigFromDom() {
+function offerSyncRunConfigFromDom(opts) {
+  opts = opts || {};
   const host = document.getElementById('offRunConfigHost');
   if (!host) return _offerFormState.runConfig;
   const camp = offerGetSelectedCampaign();
@@ -15124,6 +15255,7 @@ function offerSyncRunConfigFromDom() {
   if (aosSel) rc.aosAppId = aosSel.value || '';
   if (apkSel) rc.apkAppId = apkSel.value || '';
   _offerFormState.runConfig = offerNormalizeRunConfig(rc, camp, pt);
+  if (!opts.skipOfferNameSync) offerSyncOfferNameField();
   return _offerFormState.runConfig;
 }
 function offerOnRunCtvModeChange(mode) {
@@ -15231,7 +15363,13 @@ function campListMaterialsSummary(c) {
 }
 
 function campCampaignHasLinks(c) {
-  return !!((c.linkClickUrl || c.linkUrl || '').trim() || (c.linkImpUrl || '').trim() || (c.linkCtvUrl || '').trim());
+  campNormalizeCampaign(c);
+  const map = c.clickLinksByAppId || {};
+  if (Object.values(map).some(u => String(u || '').trim())) return true;
+  if ((c.linkClickUrl || c.linkUrl || '').trim()) return true;
+  if ((c.linkImpUrl || '').trim()) return true;
+  if ((c.linkCtvUrl || '').trim()) return true;
+  return false;
 }
 
 function campListPeekKv(label, valueHtml) {
@@ -15283,9 +15421,10 @@ function campOpenCampaignLinksModal(campaignId) {
   campNormalizeCampaign(c);
   const link = (u) => u ? '<a href="' + campEsc(u) + '" target="_blank" rel="noopener" style="color:#1677ff;word-break:break-all">' + campEsc(u) + '</a>' : '—';
   const variants = campFormatLinkParamVariantsHtml(c);
+  const clickLinksHtml = campFormatClickLinksDetailHtml(c);
   const html = [
     campListPeekKv('MMP', campEsc(c.mmp || '—')),
-    campListPeekKv('点击链接', link((c.linkClickUrl || c.linkUrl || '').trim())),
+    campListPeekKv('点击链接', clickLinksHtml),
     campListPeekKv('展示链接', link((c.linkImpUrl || '').trim())),
     campListPeekKv('CTV 链接', link((c.linkCtvUrl || '').trim())),
     campListPeekKv('多值参数', variants),
@@ -15401,6 +15540,7 @@ function campToggleAppIdPoolRows() {
 function campOnPermissionScopeChange() {
   campToggleAppIdPoolRows();
   campSyncAppDetailLinkState();
+  campRefreshLinksSectionIfMounted();
 }
 
 function campOnIdPoolAllToggle(platform) {
@@ -15408,6 +15548,7 @@ function campOnIdPoolAllToggle(platform) {
   const name = platform === 'ios' ? 'camp_iosAppIds' : platform === 'aos' ? 'camp_aosAppIds' : 'camp_apkAppIds';
   const on = !!allCb?.checked;
   document.querySelectorAll(`input[name="${name}"]`).forEach(el => { el.checked = on; });
+  campRefreshLinksSectionIfMounted();
 }
 
 function campOnIdPoolItemChange(platform) {
@@ -15417,6 +15558,7 @@ function campOnIdPoolItemChange(platform) {
   const allChecked = items.length > 0 && items.every(el => el.checked);
   if (allCb) allCb.checked = allChecked;
   campSyncAppDetailLinkState();
+  campRefreshLinksSectionIfMounted();
 }
 
 function campApplyAppIdPoolDefaults(app) {
@@ -15527,6 +15669,7 @@ function campOnAppParentChange() {
   campApplyAppIdPoolDefaults(app);
   campToggleAppIdPoolRows();
   campSyncAppDetailLinkState();
+  campRefreshLinksSectionIfMounted();
 }
 
 function openCampEmailImportModal() {
@@ -16414,7 +16557,7 @@ function buildCampaignFormInner(d) {
   const req = formOutbound ? '' : '<span class="req">*</span>';
   const linkHint = formOutbound
     ? '<div style="font-size:11px;color:#86909c;margin:0 0 8px">外放 Campaign 链接选填，填写后可在详情与列表中展示</div>'
-    : '';
+    : '<div style="font-size:11px;color:#86909c;margin:0 0 8px">点击链接按 App ID 分别填写；展示链接与 CTV 链接为 Campaign 级配置（各一条）</div>';
   const btSet = new Set((copy.budgetTypes || []).map(x => String(x).toUpperCase()));
   const paySel = copy.payType || 'CPI';
   const btCheck = (v) => `<label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" name="camp_budgetTypes" value="${v}" ${btSet.has(v) ? 'checked' : ''}> ${v}</label>`;
@@ -16956,6 +17099,7 @@ function openCampaignFormPage(id, opts) {
       document.getElementById('hd-adcenter')?.classList.add('has-active');
     }
     setPage(campPage);
+    queueMicrotask(() => openCampaignFormPage(id, { ...opts, skipHash: true }));
     return;
   }
   if (curPage !== campPage) setPage(campPage);
@@ -17024,6 +17168,7 @@ function campApplyRouteFromHash() {
       document.getElementById('hd-adcenter')?.classList.add('has-active');
     }
     setPage(page);
+    queueMicrotask(() => campApplyRouteFromHash());
     return;
   }
   if (r.view === 'form') {
@@ -17357,6 +17502,10 @@ function offNormalizeOffer(o) {
     o.region = first || o.regionText;
   }
   if (!o.pidText) o.pidText = 'TBD';
+  if (!o.offerName && !o.offerNameManual) {
+    const camp = offerGetCampaignById(o.campaignId);
+    o.offerName = offerBuildAutoOfferNameFromOffer(o, camp);
+  }
   if (!o.channel) o.channel = '';
   if (!o.startAt) o.startAt = '—';
   if (!o.endAt) o.endAt = '—';
@@ -17557,16 +17706,19 @@ function offerResolveLinksFromCampaign(camp, placementType, selections) {
   }
   campNormalizeCampaign(camp);
   const pt = String(placementType || '').toUpperCase();
+  const rc = (typeof _offerFormState !== 'undefined' && _offerFormState?.runConfig) ? _offerFormState.runConfig : null;
+  const linkKey = offerResolveRunConfigAppLinkKey(rc);
+  const baseClick = campResolveClickLinkFromCampaign(camp, linkKey);
   let linkClickUrl = '';
   let linkImpUrl = '';
   if (pt === 'CTA') {
-    linkClickUrl = (camp.linkClickUrl || camp.linkUrl || '').trim();
+    linkClickUrl = baseClick;
   } else if (pt === 'VTA') {
     linkImpUrl = (camp.linkImpUrl || '').trim();
-    linkClickUrl = (camp.linkClickUrl || camp.linkUrl || '').trim();
+    linkClickUrl = baseClick;
   } else if (pt === 'CTV') {
     linkImpUrl = (camp.linkCtvUrl || '').trim();
-    linkClickUrl = (camp.linkClickUrl || camp.linkUrl || '').trim();
+    linkClickUrl = baseClick;
   }
   const pick = (role, url) => campApplyLinkParamOverrides(url, (selections || {})[role] || {});
   if (pt === 'CTA') linkClickUrl = pick('click', linkClickUrl);
@@ -17686,14 +17838,16 @@ function campLinkRoleParamMap(slot) {
 }
 
 function campPropagateSharedLinkParams(sourceRole) {
-  if (!sourceRole || !_campFormState?.links) return;
+  if (!sourceRole || !_campFormState) return;
   campSyncLinksFromDom();
-  const srcMap = campLinkRoleParamMap(_campFormState.links[sourceRole]);
+  const srcMap = sourceRole === 'click'
+    ? campGetClickTabParamMap()
+    : campLinkRoleParamMap(_campFormState.links?.[sourceRole]);
   const sharedKeys = Object.keys(srcMap).filter(campIsComparableParamKey);
   if (!sharedKeys.length) return;
   CAMP_LINK_ROLES.forEach(({ role }) => {
-    if (role === sourceRole) return;
-    const slot = campEnsureLinkSlot(role, _campFormState.links[role]);
+    if (role === sourceRole || role === 'click') return;
+    const slot = campEnsureLinkSlot(role, _campFormState.links?.[role]);
     const params = [...(slot.params || [])];
     const idxByKey = {};
     params.forEach((p, i) => { const k = String(p.key || '').trim(); if (k) idxByKey[k] = i; });
@@ -17707,13 +17861,45 @@ function campPropagateSharedLinkParams(sourceRole) {
   });
 }
 
+function campGetClickTabParamMap() {
+  if (_campFormState.linkActiveTab === 'click' && _campFormState.activeClickLinkKey) {
+    const prev = campLinkSlotFromUrl((_campFormState.clickLinksByAppId || {})[_campFormState.activeClickLinkKey] || '');
+    const read = campReadLinkSlotFromDom(campActiveClickIdPrefix(), 'click', prev);
+    if (read) return campLinkRoleParamMap(read);
+  }
+  const first = Object.values(_campFormState.clickLinksByAppId || {}).find(u => String(u || '').trim());
+  return first ? campLinkRoleParamMap(campLinkSlotFromUrl(first)) : {};
+}
+
+function campGetLinksForConsistencyCheck() {
+  const key = _campFormState.activeClickLinkKey;
+  const clickUrl = key
+    ? (_campFormState.clickLinksByAppId || {})[key]
+    : Object.values(_campFormState.clickLinksByAppId || {}).find(u => String(u || '').trim());
+  return {
+    click: campEnsureLinkSlot('click', campLinkSlotFromUrl(clickUrl || '')),
+    imp: campEnsureLinkSlot('imp', _campFormState.links?.imp || {}),
+    ctv: campEnsureLinkSlot('ctv', _campFormState.links?.ctv || {}),
+  };
+}
+
 function campRemoveSharedParamFromAllRoles(key) {
   const k = String(key || '').trim();
   if (!k || !campIsComparableParamKey(k)) return;
-  CAMP_LINK_ROLES.forEach(({ role }) => {
+  _campFormState.clickLinksByAppId = _campFormState.clickLinksByAppId || {};
+  Object.keys(_campFormState.clickLinksByAppId).forEach(linkKey => {
+    const url = _campFormState.clickLinksByAppId[linkKey];
+    if (!url) return;
+    const slot = campEnsureLinkSlot('click', campLinkSlotFromUrl(url));
+    slot.params = (slot.params || []).filter(p => String(p.key || '').trim() !== k);
+    campSyncLinkSlot(slot);
+    _campFormState.clickLinksByAppId[linkKey] = slot.url;
+  });
+  ['imp', 'ctv'].forEach(role => {
     const slot = campEnsureLinkSlot(role, _campFormState.links?.[role]);
     slot.params = (slot.params || []).filter(p => String(p.key || '').trim() !== k);
     campSyncLinkSlot(slot);
+    _campFormState.links = _campFormState.links || {};
     _campFormState.links[role] = slot;
   });
 }
@@ -17760,7 +17946,14 @@ function campValidateLinksParamConsistency(links) {
 
 function campValidateCampaignLinksFromState() {
   if (campLinksFormMounted()) campSyncLinksFromDom();
-  return campValidateLinksParamConsistency(_campFormState?.links);
+  const entries = campGetLinkFormAppEntries();
+  if (!entries.length) return '请先在 App 信息中配置 App ID 池';
+  const map = _campFormState.clickLinksByAppId || {};
+  const missing = entries.filter(e => !String(map[campClickLinkKey(e.platform, e.appId)] || '').trim());
+  if (missing.length) {
+    return `请为 ${missing.map(e => `${e.platformLabel} ${e.appId}`).join('、')} 填写点击链接`;
+  }
+  return campValidateLinksParamConsistency(campGetLinksForConsistencyCheck());
 }
 
 function campRenderLinkConsistencyHint() {
@@ -17768,7 +17961,7 @@ function campRenderLinkConsistencyHint() {
   const el = document.getElementById('campLinkConsistencyHint');
   if (!el) return;
   if (!err) {
-    el.innerHTML = '<span style="color:#86909c">公共 URL 参数在点击 / 展示 / CTV 链接间须保持一致；各类型独有参数（如 af_click_lookback、af_viewthrough_lookback、af_xplatform）不参与比对。</span>';
+    el.innerHTML = '<span style="color:#86909c">点击链接按 App ID 分别配置；展示/CTV 为 Campaign 级各一条。公共参数在三种链接间应保持一致。</span>';
     el.className = 'camp-link-consistency-hint';
     return;
   }
@@ -17779,7 +17972,9 @@ function campRenderLinkConsistencyHint() {
 function campListLinkSummary(c) {
   campNormalizeCampaign(c);
   const parts = [];
-  if ((c.linkClickUrl || c.linkUrl || '').trim()) parts.push('点击');
+  const n = Object.values(c.clickLinksByAppId || {}).filter(u => String(u || '').trim()).length;
+  if (n > 1) parts.push(`${n} 条点击`);
+  else if (n === 1 || (c.linkClickUrl || c.linkUrl || '').trim()) parts.push('点击');
   if ((c.linkImpUrl || '').trim()) parts.push('展示');
   if ((c.linkCtvUrl || '').trim()) parts.push('CTV');
   return parts.join('·');
@@ -17856,7 +18051,7 @@ function campFormatCampaignDetailHtml(c) {
     <fieldset class="camp-fieldset-wrap"><legend>链接</legend>
       ${grid([
         g('MMP', campEsc(c.mmp || '—')),
-        g('点击链接', campFormatDetailLink(c.linkClickUrl || c.linkUrl)),
+        g('点击链接', campFormatClickLinksDetailHtml(c)),
         g('展示链接', campFormatDetailLink(c.linkImpUrl)),
         g('CTV 链接', campFormatDetailLink(c.linkCtvUrl)),
         g('多值参数', campFormatLinkParamVariantsHtml(c)),
@@ -18005,6 +18200,7 @@ function offerOnLinkParamPickChange() {
   const camp = offerGetSelectedCampaign();
   const pt = document.getElementById('off_placement')?.value || '';
   offerRenderCampLinksBrief(camp, pt);
+  offerSyncOfferNameField();
 }
 
 function offerCollectMultiValueParamDefs(camp, placementType, mixEnabled) {
@@ -18063,10 +18259,13 @@ function offerRenderLinkParamPickers(camp, placementType) {
 }
 
 function offerCampaignHasRequiredLinks(camp, placementType) {
-  const L = offerResolveLinksFromCampaign(camp, placementType);
+  campNormalizeCampaign(camp);
   const pt = String(placementType || '').toUpperCase();
-  if (pt === 'CTA') return !!L.linkClickUrl;
-  if (pt === 'VTA' || pt === 'CTV') return !!L.linkImpUrl;
+  const hasClick = Object.values(camp.clickLinksByAppId || {}).some(u => String(u || '').trim())
+    || !!(camp.linkClickUrl || camp.linkUrl || '').trim();
+  if (pt === 'CTA') return hasClick;
+  if (pt === 'VTA') return !!(camp.linkImpUrl || '').trim();
+  if (pt === 'CTV') return !!(camp.linkCtvUrl || '').trim();
   return false;
 }
 
@@ -18457,7 +18656,7 @@ function offerUpdateCampHeaderFields(camp) {
   const ptEl = document.getElementById('off_campPayType');
   if (ptEl) ptEl.textContent = camp?.payType || '—';
   offerUpdateCampAppInfoDisplay(camp);
-  offerUpdateCampaignUnitPriceDisplay();
+  offerUpdateEventPriceRefDisplay();
 }
 
 function offerSyncPayEventFromDom() {
@@ -18490,6 +18689,157 @@ function offerCampaignLabel(camp) {
 function offerCampaignSelectLabel(camp) {
   if (!camp) return '—';
   return `${campEsc(camp.id)} · ${campEsc(camp.advertiserName)} · ${campEsc(camp.appName)}`;
+}
+
+const OFFER_NAME_TIP = '系统按照offer填写内容自动生成名称,您也可以自己输入,手动输入则,不再实时更新,以手动输入为准.';
+
+function offerSanitizeOfferNamePart(s) {
+  return String(s || '').trim().replace(/\s+/g, '');
+}
+
+function offerResolveAppIdForName(runConfig, camp, placementType) {
+  const rc = offerNormalizeRunConfig(runConfig || {}, camp, placementType);
+  const pt = String(placementType || '').toUpperCase();
+  if (pt === 'CTV') {
+    if (rc.ctvRunMode === 'apk_only') return rc.apkAppId || '';
+    if (rc.ctvRunMode === 'aos_only') return rc.aosAppId || '';
+    if (rc.ctvRunMode === 'ios_only') return rc.iosAppId || '';
+    const parts = [rc.iosAppId, rc.aosAppId].filter(Boolean);
+    return parts.length > 1 ? parts.join('+') : (parts[0] || '');
+  }
+  if (rc.runPlatform === 'apk') return rc.apkAppId || '';
+  if (rc.runPlatform === 'aos') return rc.aosAppId || '';
+  return rc.iosAppId || '';
+}
+
+function offerResolveOsForName(runConfig, placementType) {
+  const pt = String(placementType || '').toUpperCase();
+  if (pt === 'CTV') {
+    const mode = runConfig?.ctvRunMode || 'dual';
+    if (mode === 'ios_only') return 'ios';
+    if (mode === 'aos_only') return 'aos';
+    if (mode === 'apk_only') return 'apk';
+    return 'ios+aos';
+  }
+  return runConfig?.runPlatform || 'ios';
+}
+
+function offerResolvePidForName(camp, placementType, selections, runConfig) {
+  const sel = offerNormalizeLinkParamSelections(selections);
+  const pt = String(placementType || '').toUpperCase();
+  const roles = pt === 'CTA' ? ['click'] : pt === 'VTA' ? ['imp', 'click'] : ['ctv', 'click'];
+  for (const role of roles) {
+    const pid = sel[role]?.pid;
+    if (pid != null && String(pid).trim()) return String(pid).trim();
+  }
+  if (camp) {
+    const urls = [];
+    const linkKey = offerResolveRunConfigAppLinkKey(runConfig);
+    const clickFromApp = campResolveClickLinkFromCampaign(camp, linkKey);
+    if (clickFromApp) urls.push(clickFromApp);
+    ['click', 'imp', 'ctv'].forEach(role => {
+      const u = campGetLinkRoleUrl(camp, role);
+      if (u) urls.push(u);
+    });
+    for (const url of urls) {
+      const hit = offerParseTrackingUrl(url).params.find(p => String(p.key || '').trim() === 'pid');
+      if (hit?.value) return String(hit.value).trim();
+    }
+  }
+  return '';
+}
+
+function offerBuildAutoOfferName(ctx) {
+  const parts = [
+    offerSanitizeOfferNamePart(ctx.appId),
+    offerSanitizeOfferNamePart(ctx.appName),
+    offerSanitizeOfferNamePart(ctx.os),
+    offerSanitizeOfferNamePart(ctx.country),
+    offerSanitizeOfferNamePart(ctx.mmp),
+    offerSanitizeOfferNamePart(ctx.offerKind),
+    offerSanitizeOfferNamePart(ctx.pid),
+    offerSanitizeOfferNamePart(ctx.billingType),
+  ].filter(Boolean);
+  return parts.join('-');
+}
+
+function offerBuildAutoOfferNameFromOffer(o, camp) {
+  if (!o) return '';
+  camp = camp || offerGetCampaignById(o.campaignId);
+  const pt = String(o.placementType || '').toUpperCase();
+  const selections = offerResolveLinkParamSelectionsForOffer(o);
+  return offerBuildAutoOfferName({
+    appId: offerResolveAppIdForName(o.runConfig, camp, pt),
+    appName: camp?.appName || '',
+    os: offerResolveOsForName(o.runConfig, pt),
+    country: o.region || o.regionText || '',
+    mmp: camp?.mmp || '',
+    offerKind: o.offerKind || 'UA',
+    pid: offerResolvePidForName(camp, pt, selections, o.runConfig),
+    billingType: camp?.payType || '',
+  });
+}
+
+function offerBuildAutoOfferNameFromForm() {
+  if (typeof document === 'undefined') return '';
+  offerSyncRunConfigFromDom({ skipOfferNameSync: true });
+  const camp = offerGetSelectedCampaign();
+  const pt = document.getElementById('off_placement')?.value || '';
+  const region = document.getElementById('off_region')?.value || '';
+  const kind = document.getElementById('off_kind')?.value || 'UA';
+  const selections = offerGetLinkParamSelections(pt);
+  return offerBuildAutoOfferName({
+    appId: offerResolveAppIdForName(_offerFormState.runConfig, camp, pt),
+    appName: camp?.appName || '',
+    os: offerResolveOsForName(_offerFormState.runConfig, pt),
+    country: region,
+    mmp: camp?.mmp || '',
+    offerKind: kind,
+    pid: offerResolvePidForName(camp, pt, selections, _offerFormState.runConfig),
+    billingType: camp?.payType || '',
+  });
+}
+
+function offerRenderOfferNameBar(d) {
+  const val = d?.offerName || '';
+  return `<div class="off-offer-name-bar">
+    <input class="fi off-offer-name-input" id="off_offerName" value="${campEsc(val)}" placeholder="系统按表单内容自动生成 Offer 名称" oninput="offerOnOfferNameInput()">
+    <button type="button" class="cm-btn cm-btn-primary cm-btn-sm off-offer-name-reset" onclick="offerResetOfferNameAuto()">Auto Reset</button>
+    <span class="off-offer-name-help" title="${campEsc(OFFER_NAME_TIP)}">?</span>
+  </div>`;
+}
+
+function offerInitOfferNameField(d) {
+  _offerFormState.offerNameManual = !!(d && d.offerNameManual);
+  const el = document.getElementById('off_offerName');
+  if (!el) return;
+  if (_offerFormState.offerNameManual && d?.offerName) {
+    el.value = d.offerName;
+    _offerFormState.offerName = d.offerName;
+  } else {
+    offerSyncOfferNameField(true);
+  }
+}
+
+function offerSyncOfferNameField(force) {
+  if (_offerFormState.offerNameManual && !force) return;
+  const el = document.getElementById('off_offerName');
+  if (!el || document.activeElement === el) return;
+  const name = offerBuildAutoOfferNameFromForm();
+  el.value = name;
+  _offerFormState.offerName = name;
+}
+
+function offerOnOfferNameInput() {
+  const el = document.getElementById('off_offerName');
+  _offerFormState.offerNameManual = true;
+  _offerFormState.offerName = (el?.value || '').trim();
+}
+
+function offerResetOfferNameAuto() {
+  _offerFormState.offerNameManual = false;
+  offerSyncOfferNameField(true);
+  showToast('已恢复自动生成');
 }
 
 function populateOfferCampaignFilters() {
@@ -18575,7 +18925,7 @@ function offerCountChannels(o) {
   return n;
 }
 
-const OFFER_LIST_COLUMNS = ['Offer / App', '区域', 'Campaign', '预估单价', '付费事件', '送量时间', '渠道', '创建', '操作'];
+const OFFER_LIST_COLUMNS = ['Offer / App', 'Offer Name', '区域', 'Campaign', '预估单价', '付费事件', '送量时间', '渠道', '创建', '操作'];
 
 function offerRenderOfferGridHeader() {
   return `<div class="off-grid-hd" role="row">${OFFER_LIST_COLUMNS.map((h, i) =>
@@ -18616,6 +18966,7 @@ function offerRenderOfferGridRow(o) {
   </div>`;
   return `<article class="off-grid-row" role="row">
     <div class="off-grid-cell" role="cell">${ident}</div>
+    <div class="off-grid-cell" role="cell" title="${campEsc(o.offerName || '')}"><span class="off-grid-offer-name">${campEsc(o.offerName || '—')}</span></div>
     <div class="off-grid-cell" role="cell">${campEsc(o.regionText || o.region || '—')}</div>
     <div class="off-grid-cell mono" role="cell">${camp ? `<span class="is-link" onclick="openCampaignDetailDrawer('${camp.id}')">${campEsc(camp.id)}</span>` : '—'}</div>
     <div class="off-grid-cell" role="cell">${_campaignFmtUsd(o.estimatedUnitPrice)}</div>
@@ -18946,7 +19297,7 @@ function offerValidateNewOfferPayload(o, camp) {
     return '区域单价无效';
   }
   if (o.estimatedUnitPrice == null || Number.isNaN(o.estimatedUnitPrice) || o.estimatedUnitPrice <= 0) {
-    return '预估单价无效';
+    return '付费事件单价无效';
   }
   if (!offerCampaignHasRequiredLinks(camp, o.placementType)) return 'Campaign 链接未配置';
   if ((o.placementType === 'VTA' || o.placementType === 'CTV') && o.mixClickWithImp) {
@@ -18971,6 +19322,10 @@ function offerInsertNewOffer(o) {
   const nid = 'OF-' + String(nextOfferSeq++).padStart(4, '0');
   const row = { id: nid, ...o, createdBy: CUR_USER_ID, createdAt: now, hasMockStats: false };
   offNormalizeOffer(row);
+  if (!row.offerName) {
+    const camp = offerGetCampaignById(row.campaignId);
+    row.offerName = offerBuildAutoOfferNameFromOffer(row, camp);
+  }
   offerList.unshift(row);
   return nid;
 }
@@ -20197,9 +20552,7 @@ function offerBuildCampaignSummaryHtml(camp) {
     ].join(''))}
     ${sect('链接', [
       g('MMP', campEsc(camp.mmp)),
-      g('点击链接', link(camp.linkClickUrl || camp.linkUrl)),
-      g('展示链接', link(camp.linkImpUrl)),
-      g('CTV 链接', link(camp.linkCtvUrl)),
+      g('点击链接', campFormatClickLinksDetailHtml(camp)),
       g('多值参数', campFormatLinkParamVariantsHtml(camp)),
     ].join(''))}
     ${sect('KPI', [
@@ -20257,26 +20610,40 @@ function offerRenderRegionSelect(selected, camp) {
   const cur = selected && regs.includes(String(selected).toUpperCase()) ? String(selected).toUpperCase() : regs[0];
   sel.innerHTML = regs.map(r => `<option value="${campEsc(r)}" ${r === cur ? 'selected' : ''}>${campEsc(r)}</option>`).join('');
   sel.value = cur;
-  offerUpdateCampaignUnitPriceDisplay();
+  offerUpdateEventPriceRefDisplay();
 }
 
-function offerUpdateCampaignUnitPriceDisplay() {
-  const camp = offerGetSelectedCampaign();
-  const region = document.getElementById('off_region')?.value || '';
-  const el = document.getElementById('off_campUnitPrice');
-  if (!el) return;
-  const p = camp ? campResolveUnitPriceForRegion(camp, region) : null;
-  el.textContent = p != null && !Number.isNaN(p) ? _campaignFmtUsd(p) : '—';
+function offerResolveOfferCampaignUnitPrice(camp, region) {
+  return camp ? campResolveUnitPriceForRegion(camp, region) : null;
 }
 
-function offerSyncEstimatedUnitPriceDefault(onlyIfEmpty) {
-  const inp = document.getElementById('off_estimatedUnitPrice');
-  if (!inp) return;
-  if (onlyIfEmpty !== false && inp.value !== '') return;
+function offerSyncEventPriceRefs(camp, region, opts) {
+  opts = opts || {};
+  const campUnit = offerResolveOfferCampaignUnitPrice(camp, region);
+  _offerFormState.campaignUnitPriceRef = campUnit;
+  if (opts.resetBaseline || _offerFormState.baselineEstimatedUnitPrice == null) {
+    _offerFormState.baselineEstimatedUnitPrice = campUnit;
+  }
+}
+
+function offerUpdateEventPriceRefDisplay() {
+  const campEl = document.getElementById('off_eventCampUnitPrice');
+  const estEl = document.getElementById('off_eventBaselineEstPrice');
+  if (!campEl && !estEl) return;
   const camp = offerGetSelectedCampaign();
   const region = document.getElementById('off_region')?.value || '';
-  const p = camp ? campResolveUnitPriceForRegion(camp, region) : null;
-  if (p != null && !Number.isNaN(p)) inp.value = String(p);
+  const campUnit = _offerFormState.campaignUnitPriceRef ?? offerResolveOfferCampaignUnitPrice(camp, region);
+  const baseline = _offerFormState.baselineEstimatedUnitPrice ?? campUnit;
+  const fmt = p => p != null && !Number.isNaN(p) ? _campaignFmtUsd(p) : '—';
+  if (campEl) campEl.textContent = fmt(campUnit);
+  if (estEl) estEl.textContent = fmt(baseline);
+}
+
+function offerRenderEventPriceRefBar() {
+  return `<div class="off-event-price-ref">
+    <span>Campaign 单价：<strong id="off_eventCampUnitPrice">—</strong></span>
+    <span>边界预估单价：<strong id="off_eventBaselineEstPrice">—</strong></span>
+  </div>`;
 }
 
 function offerRenderPayEventRow() {
@@ -20298,19 +20665,20 @@ function offerRenderPayEventRow() {
     if (u != null) ev.unitPrice = u;
   }
   const evName = ev.name || camp.eventName || '';
-  host.innerHTML = `<div class="off-event-table off-event-pay-row">
+  host.innerHTML = `${offerRenderEventPriceRefBar()}<div class="off-event-table off-event-pay-row">
     <div class="off-event-table-hd">
       <span>角色</span><span>事件</span><span>单价 (USD)</span><span>Cap 周期</span><span>Cap</span><span></span>
     </div>
     <div class="off-event-table-row">
       <span class="off-ev-tag">付费事件</span>
       <span id="off_payEventName" class="off-ev-name-read">${campEsc(evName) || '—'}</span>
-      <input class="fi" id="off_payEventPrice" type="number" step="0.01" min="0" value="${ev.unitPrice != null ? campEsc(ev.unitPrice) : ''}" placeholder="默认 Campaign 单价" oninput="offerSyncPayEventFromDom();offerRefreshChannelInternalMirror()">
+      <input class="fi" id="off_payEventPrice" type="number" step="0.01" min="0" value="${ev.unitPrice != null ? campEsc(ev.unitPrice) : ''}" placeholder="调整单价" oninput="offerSyncPayEventFromDom();offerRefreshChannelInternalMirror()">
       <select class="fs" id="off_payEventCapPeriod" onchange="offerSyncPayEventFromDom()">${offerCapPeriodOpts(ev.capPeriod || 'day')}</select>
       <input class="fi" id="off_payEventCap" type="number" step="1" min="0" value="${ev.capValue != null ? campEsc(ev.capValue) : ''}" placeholder="可选" oninput="offerSyncPayEventFromDom();offerRefreshChannelInternalMirror()">
       <span></span>
     </div>
   </div>`;
+  offerUpdateEventPriceRefDisplay();
   offerRefreshChannelInternalMirror();
 }
 
@@ -20584,14 +20952,147 @@ function offerOnPlacementTypeChange() {
     _offerFormState.audienceConfig = offerNormalizeAudienceConfig(ac);
     offerRenderAudienceModule();
   }
+  offerSyncOfferNameField();
 }
-
-// ── Campaign 链接（与 Offer 同款可解析交互）──
 const CAMP_LINK_ROLES = [
   { role: 'click', label: '点击链接' },
   { role: 'imp', label: '展示链接' },
   { role: 'ctv', label: 'CTV 链接' },
 ];
+const CAMP_ACTIVE_CLICK_PREFIX = 'campClickActive';
+
+function campClickLinkKey(platform, appId) {
+  return `${platform}:${String(appId || '').trim()}`;
+}
+
+function campGetLinkFormAppEntries() {
+  const app = campGetSelectedCampApp();
+  if (!app) return [];
+  const perm = campGetPermissionScopeFromForm();
+  const entries = [];
+  const addPlatform = (platform, platformLabel) => {
+    const ids = campReadIdPoolFromDom(platform);
+    const resolved = campResolveIdPoolSelection(app, platform, ids);
+    const opts = campBuildDeploymentIdOptions(app, platform);
+    const pick = campIdPoolIsAll(resolved) ? opts.map(o => o.id) : resolved.filter(id => id !== CAMP_APP_ID_ALL);
+    pick.forEach(appId => {
+      const opt = opts.find(o => o.id === appId);
+      entries.push({ platform, platformLabel, appId, label: opt?.label || appId });
+    });
+  };
+  if (perm === 'dual' || perm === 'ios_only') addPlatform('ios', 'iOS');
+  if (perm === 'dual' || perm === 'aos_only') addPlatform('aos', 'AOS');
+  if (perm === 'apk_only' || perm === 'dual' || perm === 'aos_only') addPlatform('apk', 'APK');
+  return entries;
+}
+
+function campMigrateClickLinksByAppId(c) {
+  if (!c || typeof c !== 'object') return;
+  if (!c.clickLinksByAppId || typeof c.clickLinksByAppId !== 'object') c.clickLinksByAppId = {};
+  Object.keys(c.clickLinksByAppId).forEach(k => {
+    c.clickLinksByAppId[k] = String(c.clickLinksByAppId[k] || '').trim();
+  });
+  const hasAny = Object.values(c.clickLinksByAppId).some(u => u);
+  const legacy = (c.linkClickUrl || c.linkUrl || '').trim();
+  if (hasAny || !legacy) {
+    if (!c.linkClickUrl && legacy) c.linkClickUrl = legacy;
+    return;
+  }
+  const app = c.appParentId
+    ? (typeof appMgmtList !== 'undefined' ? appMgmtList : []).find(x => x.id === c.appParentId) || null
+    : (typeof appMgmtList !== 'undefined' ? appMgmtList : []).find(x => x.name === c.appName) || null;
+  const perm = (c.permissionScope === 'ios_only' || c.permissionScope === 'aos_only' || c.permissionScope === 'apk_only' || c.permissionScope === 'dual')
+    ? c.permissionScope : 'dual';
+  const seed = (platform) => {
+    const ids = platform === 'ios' ? c.iosAppIds : platform === 'aos' ? c.aosAppIds : c.apkAppIds;
+    const resolved = campResolveIdPoolSelection(app, platform, ids);
+    if (campIdPoolIsAll(resolved)) {
+      campBuildDeploymentIdOptions(app, platform).forEach(o => {
+        c.clickLinksByAppId[campClickLinkKey(platform, o.id)] = legacy;
+      });
+    } else {
+      resolved.filter(id => id !== CAMP_APP_ID_ALL).forEach(id => {
+        c.clickLinksByAppId[campClickLinkKey(platform, id)] = legacy;
+      });
+    }
+  };
+  if (perm === 'dual' || perm === 'ios_only') seed('ios');
+  if (perm === 'dual' || perm === 'aos_only') seed('aos');
+  if (perm === 'apk_only' || perm === 'dual' || perm === 'aos_only') seed('apk');
+  if (!Object.keys(c.clickLinksByAppId).length) c.clickLinksByAppId.legacy = legacy;
+  if (!c.linkClickUrl) c.linkClickUrl = legacy;
+}
+
+function campResolveClickLinkFromCampaign(camp, linkKey) {
+  if (!camp) return '';
+  campNormalizeCampaign(camp);
+  const map = camp.clickLinksByAppId || {};
+  if (linkKey && map[linkKey]) return String(map[linkKey]).trim();
+  return (camp.linkClickUrl || camp.linkUrl || '').trim();
+}
+
+function offerResolveRunConfigAppLinkKey(runConfig) {
+  if (!runConfig) return '';
+  if (runConfig.runPlatform === 'ios' && runConfig.iosAppId) return campClickLinkKey('ios', runConfig.iosAppId);
+  if (runConfig.runPlatform === 'aos' && runConfig.aosAppId) return campClickLinkKey('aos', runConfig.aosAppId);
+  if (runConfig.runPlatform === 'apk' && runConfig.apkAppId) return campClickLinkKey('apk', runConfig.apkAppId);
+  return '';
+}
+
+function campFormatClickLinksDetailHtml(c) {
+  campNormalizeCampaign(c);
+  const map = c.clickLinksByAppId || {};
+  const keys = Object.keys(map).filter(k => map[k]);
+  if (keys.length) {
+    return keys.sort().map(k => {
+      const idx = k.indexOf(':');
+      const plat = idx >= 0 ? k.slice(0, idx) : '';
+      const appId = idx >= 0 ? k.slice(idx + 1) : k;
+      const platLabel = plat === 'ios' ? 'iOS' : plat === 'aos' ? 'AOS' : plat === 'apk' ? 'APK' : plat;
+      return `<div style="margin-bottom:10px"><div style="color:#86909c;font-size:11px;margin-bottom:4px">${campEsc(platLabel)} · <span class="mono">${campEsc(appId)}</span></div>${campFormatDetailLink(map[k])}</div>`;
+    }).join('');
+  }
+  const legacy = (c.linkClickUrl || c.linkUrl || '').trim();
+  return legacy ? campFormatDetailLink(legacy) : '—';
+}
+
+function campRefreshLinksSectionIfMounted() {
+  const host = document.getElementById('campLinksHost');
+  if (!host?.querySelector('.camp-link-tabs-wrap, [data-camp-click-link-key]')) return;
+  campRenderLinksSection();
+}
+
+function campActiveClickIdPrefix() {
+  return CAMP_ACTIVE_CLICK_PREFIX;
+}
+
+function campEnsureActiveClickLinkKey(entries) {
+  const keys = (entries || []).map(e => campClickLinkKey(e.platform, e.appId));
+  let ak = _campFormState.activeClickLinkKey;
+  if (!ak || !keys.includes(ak)) ak = keys[0] || '';
+  _campFormState.activeClickLinkKey = ak;
+  return ak;
+}
+
+function campSelectClickLinkKey(key) {
+  const k = String(key || '').trim();
+  if (!k || _campFormState.activeClickLinkKey === k) return;
+  campSyncLinksFromDom();
+  _campFormState.activeClickLinkKey = k;
+  campRenderLinksSection();
+}
+
+function campSyncFullUrlFieldByPrefix(idPrefix, url) {
+  const el = document.getElementById(idPrefix + 'Full');
+  if (!el || document.activeElement === el) return;
+  const v = String(url || '');
+  if (el.value !== v) el.value = v;
+}
+
+function campOnClickLinkInput() {
+  campSyncLinksFromDom();
+  campRenderLinkConsistencyHint();
+}
 /** 各链接类型独有参数（不参与跨类型一致性比对） */
 const CAMP_LINK_EXCLUSIVE_PARAMS = {
   click: new Set(['af_click_lookback']),
@@ -20657,19 +21158,21 @@ function campEnsureLinkSlot(role, data) {
 }
 
 function campInitLinksFromCampaign(c) {
+  campNormalizeCampaign(c);
   const copy = c || {};
+  _campFormState.clickLinksByAppId = { ...(copy.clickLinksByAppId || {}) };
   _campFormState.links = {
-    click: campEnsureLinkSlot('click', campLinkSlotFromUrl(copy.linkClickUrl || copy.linkUrl || '')),
     imp: campEnsureLinkSlot('imp', campLinkSlotFromUrl(copy.linkImpUrl || '')),
     ctv: campEnsureLinkSlot('ctv', campLinkSlotFromUrl(copy.linkCtvUrl || '')),
   };
   _campFormState.paramVariants = campCloneSharedParamVariants(campGetSharedParamVariants(copy.linkParamVariants));
-  _campFormState.linkParamsExpanded = {};
   _campFormState.variantsExpanded = false;
-  const clickUrl = (copy.linkClickUrl || copy.linkUrl || '').trim();
+  _campFormState.linkParamsExpanded = {};
+  const hasClick = Object.values(_campFormState.clickLinksByAppId).some(u => String(u || '').trim());
   const impUrl = (copy.linkImpUrl || '').trim();
   const ctvUrl = (copy.linkCtvUrl || '').trim();
-  _campFormState.linkActiveTab = clickUrl ? 'click' : impUrl ? 'imp' : ctvUrl ? 'ctv' : 'click';
+  _campFormState.linkActiveTab = hasClick ? 'click' : impUrl ? 'imp' : ctvUrl ? 'ctv' : 'click';
+  _campFormState.activeClickLinkKey = '';
 }
 
 function campInitLinksUI(c) {
@@ -20679,31 +21182,40 @@ function campInitLinksUI(c) {
 
 function campSetDemoLinks() {
   if (!document.getElementById('campLinksHost')) return;
+  const demoClick = 'https://app.appsflyer.com/click?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_click_lookback=7d';
+  const demoImp = 'https://impressions.onelink.me/imp?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_viewthrough_lookback=24h';
+  const demoCtv = 'https://ctv.onelink.me/ctv?pid=media_int&c=campaign_a&af_siteid=site_01&af_sub1=ch_a&af_adset=set_red&af_channel=fb&af_xplatform=true&af_xplatform_vt_lookback=72h';
+  const map = {};
+  campGetLinkFormAppEntries().forEach(e => {
+    map[campClickLinkKey(e.platform, e.appId)] = demoClick;
+  });
+  _campFormState.clickLinksByAppId = map;
   _campFormState.links = {
-    click: campEnsureLinkSlot('click', campLinkSlotFromUrl('https://example.com/click?aff_clickid={transaction_id}')),
-    imp: campEnsureLinkSlot('imp', campLinkSlotFromUrl('https://impressions.onelink.me/OTuI?pid=adtibe_int&c=demo')),
-    ctv: campEnsureLinkSlot('ctv', campLinkSlotFromUrl('https://example.com/ctv')),
+    imp: campEnsureLinkSlot('imp', campLinkSlotFromUrl(demoImp)),
+    ctv: campEnsureLinkSlot('ctv', campLinkSlotFromUrl(demoCtv)),
   };
+  _campFormState.linkActiveTab = 'click';
+  _campFormState.activeClickLinkKey = '';
   campRenderLinksSection();
 }
 
 function campLinksFormMounted() {
-  return !!document.getElementById('campLinksHost')?.querySelector('[id$="Full"]');
+  return !!document.getElementById('campLinksHost')?.querySelector('.camp-link-tabs-wrap, [id$="Full"]');
 }
 
 function campCaptureLinkParamsExpanded() {
   const exp = { ...(_campFormState.linkParamsExpanded || {}) };
   CAMP_LINK_ROLES.forEach(({ role }) => {
-    const body = document.getElementById(campLinkIdPrefix(role) + 'ParamsBody');
+    const idPrefix = role === 'click' ? campActiveClickIdPrefix() : campLinkIdPrefix(role);
+    const body = document.getElementById(idPrefix + 'ParamsBody');
     if (body) exp[role] = body.style.display !== 'none';
   });
   _campFormState.linkParamsExpanded = exp;
 }
 
-function campReadLinkRoleFromDom(role, prev) {
-  const idPrefix = campLinkIdPrefix(role);
+function campReadLinkSlotFromDom(idPrefix, paramRole, prev) {
   const host = document.getElementById('campLinksHost');
-  const readParams = () => [...(host?.querySelectorAll(`.off-link-param-row[data-camp-role="${role}"]`) || [])].map(row => ({
+  const readParams = () => [...(host?.querySelectorAll(`.off-link-param-row[data-camp-role="${paramRole}"]`) || [])].map(row => ({
     key: (row.querySelector('.param-key')?.value || '').trim(),
     value: (row.querySelector('.param-val')?.value || '').trim(),
   })).filter(p => p.key);
@@ -20727,6 +21239,10 @@ function campReadLinkRoleFromDom(role, prev) {
   return { origin, path, params, base, url: offerBuildTrackingUrl(base, params) };
 }
 
+function campReadLinkRoleFromDom(role, prev) {
+  return campReadLinkSlotFromDom(campLinkIdPrefix(role), role, prev);
+}
+
 function campSyncFullUrlField(role, url) {
   const el = document.getElementById(campLinkIdPrefix(role) + 'Full');
   if (!el || document.activeElement === el) return;
@@ -20734,10 +21250,32 @@ function campSyncFullUrlField(role, url) {
   if (el.value !== v) el.value = v;
 }
 
+function campSyncActiveClickLinkFromDom() {
+  const key = _campFormState.activeClickLinkKey;
+  if (!key) return;
+  _campFormState.clickLinksByAppId = _campFormState.clickLinksByAppId || {};
+  const prev = campLinkSlotFromUrl(_campFormState.clickLinksByAppId[key] || '');
+  const read = campReadLinkSlotFromDom(campActiveClickIdPrefix(), 'click', prev);
+  if (!read) return;
+  _campFormState.clickLinksByAppId[key] = (read.url || '').trim();
+  campSyncFullUrlFieldByPrefix(campActiveClickIdPrefix(), read.url);
+  const rowEl = document.querySelector(`[data-camp-click-link-key="${CSS.escape(key)}"]`);
+  if (rowEl && document.activeElement !== rowEl && rowEl.value !== (read.url || '')) rowEl.value = read.url || '';
+}
+
 function campSyncLinksFromDom() {
+  if (!document.getElementById('campLinksHost')) return;
+  _campFormState.clickLinksByAppId = _campFormState.clickLinksByAppId || {};
+  document.querySelectorAll('[data-camp-click-link-key]').forEach(el => {
+    _campFormState.clickLinksByAppId[el.dataset.campClickLinkKey] = (el.value || '').trim();
+  });
+  if (_campFormState.linkActiveTab === 'click' && document.getElementById(campActiveClickIdPrefix() + 'Full')) {
+    campSyncActiveClickLinkFromDom();
+  }
   if (!campLinksFormMounted()) return;
-  CAMP_LINK_ROLES.forEach(({ role }) => {
-    const prev = campEnsureLinkSlot(role, _campFormState.links?.[role]);
+  _campFormState.links = _campFormState.links || {};
+  ['imp', 'ctv'].forEach(role => {
+    const prev = campEnsureLinkSlot(role, _campFormState.links[role]);
     const read = campReadLinkRoleFromDom(role, prev);
     if (read) {
       _campFormState.links[role] = { ...prev, ...read };
@@ -20750,30 +21288,57 @@ function campSyncLinksFromDom() {
 
 function campReadLinksFromDom() {
   campSyncLinksFromDom();
-  const click = _campFormState.links?.click?.url || '';
+  const map = { ...(_campFormState.clickLinksByAppId || {}) };
+  const firstUrl = Object.values(map).find(u => String(u || '').trim()) || '';
   const imp = _campFormState.links?.imp?.url || '';
   const ctv = _campFormState.links?.ctv?.url || '';
   return {
-    linkClickUrl: click,
+    clickLinksByAppId: map,
+    linkClickUrl: firstUrl,
     linkImpUrl: imp,
     linkCtvUrl: ctv,
-    linkUrl: click,
-    linkParamVariants: campCloneLinkParamVariants(_campFormState.paramVariants),
+    linkUrl: firstUrl,
+    linkParamVariants: { shared: campCloneSharedParamVariants(_campFormState.paramVariants || {}) },
   };
 }
 
 function campEnsureParamVariants() {
-  _campFormState.paramVariants = _campFormState.paramVariants || {};
+  if (!_campFormState.paramVariants || typeof _campFormState.paramVariants !== 'object') {
+    _campFormState.paramVariants = {};
+  }
+  const raw = _campFormState.paramVariants;
+  if (raw.shared && typeof raw.shared === 'object' && !Array.isArray(raw.shared)) {
+    _campFormState.paramVariants = campCloneSharedParamVariants(raw.shared);
+    return;
+  }
+  if (raw.click || raw.imp || raw.ctv) {
+    _campFormState.paramVariants = campCloneSharedParamVariants(campGetSharedParamVariants(raw));
+    return;
+  }
+  Object.keys(raw).forEach(k => {
+    const v = raw[k];
+    if (Array.isArray(v)) return;
+    if (v != null && v !== '' && typeof v !== 'object') raw[k] = [String(v)];
+    else if (!Array.isArray(v)) raw[k] = [];
+  });
 }
 
 function campAllLinkParamKeys() {
   const keys = new Set();
-  CAMP_LINK_ROLES.forEach(({ role }) => {
+  Object.values(_campFormState.clickLinksByAppId || {}).forEach(url => {
+    if (!url) return;
+    offerParseTrackingUrl(String(url)).params.forEach(p => {
+      const k = String(p.key || '').trim();
+      if (k) keys.add(k);
+    });
+  });
+  ['imp', 'ctv'].forEach(role => {
     (_campFormState.links?.[role]?.params || []).forEach(p => {
       const k = String(p.key || '').trim();
       if (k) keys.add(k);
     });
   });
+  Object.keys(_campFormState.paramVariants || {}).forEach(k => keys.add(k));
   return [...keys].sort();
 }
 
@@ -20782,9 +21347,10 @@ function campQuickAddParamVariant(role, paramKey) {
   if (!key) { showToast('请先填写参数名'); return; }
   campSyncLinksFromDom();
   campEnsureParamVariants();
-  const curVal = CAMP_LINK_ROLES.map(({ role: r }) =>
-    (_campFormState.links?.[r]?.params || []).find(p => p.key === key)?.value
-  ).find(v => v != null && v !== '') || '';
+  const curVal = Object.values(_campFormState.clickLinksByAppId || {}).map(url => {
+    if (!url) return '';
+    return offerParseTrackingUrl(String(url)).params.find(p => p.key === key)?.value || '';
+  }).find(v => v != null && v !== '') || '';
   if (!_campFormState.paramVariants[key]) _campFormState.paramVariants[key] = [];
   const arr = _campFormState.paramVariants[key];
   if (curVal && !arr.includes(curVal)) arr.push(curVal);
@@ -20823,9 +21389,10 @@ function campAddParamVariantKey() {
   if (!key) { showToast('请选择或输入参数名'); return; }
   campEnsureParamVariants();
   if (_campFormState.paramVariants[key]) { showToast('该参数已在多值配置中'); return; }
-  const defaultVal = CAMP_LINK_ROLES.map(({ role }) =>
-    (_campFormState.links?.[role]?.params || []).find(p => p.key === key)?.value
-  ).find(v => v != null && v !== '') || '';
+  const defaultVal = Object.values(_campFormState.clickLinksByAppId || {}).map(url => {
+    if (!url) return '';
+    return offerParseTrackingUrl(String(url)).params.find(p => p.key === key)?.value || '';
+  }).find(v => v != null && v !== '') || '';
   _campFormState.paramVariants[key] = defaultVal ? [defaultVal] : [''];
   _campFormState.variantsExpanded = true;
   campRenderLinksSection();
@@ -20869,7 +21436,7 @@ function campRenderParamVariantsSection() {
     ? `（${variantCount} 个参数${expanded ? '，可编辑候选' : '，默认折叠'}）`
     : '（默认折叠）';
   const rows = Object.keys(variants).sort().map(key => {
-    const vals = variants[key] || [];
+    const vals = Array.isArray(variants[key]) ? variants[key] : [];
     const chips = vals.map((v, i) =>
       `<span class="camp-variant-chip">${campEsc(v)}<button type="button" class="camp-variant-chip-x" onclick="campRemoveParamVariant(${JSON.stringify(key)},${i})" title="移除"><i class="fa-solid fa-xmark"></i></button></span>`
     ).join('');
@@ -20884,10 +21451,10 @@ function campRenderParamVariantsSection() {
   const addKeyOptions = paramKeys.filter(k => !variants[k]).map(k =>
     `<option value="${campEsc(k)}">${campEsc(k)}</option>`
   ).join('');
-  const emptyHtml = rows ? '' : '<div class="camp-variant-empty">暂无多值参数。在上方任一链接的参数行点击 + 可快捷添加；公共参数在三种链接间共用候选值。</div>';
+  const emptyHtml = rows ? '' : '<div class="camp-variant-empty">暂无多值参数。可手动添加参数名，并为 Offer 配置候选值。</div>';
   return `<div class="camp-link-variants-fold">
     <button type="button" class="camp-link-variants-toggle" id="campVariantsToggle" onclick="campToggleVariantsSection()">
-      <span>多值参数 <span class="hint">${cntLabel} · Offer 从候选中选择（点击/展示/CTV 共用）</span></span>
+      <span>多值参数 <span class="hint">${cntLabel} · Offer 从候选中选择</span></span>
       <i class="fa-solid ${chevron}"></i>
     </button>
     <div class="camp-link-variants-body" id="campVariantsBody" style="display:${bodyDisplay}">
@@ -20909,17 +21476,24 @@ function campSaveLinksToState() {
   if (campLinksFormMounted()) campSyncLinksFromDom();
 }
 
-function campRenderLinkParamRows(role, params) {
+function campRenderLinkParamRows(role, params, handlers) {
+  handlers = handlers || {};
+  const onParamInput = handlers.onParamInput || `campOnLinkParamInput('${role}')`;
+  const onQuickAdd = handlers.onQuickAdd || null;
+  const onRemove = handlers.onRemove || null;
   const rows = (params && params.length) ? params : [];
   if (!rows.length) return '';
   return rows.map((p, idx) => {
     const keyJson = JSON.stringify(p.key || '');
+    const quickAdd = onQuickAdd || `campQuickAddParamVariant('${role}',${keyJson})`;
+    const remove = onRemove
+      || (handlers.onRemoveFn ? `${handlers.onRemoveFn}(${idx})` : `campRemoveLinkParam('${role}',${idx})`);
     return `<div class="off-link-param-row" data-camp-role="${role}" data-idx="${idx}">
-      <input class="fi param-key" value="${campEsc(p.key)}" placeholder="参数名" oninput="campOnLinkParamInput('${role}')">
+      <input class="fi param-key" value="${campEsc(p.key)}" placeholder="参数名" oninput="${onParamInput}">
       <span class="param-sep">=</span>
-      <input class="fi param-val" value="${campEsc(p.value)}" placeholder="参数值，如 {transaction_id}" oninput="campOnLinkParamInput('${role}')">
-      <button type="button" class="cm-btn cm-btn-ghost cm-btn-sm" onclick="campQuickAddParamVariant('${role}',${keyJson})" title="加入多值配置"><i class="fa-solid fa-plus"></i></button>
-      <button type="button" class="cm-btn cm-btn-ghost cm-btn-sm" onclick="campRemoveLinkParam('${role}',${idx})" title="删除"><i class="fa-solid fa-minus"></i></button>
+      <input class="fi param-val" value="${campEsc(p.value)}" placeholder="参数值，如 {transaction_id}" oninput="${onParamInput}">
+      <button type="button" class="cm-btn cm-btn-ghost cm-btn-sm" onclick="${quickAdd}" title="加入多值配置"><i class="fa-solid fa-plus"></i></button>
+      <button type="button" class="cm-btn cm-btn-ghost cm-btn-sm" onclick="${remove}" title="删除"><i class="fa-solid fa-minus"></i></button>
     </div>`;
   }).join('');
 }
@@ -21013,7 +21587,16 @@ function campApplyLinkExample(role, exampleId) {
     params: [...parsed.params],
     base: parsed.base,
   });
-  _campFormState.links[role] = slot;
+  if (role === 'click') {
+    const entries = campGetLinkFormAppEntries();
+    const key = campEnsureActiveClickLinkKey(entries);
+    if (!key) { showToast('请先配置 App ID 池'); return; }
+    _campFormState.clickLinksByAppId = _campFormState.clickLinksByAppId || {};
+    _campFormState.clickLinksByAppId[key] = slot.url;
+  } else {
+    _campFormState.links = _campFormState.links || {};
+    _campFormState.links[role] = slot;
+  }
   campPropagateSharedLinkParams(role);
   _campFormState.linkParamsExpanded = _campFormState.linkParamsExpanded || {};
   _campFormState.linkParamsExpanded[role] = true;
@@ -21021,6 +21604,9 @@ function campApplyLinkExample(role, exampleId) {
 }
 
 function campLinkTabHasValue(role) {
+  if (role === 'click') {
+    return Object.values(_campFormState.clickLinksByAppId || {}).some(u => String(u || '').trim());
+  }
   return !!String(_campFormState.links?.[role]?.url || '').trim();
 }
 
@@ -21031,14 +21617,100 @@ function campSwitchLinkTab(role) {
   campRenderLinksSection();
 }
 
-function campRenderLinkBlock(role, label, slot) {
+function campOnActiveClickLinkFullInput() {
+  const idPrefix = campActiveClickIdPrefix();
+  const raw = (document.getElementById(idPrefix + 'Full')?.value || '').trim();
+  if (raw && (raw.includes('?') || /^https?:\/\//i.test(raw))) {
+    const parsed = offerParseTrackingUrl(raw);
+    const oEl = document.getElementById(idPrefix + 'Origin');
+    const pEl = document.getElementById(idPrefix + 'Path');
+    if (oEl) oEl.value = parsed.origin;
+    if (pEl) pEl.value = offerLinkPathForInput(parsed.pathname);
+  }
+  campSyncActiveClickLinkFromDom();
+}
+
+function campOnActiveClickLinkFullBlur() {
+  const idPrefix = campActiveClickIdPrefix();
+  if (document.activeElement?.id === idPrefix + 'Full') return;
+  campSyncActiveClickLinkFromDom();
+  campPropagateSharedLinkParams('click');
+  campRenderLinksSection();
+}
+
+function campOnActiveClickLinkParamInput() {
+  campSyncActiveClickLinkFromDom();
+  campPropagateSharedLinkParams('click');
+  const key = _campFormState.activeClickLinkKey;
+  if (key) campSyncFullUrlFieldByPrefix(campActiveClickIdPrefix(), (_campFormState.clickLinksByAppId || {})[key]);
+  campRenderLinkConsistencyHint();
+}
+
+function campToggleActiveClickLinkParams() {
+  const idPrefix = campActiveClickIdPrefix();
+  const body = document.getElementById(idPrefix + 'ParamsBody');
+  const btn = document.getElementById(idPrefix + 'ParamsToggle');
+  if (!body) return;
+  const open = body.style.display === 'none' || !body.style.display;
+  body.style.display = open ? 'block' : 'none';
+  if (btn) {
+    const n = body.querySelectorAll('.off-link-param-row').length;
+    btn.innerHTML = open
+      ? `URL 参数 <span class="cnt">（${n} 个，键 = 值）</span><i class="fa-solid fa-chevron-up"></i>`
+      : `URL 参数 <span class="cnt">（${n} 个，默认折叠）</span><i class="fa-solid fa-chevron-down"></i>`;
+  }
+  _campFormState.linkParamsExpanded = _campFormState.linkParamsExpanded || {};
+  _campFormState.linkParamsExpanded.click = open;
+}
+
+function campAddActiveClickLinkParam() {
+  campSyncActiveClickLinkFromDom();
+  const key = _campFormState.activeClickLinkKey;
+  if (!key) return;
+  const slot = campEnsureLinkSlot('click', campLinkSlotFromUrl((_campFormState.clickLinksByAppId || {})[key] || ''));
+  if (!Array.isArray(slot.params)) slot.params = [];
+  slot.params.push({ key: '', value: '' });
+  campSyncLinkSlot(slot);
+  _campFormState.clickLinksByAppId[key] = slot.url;
+  _campFormState.linkParamsExpanded = _campFormState.linkParamsExpanded || {};
+  _campFormState.linkParamsExpanded.click = true;
+  campRenderLinksSection();
+}
+
+function campRemoveActiveClickLinkParam(idx) {
+  campSyncActiveClickLinkFromDom();
+  const key = _campFormState.activeClickLinkKey;
+  if (!key) return;
+  const slot = campEnsureLinkSlot('click', campLinkSlotFromUrl((_campFormState.clickLinksByAppId || {})[key] || ''));
+  const removed = slot.params[idx];
+  const pkey = String(removed?.key || '').trim();
+  slot.params.splice(idx, 1);
+  campSyncLinkSlot(slot);
+  _campFormState.clickLinksByAppId[key] = slot.url;
+  if (pkey && campIsComparableParamKey(pkey)) campRemoveSharedParamFromAllRoles(pkey);
+  campRenderLinksSection();
+}
+
+function campRenderLinkBlock(role, label, slot, opts) {
+  return campRenderLinkBlockEx(role, slot, opts || {});
+}
+
+function campRenderLinkBlockEx(role, slot, opts) {
+  opts = opts || {};
   const params = slot.params || [];
   const origin = slot.origin || '';
   const pathname = slot.path != null ? slot.path : '';
   const base = offerComposeLinkBase(origin, pathname);
   const assembled = offerBuildTrackingUrl(base, params);
   const fullUrl = String(slot.url || assembled || '').trim();
-  const idPrefix = campLinkIdPrefix(role);
+  const idPrefix = opts.idPrefix || campLinkIdPrefix(role);
+  const paramRole = opts.paramRole || role;
+  const onFullInput = opts.onFullInput || `campOnLinkFullInput('${role}')`;
+  const onFullBlur = opts.onFullBlur || `campOnLinkFullBlur('${role}')`;
+  const onParamInput = opts.onParamInput || `campOnLinkParamInput('${role}')`;
+  const onToggleParams = opts.onToggleParams || `campToggleLinkParams('${role}')`;
+  const onAddParam = opts.onAddParam || `campAddLinkParam('${role}')`;
+  const paramHandlers = opts.paramHandlers || null;
   const paramCount = (params || []).filter(p => String(p.key || '').trim()).length;
   const expanded = !!(_campFormState.linkParamsExpanded || {})[role];
   const bodyDisplay = expanded ? 'block' : 'none';
@@ -21047,29 +21719,76 @@ function campRenderLinkBlock(role, label, slot) {
   return `<div class="off-link-block">
     <div class="off-link-full-row fg" style="margin-bottom:0">
       <label class="fl">完整链接</label>
-      <textarea class="fi off-link-full-ta" id="${idPrefix}Full" placeholder="粘贴或编辑整段 URL，失焦后自动解析下方域名、路径与参数" oninput="campOnLinkFullInput('${role}')" onblur="campOnLinkFullBlur('${role}')">${campEsc(fullUrl)}</textarea>
+      <textarea class="fi off-link-full-ta" id="${idPrefix}Full" placeholder="粘贴或编辑整段 URL，失焦后自动解析下方域名、路径与参数" oninput="${onFullInput}" onblur="${onFullBlur}">${campEsc(fullUrl)}</textarea>
     </div>
     <div style="font-size:11px;color:#86909c;margin:0 0 10px">解析明细（域名 / 路径 / 参数，便于技术核对）</div>
     <div class="off-link-part-row fg" style="margin-bottom:0">
       <label class="fl">域名</label>
-      <input class="fi" id="${idPrefix}Origin" value="${campEsc(origin)}" placeholder="https://impressions.onelink.me" oninput="campOnLinkParamInput('${role}')">
+      <input class="fi" id="${idPrefix}Origin" value="${campEsc(origin)}" placeholder="https://impressions.onelink.me" oninput="${onParamInput}">
     </div>
     <div class="off-link-part-row fg" style="margin-bottom:0">
       <label class="fl">路径 / 模板<span style="font-weight:400;color:#c9cdd4">（问号前，不含查询参数）</span></label>
-      <input class="fi" id="${idPrefix}Path" value="${campEsc(pathname)}" placeholder="/OTuI" oninput="campOnLinkParamInput('${role}')">
+      <input class="fi" id="${idPrefix}Path" value="${campEsc(pathname)}" placeholder="/OTuI" oninput="${onParamInput}">
     </div>
     <div class="off-link-params-fold">
-      <button type="button" class="off-link-params-toggle" id="${idPrefix}ParamsToggle" onclick="campToggleLinkParams('${role}')">
+      <button type="button" class="off-link-params-toggle" id="${idPrefix}ParamsToggle" onclick="${onToggleParams}">
         <span>URL 参数 <span class="cnt">${cntLabel}</span></span>
         <i class="fa-solid ${chevron}"></i>
       </button>
       <div class="off-link-params-body" id="${idPrefix}ParamsBody" style="display:${bodyDisplay}">
         <div style="font-size:11px;color:#86909c;margin-top:10px">问号后的查询参数（键 = 值，右侧可编辑）</div>
-        <div class="off-link-params">${campRenderLinkParamRows(role, params)}</div>
-        <button type="button" class="cm-btn camp-coop-btn-sm" onclick="campAddLinkParam('${role}')"><i class="fa-solid fa-plus"></i> 添加参数</button>
+        <div class="off-link-params">${campRenderLinkParamRows(paramRole, params, paramHandlers)}</div>
+        <button type="button" class="cm-btn camp-coop-btn-sm" onclick="${onAddParam}"><i class="fa-solid fa-plus"></i> 添加参数</button>
       </div>
     </div>
+    ${campRenderLinkExamples(role)}
   </div>`;
+}
+
+function campRenderClickTabPanel(entries, map) {
+  if (!entries.length) {
+    return '<div class="camp-click-links-empty">请先在 App 信息中选择 App，并配置 App ID 池</div>';
+  }
+  const activeKey = campEnsureActiveClickLinkKey(entries);
+  const rows = entries.map(e => {
+    const key = campClickLinkKey(e.platform, e.appId);
+    const url = map[key] || '';
+    const isActive = key === activeKey;
+    const keyJson = JSON.stringify(key);
+    return `<tr class="${isActive ? 'is-active' : ''}">
+      <td style="text-align:left;white-space:nowrap">${campEsc(e.platformLabel)}</td>
+      <td style="text-align:left"><span class="mono">${campEsc(e.appId)}</span>${e.label && e.label !== e.appId ? `<div style="font-size:11px;color:#86909c;margin-top:2px">${campEsc(e.label)}</div>` : ''}</td>
+      <td><textarea class="fi camp-click-link-input" data-camp-click-link-key="${campEsc(key)}" rows="2" placeholder="粘贴或填写完整点击链接 URL" onfocus="campSelectClickLinkKey(${keyJson})" oninput="campOnClickLinkInput()">${campEsc(url)}</textarea></td>
+    </tr>`;
+  }).join('');
+  const tableHtml = `<table class="dash-table camp-click-links-table"><thead><tr>
+    <th style="text-align:left;width:72px">端</th>
+    <th style="text-align:left;width:180px">App ID</th>
+    <th style="text-align:left">点击链接</th>
+  </tr></thead><tbody>${rows}</tbody></table>`;
+  const slot = campEnsureLinkSlot('click', campLinkSlotFromUrl(map[activeKey] || ''));
+  const idx = activeKey.indexOf(':');
+  const plat = idx >= 0 ? activeKey.slice(0, idx) : '';
+  const appId = idx >= 0 ? activeKey.slice(idx + 1) : activeKey;
+  const platLabel = plat === 'ios' ? 'iOS' : plat === 'aos' ? 'AOS' : plat === 'apk' ? 'APK' : plat;
+  const parseBlock = campRenderLinkBlockEx('click', slot, {
+    idPrefix: campActiveClickIdPrefix(),
+    onFullInput: 'campOnActiveClickLinkFullInput()',
+    onFullBlur: 'campOnActiveClickLinkFullBlur()',
+    onParamInput: 'campOnActiveClickLinkParamInput()',
+    onToggleParams: 'campToggleActiveClickLinkParams()',
+    onAddParam: 'campAddActiveClickLinkParam()',
+    paramHandlers: {
+      onParamInput: 'campOnActiveClickLinkParamInput()',
+      onRemoveFn: 'campRemoveActiveClickLinkParam',
+    },
+  });
+  return `<p style="font-size:12px;color:#86909c;margin:0 0 10px">按上方已选 App ID 分别填写点击链接；选中行下方可进行 URL 解析与参数编辑。</p>
+    ${tableHtml}
+    <div class="camp-click-parse-wrap">
+      <div class="camp-click-parse-hd">URL 解析 · ${campEsc(platLabel)} · <span class="mono">${campEsc(appId)}</span></div>
+      ${parseBlock}
+    </div>`;
 }
 
 function campRenderLinksSection() {
@@ -21078,38 +21797,50 @@ function campRenderLinksSection() {
   if (campLinksFormMounted()) {
     campCaptureLinkParamsExpanded();
     campCaptureVariantsExpanded();
+    campSyncLinksFromDom();
   }
-  campSyncLinksFromDom();
   let activeRole = _campFormState.linkActiveTab || 'click';
   if (!CAMP_LINK_ROLES.some(r => r.role === activeRole)) activeRole = 'click';
   _campFormState.linkActiveTab = activeRole;
+  const entries = campGetLinkFormAppEntries();
+  const map = _campFormState.clickLinksByAppId || {};
   const tabs = CAMP_LINK_ROLES.map(({ role, label }) => {
     const filled = campLinkTabHasValue(role);
     const dot = filled ? '<span class="camp-link-tab-dot" title="已填写"></span>' : '';
     return `<button type="button" class="camp-link-tab${role === activeRole ? ' active' : ''}" role="tab" aria-selected="${role === activeRole}" onclick="campSwitchLinkTab('${role}')">${campEsc(label)}${dot}</button>`;
   }).join('');
-  const activeMeta = CAMP_LINK_ROLES.find(r => r.role === activeRole) || CAMP_LINK_ROLES[0];
-  const panelHtml = campRenderLinkBlock(activeMeta.role, activeMeta.label, campEnsureLinkSlot(activeMeta.role, _campFormState.links?.[activeMeta.role]));
+  let panelHtml = '';
+  if (activeRole === 'click') {
+    panelHtml = campRenderClickTabPanel(entries, map);
+  } else {
+    const slot = campEnsureLinkSlot(activeRole, _campFormState.links?.[activeRole]);
+    panelHtml = campRenderLinkBlock(activeRole, CAMP_LINK_ROLES.find(r => r.role === activeRole)?.label || activeRole, slot);
+  }
   host.innerHTML = `<div class="camp-link-tabs-wrap">
     <div class="camp-link-tabs" role="tablist">${tabs}</div>
     <div id="campLinkConsistencyHint" class="camp-link-consistency-hint"></div>
     <div class="camp-link-panel" role="tabpanel">${panelHtml}</div>
     ${campRenderParamVariantsSection()}
   </div>`;
-  const slot = _campFormState.links?.[activeRole];
-  if (slot) campSyncFullUrlField(activeRole, slot.url);
+  if (activeRole !== 'click') {
+    const slot = _campFormState.links?.[activeRole];
+    if (slot) campSyncFullUrlField(activeRole, slot.url);
+  } else {
+    const key = _campFormState.activeClickLinkKey;
+    if (key) campSyncFullUrlFieldByPrefix(campActiveClickIdPrefix(), map[key] || '');
+  }
   campRenderLinkConsistencyHint();
 }
 
 function offerOnRegionChange() {
-  offerUpdateCampaignUnitPriceDisplay();
-  offerSyncEstimatedUnitPriceDefault(true);
   const camp = offerGetSelectedCampaign();
   const region = document.getElementById('off_region')?.value || '';
+  offerSyncEventPriceRefs(camp, region, { resetBaseline: true });
   _offerFormState.payEvent = offerBuildPayEventFromOfferForm(camp, region);
   if (document.getElementById('offPayEventHost')) offerRenderPayEventRow();
   offerRefreshChannelInternalMirror();
   if (document.getElementById('offTcTimezone')) offerApplyRegionTimezoneSuggestion(false);
+  offerSyncOfferNameField();
 }
 
 function offerResetDependentFields(camp, opts) {
@@ -21150,7 +21881,7 @@ function offerResetDependentFields(camp, opts) {
   offerRenderPlacementInMmpBlock(camp, placement);
   offerRenderOfferPlacementExtras(camp, placement);
   offerSyncCampSummaryDisplay(camp);
-  offerSyncEstimatedUnitPriceDefault(true);
+  offerSyncEventPriceRefs(camp, opts.region || document.getElementById('off_region')?.value || '', { resetBaseline: !opts.keepPayEvent });
   if (opts.keepRunConfig && opts.runConfig && camp) {
     _offerFormState.runConfig = offerNormalizeRunConfig(opts.runConfig, camp, placement);
   } else if (camp) {
@@ -21159,6 +21890,7 @@ function offerResetDependentFields(camp, opts) {
   offerRenderRunConfigSection(camp, placement);
   offerClampAttrOsRulesToCampaign(camp);
   if (document.getElementById(audTagElId('AttributeRules'))) offerRefreshAttributeRules();
+  offerSyncOfferNameField();
 }
 
 function offerRenderPlacementInMmpBlock(camp, selectedPt) {
@@ -21177,6 +21909,7 @@ function offerOnCampaignChange() {
   _offerFormState.channelConfig.globalCap = prevGlobal;
   offerRenderChannelConfigModule();
   if (kind && document.getElementById('off_kind')) document.getElementById('off_kind').value = kind;
+  offerSyncOfferNameField();
 }
 
 function offerBuildDefaultFormBase() {
@@ -21209,6 +21942,8 @@ function offerBuildDefaultFormBase() {
     impRatioA: '',
     impRatioB: '',
     _lockCampaign: false,
+    offerName: '',
+    offerNameManual: false,
   };
 }
 
@@ -21228,12 +21963,20 @@ function offerInitFormStateFromData(d, camp) {
       capValue: e.capValue != null ? e.capValue : e.cap,
       capPeriod: e.capPeriod || 'day',
     })),
-    payEvent: d.payEvent || offerBuildPayEventFromCampaign(camp, region, {
-      name: camp?.eventName,
-      unitPrice: d.offerUnitPrice,
-      capValue: camp?.capConversions,
-      capPeriod: (() => { const p = camp?.capPeriod; return p === 'month' ? 'month' : p === 'total' ? 'total' : 'day'; })(),
-    }),
+    payEvent: (() => {
+      if (d.payEvent) {
+        const pe = { ...d.payEvent };
+        if (pe.unitPrice == null && d.estimatedUnitPrice != null) pe.unitPrice = d.estimatedUnitPrice;
+        else if (pe.unitPrice == null && d.offerUnitPrice != null) pe.unitPrice = d.offerUnitPrice;
+        return pe;
+      }
+      return offerBuildPayEventFromCampaign(camp, region, {
+        name: camp?.eventName,
+        unitPrice: d.estimatedUnitPrice ?? d.offerUnitPrice,
+        capValue: camp?.capConversions,
+        capPeriod: (() => { const p = camp?.capPeriod; return p === 'month' ? 'month' : p === 'total' ? 'total' : 'day'; })(),
+      });
+    })(),
     summaryExpanded: false,
     deliveryMixByPlacement: {},
     deliveryStrategy: offerNormalizeDeliveryStrategy(d.deliveryStrategy),
@@ -21253,7 +21996,16 @@ function offerInitFormStateFromData(d, camp) {
     channelNavSel: null,
     audienceEstimatedAt: d.audienceEstimatedAt || null,
     audienceEstimateResult: null,
+    campaignUnitPriceRef: camp ? campResolveUnitPriceForRegion(camp, region) : null,
+    baselineEstimatedUnitPrice: (() => {
+      const r = region;
+      const campUnit = camp ? campResolveUnitPriceForRegion(camp, r) : null;
+      const saved = d.estimatedUnitPrice ?? d.payEvent?.unitPrice ?? d.offerUnitPrice;
+      return saved != null && !Number.isNaN(Number(saved)) ? Number(saved) : campUnit;
+    })(),
     runConfig: offerBuildDefaultRunConfig(camp, placement, d.runConfig),
+    offerNameManual: !!d.offerNameManual,
+    offerName: (d.offerName || '').trim(),
   };
   offerInitDeliveryMixFromData(d);
 }
@@ -24495,6 +25247,57 @@ function offerComputeOfflineEstimateBase(ac, traffic) {
   if (ac.dataMode === 'mixed' && traffic?.offVol != null) base = Math.min(base, Math.round(traffic.offVol * 1.1));
   return base;
 }
+function offerReadInternalChannelDailyClickVolume(opts) {
+  opts = opts || {};
+  if (opts.syncChannel && document.getElementById('offChannelConfigHost')) offerSyncChannelConfigFromDom();
+  const cfg = offerNormalizeChannelConfig(
+    _offerFormState?.channelConfig || offerBuildChannelConfigFromCampaign(offerGetSelectedCampaign())
+  );
+  const internals = (cfg.internal || []).filter(ch => ch.enabled !== false);
+  if (!internals.length) return null;
+  let sum = 0;
+  let hasExplicit = false;
+  for (const ch of internals) {
+    let cap = ch.dailyClickCap;
+    if (!opts.skipDom) {
+      const card = document.querySelector(`#offChDetailHost .off-ch-card[data-list="internal"][data-ch-id="${ch.id}"]`);
+      if (card) cap = offChReadCapFromEl(card.querySelector('.off-ch-daily'));
+    }
+    if (cap != null && cap >= 0) {
+      sum += cap;
+      hasExplicit = true;
+    }
+  }
+  if (!hasExplicit) {
+    const g = offerResolveOfferClickCap({ skipDom: opts.skipDom, syncChannel: false });
+    if (g.cap != null && g.cap >= 0) {
+      sum = g.cap;
+      hasExplicit = true;
+    }
+  }
+  return hasExplicit && sum > 0 ? sum : null;
+}
+function offerFormatAudienceSendFrequency(freq) {
+  if (!Number.isFinite(freq) || freq <= 0) return null;
+  if (freq >= 100) return String(Math.round(freq));
+  if (freq >= 1) {
+    const n = Math.round(freq * 10) / 10;
+    return Number.isInteger(n) ? String(n) : n.toFixed(1);
+  }
+  const n = Math.round(freq * 100) / 100;
+  return n >= 0.01 ? String(n) : n.toFixed(2);
+}
+function offerComputeAudienceSendFrequency(estimateResult, opts) {
+  opts = opts || {};
+  const audienceCount = estimateResult?.total;
+  if (!audienceCount || audienceCount <= 0) return null;
+  const clickVolume = offerReadInternalChannelDailyClickVolume(opts);
+  if (clickVolume == null || clickVolume <= 0) return null;
+  const frequency = clickVolume / audienceCount;
+  const label = offerFormatAudienceSendFrequency(frequency);
+  if (!label) return null;
+  return { clickVolume, audienceCount, frequency, label };
+}
 function offerComputeAudienceEstimate(ac, estimateMode) {
   ac = offerNormalizeAudienceConfig(ac);
   estimateMode = estimateMode || 'full';
@@ -24531,6 +25334,7 @@ function offerComputeAudienceEstimate(ac, estimateMode) {
   else if (estimateMode === 'realtime') total = rtBase || 0;
   else if (estimateMode === 'offline') total = offBase || 0;
   else total = (allIpBase || 0) + (rtBase || 0) + (offBase || 0);
+  const sendFrequency = offerComputeAudienceSendFrequency({ total }, { syncChannel: true, skipDom: false });
   return {
     estimateMode,
     dataMode: ac.dataMode,
@@ -24539,6 +25343,7 @@ function offerComputeAudienceEstimate(ac, estimateMode) {
     totalLabel: fmt(total || 0),
     capInfo,
     traffic,
+    sendFrequency,
     estimatedAt: campNowStr(),
     isMock: true,
   };
@@ -24550,10 +25355,14 @@ function offerRenderAudienceEstimateResult(result) {
     ? `<div class="est-line">参考 ${campEsc(result.capInfo.label)}：${result.capInfo.cap.toLocaleString()} 次/日</div>`
     : '<div class="est-line" style="color:#ff7d00">未配置日点击 cap，预估未按送量上限校准</div>';
   const body = (result.lines || []).map(l => `<div class="est-line">${campEsc(l)}</div>`).join('');
+  const freq = result.sendFrequency?.label
+    ? `<div class="est-line" style="margin-top:6px;color:#4e5969"><strong style="font-weight:600;color:#1d2129">当前用户/ip的发送频次为${campEsc(result.sendFrequency.label)}</strong>，如果不合适可调整内部渠道点击量或者受众定向配置后重新预估。</div>`
+    : '';
   return `<div class="est-hd">受众预估结果（${campEsc(modeLbl)} · 模拟） · ${campEsc(result.estimatedAt || '')}</div>
     ${capLine}
     ${body}
     <div class="est-line" style="margin-top:6px;font-weight:600;color:#1d2129">合计可达：约 ${campEsc(result.totalLabel)}</div>
+    ${freq}
     <div class="est-line" style="font-size:11px;color:#86909c">以上为演示估算，正式环境将对接受众引擎</div>`;
 }
 function offerRenderAudienceEstimateModeOptions(ac) {
@@ -26763,7 +27572,6 @@ function buildOfferFormInner(d) {
   const campOpts = campaignList.filter(c => !campIsOutboundCampaign(c) && (campCanCreateOffer(c) || (d.campaignId && c.id === d.campaignId))).map(c =>
     `<option value="${campEsc(c.id)}" ${d.campaignId === c.id ? 'selected' : ''}>${offerCampaignSelectLabel(c)}</option>`
   ).join('');
-  const estPrice = d.estimatedUnitPrice != null && d.estimatedUnitPrice !== '' ? d.estimatedUnitPrice : '';
   const dis = d._lockCampaign ? 'disabled' : '';
   const idInline = _offerEditingId
     ? `<div class="off-mod1-lrow">
@@ -26772,6 +27580,7 @@ function buildOfferFormInner(d) {
       </div>`
     : '';
   return `
+    ${offerRenderOfferNameBar(d)}
     <fieldset class="camp-fieldset-wrap off-mod-section off-form-compact" id="offMod1" data-off-mod="offMod1">
       <legend>模块一：投放信息</legend>
       <div class="off-mod1-body">
@@ -26794,7 +27603,7 @@ function buildOfferFormInner(d) {
       <div class="off-mod1-fields3">
         <div class="off-mod1-field">
           <span class="off-form-label">类型<span class="req">*</span></span>
-          <select class="fs off-form-ctrl" id="off_kind">
+          <select class="fs off-form-ctrl" id="off_kind" onchange="offerSyncOfferNameField()">
             <option value="UA" ${d.offerKind === 'UA' ? 'selected' : ''}>UA</option>
             <option value="RT" ${d.offerKind === 'RT' ? 'selected' : ''}>RT</option>
           </select>
@@ -26812,14 +27621,6 @@ function buildOfferFormInner(d) {
         <div class="off-mod1-field">
           <span class="off-form-label">区域<span class="req">*</span></span>
           <select class="fs off-form-ctrl" id="off_region" onchange="offerOnRegionChange()"></select>
-        </div>
-        <div class="off-mod1-field">
-          <span class="off-form-label">Campaign 单价</span>
-          <div class="off-readonly-pill" id="off_campUnitPrice" title="来自 Campaign 该区域单价，不可编辑">—</div>
-        </div>
-        <div class="off-mod1-field">
-          <span class="off-form-label">预估单价<span class="req">*</span></span>
-          <input class="fi off-form-ctrl" id="off_estimatedUnitPrice" type="number" step="0.01" min="0" value="${estPrice !== '' ? campEsc(estPrice) : ''}" placeholder="USD">
         </div>
       </div>
       <div class="off-mod1-section">
@@ -26840,7 +27641,7 @@ function buildOfferFormInner(d) {
         <div class="off-mod1-lrow off-mod1-lrow--top">
           <span class="off-form-label">事件配置</span>
           <div class="off-mod1-cell">
-            <p class="off-mod1-hint">付费事件以 Campaign 为准，可调整单价与 Cap；可添加其他事件</p>
+            <p class="off-mod1-hint">付费事件以 Campaign 为准；单价在下方事件中调整，上方展示 Campaign 单价与边界预估单价供参考</p>
             <div id="offPayEventHost"></div>
             <div id="offExtraEventsHost" style="margin-top:6px"></div>
             <button type="button" class="cm-btn camp-coop-btn-sm" style="margin-top:6px" onclick="offerAddExtraEvent()"><i class="fa-solid fa-plus"></i> 增加其他事件</button>
@@ -26995,6 +27796,8 @@ function mountOfferFormContent(base) {
   offerRenderTimeCurveModule();
   offerRenderSendStrategyModule();
   offerInitFormNav();
+  offerInitOfferNameField(base);
+  queueMicrotask(() => offerSyncOfferNameField(true));
   const sc = document.getElementById('offerFormScroll');
   if (sc) sc.scrollTop = 0;
 }
@@ -27098,6 +27901,7 @@ function openOfferFormPage(id, presetCampaignId, opts) {
       document.getElementById('hd-adcenter')?.classList.add('has-active');
     }
     setPage('offer');
+    queueMicrotask(() => openOfferFormPage(id, presetCampaignId, { ...opts, skipHash: true }));
     return;
   }
   _offerEditingId = id || null;
@@ -27173,10 +27977,10 @@ function collectOfferFormObject() {
   let linkClickUrl = campLinks.linkClickUrl || '';
   if (isImpPt && !mixClickWithImp) linkClickUrl = '';
   const campUnit = camp ? campResolveUnitPriceForRegion(camp, region) : null;
-  const payEvent = offerBuildPayEventFromOfferForm(camp, region);
+  const payEvent = { ...(_offerFormState.payEvent || {}) };
+  if (!payEvent.name && camp) payEvent.name = String(camp.eventName || '').trim();
   const offerUnitPrice = payEvent?.unitPrice != null ? payEvent.unitPrice : null;
-  const estRaw = document.getElementById('off_estimatedUnitPrice')?.value;
-  const estimatedUnitPrice = estRaw === '' || estRaw == null ? null : parseFloat(estRaw);
+  const estimatedUnitPrice = offerUnitPrice;
   return {
     campaignId: (document.getElementById('off_campaign')?.value || '').trim(),
     offerKind: (document.getElementById('off_kind')?.value || 'UA').trim(),
@@ -27222,6 +28026,8 @@ function collectOfferFormObject() {
     dataSrcNote: '',
     status: '启用',
     runConfig: offerCloneRunConfig(_offerFormState.runConfig),
+    offerName: (document.getElementById('off_offerName')?.value || _offerFormState.offerName || '').trim(),
+    offerNameManual: !!_offerFormState.offerNameManual,
   };
 }
 
@@ -27256,12 +28062,11 @@ function saveOfferForm() {
     return;
   }
   if (o.estimatedUnitPrice == null || Number.isNaN(o.estimatedUnitPrice) || o.estimatedUnitPrice <= 0) {
-    showToast('请填写有效的预估单价');
+    showToast('请填写有效的付费事件单价');
     return;
   }
   if (!offerCampaignHasRequiredLinks(camp, o.placementType)) {
-    const msg = o.placementType === 'CTA' ? 'Campaign 未配置点击链接' : o.placementType === 'CTV' ? 'Campaign 未配置 CTV 链接' : 'Campaign 未配置展示链接';
-    showToast(msg + '，请先在 Campaign 链接模块维护');
+    showToast('Campaign 未配置点击链接，请先在 Campaign 链接模块为各 App ID 维护');
     return;
   }
   if ((o.placementType === 'VTA' || o.placementType === 'CTV') && o.mixClickWithImp) {
@@ -27278,6 +28083,10 @@ function saveOfferForm() {
   if (audErr) { showToast(audErr); return; }
   const audWarn = offerWarnAudienceNotEstimated();
   if (audWarn) showToast(audWarn);
+  if (!o.offerName) {
+    o.offerName = offerBuildAutoOfferNameFromOffer(o, camp);
+    o.offerNameManual = false;
+  }
   const now = new Date().toISOString().slice(0, 16).replace('T', ' ');
   if (_offerEditingId) {
     const row = offerList.find(x => x.id === _offerEditingId);
@@ -27287,6 +28096,7 @@ function saveOfferForm() {
   } else {
     const nid = 'OF-' + String(nextOfferSeq++).padStart(4, '0');
     offerList.unshift({ id: nid, ...o, createdBy: CUR_USER_ID, createdAt: now, hasMockStats: false });
+    offNormalizeOffer(offerList[0]);
     showToast('Offer 已创建');
   }
   clearOfferDraft();
@@ -27383,6 +28193,7 @@ function offerFormatMod1DetailHtml(o, camp) {
   const budgetDiff = camp && o.placementType && !offerPlacementInCampaignBudget(camp, o.placementType)
     ? ` <span style="color:#d46b08">（非预算类型，Campaign 预算 ${campEsc(campBudgetTypesLabel(camp))}）</span>` : '';
   const basic = offerDetailKvGrid([
+    { k: 'Offer Name', v: campEsc(o.offerName || '—') },
     { k: '关联 Campaign', v: camp ? `<span class="mono">${campEsc(camp.id)}</span> · ${campEsc(camp.advertiserName)} · ${campEsc(camp.appName)}` : '—' },
     { k: 'App 名称', v: campEsc(camp?.appName) || '—' },
     { k: '运行端 / App ID', v: `${runCfgHtml}${budgetDiff}` },
@@ -27409,6 +28220,7 @@ function offerBuildOfferDetailHtml(o, camp) {
   const hdr = `<div class="off-dw-hd-strip">
     <span class="off-dw-hd-id">${campEsc(o.id)}</span>
     ${campFmtStatusPill(o.status || '—')}
+    <span style="font-size:13px;font-weight:600;color:#1d2129">${campEsc(o.offerName || o.id)}</span>
     <span style="font-size:12px;color:#4e5969">${campEsc(o.offerKind || '')} · ${campEsc(o.placementType || '')} · ${campEsc(o.regionText || o.region || '')}</span>
     <div class="off-dw-hd-meta">
       <span>创建 ${campEsc(getUserNameById(o.createdBy))} · ${campEsc(o.createdAt || '—')}</span>
@@ -27468,6 +28280,7 @@ function offApplyRouteFromHash() {
       document.getElementById('hd-adcenter')?.classList.add('has-active');
     }
     setPage('offer');
+    queueMicrotask(() => offApplyRouteFromHash());
     return;
   }
   if (r.view === 'form') {
@@ -27505,6 +28318,7 @@ function setPage(page) {
   const isAbtest = page === 'abtest';
   const isTools = page === 'tools';
   const isDatapackage = page === 'datapackage';
+  const isDashboard = page === 'dashboard';
   const campRoute = isCampaign ? campParseHash() : { view: 'list' };
   const offRoute = isOffer ? offParseHash() : { view: 'list' };
   const isCampaignForm = isCampaign && campRoute.view === 'form';
@@ -27518,9 +28332,12 @@ function setPage(page) {
   document.getElementById('abtestPage') && (document.getElementById('abtestPage').style.display = isAbtest ? 'flex' : 'none');
   document.getElementById('toolsPage') && (document.getElementById('toolsPage').style.display = isTools ? 'flex' : 'none');
   document.getElementById('datapackagePage') && (document.getElementById('datapackagePage').style.display = isDatapackage ? 'flex' : 'none');
-  document.getElementById('phWrap').style.display = (!isDept && !isRoles && !isCustomer && !isClues && !isHuntlist && !isPid && !isApp && !isApc && !isCampaign && !isOffer && !isAbtest && !isTools && !isDatapackage) ? 'block' : 'none';
+  document.getElementById('dashboardPage') && (document.getElementById('dashboardPage').style.display = isDashboard ? 'flex' : 'none');
+  document.getElementById('phWrap').style.display = (!isDept && !isRoles && !isCustomer && !isClues && !isHuntlist && !isPid && !isApp && !isApc && !isCampaign && !isOffer && !isAbtest && !isTools && !isDatapackage && !isDashboard) ? 'block' : 'none';
 
-  if (isTools) {
+  if (isDashboard) {
+    initDashboardPage();
+  } else if (isTools) {
     initToolboxPage();
   } else if (isDatapackage) {
     initDatapackagePage();
@@ -31814,6 +32631,645 @@ function abtestSaveForm(isDraft) {
 }
 
 // ════════════════════════════════════════
+  // ════════════════════════════════════════
+//  DASHBOARD（实时看板）
+// ════════════════════════════════════════
+const DASH_COMPARE_DEFAULT = 'yesterday';
+const DASH_COMPARE_OPTS = [
+  { v: 'yesterday', label: '同时间段（昨日）' },
+  { v: '7d', label: '同时间段（7日前）' },
+];
+const DASH_METRIC_DEFS = [
+  { key: 'totalClick', label: 'Total Click', fmt: 'int' },
+  { key: 'click', label: 'Click', fmt: 'int' },
+  { key: 'impressionClick', label: 'Impression Click', fmt: 'int' },
+  { key: 'revenue', label: 'Revenue', fmt: 'money' },
+  { key: 'cost', label: 'Cost', fmt: 'money' },
+  { key: 'install', label: 'Install', fmt: 'int' },
+  { key: 'event', label: 'Event', fmt: 'int' },
+  { key: 'installReject', label: 'Install Reject', fmt: 'int' },
+  { key: 'ecpm', label: 'eCPM', fmt: 'money' },
+  { key: 'roi', label: 'ROI', fmt: 'pct' },
+];
+const DASH_FLOW_METRICS = [
+  { v: 'revenue', label: '流水金额' },
+  { v: 'click', label: '点击量' },
+  { v: 'cost', label: '成本' },
+];
+const DASH_GEOS = ['US', 'JP', 'KR'];
+const DASH_ADVERTISERS = [
+  { id: 'DC001', name: 'GameX Ltd' },
+  { id: 'DC005', name: 'MediaStream SG' },
+  { id: 'AG002', name: 'Global Ads Group' },
+];
+const DASH_AM_ROLE_IDS = new Set([5, 6, 10]);
+const DASH_OM_ROLE_IDS = new Set([7, 11, 12]);
+let _dashSeed = Date.now();
+let _dashGeneratedAt = Date.now();
+let _dashState = {
+  flowMetric: 'revenue',
+  flowCompare: 'yesterday',
+  flowRange: '7d',
+  flowSort: { col: 'date', dir: 'desc' },
+  appMetric: 'click',
+  prtMetric: 'revenue',
+  pidMetric: 'revenue',
+  appPage: 1,
+  appSort: { col: 'diff', dir: 'desc' },
+  prtSort: { col: 'chgPct', dir: 'desc' },
+  pidSort: { col: 'chgPct', dir: 'desc' },
+};
+const DASH_APP_PAGE_SIZE = 20;
+
+function dashFormatGeneratedTime(ts) {
+  const d = new Date(ts || _dashGeneratedAt || Date.now());
+  return d.toLocaleString('sv-SE', { timeZone: 'Asia/Shanghai', hour12: false });
+}
+function dashGeneratedAtText() {
+  return `生成时间：${dashFormatGeneratedTime()}（北京时间） |`;
+}
+function dashSeed(s) {
+  let h = _dashSeed;
+  String(s).split('').forEach(c => { h = ((h << 5) - h) + c.charCodeAt(0); h |= 0; });
+  return Math.abs(h);
+}
+function dashRand(seed, min, max) {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return min + (x - Math.floor(x)) * (max - min);
+}
+function dashFmtVal(v, fmt) {
+  if (v == null || Number.isNaN(v)) return '—';
+  if (fmt === 'money') return '$' + Number(v).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  if (fmt === 'pct') return Number(v).toFixed(2) + '%';
+  return Math.round(v).toLocaleString();
+}
+function dashCompareLabel(v) {
+  return DASH_COMPARE_OPTS.find(o => o.v === v)?.label || v;
+}
+function dashGetAllowedDeptIds() {
+  if (isTopAdmin() || (curPerms.dataScope || 'all') === 'all') return new Set(depts.map(d => d.id));
+  const myDept = getUserById(CUR_USER_ID)?.deptId;
+  if (!myDept) return new Set(depts.map(d => d.id));
+  const set = getDeptDescendants(myDept);
+  getDeptAncestors(myDept).forEach(id => set.add(id));
+  return set;
+}
+function dashGetFilterDeptOptions() {
+  const allowed = dashGetAllowedDeptIds();
+  return depts.filter(d => allowed.has(d.id));
+}
+function dashReadSelect(id) {
+  const el = document.getElementById(id);
+  if (!el) return '';
+  return String(el.value || '').trim();
+}
+function dashReadFilters() {
+  return {
+    dept: dashReadSelect('dashFDept'),
+    pid: dashReadSelect('dashFPid'),
+    prt: dashReadSelect('dashFPrt'),
+    advertiser: dashReadSelect('dashFAdv'),
+    geo: dashReadSelect('dashFGeo'),
+    app: dashReadSelect('dashFApp'),
+    am: dashReadSelect('dashFAm'),
+    offerManager: dashReadSelect('dashFOm'),
+  };
+}
+function dashRowMatches(f, row) {
+  if (f.dept && String(row.deptId) !== f.dept) return false;
+  if (f.pid && row.pidId !== f.pid) return false;
+  if (f.prt && row.prtId !== f.prt) return false;
+  if (f.advertiser && row.advertiserId !== f.advertiser) return false;
+  if (f.geo && row.geo !== f.geo) return false;
+  if (f.app && row.appId !== f.app) return false;
+  if (f.am && String(row.amId) !== f.am) return false;
+  if (f.offerManager && String(row.omId) !== f.offerManager) return false;
+  return true;
+}
+function dashBuildEntityRows() {
+  const allowedDepts = dashGetAllowedDeptIds();
+  const apps = (typeof appMgmtList !== 'undefined' ? appMgmtList : []).slice(0, 5);
+  const pids = pidList.filter(p => allowedDepts.has(p.deptId));
+  const prts = prtList.filter(p => allowedDepts.has(p.deptId));
+  const amUsers = users.filter(u => !u.hidden && DASH_AM_ROLE_IDS.has(u.roleId));
+  const omUsers = users.filter(u => !u.hidden && DASH_OM_ROLE_IDS.has(u.roleId));
+  const rows = [];
+  bizGroups.forEach((g, gi) => {
+    apps.forEach((app, ai) => {
+      const pid = pids[(gi + ai) % Math.max(pids.length, 1)] || pids[0];
+      const prt = prts[(gi + ai + 1) % Math.max(prts.length, 1)] || prts[0];
+      if (!pid || !prt) return;
+      const adv = DASH_ADVERTISERS[(gi + ai) % DASH_ADVERTISERS.length];
+      const geo = DASH_GEOS[(gi + ai) % DASH_GEOS.length];
+      const am = amUsers[(gi + ai) % Math.max(amUsers.length, 1)];
+      const om = omUsers[(gi + ai) % Math.max(omUsers.length, 1)];
+      rows.push({
+        groupId: g.id, groupName: g.name, appId: app.id, appName: app.name,
+        appStoreId: (app.deployments?.ios?.[0]?.appleId) || ('APP-' + app.id),
+        deptId: pid.deptId, pidId: pid.id, prtId: prt.id,
+        advertiserId: adv.id, advertiserName: adv.name, geo,
+        amId: am?.id || 0, omId: om?.id || 0,
+      });
+    });
+  });
+  return rows;
+}
+function dashMetricValue(row, metric, hourOffset) {
+  const seed = dashSeed(`${row.groupId}|${row.appId}|${row.pidId}|${metric}|${hourOffset}|${_dashSeed}`);
+  const base = {
+    totalClick: dashRand(seed, 800, 12000),
+    click: dashRand(seed + 1, 600, 9000),
+    impressionClick: dashRand(seed + 2, 400, 7000),
+    revenue: dashRand(seed + 3, 200, 8000),
+    cost: dashRand(seed + 4, 150, 6000),
+    install: dashRand(seed + 5, 20, 800),
+    event: dashRand(seed + 6, 40, 1600),
+    installReject: dashRand(seed + 7, 2, 120),
+    ecpm: dashRand(seed + 8, 1.2, 18),
+    roi: dashRand(seed + 9, 80, 220),
+  };
+  return base[metric] || 0;
+}
+function dashAggregateMetrics(f, hourOffset) {
+  const rows = dashBuildEntityRows().filter(r => dashRowMatches(f, r));
+  const out = {};
+  DASH_METRIC_DEFS.forEach(m => { out[m.key] = 0; });
+  rows.forEach(row => {
+    DASH_METRIC_DEFS.forEach(m => {
+      out[m.key] += dashMetricValue(row, m.key, hourOffset);
+    });
+  });
+  if (out.click > 0) out.ecpm = (out.revenue / out.click) * 1000;
+  if (out.cost > 0) out.roi = (out.revenue / out.cost) * 100;
+  return out;
+}
+function dashCompareOffset(type) {
+  if (type === '7d') return 24 * 7;
+  return 24;
+}
+function dashNormalizeCompareType(type) {
+  if (!type || type === '1h') return DASH_COMPARE_DEFAULT;
+  return DASH_COMPARE_OPTS.some(o => o.v === type) ? type : DASH_COMPARE_DEFAULT;
+}
+function dashCalcChg(cur, prev) {
+  if (!prev) return cur ? 100 : 0;
+  return ((cur - prev) / prev) * 100;
+}
+function dashRenderChgHtml(pct) {
+  const v = Number(pct);
+  if (Math.abs(v) < 0.05) return '<span class="dash-metric-chg is-flat"><i class="fa-solid fa-minus"></i> 0.0%</span>';
+  const cls = v > 0 ? 'is-up' : 'is-down';
+  const icon = v > 0 ? 'fa-arrow-up' : 'fa-arrow-down';
+  return `<span class="dash-metric-chg ${cls}"><i class="fa-solid ${icon}"></i> ${Math.abs(v).toFixed(1)}%</span>`;
+}
+function dashRenderFilters() {
+  const host = document.getElementById('dashFilterBar');
+  if (!host) return;
+  const f = dashReadFilters();
+  const deptList = dashGetFilterDeptOptions();
+  const deptOpts = `<option value="">全部</option>${deptList.map(d =>
+    `<option value="${d.id}" ${f.dept === String(d.id) ? 'selected' : ''}>${campEsc(d.name)}</option>`
+  ).join('')}`;
+  const selDepts = f.dept ? [Number(f.dept)] : [...dashGetAllowedDeptIds()];
+  const deptSet = new Set(selDepts);
+  const allowed = dashGetAllowedDeptIds();
+  const pidFiltered = pidList.filter(p => deptSet.has(p.deptId) && allowed.has(p.deptId));
+  const prtFiltered = prtList.filter(p => deptSet.has(p.deptId) && allowed.has(p.deptId));
+  const pidSel = f.pid && pidFiltered.some(p => p.id === f.pid) ? f.pid : '';
+  const prtSel = f.prt && prtFiltered.some(p => p.id === f.prt) ? f.prt : '';
+  const pidOpts = `<option value="">全部</option>${pidFiltered.map(p =>
+    `<option value="${campEsc(p.id)}" ${pidSel === p.id ? 'selected' : ''}>${campEsc(p.id)}</option>`
+  ).join('')}`;
+  const prtOpts = `<option value="">全部</option>${prtFiltered.map(p =>
+    `<option value="${campEsc(p.id)}" ${prtSel === p.id ? 'selected' : ''}>${campEsc(p.id)}</option>`
+  ).join('')}`;
+  const advOpts = `<option value="">全部</option>${DASH_ADVERTISERS.map(a =>
+    `<option value="${campEsc(a.id)}" ${f.advertiser === a.id ? 'selected' : ''}>${campEsc(a.name)}</option>`
+  ).join('')}`;
+  const geoOpts = `<option value="">全部</option>${DASH_GEOS.map(g =>
+    `<option value="${g}" ${f.geo === g ? 'selected' : ''}>${g}</option>`
+  ).join('')}`;
+  const appOpts = `<option value="">全部</option>${(typeof appMgmtList !== 'undefined' ? appMgmtList : []).slice(0, 5).map(a =>
+    `<option value="${campEsc(a.id)}" ${f.app === a.id ? 'selected' : ''}>${campEsc(a.name)}</option>`
+  ).join('')}`;
+  const amOpts = `<option value="">全部</option>${users.filter(u => !u.hidden && DASH_AM_ROLE_IDS.has(u.roleId)).map(u =>
+    `<option value="${u.id}" ${f.am === String(u.id) ? 'selected' : ''}>${campEsc(u.name)}</option>`
+  ).join('')}`;
+  const omOpts = `<option value="">全部</option>${users.filter(u => !u.hidden && DASH_OM_ROLE_IDS.has(u.roleId)).map(u =>
+    `<option value="${u.id}" ${f.offerManager === String(u.id) ? 'selected' : ''}>${campEsc(u.name)}</option>`
+  ).join('')}`;
+  host.innerHTML = `<div class="dash-filter-row">
+    <div class="dash-filter-item"><label>部门</label><select id="dashFDept" class="dash-sel" onchange="dashOnFilterChange()">${deptOpts || '<option value="">全部</option><option disabled>无权限部门</option>'}</select></div>
+    <div class="dash-filter-item"><label>PID</label><select id="dashFPid" class="dash-sel" onchange="dashOnFilterChange()">${pidOpts}</select></div>
+    <div class="dash-filter-item"><label>PRT</label><select id="dashFPrt" class="dash-sel" onchange="dashOnFilterChange()">${prtOpts}</select></div>
+    <div class="dash-filter-item"><label>Advertiser</label><select id="dashFAdv" class="dash-sel" onchange="dashOnFilterChange()">${advOpts}</select></div>
+    <div class="dash-filter-item"><label>GEO</label><select id="dashFGeo" class="dash-sel" onchange="dashOnFilterChange()">${geoOpts}</select></div>
+    <div class="dash-filter-item"><label>App</label><select id="dashFApp" class="dash-sel" onchange="dashOnFilterChange()">${appOpts}</select></div>
+    <div class="dash-filter-item"><label>AM</label><select id="dashFAm" class="dash-sel" onchange="dashOnFilterChange()">${amOpts}</select></div>
+    <div class="dash-filter-item"><label>Offer Manager</label><select id="dashFOm" class="dash-sel" onchange="dashOnFilterChange()">${omOpts}</select></div>
+    <div class="dash-filter-actions">
+      <span class="dash-generated-at" id="dashGeneratedAt">${dashGeneratedAtText()}</span>
+    </div>
+  </div>
+  <div class="dash-filter-hint">默认「全部」表示不限；部门选项受当前角色数据权限限制（超管可见全部，普通用户仅本部门及下级）</div>`;
+}
+function dashOnFilterChange() {
+  dashRenderFilters();
+  dashRenderAll(false);
+}
+function dashRenderMetrics() {
+  const host = document.getElementById('dashMetricsSec');
+  if (!host) return;
+  const f = dashReadFilters();
+  const cur = dashAggregateMetrics(f, 0);
+  const cards = DASH_METRIC_DEFS.map(m => {
+    const cmp = DASH_COMPARE_DEFAULT;
+    const prev = dashAggregateMetrics(f, dashCompareOffset(cmp));
+    const chg = dashCalcChg(cur[m.key], prev[m.key]);
+    const tip = `对比 ${dashCompareLabel(cmp)}：${dashFmtVal(prev[m.key], m.fmt)}`;
+    return `<div class="dash-metric-card" title="${campEsc(tip)}">
+      <div class="dash-metric-lbl">${campEsc(m.label)}</div>
+      <div class="dash-metric-val">${dashFmtVal(cur[m.key], m.fmt)}</div>
+      ${dashRenderChgHtml(chg)}
+    </div>`;
+  }).join('');
+  host.innerHTML = `<div class="dash-sec-hd"><h3 class="dash-sec-title">核心指标</h3></div><div class="dash-metrics-grid">${cards}</div>`;
+}
+function dashFlowFmtNum(v) {
+  if (v == null || Number.isNaN(v)) return '—';
+  return Number(v).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+}
+function dashFlowBarCell(val, max, opts) {
+  opts = opts || {};
+  const n = Number(val) || 0;
+  const base = opts.useAbs ? Math.abs(n) : n;
+  const pct = max > 0 ? Math.min(100, (base / max) * 100) : 0;
+  const barCls = opts.neg && n < 0 ? 'dash-flow-bar is-neg' : (opts.total ? 'dash-flow-bar is-total' : 'dash-flow-bar');
+  const clickAttr = opts.click ? ' class="dash-flow-cell dash-cell-link" onclick="showToast(\'详情开发中\')"' : ' class="dash-flow-cell"';
+  return `<td${clickAttr}>
+    <div class="dash-flow-cell-inner">
+      <div class="${barCls}" style="width:${pct.toFixed(1)}%"></div>
+      <span class="dash-flow-cell-val">${dashFlowFmtNum(n)}</span>
+    </div>
+  </td>`;
+}
+function dashFlowSortIcon(col) {
+  const s = _dashState.flowSort;
+  if (s.col !== col) return '<span class="dash-flow-sort-icon">↕</span>';
+  return `<span class="dash-flow-sort-icon is-active">${s.dir === 'asc' ? '↑' : '↓'}</span>`;
+}
+function dashFlowTableData(f) {
+  const metric = _dashState.flowMetric;
+  const mk = metric === 'revenue' ? 'revenue' : metric === 'cost' ? 'cost' : 'click';
+  const isHourly = _dashState.flowRange === '24h';
+  const points = isHourly ? 7 : 10;
+  const cmpOff = dashCompareOffset(_dashState.flowCompare);
+  const rows = [];
+  for (let i = points - 1; i >= 0; i--) {
+    const hourOff = isHourly ? i : i * 24;
+    let label, sortKey;
+    if (isHourly) {
+      const d = new Date(); d.setHours(d.getHours() - i);
+      label = `${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:00`;
+      sortKey = d.getTime();
+    } else {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      label = d.toISOString().slice(0, 10);
+      sortKey = d.getTime();
+    }
+    const groups = bizGroups.map(g => {
+      let sum = 0;
+      dashBuildEntityRows().filter(r => r.groupId === g.id && dashRowMatches(f, r)).forEach(r => {
+        sum += dashMetricValue(r, mk, hourOff);
+      });
+      return Math.round(sum * 10) / 10;
+    });
+    const total = Math.round(groups.reduce((s, v) => s + v, 0) * 10) / 10;
+    let prevTotal = 0;
+    bizGroups.forEach(g => {
+      dashBuildEntityRows().filter(r => r.groupId === g.id && dashRowMatches(f, r)).forEach(r => {
+        prevTotal += dashMetricValue(r, mk, hourOff + cmpOff);
+      });
+    });
+    prevTotal = Math.round(prevTotal * 10) / 10;
+    const diff = Math.round((total - prevTotal) * 10) / 10;
+    rows.push({ label, sortKey, groups, total, diff });
+  }
+  return rows;
+}
+function dashSortFlowRows(rows) {
+  const s = _dashState.flowSort;
+  const dir = s.dir === 'asc' ? 1 : -1;
+  return [...rows].sort((a, b) => {
+    let av, bv;
+    if (s.col === 'date') { av = a.sortKey; bv = b.sortKey; }
+    else if (s.col === 'total') { av = a.total; bv = b.total; }
+    else if (s.col === 'diff') { av = a.diff; bv = b.diff; }
+    else if (String(s.col).startsWith('g')) {
+      const idx = Number(String(s.col).slice(1));
+      av = a.groups[idx]; bv = b.groups[idx];
+    } else { av = a.sortKey; bv = b.sortKey; }
+    if (av < bv) return -1 * dir;
+    if (av > bv) return 1 * dir;
+    return 0;
+  });
+}
+function dashSortFlowTable(col) {
+  if (_dashState.flowSort.col === col) _dashState.flowSort.dir = _dashState.flowSort.dir === 'asc' ? 'desc' : 'asc';
+  else { _dashState.flowSort.col = col; _dashState.flowSort.dir = col === 'date' ? 'desc' : 'desc'; }
+  dashRenderFlow();
+}
+function dashRenderFlow() {
+  const host = document.getElementById('dashFlowSec');
+  if (!host) return;
+  _dashState.flowCompare = dashNormalizeCompareType(_dashState.flowCompare);
+  const f = dashReadFilters();
+  const rawRows = dashFlowTableData(f);
+  const rows = dashSortFlowRows(rawRows);
+  const colMax = bizGroups.map((_, gi) => Math.max(...rows.map(r => r.groups[gi] || 0), 1));
+  const totalMax = Math.max(...rows.map(r => r.total), 1);
+  const diffMax = Math.max(...rows.map(r => Math.abs(r.diff)), 1);
+  const tableRows = rows.map(r => {
+    const groupCells = r.groups.map((v, gi) => dashFlowBarCell(v, colMax[gi], { click: true }));
+    const totalCell = dashFlowBarCell(r.total, totalMax, { total: true });
+    const diffCell = dashFlowBarCell(r.diff, diffMax, { neg: true, useAbs: true });
+    return `<tr><td style="text-align:left;font-weight:500">${campEsc(r.label)}</td>${groupCells.join('')}${totalCell}${diffCell}</tr>`;
+  }).join('');
+  const flowMetricOpts = DASH_FLOW_METRICS.map(o =>
+    `<option value="${o.v}" ${_dashState.flowMetric === o.v ? 'selected' : ''}>${o.label}</option>`
+  ).join('');
+  const cmpOpts = DASH_COMPARE_OPTS.map(o =>
+    `<option value="${o.v}" ${_dashState.flowCompare === o.v ? 'selected' : ''}>${o.label}</option>`
+  ).join('');
+  const dateLabel = _dashState.flowRange === '24h' ? '小时' : '日期';
+  host.innerHTML = `<div class="dash-sec-hd">
+    <h3 class="dash-sec-title">流水对比</h3>
+    <div class="dash-sec-tools">
+      <label>指标 <select class="dash-sel-sm" onchange="_dashState.flowMetric=this.value;dashRenderFlow()">${flowMetricOpts}</select></label>
+      <label>差值对比 <select class="dash-sel-sm" onchange="_dashState.flowCompare=this.value;dashRenderFlow()">${cmpOpts}</select></label>
+      <label>范围 <select class="dash-sel-sm" onchange="_dashState.flowRange=this.value;dashRenderFlow()">
+        <option value="7d" ${_dashState.flowRange === '7d' ? 'selected' : ''}>最近 10 天</option>
+        <option value="24h" ${_dashState.flowRange === '24h' ? 'selected' : ''}>过去 24 小时</option>
+      </select></label>
+    </div>
+  </div>
+  <div class="dash-table-wrap dash-flow-wrap"><table class="dash-table dash-flow-table"><thead><tr>
+    <th style="text-align:left;cursor:pointer" onclick="dashSortFlowTable('date')">${dateLabel}${dashFlowSortIcon('date')}</th>
+    ${bizGroups.map((g, i) => `<th style="cursor:pointer" onclick="dashSortFlowTable('g${i}')">${campEsc(g.name)}${dashFlowSortIcon('g' + i)}</th>`).join('')}
+    <th style="cursor:pointer" onclick="dashSortFlowTable('total')">总计${dashFlowSortIcon('total')}</th>
+    <th style="cursor:pointer" onclick="dashSortFlowTable('diff')">总计_差值${dashFlowSortIcon('diff')}</th>
+  </tr></thead><tbody>${tableRows}</tbody></table></div>`;
+}
+function dashAppRows(f) {
+  const metric = _dashState.appMetric;
+  const mk = metric === 'revenue' ? 'revenue' : metric === 'cost' ? 'cost' : 'click';
+  const cmpOff = dashCompareOffset(DASH_COMPARE_DEFAULT);
+  return dashBuildEntityRows().filter(r => dashRowMatches(f, r)).map(row => {
+    const cur = dashMetricValue(row, mk, 0);
+    const prev = dashMetricValue(row, mk, cmpOff);
+    const diff = cur - prev;
+    const today = dashMetricValue(row, mk, 0)
+      + dashMetricValue(row, mk, 1)
+      + dashMetricValue(row, mk, 2);
+    const deltas = [1, 2, 3, 4, 5, 6, 7].map(d => {
+      const now = dashMetricValue(row, mk, 0);
+      const past = dashMetricValue(row, mk, d * 24);
+      return now - past;
+    });
+    return {
+      key: `${row.groupId}|${row.appId}`, label: `${row.groupName}-${row.appStoreId}`,
+      value: cur, diff, today_r: today, deltas, row,
+    };
+  });
+}
+function dashSortRows(rows, sort) {
+  const dir = sort.dir === 'asc' ? 1 : -1;
+  return [...rows].sort((a, b) => {
+    let av = a[sort.col], bv = b[sort.col];
+    if (sort.col === 'diff') { av = Math.abs(av); bv = Math.abs(bv); }
+    if (av < bv) return -1 * dir;
+    if (av > bv) return 1 * dir;
+    return 0;
+  });
+}
+function dashRenderAppMonitor() {
+  const host = document.getElementById('dashAppSec');
+  if (!host) return;
+  const f = dashReadFilters();
+  let rows = dashSortRows(dashAppRows(f), _dashState.appSort);
+  const total = rows.length;
+  const pages = Math.max(1, Math.ceil(total / DASH_APP_PAGE_SIZE));
+  if (_dashState.appPage > pages) _dashState.appPage = pages;
+  const slice = rows.slice((_dashState.appPage - 1) * DASH_APP_PAGE_SIZE, _dashState.appPage * DASH_APP_PAGE_SIZE);
+  const metricOpts = DASH_FLOW_METRICS.map(o =>
+    `<option value="${o.v === 'revenue' ? 'revenue' : o.v === 'cost' ? 'cost' : 'click'}" ${_dashState.appMetric === (o.v === 'revenue' ? 'revenue' : o.v === 'cost' ? 'cost' : 'click') ? 'selected' : ''}>${o.label}</option>`
+  ).join('');
+  const sortMark = col => _dashState.appSort.col === col ? (_dashState.appSort.dir === 'asc' ? ' ↑' : ' ↓') : '';
+  const tbody = slice.map(r => {
+    const diffCls = r.diff >= 0 ? 'dash-diff-pos' : 'dash-diff-neg';
+    const fmt = _dashState.appMetric === 'revenue' || _dashState.appMetric === 'cost' ? 'money' : 'int';
+    return `<tr>
+      <td><span class="dash-cell-link" onclick="dashOpenAppDrill(${JSON.stringify(r.key)})">${campEsc(r.label)}</span></td>
+      <td>${dashFmtVal(r.value, fmt)}</td>
+      <td class="${diffCls}">${r.diff >= 0 ? '+' : ''}${dashFmtVal(r.diff, fmt)}</td>
+      <td>${dashFmtVal(r.today_r, fmt)}</td>
+      ${r.deltas.map(d => `<td class="${d >= 0 ? 'dash-diff-pos' : 'dash-diff-neg'}">${d >= 0 ? '+' : ''}${dashFmtVal(d, fmt)}</td>`).join('')}
+    </tr>`;
+  }).join('') || `<tr><td colspan="12" style="text-align:center;color:#86909c">暂无数据</td></tr>`;
+  host.innerHTML = `<div class="dash-sec-hd">
+    <h3 class="dash-sec-title">App 监控</h3>
+    <div class="dash-sec-tools"><label>指标 <select class="dash-sel-sm" onchange="_dashState.appMetric=this.value;dashRenderAppMonitor()">${metricOpts}</select></label></div>
+  </div>
+  <div class="dash-table-wrap"><table class="dash-table"><thead><tr>
+    <th onclick="dashSortAppTable('label')">组-App${sortMark('label')}</th>
+    <th onclick="dashSortAppTable('value')">数值${sortMark('value')}</th>
+    <th onclick="dashSortAppTable('diff')">diff${sortMark('diff')}</th>
+    <th onclick="dashSortAppTable('today_r')">today_r${sortMark('today_r')}</th>
+    ${[1,2,3,4,5,6,7].map(d => `<th>delta_${d}d_r</th>`).join('')}
+  </tr></thead><tbody>${tbody}</tbody></table></div>
+  <div class="dash-pag"><span>共 ${total} 条</span><div style="display:flex;gap:4px" id="dashAppPagBtns"></div></div>`;
+  renderPagBtns('dashAppPagBtns', _dashState.appPage, pages, p => { _dashState.appPage = p; dashRenderAppMonitor(); });
+}
+function dashSortAppTable(col) {
+  if (_dashState.appSort.col === col) _dashState.appSort.dir = _dashState.appSort.dir === 'asc' ? 'desc' : 'asc';
+  else { _dashState.appSort.col = col; _dashState.appSort.dir = col === 'diff' ? 'desc' : 'desc'; }
+  dashRenderAppMonitor();
+}
+function dashMonitorOverall(kind) {
+  const f = dashReadFilters();
+  const metric = kind === 'prt' ? _dashState.prtMetric : _dashState.pidMetric;
+  const mk = metric === 'revenue' ? 'revenue' : metric === 'cost' ? 'cost' : 'click';
+  const cmpOff = dashCompareOffset(DASH_COMPARE_DEFAULT);
+  const list = kind === 'prt' ? prtList : pidList;
+  const allowed = dashGetAllowedDeptIds();
+  return list.filter(item => allowed.has(item.deptId)).map(item => {
+    const rows = dashBuildEntityRows().filter(r => dashRowMatches(f, r) && (kind === 'prt' ? r.prtId === item.id : r.pidId === item.id));
+    let cur = 0, prev = 0, today = 0;
+    rows.forEach(r => {
+      cur += dashMetricValue(r, mk, 0);
+      prev += dashMetricValue(r, mk, cmpOff);
+      today += dashMetricValue(r, mk, 0);
+      today += dashMetricValue(r, mk, 1);
+    });
+    const chgPct = dashCalcChg(cur, prev);
+    return { id: item.id, name: item.id, cur, chgPct, today, deptId: item.deptId };
+  });
+}
+function dashRenderPrtMonitor() {
+  const host = document.getElementById('dashPrtSec');
+  if (!host) return;
+  let rows = dashSortRows(dashMonitorOverall('prt'), _dashState.prtSort);
+  const fmt = _dashState.prtMetric === 'revenue' || _dashState.prtMetric === 'cost' ? 'money' : 'int';
+  const metricOpts = DASH_FLOW_METRICS.map(o =>
+    `<option value="${o.v}" ${_dashState.prtMetric === o.v ? 'selected' : ''}>${o.label}</option>`
+  ).join('');
+  const tbody = rows.map(r => {
+    const chgCls = r.chgPct >= 0 ? 'dash-diff-pos' : 'dash-diff-neg';
+    return `<tr>
+      <td><span class="dash-cell-link" onclick="dashOpenPrtDrill('${campEsc(r.id)}')">${campEsc(r.name)}</span></td>
+      <td>${dashFmtVal(r.cur, fmt)}</td>
+      <td class="${chgCls}">${r.chgPct >= 0 ? '+' : ''}${r.chgPct.toFixed(1)}%</td>
+      <td>${dashFmtVal(r.today, fmt)}</td>
+    </tr>`;
+  }).join('') || `<tr><td colspan="4" style="text-align:center;color:#86909c">暂无数据</td></tr>`;
+  host.innerHTML = `<div class="dash-sec-hd">
+    <h3 class="dash-sec-title">PRT 监控</h3>
+    <div class="dash-sec-tools"><label>指标 <select class="dash-sel-sm" onchange="_dashState.prtMetric=this.value;dashRenderPrtMonitor()">${metricOpts}</select></label></div>
+  </div>
+  <div class="dash-table-wrap"><table class="dash-table"><thead><tr>
+    <th onclick="dashSortPrtTable('name')">PRT 名称</th><th onclick="dashSortPrtTable('cur')">当前值</th>
+    <th onclick="dashSortPrtTable('chgPct')">变化 %</th><th onclick="dashSortPrtTable('today')">今日累计</th>
+  </tr></thead><tbody>${tbody}</tbody></table></div>`;
+}
+function dashRenderPidMonitor() {
+  const host = document.getElementById('dashPidSec');
+  if (!host) return;
+  let rows = dashSortRows(dashMonitorOverall('pid'), _dashState.pidSort);
+  const fmt = _dashState.pidMetric === 'revenue' || _dashState.pidMetric === 'cost' ? 'money' : 'int';
+  const metricOpts = DASH_FLOW_METRICS.map(o =>
+    `<option value="${o.v}" ${_dashState.pidMetric === o.v ? 'selected' : ''}>${o.label}</option>`
+  ).join('');
+  const tbody = rows.map(r => {
+    const chgCls = r.chgPct >= 0 ? 'dash-diff-pos' : 'dash-diff-neg';
+    return `<tr>
+      <td><span class="dash-cell-link" onclick="dashOpenPidDrill('${campEsc(r.id)}')">${campEsc(r.name)}</span></td>
+      <td>${dashFmtVal(r.cur, fmt)}</td>
+      <td class="${chgCls}">${r.chgPct >= 0 ? '+' : ''}${r.chgPct.toFixed(1)}%</td>
+      <td>${dashFmtVal(r.today, fmt)}</td>
+    </tr>`;
+  }).join('') || `<tr><td colspan="4" style="text-align:center;color:#86909c">暂无数据</td></tr>`;
+  host.innerHTML = `<div class="dash-sec-hd">
+    <h3 class="dash-sec-title">PID 监控</h3>
+    <div class="dash-sec-tools"><label>指标 <select class="dash-sel-sm" onchange="_dashState.pidMetric=this.value;dashRenderPidMonitor()">${metricOpts}</select></label></div>
+  </div>
+  <div class="dash-table-wrap"><table class="dash-table"><thead><tr>
+    <th onclick="dashSortPidTable('name')">PID 名称</th><th onclick="dashSortPidTable('cur')">当前值</th>
+    <th onclick="dashSortPidTable('chgPct')">变化 %</th><th onclick="dashSortPidTable('today')">今日累计</th>
+  </tr></thead><tbody>${tbody}</tbody></table></div>`;
+}
+function dashSortPrtTable(col) {
+  if (_dashState.prtSort.col === col) _dashState.prtSort.dir = _dashState.prtSort.dir === 'asc' ? 'desc' : 'asc';
+  else { _dashState.prtSort.col = col; _dashState.prtSort.dir = 'desc'; }
+  dashRenderPrtMonitor();
+}
+function dashSortPidTable(col) {
+  if (_dashState.pidSort.col === col) _dashState.pidSort.dir = _dashState.pidSort.dir === 'asc' ? 'desc' : 'asc';
+  else { _dashState.pidSort.col = col; _dashState.pidSort.dir = 'desc'; }
+  dashRenderPidMonitor();
+}
+function dashDrillTable(title, rows, fmt) {
+  if (!rows.length) return `<p style="color:#86909c;font-size:12px">暂无数据</p>`;
+  return `<table class="dash-table"><thead><tr><th>${campEsc(title)}</th><th>当前值</th><th>变化%</th><th>今日累计</th></tr></thead><tbody>${rows.map(r => {
+    const cls = r.chgPct >= 0 ? 'dash-diff-pos' : 'dash-diff-neg';
+    return `<tr><td>${campEsc(r.name)}</td><td>${dashFmtVal(r.cur, fmt)}</td><td class="${cls}">${r.chgPct >= 0 ? '+' : ''}${r.chgPct.toFixed(1)}%</td><td>${dashFmtVal(r.today, fmt)}</td></tr>`;
+  }).join('')}</tbody></table>`;
+}
+function dashBuildDrillRows(filterFn, groupKey, labelFn) {
+  const f = dashReadFilters();
+  const metric = _dashState.appMetric;
+  const mk = metric === 'revenue' ? 'revenue' : metric === 'cost' ? 'cost' : 'click';
+  const cmpOff = dashCompareOffset(DASH_COMPARE_DEFAULT);
+  const map = new Map();
+  dashBuildEntityRows().filter(r => dashRowMatches(f, r) && filterFn(r)).forEach(r => {
+    const k = groupKey(r);
+    if (!map.has(k)) map.set(k, { name: labelFn(r, k), cur: 0, prev: 0, today: 0 });
+    const o = map.get(k);
+    o.cur += dashMetricValue(r, mk, 0);
+    o.prev += dashMetricValue(r, mk, cmpOff);
+    o.today += dashMetricValue(r, mk, 0) + dashMetricValue(r, mk, 1);
+  });
+  return [...map.values()].map(o => ({ ...o, chgPct: dashCalcChg(o.cur, o.prev) }));
+}
+function dashOpenAppDrill(key) {
+  const parts = key.split('|');
+  const gid = parts[0];
+  const appId = parts.slice(1).join('|');
+  const row = dashBuildEntityRows().find(r => String(r.groupId) === gid && r.appId === appId);
+  if (!row) return;
+  document.getElementById('dashDrillTitle').textContent = `App 下钻 · ${row.groupName}-${row.appStoreId}`;
+  const filter = r => r.groupId === row.groupId && r.appId === row.appId;
+  dashOpenDrillDrawer(filter, row);
+}
+function dashOpenPrtDrill(prtId) {
+  document.getElementById('dashDrillTitle').textContent = `PRT 下钻 · ${prtId}`;
+  dashOpenDrillDrawer(r => r.prtId === prtId, null, 'prt');
+}
+function dashOpenPidDrill(pidId) {
+  document.getElementById('dashDrillTitle').textContent = `PID 下钻 · ${pidId}`;
+  dashOpenDrillDrawer(r => r.pidId === pidId, null, 'pid');
+}
+function dashOpenDrillDrawer(filterFn, baseRow, mode) {
+  const fmt = _dashState.appMetric === 'revenue' || _dashState.appMetric === 'cost' ? 'money' : 'int';
+  const appRows = dashBuildDrillRows(filterFn, r => r.appId, (r) => r.appName);
+  const pidRows = dashBuildDrillRows(filterFn, r => r.pidId, (r, k) => k);
+  const prtRows = dashBuildDrillRows(filterFn, r => r.prtId, (r, k) => k);
+  const deptRows = dashBuildDrillRows(filterFn, r => r.deptId, (r, k) => getDeptNameById(Number(k)));
+  let tabs, panels;
+  if (mode === 'prt') {
+    tabs = ['App', 'PID', '部门'];
+    panels = [appRows, pidRows, deptRows];
+  } else if (mode === 'pid') {
+    tabs = ['App', 'PRT', '部门'];
+    panels = [appRows, prtRows, deptRows];
+  } else {
+    tabs = ['PID', 'PRT', '部门'];
+    panels = [pidRows, prtRows, deptRows];
+  }
+  const body = document.getElementById('dashDrillBody');
+  body.innerHTML = `<div class="dash-drill-tabs" id="dashDrillTabs">${tabs.map((t, i) =>
+    `<button type="button" class="dash-drill-tab${i === 0 ? ' is-active' : ''}" onclick="dashSwitchDrillTab(${i})">${t}</button>`
+  ).join('')}</div><div id="dashDrillPanel">${dashDrillTable(tabs[0], panels[0], fmt)}</div>`;
+  body._dashPanels = panels.map((p, i) => dashDrillTable(tabs[i], p, fmt));
+  body._dashTabIdx = 0;
+  document.getElementById('dashDrillDrawer')?.classList.add('open');
+}
+function dashSwitchDrillTab(idx) {
+  const body = document.getElementById('dashDrillBody');
+  if (!body || !body._dashPanels) return;
+  body._dashTabIdx = idx;
+  document.querySelectorAll('#dashDrillTabs .dash-drill-tab').forEach((btn, i) => btn.classList.toggle('is-active', i === idx));
+  document.getElementById('dashDrillPanel').innerHTML = body._dashPanels[idx];
+}
+function dashCloseDrillDrawer() {
+  document.getElementById('dashDrillDrawer')?.classList.remove('open');
+}
+function dashRenderAll(rerenderFilters) {
+  _dashGeneratedAt = Date.now();
+  if (rerenderFilters !== false) dashRenderFilters();
+  else {
+    const el = document.getElementById('dashGeneratedAt');
+    if (el) el.textContent = dashGeneratedAtText();
+  }
+  dashRenderMetrics();
+  dashRenderFlow();
+  dashRenderAppMonitor();
+  dashRenderPrtMonitor();
+  dashRenderPidMonitor();
+}
+function initDashboardPage() {
+  dashRenderAll(true);
+}
+
 //  DATA PACKAGE（数据包）
 // ════════════════════════════════════════
 let pkgList = [
@@ -31976,7 +33432,161 @@ function pkgOpenCreatePicker() {
 function pkgPickCreateType(type) {
   closeMo('moPkgCreatePick');
   if (type === 'rule') pkgOpenRuleDrawer();
-  else showToast('导入创建功能开发中，敬请期待');
+  else pkgOpenImportDrawer();
+}
+let _pkgImportFormState = null;
+function pkgBuildDefaultImportFormState() {
+  return { name: '', packageKind: 'general', fileName: '', fileSize: 0, userCount: 0, rawText: '' };
+}
+function pkgGetImportFormState() {
+  if (!_pkgImportFormState) _pkgImportFormState = pkgBuildDefaultImportFormState();
+  return _pkgImportFormState;
+}
+function pkgParseImportUserIds(text) {
+  const parsed = offerParseValueListFromText(text);
+  if (parsed.length) return parsed;
+  return String(text || '').split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+}
+function pkgSyncImportFormFromDom() {
+  const st = pkgGetImportFormState();
+  const nameEl = document.getElementById('pkgImportName');
+  if (nameEl) st.name = nameEl.value.trim();
+  const kindEl = document.querySelector('input[name="pkgImportKind"]:checked');
+  if (kindEl) st.packageKind = kindEl.value;
+  return st;
+}
+function pkgRenderImportDrawer() {
+  const st = pkgGetImportFormState();
+  const kindRadios = PKG_KIND_OPTS.map(k =>
+    `<label class="off-audience-radio"><input type="radio" name="pkgImportKind" value="${k.id}" ${st.packageKind === k.id ? 'checked' : ''} onchange="pkgSyncImportFormFromDom()"> ${campEsc(k.label)}</label>`
+  ).join('');
+  const fileMeta = st.fileName
+    ? `<div class="pkg-import-file-meta">
+        <i class="fa-solid fa-file-lines"></i>
+        <span><strong>${campEsc(st.fileName)}</strong> · ${pkgFormatFileSize(st.fileSize)} · 约 ${st.userCount.toLocaleString()} 条用户 ID</span>
+        <button type="button" class="pkg-import-file-clear" onclick="pkgClearImportFile()" title="移除文件"><i class="fa-solid fa-xmark"></i></button>
+      </div>`
+    : '';
+  const body = document.getElementById('pkgImportDrawerBody');
+  if (!body) return;
+  body.innerHTML = `<div class="pkg-rule-basic" style="grid-template-columns:1fr">
+    <div class="fg fg--full"><label class="fl">数据包名称<span class="req">*</span></label>
+      <input class="fi" id="pkgImportName" value="${campEsc(st.name)}" placeholder="请输入数据包名称" oninput="pkgSyncImportFormFromDom()"></div>
+    <div class="fg fg--full"><label class="fl">包类型<span class="req">*</span></label>
+      <div class="pkg-rule-kind-row">${kindRadios}</div></div>
+    <div class="fg fg--full"><label class="fl">上传文件<span class="req">*</span></label>
+      <div class="pkg-import-upload" id="pkgImportUploadZone" onclick="document.getElementById('pkgImportFileInp')?.click()">
+        <div class="pkg-import-upload-ic"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <p class="pkg-import-upload-title">点击或拖拽文件到此处</p>
+        <p class="pkg-import-upload-desc">支持 CSV / TXT，每行一个用户 ID；CSV 可含 user_id 列</p>
+        <button type="button" class="cm-btn cm-btn-primary cm-btn-sm" onclick="event.stopPropagation();document.getElementById('pkgImportFileInp')?.click()"><i class="fa-solid fa-folder-open"></i> 选择文件</button>
+        <input type="file" id="pkgImportFileInp" accept=".csv,.txt,.text" style="display:none" onchange="pkgOnImportFileChange(event)">
+      </div>
+      ${fileMeta}
+      <div style="font-size:11px;color:#86909c;margin-top:6px">导入包默认人工更新，保存后可在列表中查看用户数</div></div>
+  </div>`;
+  pkgBindImportUploadDnD();
+}
+function pkgFormatFileSize(bytes) {
+  const n = Number(bytes) || 0;
+  if (n < 1024) return `${n} B`;
+  if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
+  return `${(n / (1024 * 1024)).toFixed(1)} MB`;
+}
+function pkgBindImportUploadDnD() {
+  const zone = document.getElementById('pkgImportUploadZone');
+  if (!zone || zone.dataset.dndBound) return;
+  zone.dataset.dndBound = '1';
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('is-dragover'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('is-dragover'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('is-dragover');
+    const file = e.dataTransfer?.files?.[0];
+    if (file) pkgLoadImportFile(file);
+  });
+}
+function pkgOnImportFileChange(ev) {
+  const file = ev.target?.files?.[0];
+  if (file) pkgLoadImportFile(file);
+  if (ev.target) ev.target.value = '';
+}
+function pkgLoadImportFile(file) {
+  if (!file) return;
+  const name = (file.name || '').toLowerCase();
+  if (!/\.(csv|txt|text)$/.test(name)) {
+    showToast('仅支持 CSV / TXT 文件');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = () => {
+    const ids = pkgParseImportUserIds(reader.result);
+    const st = pkgGetImportFormState();
+    st.fileName = file.name || 'import.txt';
+    st.fileSize = file.size || 0;
+    st.userCount = ids.length;
+    st.rawText = String(reader.result || '');
+    if (!st.userCount) showToast('文件中未识别到有效用户 ID');
+    else showToast(`已读取 ${st.userCount.toLocaleString()} 条用户 ID`);
+    pkgRenderImportDrawer();
+  };
+  reader.onerror = () => showToast('文件读取失败');
+  reader.readAsText(file);
+}
+function pkgClearImportFile() {
+  const st = pkgGetImportFormState();
+  st.fileName = '';
+  st.fileSize = 0;
+  st.userCount = 0;
+  st.rawText = '';
+  pkgRenderImportDrawer();
+}
+function pkgOpenImportDrawer() {
+  if (!pkgCanAdmin()) { showToast('无权限创建数据包'); return; }
+  _pkgImportFormState = pkgBuildDefaultImportFormState();
+  const title = document.getElementById('pkgImportDrawerTitle');
+  if (title) title.textContent = '导入创建数据包';
+  document.getElementById('pkgImportDrawer')?.classList.add('open');
+  pkgRenderImportDrawer();
+}
+function pkgCloseImportDrawer() {
+  document.getElementById('pkgImportDrawer')?.classList.remove('open');
+  _pkgImportFormState = null;
+}
+function pkgValidateImportForm(st) {
+  st = st || pkgSyncImportFormFromDom();
+  if (!st.name) return '请填写数据包名称';
+  if (!st.fileName || !st.userCount) return '请上传包含用户 ID 的文件';
+  return null;
+}
+function pkgSaveImportPackage() {
+  if (!pkgCanAdmin()) { showToast('无权限创建数据包'); return; }
+  const st = pkgSyncImportFormFromDom();
+  const err = pkgValidateImportForm(st);
+  if (err) { showToast(err); return; }
+  const nextId = pkgList.reduce((m, r) => Math.max(m, r.id), 0) + 1;
+  const userName = (typeof curUser !== 'undefined' && curUser?.name) ? curUser.name : '当前用户';
+  pkgList.unshift({
+    id: nextId,
+    name: st.name,
+    userCount: st.userCount,
+    packageKind: st.packageKind,
+    updateMode: 'manual',
+    updateInterval: '',
+    isPublic: false,
+    createType: 'import',
+    offerCount: 0,
+    lastUsedAt: '—',
+    statusTag: '导入数据',
+    createUser: userName,
+    createdAt: new Date().toISOString().slice(0, 10),
+    importFileName: st.fileName,
+    importUserCount: st.userCount,
+  });
+  pkgCloseImportDrawer();
+  _pkgPage = 1;
+  renderPkgTable();
+  showToast('数据包已创建');
 }
 let _pkgRuleFormState = null;
 const PKG_KIND_OPTS = [
@@ -32324,7 +33934,8 @@ if (diff) diff.style.left = '220px';
     const abtestPage = document.getElementById('abtestPage');
     const toolsPage = document.getElementById('toolsPage');
     const datapackagePage = document.getElementById('datapackagePage');
-    [cluesPg, huntPg, custPh, campaignPage, offerPage, abtestPage, toolsPage, datapackagePage, campaignFormPage, offerFormPage, pidPage, custPage, apcPage, appPage].forEach(el => {
+    const dashboardPage = document.getElementById('dashboardPage');
+    [cluesPg, huntPg, custPh, campaignPage, offerPage, abtestPage, toolsPage, datapackagePage, dashboardPage, campaignFormPage, offerFormPage, pidPage, custPage, apcPage, appPage].forEach(el => {
       if (!el) return;
       content.insertBefore(el, phWrap);
       el.setAttribute('data-in-content', '1');
@@ -32338,7 +33949,32 @@ applyRolePermissions(getCurrentUser()?.roleId || 1);
 refreshHeaderUserInfo();
 renderSimUserOptions();
 abtestBindCreateButton();
-setPage('clues');
+(function applyInitialPageFromHash() {
+  const r = campParseHash();
+  if (r.scope === 'campaign' || r.scope === 'campaign_outbound') {
+    const page = r.scope === 'campaign_outbound' ? 'campaign_outbound' : 'campaign';
+    const el = document.querySelector(`.nav-child[data-page="${page}"]`);
+    clearActive();
+    if (el) {
+      el.classList.add('active');
+      document.getElementById('hd-adcenter')?.classList.add('has-active');
+    }
+    setPage(page);
+    return;
+  }
+  const offR = offParseHash();
+  if (offR.scope === 'offer') {
+    const el = document.querySelector('.nav-child[data-page="offer"]');
+    clearActive();
+    if (el) {
+      el.classList.add('active');
+      document.getElementById('hd-adcenter')?.classList.add('has-active');
+    }
+    setPage('offer');
+    return;
+  }
+  setPage('clues');
+})();
 
 // Load persisted avatar
 (function(){
