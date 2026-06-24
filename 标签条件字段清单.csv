@@ -1,0 +1,46 @@
+模块,分类,字段,字段说明,可用条件,值类型/可选值,备注/待业务确认
+使用场景,逻辑组合,条件组内,同组多条规则,且 / 或,,Offer受众·实时策略 / 数据包圈选
+使用场景,逻辑组合,板块内多组,多个条件组,且 / 或,,同上
+使用场景,逻辑组合,板块之间,用户属性/用户行为/用户来源,且 / 或,,同上
+使用场景,出现位置,Offer受众·实时策略,三大板块完整可用,,,实时+离线混量时实时侧使用
+使用场景,出现位置,Offer受众·离线包·标签过滤,简化版5字段,,,运算符与实时用户属性不一致
+使用场景,出现位置,数据包创建·圈选条件,与用户属性共用字段定义,,,
+用户属性,language,language,语言,是; 不是,下拉多选: en; zh; ja; ko; es; de,是否需更多语言？是否需包含/不包含？
+用户属性,country,country,国家,是; 不是,下拉: US; CN; CA; UK; DE; FR; JP; KR; TW; AU; HK; SG; VN; TH; PH; ID; IN; BR; MX,国家列表是否完整？
+用户属性,region,region,投放区域,是; 不是,下拉: ALL; US; SEA等(与Campaign区域一致),与country边界如何定义？
+用户属性,os,os,操作系统,是; 不是,all / ios / aos,Offer配置时须与Campaign App ID版本一致
+用户属性,brand,brand,设备品牌,是; 不是,下拉多选: Apple; Samsung; Xiaomi; Huawei; OPPO; vivo; 或上传xlsx/txt名单,品牌库是否需扩展？文件导入规则？
+用户属性,model,model,机型,是; 不是,下拉多选: iPhone15; iPhone14; GalaxyS24; Pixel8; RedmiNote等; 或上传名单,机型库是否对接标准库？
+用户属性,osversion,os version,系统版本,最小; 最大; 区间,数字/版本号; 区间为起~止,无等于条件；版本号格式是否统一(如14.2)？
+用户属性,gender,gender,性别,是; 不是,male(男); female(女),是否需unknown/其他？
+用户属性,age,age,年龄段,是; 不是,18-24; 25-34; 35-44; 45-54; 55+,是否需更细粒度或自定义区间？
+用户属性,ip,ip,IP,是; 不是; 含; 不含,文本如222.111,无CIDR/段范围；是否需IP段或GeoIP？
+用户属性,ua,ua,终端类型,是; 不是,ios / aos / tv; tv时另选渠道: Roku; AppleTV; FireTV; AndroidTV; SamsungTV,CTV重点字段；渠道列表是否完整？
+用户行为,时间范围,datePreset,统计时间,昨日; 过去7天; 自定义,自定义时为起止日期,是否需过去30天/本月等？
+用户行为,动作,action,是否发生,做过; 未做过,,,
+用户行为,事件类型,eventType,事件分类,标准类型; App内事件,,是否需更多事件分类？
+用户行为,事件名(标准),eventName,标准类型事件,—,install; purchase; register; open_app,是否对接MMP/客户自定义事件全集？
+用户行为,事件名(App内),eventName,App内事件,—,$PlanPopupDisplay; add_to_cart; view_item; checkout,同上
+用户行为,指标,metric,统计维度,总次数; 天数,正整数,是否需金额/UV等？
+用户行为,比较,operator,阈值比较,≥; ≤; =,与metric联动(次/天),是否需介于/不等于？
+用户来源,App,app,应用,是; 不是,App分类(游戏/工具/社交/全部分类)或具体App(按分类筛选),App列表为mock；是否接真实App库？
+用户来源,DataSource,datasource,数据来源,是; 不是,多选AMS; ADX; 选ADX时指定平台: GoogleAdX; PubMatic; OpenX; Index; Magnite; Xandr,ADX平台列表是否完整？是否支持多ADX并集？
+用户来源,Data Package,datapackage,数据包,是; 不是,下拉选人工数据包(US/EU/SEA/黑名单等),仅人工包；是否需算法包？
+用户来源,traffic,traffic,网络类型,是; 不是,Wi-Fi; carrier,是否需5G/有线等细分？
+用户来源,Device active,device_active,设备活跃,≥; ≤; =,设备标识: GAID/IDFA/IDFV/UA/IP; 指标: 活跃频次/最近活跃; 时间范围(频次时): 1/3/7/14/30/60/90/180天; 阈值: 数值(次或天),复合条件；是否满足业务表达？
+用户来源,Inactivity Window,inactivity_window,不活跃窗口,≥; ≤; =,天数: 1/3/7/14/30/60/90/180天,与Device active边界是否清晰？
+离线标签过滤,language,language,语言,等于; 不等于; 包含; 不包含,文本如en; zh,与实时用户属性运算符不一致
+离线标签过滤,country,country,国家,等于; 不等于; 包含; 不包含,文本如US; CN,同上
+离线标签过滤,os,os,操作系统,等于; 不等于; 包含; 不包含,文本如iOS; Android,同上
+离线标签过滤,gender,gender,性别,等于; 不等于; 包含; 不包含,male / female,同上
+离线标签过滤,age,age,年龄段,等于; 不等于; 包含; 不包含,文本如18-25,同上
+业务确认,字段覆盖,,用户属性11字段是否覆盖投放定向？,,,是否缺: 运营商/时区/设备内存/安装来源/ATT状态等
+业务确认,条件运算符,,分类字段仅「是/不是」是否够用？,,,是否需包含任一/包含全部/正则？
+业务确认,条件运算符,,os version是否需要「等于某版本」？,,,
+业务确认,条件运算符,,ip是否需要段/CIDR/GeoIP联动？,,,
+业务确认,行为事件,,标准+App内共8个事件是否代表真实业务？,,,
+业务确认,行为事件,,是否需要Campaign付费事件自动带入？,,,
+业务确认,行为事件,,时间窗除昨日/7天/自定义外还要哪些？,,,
+业务确认,用户来源,,DataSource/DataPackage/Device active是否覆盖渠道筛选？,,,
+业务确认,实时vs离线,,离线5字段+4运算符 vs 实时11字段+是/不是是否 intentional？,,,
+业务确认,组合逻辑,,三层AND/OR是否满足复杂圈选？,,,如(A且B)或(C且D)
