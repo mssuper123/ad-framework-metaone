@@ -3413,10 +3413,20 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
   </div>
 
   <nav class="sb-nav">
-    <div class="nav-item" data-page="dashboard" onclick="navTo(this)">
-      <span class="ni"><i class="fa-solid fa-chart-pie"></i></span>
-      <span class="nl" data-i18n-page="dashboard"></span>
-      <span class="nav-tip" data-i18n-page="dashboard"></span>
+    <!-- Dashboard -->
+    <div class="nav-section open" id="sec-dashboard">
+      <div class="nav-sec-hd" id="hd-dashboard" onclick="toggleSec('dashboard')">
+        <span class="ni"><i class="fa-solid fa-chart-pie"></i></span>
+        <span class="nl" data-i18n-key="dashboard">Dashboard</span>
+        <i class="fa-solid fa-chevron-down nav-caret"></i>
+        <span class="nav-tip" data-i18n-key="dashboard">Dashboard</span>
+      </div>
+      <div class="nav-children" id="children-dashboard">
+        <div class="nav-child" data-page="dashboard_monitor" onclick="navChild(this,'dashboard')"><span class="nav-dot"></span><span class="nl" data-i18n-page="dashboard_monitor"></span><span class="nav-tip" data-i18n-page="dashboard_monitor"></span></div>
+        <div class="nav-child" data-page="dashboard_overview" onclick="navChild(this,'dashboard')"><span class="nav-dot"></span><span class="nl" data-i18n-page="dashboard_overview"></span><span class="nav-tip" data-i18n-page="dashboard_overview"></span></div>
+        <div class="nav-child" data-page="dashboard_ctit" onclick="navChild(this,'dashboard')"><span class="nav-dot"></span><span class="nl" data-i18n-page="dashboard_ctit"></span><span class="nav-tip" data-i18n-page="dashboard_ctit"></span></div>
+        <div class="nav-child" data-page="dashboard_itet" onclick="navChild(this,'dashboard')"><span class="nav-dot"></span><span class="nl" data-i18n-page="dashboard_itet"></span><span class="nav-tip" data-i18n-page="dashboard_itet"></span></div>
+      </div>
     </div>
 
     <!-- 客户管理 -->
@@ -3695,7 +3705,7 @@ body.dark #themeToggleBtn:hover{background:rgba(240,192,64,.12)}
       </div>
     </div>
 
-    <!-- ── Dashboard 实时看板 ── -->
+    <!-- ── Dashboard · 实时监控 ── -->
     <div id="dashboardPage" style="display:none">
       <div class="dash-scroll" id="dashScrollHost">
         <div class="dash-filter-bar" id="dashFilterBar"></div>
@@ -6505,7 +6515,14 @@ let nextRoleId = 13;
 // ════════════════════════════════════════
 const MENU_DEF = [
   { id:'dashboard', label:'Dashboard', icon:'fa-chart-pie',
-    hasMode:false },
+    hasMode:false,
+    children:[
+      { id:'dashboard_monitor', label:'实时监控', icon:'fa-gauge-high', hasMode:false },
+      { id:'dashboard_overview', label:'Overview', icon:'fa-table-columns', hasMode:false },
+      { id:'dashboard_ctit', label:'CTIT', icon:'fa-clock', hasMode:false },
+      { id:'dashboard_itet', label:'ITET', icon:'fa-hourglass-half', hasMode:false },
+    ]
+  },
   { id:'crm', label:'客户管理', icon:'fa-users',
     hasMode:false,
     children:[
@@ -6747,13 +6764,31 @@ const MENU_MAP = {};
 (function flatMenu(nodes){ nodes.forEach(n=>{ MENU_MAP[n.id]=n; if(n.children) flatMenu(n.children); }); })(MENU_DEF);
 
 // page data-page attr → MENU_DEF id
+const DASHBOARD_PAGE_IDS = ['dashboard_monitor', 'dashboard_overview', 'dashboard_ctit', 'dashboard_itet'];
 const PAGE_TO_MENU = {
-  dashboard:'dashboard', clues:'clues', huntlist:'huntlist', customer:'customer',
+  dashboard_monitor:'dashboard_monitor', dashboard_overview:'dashboard_overview', dashboard_ctit:'dashboard_ctit', dashboard_itet:'dashboard_itet',
+  clues:'clues', huntlist:'huntlist', customer:'customer',
   channel:'channel', app:'app', pid:'pid', event:'event', campaign:'campaign', campaign_outbound:'campaign_outbound', offer:'offer',
   abtest:'abtest', reports:'reports', finance:'finance', tools:'tools', datapackage:'datapackage',
   settings:'settings', dept:'dept', roles:'roles_mgmt',
   myapps:'myapps', pendingapps:'pendingapps',
 };
+
+function menuPermVisible(menuSet, menuId) {
+  if (menuSet.has(menuId)) return true;
+  if (menuId === 'dashboard' || DASHBOARD_PAGE_IDS.includes(menuId)) {
+    return menuSet.has('dashboard') || DASHBOARD_PAGE_IDS.some(id => menuSet.has(id));
+  }
+  return false;
+}
+
+function isDashboardMonitorPage(page) {
+  return page === 'dashboard_monitor';
+}
+
+function isDashboardPlaceholderPage(page) {
+  return page === 'dashboard_overview' || page === 'dashboard_ctit' || page === 'dashboard_itet';
+}
 
 // Per-role permission presets
 let rolePermissions = {
@@ -6786,6 +6821,10 @@ let rolePermissions = {
 // ════════════════════════════════════════
 const PAGES = {
   dashboard:  {icon:'fa-chart-pie',           zh:'Dashboard',  en:'Dashboard'},
+  dashboard_monitor: {icon:'fa-gauge-high',    zh:'实时监控',   en:'Real-time Monitor'},
+  dashboard_overview:{icon:'fa-table-columns',zh:'Overview',   en:'Overview'},
+  dashboard_ctit:    {icon:'fa-clock',         zh:'CTIT',       en:'CTIT'},
+  dashboard_itet:    {icon:'fa-hourglass-half',zh:'ITET',       en:'ITET'},
   adcenter:   {icon:'fa-bullhorn',            zh:'投放中心',   en:'Ad Center'},
   campaign:   {icon:'fa-bullseye',            zh:'Campaign管理', en:'Campaigns'},
   campaign_outbound:{icon:'fa-share-from-square', zh:'外放 Campaign', en:'Outbound Campaigns'},
@@ -7576,7 +7615,7 @@ function buildFuncPermTree(nodes, menuSet, btnSet, viewOnlyMap) {
 }
 
 function buildPfMenuRow(node, menuSet, btnSet, viewOnlyMap) {
-  const chked      = menuSet.has(node.id);
+  const chked      = menuSet.has(node.id) || (node.id.startsWith('dashboard_') && menuSet.has('dashboard'));
   // if viewOnly explicitly set, use it; otherwise infer from whether any buttons are active
   const explicit   = viewOnlyMap[node.id];
   const hasBtnActive = node.buttons?.some(b => btnSet.has(b.id)) ?? false;
@@ -8060,9 +8099,12 @@ function applyRolePermissions(roleId) {
   document.querySelectorAll('.nav-item[data-page], .nav-child[data-page]').forEach(el => {
     const mid = PAGE_TO_MENU[el.dataset.page] || el.dataset.page;
     if (el.dataset.page === 'tools' || el.dataset.page === 'datapackage') { el.style.display = ''; return; }
-    el.style.display = menuSet.has(mid) ? '' : 'none';
+    el.style.display = menuPermVisible(menuSet, mid) ? '' : 'none';
   });
   // ── Nav sections ──
+  const dashboardKids = DASHBOARD_PAGE_IDS;
+  document.getElementById('sec-dashboard').style.display =
+    (menuSet.has('dashboard') || dashboardKids.some(id => menuSet.has(id))) ? '' : 'none';
   const crmKids   = ['clues','huntlist','customer'];
   const basicKids = ['channel','app','pid','event'];
   const permsKids = ['dept','users_mgmt','roles_mgmt'];
@@ -8080,9 +8122,8 @@ function applyRolePermissions(roleId) {
     (menuSet.has('adcenter') || adcenterKids.some(id => menuSet.has(id))) ? '' : 'none';
 
   // ── If current page is hidden, go to first visible ──
-  const curMenuId = PAGE_TO_MENU[curPage] || curPage;
-  if (!menuSet.has(curMenuId) && curMenuId !== 'tools' && curMenuId !== 'datapackage') {
-    const fallback = Object.entries(PAGE_TO_MENU).find(([,mid]) => menuSet.has(mid));
+  if (!menuPermVisible(menuSet, curPage) && curPage !== 'tools' && curPage !== 'datapackage') {
+    const fallback = Object.entries(PAGE_TO_MENU).find(([pageId, mid]) => menuPermVisible(menuSet, mid) || menuPermVisible(menuSet, pageId));
     if (fallback) {
       const el = document.querySelector(`[data-page="${fallback[0]}"]`);
       if (el) { clearActive(); el.classList.add('active'); setPage(fallback[0]); }
@@ -8099,7 +8140,7 @@ function applyRolePermissions(roleId) {
     if (curPage === 'abtest') initAbtestPage();
     if (curPage === 'tools') initToolboxPage();
     if (curPage === 'datapackage') initDatapackagePage();
-    if (curPage === 'dashboard') initDashboardPage();
+    if (isDashboardMonitorPage(curPage)) initDashboardPage();
     if (curPage === 'pid')      initPidPage();
     if (curPage === 'app')       initAppMgmtPage();
   }
@@ -28638,7 +28679,9 @@ function setPage(page) {
   const isAbtest = page === 'abtest';
   const isTools = page === 'tools';
   const isDatapackage = page === 'datapackage';
-  const isDashboard = page === 'dashboard';
+  const isDashboardMonitor = isDashboardMonitorPage(page);
+  const isDashboardPlaceholder = isDashboardPlaceholderPage(page);
+  const isDashboardFamily = isDashboardMonitor || isDashboardPlaceholder;
   const campRoute = isCampaign ? campParseHash() : { view: 'list' };
   const offRoute = isOffer ? offParseHash() : { view: 'list' };
   const isCampaignForm = isCampaign && campRoute.view === 'form';
@@ -28652,11 +28695,22 @@ function setPage(page) {
   document.getElementById('abtestPage') && (document.getElementById('abtestPage').style.display = isAbtest ? 'flex' : 'none');
   document.getElementById('toolsPage') && (document.getElementById('toolsPage').style.display = isTools ? 'flex' : 'none');
   document.getElementById('datapackagePage') && (document.getElementById('datapackagePage').style.display = isDatapackage ? 'flex' : 'none');
-  document.getElementById('dashboardPage') && (document.getElementById('dashboardPage').style.display = isDashboard ? 'flex' : 'none');
-  document.getElementById('phWrap').style.display = (!isDept && !isRoles && !isCustomer && !isClues && !isHuntlist && !isPid && !isApp && !isApc && !isCampaign && !isOffer && !isAbtest && !isTools && !isDatapackage && !isDashboard) ? 'block' : 'none';
+  document.getElementById('dashboardPage') && (document.getElementById('dashboardPage').style.display = isDashboardMonitor ? 'flex' : 'none');
+  document.getElementById('phWrap').style.display = (isDashboardPlaceholder || (!isDept && !isRoles && !isCustomer && !isClues && !isHuntlist && !isPid && !isApp && !isApc && !isCampaign && !isOffer && !isAbtest && !isTools && !isDatapackage && !isDashboardFamily)) ? 'block' : 'none';
 
-  if (isDashboard) {
+  if (isDashboardMonitor) {
     initDashboardPage();
+  } else if (isDashboardPlaceholder) {
+    const p = PAGES[page] || { icon: 'fa-chart-pie', zh: page, en: page };
+    const nm = lang === 'zh' ? p.zh : p.en;
+    const isZh = lang === 'zh';
+    document.getElementById('phIcon').className = 'fa-solid ' + p.icon;
+    document.getElementById('phTitle').textContent = nm;
+    document.getElementById('phBadge').textContent = 'Coming Soon';
+    document.getElementById('phDesc').textContent = isZh
+      ? `${nm} 功能开发中，敬请期待`
+      : `${nm} module is under development.`;
+    document.getElementById('phEta').textContent = isZh ? '预计 Q2 2026 上线' : 'Expected Q2 2026';
   } else if (isTools) {
     initToolboxPage();
   } else if (isDatapackage) {
